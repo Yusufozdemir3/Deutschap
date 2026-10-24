@@ -134,6 +134,21 @@ sealed class LessonStep {
           hintTr: j.optStr('hint_tr'),
           explainTr: j.optStr('explain_tr'),
         ),
+      'listen' => ListenStep(
+          id,
+          de: j.str('de'),
+          promptTr: j.str('prompt_tr'),
+          options: j.strList('options'),
+          answers: j.intList('answers'),
+          explainTr: j.str('explain_tr'),
+        ),
+      'write' => WriteStep(
+          id,
+          promptTr: j.str('prompt_tr'),
+          requirements: j.objList('requirements').map(WriteRequirement.fromJson).toList(growable: false),
+          model: j.str('model'),
+          minWords: j.integer('min_words', fallback: 3),
+        ),
       final t => throw ContentFormatException('unknown step type "$t"'),
     };
   }
@@ -227,4 +242,43 @@ class TranslateStep extends LessonStep {
   final List<String> answers;
   final String? hintTr;
   final String? explainTr;
+}
+
+/// Listening comprehension. The text can be revealed (counts as help),
+/// and is shown automatically when no German voice is available.
+class ListenStep extends LessonStep {
+  const ListenStep(
+    super.id, {
+    required this.de,
+    required this.promptTr,
+    required this.options,
+    required this.answers,
+    required this.explainTr,
+  });
+  final String de;
+  final String promptTr;
+  final List<String> options;
+  final List<int> answers;
+  final String explainTr;
+}
+
+class WriteRequirement {
+  const WriteRequirement({required this.labelTr, required this.pattern});
+  final String labelTr;
+
+  /// Regular expression over the folded answer (lower case, ä→ae …).
+  final String pattern;
+
+  factory WriteRequirement.fromJson(Json j) => WriteRequirement(labelTr: j.str('label_tr'), pattern: j.str('pattern'));
+}
+
+/// Short free writing. Checked for task completion (requirements) and
+/// with the deterministic error detectors; a model answer is shown, and
+/// the learner is told the automatic check is limited.
+class WriteStep extends LessonStep {
+  const WriteStep(super.id, {required this.promptTr, required this.requirements, required this.model, this.minWords = 3});
+  final String promptTr;
+  final List<WriteRequirement> requirements;
+  final String model;
+  final int minWords;
 }

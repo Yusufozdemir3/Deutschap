@@ -160,6 +160,8 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                 ClozeStep() => ClozeStepView(step: step, done: _onDone),
                 OrderStep() => OrderStepView(step: step, done: _onDone),
                 TranslateStep() => TranslateStepView(step: step, done: _onDone),
+                ListenStep() => ListenStepView(step: step, done: _onDone),
+                WriteStep() => WriteStepView(step: step, done: _onDone),
               },
             ),
           ),

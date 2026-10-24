@@ -10,6 +10,8 @@ import '../../../learning/answer_checker.dart';
 import '../../../learning/text/tokenizer.dart';
 import '../../../ui/german_text.dart';
 import '../../../ui/widgets.dart';
+import '../../conversation/domain/error_detectors.dart';
+import '../../conversation/domain/language_issue.dart';
 import '../../grammar/presentation/grammar_view.dart';
 import '../../vocabulary/domain/vocab_entry.dart';
 import '../../vocabulary/presentation/word_sheet.dart';
@@ -601,6 +603,186 @@ class _TranslateStepViewState extends State<TranslateStepView> with _Checkable {
               ?s.explainTr,
             ].join('\n\n'),
             extra: Align(alignment: Alignment.centerLeft, child: SpeakButton(_check!.expected)),
+          ),
+        ],
+      ],
+    );
+  }
+}
+
+// --------------------------------------------------------------- listen
+
+class ListenStepView extends ConsumerStatefulWidget {
+  const ListenStepView({super.key, required this.step, required this.done});
+  final ListenStep step;
+  final StepDone done;
+  @override
+  ConsumerState<ListenStepView> createState() => _ListenStepViewState();
+}
+
+class _ListenStepViewState extends ConsumerState<ListenStepView> with _Checkable {
+  int? _picked;
+  bool _textShown = false;
+  bool _noVoice = false;
+
+  @override
+  StepDone get done => widget.done;
+  @override
+  bool get canCheck => _picked != null;
+  @override
+  void evaluate() {
+    correct = widget.step.answers.contains(_picked);
+    // Reading the text instead of listening is fine, but it is help;
+    // without a voice there was no other option, so it is not counted.
+    assisted = _textShown && !_noVoice;
+  }
+
+  Future<void> _play({bool slow = false}) async {
+    final ok = await ref.read(speechServiceProvider).speak(widget.step.de, slow: slow);
+    if (!ok && mounted) setState(() => _noVoice = _textShown = true);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _play());
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final s = widget.step;
+    final p = context.palette;
+    return StepFrame(
+      action: actionButton(),
+      children: [
+        Text('Dinle ve anla', style: context.text.titleLarge),
+        const SizedBox(height: 20),
+        Center(
+          child: Wrap(spacing: 12, children: [
+            FilledButton.icon(onPressed: _play, icon: const Icon(Icons.volume_up_rounded), label: const Text('Dinle')),
+            OutlinedButton.icon(onPressed: () => _play(slow: true), icon: const Icon(Icons.slow_motion_video_rounded), label: const Text('Yavaş')),
+          ]),
+        ),
+        const SizedBox(height: 12),
+        if (_textShown || checked)
+          AppCard(color: p.surfaceAlt, child: Text(s.de, style: context.reading))
+        else
+          Center(
+            child: TextButton(onPressed: () => setState(() => _textShown = true), child: const Text('Duyamıyorum – metni göster')),
+          ),
+        if (_noVoice) Text('Bu cihazda Almanca ses bulunamadı, metni okuyarak devam edebilirsin.', style: context.text.bodySmall),
+        const SizedBox(height: 16),
+        Text(s.promptTr, style: context.text.titleMedium),
+        const SizedBox(height: 10),
+        for (var i = 0; i < s.options.length; i++)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: _OptionTile(
+              label: s.options[i],
+              selected: _picked == i,
+              state: !checked ? null : (s.answers.contains(i) ? true : (_picked == i ? false : null)),
+              onTap: checked ? null : () => setState(() => _picked = i),
+            ),
+          ),
+        if (checked) FeedbackPanel(positive: correct, title: correct ? 'Doğru anladın!' : 'Tam olarak değil', body: s.explainTr),
+      ],
+    );
+  }
+}
+
+// ---------------------------------------------------------------- write
+
+class WriteStepView extends ConsumerStatefulWidget {
+  const WriteStepView({super.key, required this.step, required this.done});
+  final WriteStep step;
+  final StepDone done;
+  @override
+  ConsumerState<WriteStepView> createState() => _WriteStepViewState();
+}
+
+class _WriteStepViewState extends ConsumerState<WriteStepView> with _Checkable {
+  final _input = TextEditingController();
+  List<(WriteRequirement, bool)> _reqs = const [];
+  List<LanguageIssue> _issues = const [];
+  int _words = 0;
+
+  @override
+  void dispose() {
+    _input.dispose();
+    super.dispose();
+  }
+
+  @override
+  StepDone get done => widget.done;
+  @override
+  bool get canCheck => _input.text.trim().isNotEmpty;
+  @override
+  void evaluate() {
+    final text = _input.text.trim();
+    final folded = fold(text);
+    _words = words(text).length;
+    _reqs = [for (final r in widget.step.requirements) (r, RegExp(r.pattern).hasMatch(folded))];
+    _issues = ErrorDetectors(ref.read(contentProvider).lexicon).check(text, serviceContext: true);
+    correct = _reqs.every((r) => r.$2) && _words >= widget.step.minWords && !_issues.any((i) => i.severity == IssueSeverity.error);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final s = widget.step;
+    final p = context.palette;
+    Widget line(bool ok, String label) => Padding(
+          padding: const EdgeInsets.only(bottom: 4),
+          child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Icon(ok ? Icons.check_circle_rounded : Icons.radio_button_unchecked_rounded, size: 18, color: ok ? p.success : p.danger),
+            const SizedBox(width: 8),
+            Expanded(child: Text(label, style: context.text.bodyMedium)),
+          ]),
+        );
+    return StepFrame(
+      action: actionButton(),
+      children: [
+        Text('Kendin yaz', style: context.text.titleLarge),
+        const SizedBox(height: 8),
+        AppCard(child: Text(s.promptTr, style: context.text.bodyLarge)),
+        const SizedBox(height: 14),
+        TextField(
+          controller: _input,
+          enabled: !checked,
+          autocorrect: false,
+          enableSuggestions: false,
+          minLines: 2,
+          maxLines: 5,
+          maxLength: 400,
+          style: context.reading.copyWith(fontSize: 18),
+          decoration: const InputDecoration(hintText: 'Almanca yaz…'),
+          onChanged: (_) => setState(() {}),
+        ),
+        if (checked) ...[
+          const SizedBox(height: 8),
+          AppCard(
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text('Görev', style: context.text.titleSmall),
+              const SizedBox(height: 6),
+              for (final (r, ok) in _reqs) line(ok, r.labelTr),
+              line(_words >= s.minWords, 'En az ${s.minWords} kelime ($_words)'),
+              const Divider(height: 24),
+              Text('Dil', style: context.text.titleSmall),
+              const SizedBox(height: 6),
+              if (_issues.isEmpty)
+                Text('Otomatik kontrol bir hata bulmadı. Bu kontrol sadece sık yapılan bazı hatalara bakar; her hatayı yakalamaz.', style: context.text.bodySmall)
+              else
+                for (final i in _issues) ...[
+                  Text('${i.kind.labelTr}${i.severity == IssueSeverity.suggestion ? ' (öneri)' : ''}', style: context.text.labelMedium),
+                  if (i.corrected != i.original) Text(i.corrected, style: context.reading.copyWith(fontSize: 16)),
+                  Text(i.explanationTr, style: context.text.bodySmall),
+                  const SizedBox(height: 6),
+                ],
+              const Divider(height: 24),
+              Text('Örnek bir cevap', style: context.text.titleSmall),
+              const SizedBox(height: 4),
+              Row(children: [Expanded(child: Text(s.model, style: context.reading.copyWith(fontSize: 17))), SpeakButton(s.model, size: 20)]),
+              Text('Senin cevabın farklı ama yine de doğru olabilir.', style: context.text.bodySmall),
+            ]),
           ),
         ],
       ],

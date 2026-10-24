@@ -156,6 +156,17 @@ class ContentValidator {
         }
       case TranslateStep(:final answers):
         if (answers.isEmpty) _fail(w, 'translate without answers');
+      case ListenStep(:final options, :final answers):
+        if (options.length < 2 || answers.isEmpty || answers.any((a) => a < 0 || a >= options.length)) _fail(w, 'listen answers out of range');
+      case WriteStep(:final requirements, :final model):
+        if (requirements.isEmpty) _fail(w, 'write needs requirements');
+        for (final r in requirements) {
+          try {
+            if (!RegExp(r.pattern).hasMatch(fold(model))) _fail(w, 'model answer misses requirement "${r.labelTr}"');
+          } on FormatException {
+            _fail(w, 'bad regex ${r.pattern}');
+          }
+        }
     }
   }
 
