@@ -79,9 +79,8 @@ class _Body extends ConsumerWidget {
             AppCard(
               color: p.surfaceAlt,
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Row(children: [
+                Wrap(alignment: WrapAlignment.spaceBetween, crossAxisAlignment: WrapCrossAlignment.center, spacing: 8, children: [
                   Pill(e.status.labelTr),
-                  const Spacer(),
                   TextButton(
                     onPressed: () async {
                       await repo.setPaused(e.id, !e.paused);
@@ -138,15 +137,16 @@ class _Body extends ConsumerWidget {
             const SectionTitle('Koleksiyonlar'),
             Wrap(spacing: 8, runSpacing: 8, children: [
               for (final c in collections)
-                FilterChip(
-                  label: Text(c.name),
+                Tag(
+                  c.name,
+                  icon: d.collections.contains(c.id) ? Icons.check_rounded : null,
                   selected: d.collections.contains(c.id),
-                  onSelected: (v) async {
-                    await repo.setInCollection(c.id, e.id, v);
+                  onTap: () async {
+                    await repo.setInCollection(c.id, e.id, !d.collections.contains(c.id));
                     ref.bumpData();
                   },
                 ),
-              ActionChip(avatar: const Icon(Icons.add_rounded, size: 18), label: const Text('Yeni koleksiyon'), onPressed: () => _editText(context, title: 'Koleksiyon adı', initial: '', onSave: (v) async {
+              Tag('Yeni koleksiyon', icon: Icons.add_rounded, onTap: () => _editText(context, title: 'Koleksiyon adı', initial: '', onSave: (v) async {
                     if (v.trim().isEmpty) return;
                     final id = await repo.createCollection(v);
                     await repo.setInCollection(id, e.id, true);

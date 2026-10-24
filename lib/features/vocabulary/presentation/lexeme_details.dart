@@ -84,13 +84,13 @@ class LexemeDetails extends ConsumerWidget {
       ],
       if (l.collocations.isNotEmpty) ...[
         const SectionTitle('Sık birlikte kullanılır'),
-        Wrap(spacing: 8, runSpacing: 8, children: [for (final c in l.collocations) Chip(label: Text(c, style: const TextStyle(fontFamily: 'Literata')))]),
+        Wrap(spacing: 8, runSpacing: 8, children: [for (final c in l.collocations) Tag(c, textStyle: context.reading.copyWith(fontSize: 15))]),
       ],
       if (l.related.isNotEmpty) ...[
         const SectionTitle('İlgili kelimeler'),
         Wrap(spacing: 8, runSpacing: 8, children: [
           for (final r in l.related)
-            if (lexicon.byId(r) case final rl?) ActionChip(label: Text(rl.headword), onPressed: () => context.push('/lexeme/${rl.id}')),
+            if (lexicon.byId(r) case final rl?) Tag(rl.headword, onTap: () => context.push('/lexeme/${rl.id}')),
         ]),
       ],
     ]);

@@ -180,10 +180,10 @@ class _DiscoverScreenState extends ConsumerState<DiscoverScreen> {
                 const SizedBox(height: 16),
                 Wrap(spacing: 8, runSpacing: 8, children: [
                   if (unsaved.isNotEmpty)
-                    ActionChip(
-                      avatar: const Icon(Icons.bookmark_add_outlined, size: 18),
-                      label: Text('Kelimeleri kaydet (${unsaved.length})'),
-                      onPressed: () async {
+                    Tag(
+                      'Kelimeleri kaydet (${unsaved.length})',
+                      icon: Icons.bookmark_add_outlined,
+                      onTap: () async {
                         for (final id in unsaved) {
                           await ref.read(vocabRepositoryProvider).saveLexeme(lexicon.byId(id)!,
                               context: SourceContext(type: SourceType.discover, sourceId: c.id, title: c.title, sentence: c.bodyDe, sentenceTr: c.bodyTr));
@@ -192,7 +192,7 @@ class _DiscoverScreenState extends ConsumerState<DiscoverScreen> {
                         if (context.mounted) showToast(context, 'Kaydedildi');
                       },
                     ),
-                  if (c.topics.isNotEmpty) ActionChip(avatar: const Icon(Icons.visibility_off_outlined, size: 18), label: const Text('Bu konuyu gösterme'), onPressed: () => _hideTopic(c)),
+                  if (c.topics.isNotEmpty) Tag('Bu konuyu gösterme', icon: Icons.visibility_off_outlined, onTap: () => _hideTopic(c)),
                 ]),
               ]),
             ),

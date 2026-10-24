@@ -187,7 +187,7 @@ class _ScenarioScreenState extends ConsumerState<ScenarioScreen> {
                 ),
               if (_focusEntries.isNotEmpty) ...[
                 const SectionTitle('Kullanmayı dene'),
-                Wrap(spacing: 8, runSpacing: 8, children: [for (final e in _focusEntries) Chip(label: Text(e.headword))]),
+                Wrap(spacing: 8, runSpacing: 8, children: [for (final e in _focusEntries) Tag(e.headword)]),
               ],
               const SectionTitle('Mod'),
               for (final m in ConversationMode.values)
@@ -326,9 +326,9 @@ class _ScenarioScreenState extends ConsumerState<ScenarioScreen> {
           const SizedBox(height: 6),
           Wrap(spacing: 8, runSpacing: 8, children: [
             for (final h in g.hints)
-              ActionChip(
-                label: Text(mode.showsTranslations ? '${h.de}  ·  ${h.tr}' : h.de),
-                onPressed: () {
+              Tag(
+                mode.showsTranslations ? '${h.de}  ·  ${h.tr}' : h.de,
+                onTap: () {
                   _input.text = h.de.replaceAll('…', '').trimRight();
                   _focus.requestFocus();
                   _input.selection = TextSelection.collapsed(offset: _input.text.length);
@@ -474,7 +474,7 @@ class _ScenarioScreenState extends ConsumerState<ScenarioScreen> {
               Wrap(spacing: 8, runSpacing: 8, children: [
                 for (final id in s.scenario.vocab)
                   if (lexicon.byId(id) case final l?)
-                    ActionChip(label: Text(l.headword), onPressed: () => context.push('/lexeme/${l.id}')),
+                    Tag(l.headword, onTap: () => context.push('/lexeme/${l.id}')),
               ]),
               const SizedBox(height: 8),
               Text('Kullandığın ve defterinde olan kelimeler bu konuşmayla birlikte kaydedildi (aktif kullanım kanıtı).', style: context.text.bodySmall),

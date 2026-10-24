@@ -50,7 +50,7 @@ class CollectionsScreen extends ConsumerWidget {
                 if (list.isEmpty) ...[
                   const EmptyState(icon: Icons.collections_bookmark_outlined, title: 'Henüz koleksiyon yok', message: 'Kelimelerini kendi kategorilerinde topla. Bir kelimenin sayfasından da ekleyebilirsin.'),
                   Wrap(spacing: 8, runSpacing: 8, alignment: WrapAlignment.center, children: [
-                    for (final s in _suggestions) ActionChip(label: Text(s), onPressed: () => _create(context, ref, s)),
+                    for (final s in _suggestions) Tag(s, onTap: () => _create(context, ref, s)),
                   ]),
                 ],
                 for (final c in list)

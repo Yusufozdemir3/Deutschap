@@ -103,7 +103,7 @@ class Pill extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           if (icon != null) ...[Icon(icon, size: 14, color: textColor ?? p.ink), const SizedBox(width: 4)],
-          Text(label, style: context.text.labelMedium!.copyWith(color: textColor ?? p.ink)),
+          Flexible(child: Text(label, style: context.text.labelMedium!.copyWith(color: textColor ?? p.ink))),
         ],
       ),
     );
@@ -330,4 +330,42 @@ class BackOrHomeButton extends StatelessWidget {
   Widget build(BuildContext context) => GoRouter.of(context).canPop()
       ? const BackButton()
       : IconButton(icon: const Icon(Icons.home_outlined), tooltip: 'Ana sayfa', onPressed: () => GoRouter.of(context).go('/heute'));
+}
+
+/// Chip-like tag whose label wraps instead of overflowing, for labels that
+/// come from content (expressions, titles) and large text sizes.
+class Tag extends StatelessWidget {
+  const Tag(this.label, {super.key, this.icon, this.onTap, this.selected = false, this.textStyle});
+  final String label;
+  final IconData? icon;
+  final VoidCallback? onTap;
+  final bool selected;
+  final TextStyle? textStyle;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = context.palette;
+    return Semantics(
+      button: onTap != null,
+      selected: selected,
+      child: Material(
+        color: selected ? p.accentSoft : p.surface,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12), side: BorderSide(color: selected ? p.accent : p.line)),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: onTap,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(minHeight: 40),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              child: Row(mainAxisSize: MainAxisSize.min, children: [
+                if (icon != null) ...[Icon(icon, size: 18, color: selected ? p.accent : p.ink), const SizedBox(width: 6)],
+                Flexible(child: Text(label, style: textStyle ?? context.text.labelMedium)),
+              ]),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }

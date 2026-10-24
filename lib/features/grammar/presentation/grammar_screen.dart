@@ -30,7 +30,7 @@ class GrammarScreen extends ConsumerWidget {
               if (prereq.isNotEmpty) ...[
                 const SectionTitle('Önce bunlara bakmak isteyebilirsin'),
                 Wrap(spacing: 8, runSpacing: 8, children: [
-                  for (final g in prereq) ActionChip(label: Text(g.titleTr), onPressed: () => context.push('/grammar/${g.id}')),
+                  for (final g in prereq) Tag(g.titleTr, onTap: () => context.push('/grammar/${g.id}')),
                 ]),
               ],
               const SizedBox(height: 16),

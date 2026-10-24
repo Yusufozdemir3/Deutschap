@@ -162,7 +162,7 @@ class _ReaderScreenState extends ConsumerState<ReaderScreen> {
                         isKnown: (w) => known.contains(w.toLowerCase()),
                         onWordTap: (t) => showWordSheet(context, tap: t, source: source, sentenceTr: _paras[i].tr),
                       ),
-                      Row(children: [
+                      Wrap(crossAxisAlignment: WrapCrossAlignment.center, children: [
                         SpeakButton(_paras[i].de, size: 20),
                         SpeakButton(_paras[i].de, slow: true, size: 20),
                         if (_paras[i].tr != null)

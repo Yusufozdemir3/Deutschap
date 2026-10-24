@@ -90,8 +90,7 @@ class _UnitCard extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(children: [
-              Text('Ünite ${unit.number}', style: context.text.labelSmall),
-              const Spacer(),
+              Expanded(child: Text('Ünite ${unit.number}', style: context.text.labelSmall)),
               if (unit.isPlanned) const Pill('Hazırlanıyor') else if (unit.lessons.isNotEmpty) Text('$done/${unit.lessons.length}', style: context.text.labelSmall),
             ]),
             const SizedBox(height: 4),
@@ -104,11 +103,7 @@ class _UnitCard extends ConsumerWidget {
               Wrap(spacing: 6, runSpacing: 6, children: [
                 for (final g in unit.grammar)
                   if (grammar[g] != null)
-                    ActionChip(
-                      avatar: const Icon(Icons.lightbulb_outline_rounded, size: 16),
-                      label: Text(grammar[g]!.titleTr),
-                      onPressed: () => context.push('/grammar/$g'),
-                    ),
+                    Tag(grammar[g]!.titleTr, icon: Icons.lightbulb_outline_rounded, onTap: () => context.push('/grammar/$g')),
               ]),
             ],
             if (unit.lessons.isNotEmpty) const SizedBox(height: 6),

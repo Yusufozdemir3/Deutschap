@@ -368,7 +368,7 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
               if (missed.isNotEmpty) ...[
                 const SectionTitle('Pekiştirilecekler'),
                 Wrap(spacing: 8, runSpacing: 8, children: [
-                  for (final m in missed) ActionChip(label: Text(m.item.entry.headword), onPressed: () => context.push('/word/${m.item.entry.id}')),
+                  for (final m in missed) Tag(m.item.entry.headword, onTap: () => context.push('/word/${m.item.entry.id}')),
                 ]),
               ],
               const SizedBox(height: 24),

@@ -225,10 +225,7 @@ class _LessonComplete extends ConsumerWidget {
                 Wrap(spacing: 8, runSpacing: 8, children: [
                   for (final id in lesson.vocab)
                     if (content.lexicon.byId(id) case final l?)
-                      Chip(
-                        avatar: Icon(saved.contains(id) ? Icons.bookmark_rounded : Icons.bookmark_border_rounded, size: 16, color: saved.contains(id) ? p.success : p.inkMuted),
-                        label: Text(l.headword),
-                      ),
+                      Tag(l.headword, icon: saved.contains(id) ? Icons.bookmark_rounded : Icons.bookmark_border_rounded, selected: saved.contains(id)),
                 ]),
                 if (unsaved.isNotEmpty) ...[
                   const SizedBox(height: 10),
