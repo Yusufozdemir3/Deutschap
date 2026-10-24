@@ -59,6 +59,16 @@ void main() {
       }
     });
 
+    test('level variants: A2 learners get the A2 episode where one exists', () {
+      final story = content.story('neu_in_berlin')!;
+      expect(story.variantFor(1, 'A1').id, 'nib_e1_a1');
+      expect(story.variantFor(1, 'A2').id, 'nib_e1_a2');
+      expect(story.variantFor(2, 'A2').id, 'nib_e2_a1', reason: 'falls back to the easier variant');
+      final a1 = StoryRunner(story.variantFor(1, 'A1'));
+      final a2 = StoryRunner(story.variantFor(1, 'A2'));
+      expect(a1.episode.nodes.length, lessThan(a2.episode.nodes.length + 5), reason: 'same scene, comparable length');
+    });
+
     test('history round-trips through JSON', () {
       const step = StoryStep('n4', choiceId: 'a', wrongChoiceIds: ['c']);
       final back = StoryStep.fromJson(step.toJson().cast<String, dynamic>());

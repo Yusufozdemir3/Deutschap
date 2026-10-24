@@ -204,7 +204,9 @@ class _StoriesTab extends ConsumerWidget {
                         ),
                         title: Text(e.title, style: context.text.titleSmall!.copyWith(fontFamily: 'Literata')),
                         subtitle: Text('${e.level} · ${e.minutes} dk · ${e.learningObjectiveTr}', maxLines: 2, overflow: TextOverflow.ellipsis),
-                        trailing: st == EpisodeStatus.inProgress ? Pill('Devam et', color: p.accentSoft, textColor: p.accent) : null,
+                        trailing: st == EpisodeStatus.inProgress
+                            ? Pill('Devam et', color: p.accentSoft, textColor: p.accent)
+                            : (s.episodes.where((x) => x.number == n).length > 1 ? Pill(s.episodes.where((x) => x.number == n).map((x) => x.level).join(' · ')) : null),
                         onTap: () => context.push('/episode/${e.id}'),
                       );
                     }(),

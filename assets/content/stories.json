@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.1",
+  "version": "2026.10.3",
   "stories": [
     {
       "id": "neu_in_berlin",
@@ -7,267 +7,1905 @@
       "subtitle_tr": "Berlin'de yeni bir hayat – ve odanda unutulmuş bir kartpostal",
       "premise_tr": "Berlin'deki paylaşımlı bir eve taşınıyorsun. Ev arkadaşın Lina, alt kattaki eski postacı Herr Albrecht ve köşedeki fırın… Odanda bulduğun kırk yıllık bir kartpostal seni şehrin içinde küçük bir gizeme götürüyor: \"M.\" kim, \"F.\" kim?",
       "characters": [
-        {"id": "lina", "name": "Lina", "role_tr": "Ev arkadaşın, mimarlık öğrencisi (Leipzigli)"},
-        {"id": "albrecht", "name": "Herr Albrecht", "role_tr": "Alt kattaki komşu, emekli postacı", "formal": true},
-        {"id": "weber", "name": "Frau Weber", "role_tr": "Köşedeki fırının sahibi", "formal": true},
-        {"id": "amt", "name": "Bürgeramt", "role_tr": "Telefondaki memur", "formal": true},
-        {"id": "can", "name": "Can", "role_tr": "Café Kastanie'de barista"},
-        {"id": "friedrich", "name": "Friedrich", "role_tr": "Pencere kenarındaki yaşlı adam", "formal": true}
+        {
+          "id": "lina",
+          "name": "Lina",
+          "role_tr": "Ev arkadaşın, mimarlık öğrencisi (Leipzigli)"
+        },
+        {
+          "id": "albrecht",
+          "name": "Herr Albrecht",
+          "role_tr": "Alt kattaki komşu, emekli postacı",
+          "formal": true
+        },
+        {
+          "id": "weber",
+          "name": "Frau Weber",
+          "role_tr": "Köşedeki fırının sahibi",
+          "formal": true
+        },
+        {
+          "id": "amt",
+          "name": "Bürgeramt",
+          "role_tr": "Telefondaki memur",
+          "formal": true
+        },
+        {
+          "id": "can",
+          "name": "Can",
+          "role_tr": "Café Kastanie'de barista"
+        },
+        {
+          "id": "friedrich",
+          "name": "Friedrich",
+          "role_tr": "Pencere kenarındaki yaşlı adam",
+          "formal": true
+        }
       ],
       "episodes": [
         {
-          "id": "nib_e1_a1", "number": 1, "level": "A1",
-          "title": "Ankunft", "title_tr": "Varış",
+          "id": "nib_e1_a1",
+          "number": 1,
+          "level": "A1",
+          "title": "Ankunft",
+          "title_tr": "Varış",
           "narrative_tr": "Yeni evine gir, Lina ile tanış ve odanı al.",
           "objective_tr": "Selamlaşmak, kendini tanıtmak ve nereli olduğunu söylemek.",
-          "minutes": 6, "start": "n1", "scenario": "kennenlernen",
+          "minutes": 6,
+          "start": "n1",
+          "scenario": "kennenlernen",
           "nodes": [
-            {"id": "n1", "type": "narration", "de": "Berlin, Kastanienstraße 12. Du stehst vor der Tür. Dein Koffer ist schwer.", "tr": "Berlin, Kastanienstraße 12. Kapının önündesin. Bavulun ağır.", "next": "n2"},
-            {"id": "n2", "type": "narration", "de": "Die Tür geht auf. Eine junge Frau lacht.", "tr": "Kapı açılıyor. Genç bir kadın gülüyor.", "next": "n3"},
-            {"id": "n3", "type": "line", "speaker": "lina", "de": "Hallo! Du bist neu hier, oder? Ich bin Lina.", "tr": "Merhaba! Sen yenisin, değil mi? Ben Lina.", "gloss_tr": "\"…, oder?\" cümle sonunda \"değil mi?\" anlamına gelir.", "next": "n4"},
-            {"id": "n4", "type": "choice", "prompt_tr": "Lina'ya nasıl cevap verirsin?", "choices": [
-              {"id": "a", "de": "Hallo! Ich bin {name}. Freut mich!", "tr": "Merhaba! Ben {name}. Memnun oldum!", "verdict": "best", "feedback_tr": "Doğal ve samimi. Genç bir ev arkadaşına \"Hallo\" ve \"du\" çok uygun.", "next": "n6"},
-              {"id": "b", "de": "Guten Tag. Mein Name ist {name}.", "tr": "İyi günler. Adım {name}.", "verdict": "ok", "feedback_tr": "Dil bilgisi doğru! Ama yaşıtın olan bir ev arkadaşı için biraz resmî; Lina'nın tepkisine bak.", "next": "n5", "flags": ["formell"]},
-              {"id": "c", "de": "Hallo! Ich heißt {name}.", "tr": "Merhaba! (yanlış çekim)", "verdict": "wrong", "feedback_tr": "Neredeyse! \"heißt\" du ve er/sie/es için. ich ile: \"Ich heiße {name}.\" Tekrar dene."}
-            ]},
-            {"id": "n5", "type": "line", "speaker": "lina", "de": "„Guten Tag“? Haha, so formell! Hier sagen wir „du“.", "tr": "\"İyi günler\" mi? Haha, ne kadar resmî! Burada \"sen\" diyoruz.", "next": "n6"},
-            {"id": "n6", "type": "line", "speaker": "lina", "de": "Herzlich willkommen in der WG! Woher kommst du?", "tr": "Eve hoş geldin! Nerelisin?", "gloss_tr": "WG = Wohngemeinschaft (paylaşımlı ev). Soru: Woher (1) + kommst (2, fiil) + du (3).", "next": "n7"},
-            {"id": "n7", "type": "choice", "prompt_tr": "Nereli olduğunu söyle.", "choices": [
-              {"id": "a", "de": "Ich komme aus der Türkei, aus Izmir.", "tr": "Türkiye'denim, İzmirliyim.", "verdict": "best", "feedback_tr": "Mükemmel. \"die Türkei\" artikelle kullanılır: aus der Türkei.", "next": "n9"},
-              {"id": "b", "de": "Ich komme aus Türkei.", "tr": "(artikel eksik)", "verdict": "wrong", "feedback_tr": "Çoğu ülke artikelsizdir (aus Deutschland), ama Türkiye istisnadır: aus der Türkei. Tekrar dene."},
-              {"id": "c", "de": "Ich wohne in der Türkei.", "tr": "Türkiye'de oturuyorum.", "verdict": "ok", "feedback_tr": "Cümle doğru, ama \"oturmak\" demek. Artık Berlin'de oturuyorsun! Köken için \"kommen aus\" kullanılır.", "next": "n8"}
-            ]},
-            {"id": "n8", "type": "line", "speaker": "lina", "de": "In der Türkei? Aber jetzt wohnst du in Berlin! Du kommst also aus der Türkei.", "tr": "Türkiye'de mi? Ama artık Berlin'de oturuyorsun! Yani Türkiyelisin.", "next": "n9"},
-            {"id": "n9", "type": "line", "speaker": "lina", "de": "Cool! Ich komme aus Leipzig. Ich studiere hier Architektur.", "tr": "Harika! Ben Leipzigliyim. Burada mimarlık okuyorum.", "next": "n10"},
-            {"id": "n10", "type": "narration", "de": "Lina zeigt dir die Wohnung. Die Küche ist klein, aber hell. Das Bad ist links.", "tr": "Lina sana evi gösteriyor. Mutfak küçük ama aydınlık. Banyo solda.", "next": "n11"},
-            {"id": "n11", "type": "line", "speaker": "lina", "de": "Und das ist dein Zimmer. Hier ist dein Schlüssel.", "tr": "Bu da senin odan. İşte anahtarın.", "next": "n12"},
-            {"id": "n12", "type": "choice", "prompt_tr": "Anahtarı alıyorsun. Ne dersin?", "choices": [
-              {"id": "a", "de": "Danke! Das Zimmer ist schön.", "tr": "Teşekkürler! Oda güzel.", "verdict": "best", "feedback_tr": "Doğru. \"sein\" fiilinden sonra sıfat ek almaz: Das Zimmer ist schön.", "next": "n13"},
-              {"id": "b", "de": "Bitte!", "tr": "Rica ederim! / Buyurun!", "verdict": "wrong", "feedback_tr": "\"Bitte\" bir şey verirken ya da teşekküre cevap verirken söylenir. Bir şey alırken \"Danke!\" dersin. Tekrar dene."},
-              {"id": "c", "de": "Danke! Das Zimmer ist schöne.", "tr": "(sıfat sonu yanlış)", "verdict": "wrong", "feedback_tr": "Fikir doğru! Ama \"ist\"ten sonra sıfat yalın kalır: schön (schöne değil). Tekrar dene."}
-            ]},
-            {"id": "n13", "type": "narration", "de": "Du bist allein im Zimmer. Auf dem Tisch liegt eine alte Postkarte. Auf dem Foto ist ein Café mit einer grünen Tür.", "tr": "Odada yalnızsın. Masanın üstünde eski bir kartpostal duruyor. Fotoğrafta yeşil kapılı bir kafe var.", "next": "n14"},
-            {"id": "n14", "type": "narration", "de": "Hinten steht: „Liebe M., jeden Mittwoch um drei. Ich warte. – F.“", "tr": "Arkasında şöyle yazıyor: \"Sevgili M., her çarşamba saat üçte. Bekliyorum. – F.\"", "next": "n15"},
-            {"id": "n15", "type": "choice", "prompt_tr": "Ne yaparsın?", "choices": [
-              {"id": "a", "de": "Lina? Wer ist M.?", "tr": "Lina? M. kim?", "verdict": "best", "feedback_tr": "\"wer\" = kim. (İngilizcedeki \"where\" ile karıştırma: o \"wo\".)", "next": "n16", "flags": ["gefragt"]},
-              {"id": "b", "de": "Ich lese die Postkarte noch einmal.", "tr": "Kartpostalı bir kez daha okuyorum.", "verdict": "best", "feedback_tr": "Güzel cümle: lesen → ich lese. \"noch einmal\" = bir kez daha.", "next": "n17"},
-              {"id": "c", "de": "Lina? Wo ist M.?", "tr": "Lina? M. nerede?", "verdict": "ok", "feedback_tr": "Anlaşılır, ama \"wo\" = nerede. Kim olduğunu sormak için \"wer\". Lina yine de cevap veriyor.", "next": "n16", "flags": ["gefragt"]}
-            ]},
-            {"id": "n16", "type": "line", "speaker": "lina", "de": "M.? Keine Ahnung! Vielleicht weiß Herr Albrecht etwas. Er wohnt unten – schon sehr lange.", "tr": "M. mi? Hiçbir fikrim yok! Belki Bay Albrecht bir şey biliyordur. Alt katta oturuyor – çok uzun zamandır.", "gloss_tr": "\"weiß\" = wissen (bilmek), er/sie/es formu. Düzensizdir: ich weiß, er weiß.", "next": "n18"},
-            {"id": "n17", "type": "narration", "de": "Die Karte ist sehr alt. Wer ist M.? Und wer ist F.? Lina kommt ins Zimmer.", "tr": "Kart çok eski. M. kim? Peki F. kim? Lina odaya giriyor.", "next": "n17b"},
-            {"id": "n17b", "type": "line", "speaker": "lina", "de": "Oh, eine Postkarte! Vielleicht weiß Herr Albrecht etwas. Er wohnt unten – schon sehr lange.", "tr": "Aa, bir kartpostal! Belki Bay Albrecht bir şey biliyordur. Alt katta oturuyor – çok uzun zamandır.", "next": "n18"},
-            {"id": "n18", "type": "line", "speaker": "lina", "de": "Aber jetzt: Hast du Hunger?", "tr": "Ama şimdi: Acıktın mı?", "gloss_tr": "Almancada açlık \"sahip olunan\" bir şeydir: Hunger haben.", "next": "n19"},
-            {"id": "n19", "type": "choice", "prompt_tr": "Lina'ya cevap ver.", "choices": [
-              {"id": "a", "de": "Ja, ich habe Hunger!", "tr": "Evet, açım!", "verdict": "best", "feedback_tr": "Doğru: \"Ich habe Hunger\" (kelimesi kelimesine: açlığım var).", "next": "n20"},
-              {"id": "b", "de": "Ja, ich bin Hunger.", "tr": "(Türkçeden birebir çeviri)", "verdict": "wrong", "feedback_tr": "Türkçedeki \"açım\" yapısı Almancaya birebir geçmez. \"Ich bin Hunger\" \"Ben açlığım\" demek olur 🙂 Doğrusu: Ich habe Hunger."},
-              {"id": "c", "de": "Nein, danke. Ich bin müde.", "tr": "Hayır, teşekkürler. Yorgunum.", "verdict": "best", "feedback_tr": "Mükemmel. \"müde\" bir sıfattır, bu yüzden burada \"sein\" doğru: Ich bin müde.", "next": "n21"}
-            ]},
-            {"id": "n20", "type": "line", "speaker": "lina", "de": "Super! Ich habe noch Pizza. Und morgen früh gehen wir zum Bäcker!", "tr": "Süper! Bende hâlâ pizza var. Yarın sabah da fırına gidiyoruz!", "next": "end"},
-            {"id": "n21", "type": "line", "speaker": "lina", "de": "Kein Problem. Schlaf gut, {name}! Morgen früh gehen wir zum Bäcker.", "tr": "Sorun değil. İyi uykular, {name}! Yarın sabah fırına gidiyoruz.", "next": "end"},
-            {"id": "end", "type": "end"}
+            {
+              "id": "n1",
+              "type": "narration",
+              "de": "Berlin, Kastanienstraße 12. Du stehst vor der Tür. Dein Koffer ist schwer.",
+              "tr": "Berlin, Kastanienstraße 12. Kapının önündesin. Bavulun ağır.",
+              "next": "n2"
+            },
+            {
+              "id": "n2",
+              "type": "narration",
+              "de": "Die Tür geht auf. Eine junge Frau lacht.",
+              "tr": "Kapı açılıyor. Genç bir kadın gülüyor.",
+              "next": "n3"
+            },
+            {
+              "id": "n3",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Hallo! Du bist neu hier, oder? Ich bin Lina.",
+              "tr": "Merhaba! Sen yenisin, değil mi? Ben Lina.",
+              "gloss_tr": "\"…, oder?\" cümle sonunda \"değil mi?\" anlamına gelir.",
+              "next": "n4"
+            },
+            {
+              "id": "n4",
+              "type": "choice",
+              "prompt_tr": "Lina'ya nasıl cevap verirsin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Hallo! Ich bin {name}. Freut mich!",
+                  "tr": "Merhaba! Ben {name}. Memnun oldum!",
+                  "verdict": "best",
+                  "feedback_tr": "Doğal ve samimi. Genç bir ev arkadaşına \"Hallo\" ve \"du\" çok uygun.",
+                  "next": "n6"
+                },
+                {
+                  "id": "b",
+                  "de": "Guten Tag. Mein Name ist {name}.",
+                  "tr": "İyi günler. Adım {name}.",
+                  "verdict": "ok",
+                  "feedback_tr": "Dil bilgisi doğru! Ama yaşıtın olan bir ev arkadaşı için biraz resmî; Lina'nın tepkisine bak.",
+                  "next": "n5",
+                  "flags": [
+                    "formell"
+                  ]
+                },
+                {
+                  "id": "c",
+                  "de": "Hallo! Ich heißt {name}.",
+                  "tr": "Merhaba! (yanlış çekim)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Neredeyse! \"heißt\" du ve er/sie/es için. ich ile: \"Ich heiße {name}.\" Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n5",
+              "type": "line",
+              "speaker": "lina",
+              "de": "„Guten Tag“? Haha, so formell! Hier sagen wir „du“.",
+              "tr": "\"İyi günler\" mi? Haha, ne kadar resmî! Burada \"sen\" diyoruz.",
+              "next": "n6"
+            },
+            {
+              "id": "n6",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Herzlich willkommen in der WG! Woher kommst du?",
+              "tr": "Eve hoş geldin! Nerelisin?",
+              "gloss_tr": "WG = Wohngemeinschaft (paylaşımlı ev). Soru: Woher (1) + kommst (2, fiil) + du (3).",
+              "next": "n7"
+            },
+            {
+              "id": "n7",
+              "type": "choice",
+              "prompt_tr": "Nereli olduğunu söyle.",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Ich komme aus der Türkei, aus Izmir.",
+                  "tr": "Türkiye'denim, İzmirliyim.",
+                  "verdict": "best",
+                  "feedback_tr": "Mükemmel. \"die Türkei\" artikelle kullanılır: aus der Türkei.",
+                  "next": "n9"
+                },
+                {
+                  "id": "b",
+                  "de": "Ich komme aus Türkei.",
+                  "tr": "(artikel eksik)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Çoğu ülke artikelsizdir (aus Deutschland), ama Türkiye istisnadır: aus der Türkei. Tekrar dene."
+                },
+                {
+                  "id": "c",
+                  "de": "Ich wohne in der Türkei.",
+                  "tr": "Türkiye'de oturuyorum.",
+                  "verdict": "ok",
+                  "feedback_tr": "Cümle doğru, ama \"oturmak\" demek. Artık Berlin'de oturuyorsun! Köken için \"kommen aus\" kullanılır.",
+                  "next": "n8"
+                }
+              ]
+            },
+            {
+              "id": "n8",
+              "type": "line",
+              "speaker": "lina",
+              "de": "In der Türkei? Aber jetzt wohnst du in Berlin! Du kommst also aus der Türkei.",
+              "tr": "Türkiye'de mi? Ama artık Berlin'de oturuyorsun! Yani Türkiyelisin.",
+              "next": "n9"
+            },
+            {
+              "id": "n9",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Cool! Ich komme aus Leipzig. Ich studiere hier Architektur.",
+              "tr": "Harika! Ben Leipzigliyim. Burada mimarlık okuyorum.",
+              "next": "n10"
+            },
+            {
+              "id": "n10",
+              "type": "narration",
+              "de": "Lina zeigt dir die Wohnung. Die Küche ist klein, aber hell. Das Bad ist links.",
+              "tr": "Lina sana evi gösteriyor. Mutfak küçük ama aydınlık. Banyo solda.",
+              "next": "n11"
+            },
+            {
+              "id": "n11",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Und das ist dein Zimmer. Hier ist dein Schlüssel.",
+              "tr": "Bu da senin odan. İşte anahtarın.",
+              "next": "n12"
+            },
+            {
+              "id": "n12",
+              "type": "choice",
+              "prompt_tr": "Anahtarı alıyorsun. Ne dersin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Danke! Das Zimmer ist schön.",
+                  "tr": "Teşekkürler! Oda güzel.",
+                  "verdict": "best",
+                  "feedback_tr": "Doğru. \"sein\" fiilinden sonra sıfat ek almaz: Das Zimmer ist schön.",
+                  "next": "n13"
+                },
+                {
+                  "id": "b",
+                  "de": "Bitte!",
+                  "tr": "Rica ederim! / Buyurun!",
+                  "verdict": "wrong",
+                  "feedback_tr": "\"Bitte\" bir şey verirken ya da teşekküre cevap verirken söylenir. Bir şey alırken \"Danke!\" dersin. Tekrar dene."
+                },
+                {
+                  "id": "c",
+                  "de": "Danke! Das Zimmer ist schöne.",
+                  "tr": "(sıfat sonu yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Fikir doğru! Ama \"ist\"ten sonra sıfat yalın kalır: schön (schöne değil). Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n13",
+              "type": "narration",
+              "de": "Du bist allein im Zimmer. Auf dem Tisch liegt eine alte Postkarte. Auf dem Foto ist ein Café mit einer grünen Tür.",
+              "tr": "Odada yalnızsın. Masanın üstünde eski bir kartpostal duruyor. Fotoğrafta yeşil kapılı bir kafe var.",
+              "next": "n14"
+            },
+            {
+              "id": "n14",
+              "type": "narration",
+              "de": "Hinten steht: „Liebe M., jeden Mittwoch um drei. Ich warte. – F.“",
+              "tr": "Arkasında şöyle yazıyor: \"Sevgili M., her çarşamba saat üçte. Bekliyorum. – F.\"",
+              "next": "n15"
+            },
+            {
+              "id": "n15",
+              "type": "choice",
+              "prompt_tr": "Ne yaparsın?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Lina? Wer ist M.?",
+                  "tr": "Lina? M. kim?",
+                  "verdict": "best",
+                  "feedback_tr": "\"wer\" = kim. (İngilizcedeki \"where\" ile karıştırma: o \"wo\".)",
+                  "next": "n16",
+                  "flags": [
+                    "gefragt"
+                  ]
+                },
+                {
+                  "id": "b",
+                  "de": "Ich lese die Postkarte noch einmal.",
+                  "tr": "Kartpostalı bir kez daha okuyorum.",
+                  "verdict": "best",
+                  "feedback_tr": "Güzel cümle: lesen → ich lese. \"noch einmal\" = bir kez daha.",
+                  "next": "n17"
+                },
+                {
+                  "id": "c",
+                  "de": "Lina? Wo ist M.?",
+                  "tr": "Lina? M. nerede?",
+                  "verdict": "ok",
+                  "feedback_tr": "Anlaşılır, ama \"wo\" = nerede. Kim olduğunu sormak için \"wer\". Lina yine de cevap veriyor.",
+                  "next": "n16",
+                  "flags": [
+                    "gefragt"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "n16",
+              "type": "line",
+              "speaker": "lina",
+              "de": "M.? Keine Ahnung! Vielleicht weiß Herr Albrecht etwas. Er wohnt unten – schon sehr lange.",
+              "tr": "M. mi? Hiçbir fikrim yok! Belki Bay Albrecht bir şey biliyordur. Alt katta oturuyor – çok uzun zamandır.",
+              "gloss_tr": "\"weiß\" = wissen (bilmek), er/sie/es formu. Düzensizdir: ich weiß, er weiß.",
+              "next": "n18"
+            },
+            {
+              "id": "n17",
+              "type": "narration",
+              "de": "Die Karte ist sehr alt. Wer ist M.? Und wer ist F.? Lina kommt ins Zimmer.",
+              "tr": "Kart çok eski. M. kim? Peki F. kim? Lina odaya giriyor.",
+              "next": "n17b"
+            },
+            {
+              "id": "n17b",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Oh, eine Postkarte! Vielleicht weiß Herr Albrecht etwas. Er wohnt unten – schon sehr lange.",
+              "tr": "Aa, bir kartpostal! Belki Bay Albrecht bir şey biliyordur. Alt katta oturuyor – çok uzun zamandır.",
+              "next": "n18"
+            },
+            {
+              "id": "n18",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Aber jetzt: Hast du Hunger?",
+              "tr": "Ama şimdi: Acıktın mı?",
+              "gloss_tr": "Almancada açlık \"sahip olunan\" bir şeydir: Hunger haben.",
+              "next": "n19"
+            },
+            {
+              "id": "n19",
+              "type": "choice",
+              "prompt_tr": "Lina'ya cevap ver.",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Ja, ich habe Hunger!",
+                  "tr": "Evet, açım!",
+                  "verdict": "best",
+                  "feedback_tr": "Doğru: \"Ich habe Hunger\" (kelimesi kelimesine: açlığım var).",
+                  "next": "n20"
+                },
+                {
+                  "id": "b",
+                  "de": "Ja, ich bin Hunger.",
+                  "tr": "(Türkçeden birebir çeviri)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Türkçedeki \"açım\" yapısı Almancaya birebir geçmez. \"Ich bin Hunger\" \"Ben açlığım\" demek olur 🙂 Doğrusu: Ich habe Hunger."
+                },
+                {
+                  "id": "c",
+                  "de": "Nein, danke. Ich bin müde.",
+                  "tr": "Hayır, teşekkürler. Yorgunum.",
+                  "verdict": "best",
+                  "feedback_tr": "Mükemmel. \"müde\" bir sıfattır, bu yüzden burada \"sein\" doğru: Ich bin müde.",
+                  "next": "n21"
+                }
+              ]
+            },
+            {
+              "id": "n20",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Super! Ich habe noch Pizza. Und morgen früh gehen wir zum Bäcker!",
+              "tr": "Süper! Bende hâlâ pizza var. Yarın sabah da fırına gidiyoruz!",
+              "next": "end"
+            },
+            {
+              "id": "n21",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Kein Problem. Schlaf gut, {name}! Morgen früh gehen wir zum Bäcker.",
+              "tr": "Sorun değil. İyi uykular, {name}! Yarın sabah fırına gidiyoruz.",
+              "next": "end"
+            },
+            {
+              "id": "end",
+              "type": "end"
+            }
           ],
           "recap_tr": "Berlin'deki paylaşımlı eve taşındın, Lina ile tanıştın ve odanda gizemli bir kartpostal buldun: \"Sevgili M., her çarşamba saat üçte. Bekliyorum. – F.\" Lina, alt kattaki Herr Albrecht'in bir şey bilebileceğini düşünüyor.",
-          "vocab": ["hallo", "freut_mich", "herzlich_willkommen", "woher", "ich_komme_aus", "tuerkei", "wg", "zimmer", "schluessel", "postkarte", "keine_ahnung", "hunger", "muede"],
+          "vocab": [
+            "hallo",
+            "freut_mich",
+            "herzlich_willkommen",
+            "woher",
+            "ich_komme_aus",
+            "tuerkei",
+            "wg",
+            "zimmer",
+            "schluessel",
+            "postkarte",
+            "keine_ahnung",
+            "hunger",
+            "muede"
+          ],
           "grammar": [
-            {"title_tr": "ich heiße – du heißt", "body_tr": "Fiil eki kişiye göre değişir: ich -e, du -st (heißen'de sadece -t, çünkü kök zaten ß ile bitiyor).", "example_de": "Ich heiße {name}. Wie heißt du?", "concept": "g_praesens"},
-            {"title_tr": "aus der Türkei", "body_tr": "Ülkelerin çoğu artikelsizdir, ama die Türkei, die Schweiz artikel alır. \"aus\" Dativ ister: die → der.", "example_de": "Ich komme aus der Türkei."},
-            {"title_tr": "Ich habe Hunger", "body_tr": "Açlık, susuzluk ve zaman Almancada \"haben\" ile söylenir: Ich habe Hunger / Durst / Zeit. Sıfatlarla \"sein\": Ich bin müde.", "example_de": "Hast du Hunger? – Nein, ich bin müde."}
+            {
+              "title_tr": "ich heiße – du heißt",
+              "body_tr": "Fiil eki kişiye göre değişir: ich -e, du -st (heißen'de sadece -t, çünkü kök zaten ß ile bitiyor).",
+              "example_de": "Ich heiße {name}. Wie heißt du?",
+              "concept": "g_praesens"
+            },
+            {
+              "title_tr": "aus der Türkei",
+              "body_tr": "Ülkelerin çoğu artikelsizdir, ama die Türkei, die Schweiz artikel alır. \"aus\" Dativ ister: die → der.",
+              "example_de": "Ich komme aus der Türkei."
+            },
+            {
+              "title_tr": "Ich habe Hunger",
+              "body_tr": "Açlık, susuzluk ve zaman Almancada \"haben\" ile söylenir: Ich habe Hunger / Durst / Zeit. Sıfatlarla \"sein\": Ich bin müde.",
+              "example_de": "Hast du Hunger? – Nein, ich bin müde."
+            }
           ],
           "quiz": [
-            {"id": "q1", "question_tr": "Lina nereli?", "options": ["İzmir", "Leipzig", "Berlin"], "answer": 1, "explain_tr": "\"Ich komme aus Leipzig.\""},
-            {"id": "q2", "question_tr": "Kartpostalda ne yazıyor?", "options": ["Her çarşamba saat üçte bekliyorum.", "Her pazartesi sabah görüşelim.", "Berlin'e hoş geldin."], "answer": 0, "explain_tr": "\"jeden Mittwoch um drei. Ich warte.\""},
-            {"id": "q3", "question_tr": "Herr Albrecht nerede oturuyor?", "options": ["Alt katta", "Leipzig'de", "Kafede"], "answer": 0, "explain_tr": "\"Er wohnt unten.\" unten = aşağıda, alt katta."}
+            {
+              "id": "q1",
+              "question_tr": "Lina nereli?",
+              "options": [
+                "İzmir",
+                "Leipzig",
+                "Berlin"
+              ],
+              "answer": 1,
+              "explain_tr": "\"Ich komme aus Leipzig.\""
+            },
+            {
+              "id": "q2",
+              "question_tr": "Kartpostalda ne yazıyor?",
+              "options": [
+                "Her çarşamba saat üçte bekliyorum.",
+                "Her pazartesi sabah görüşelim.",
+                "Berlin'e hoş geldin."
+              ],
+              "answer": 0,
+              "explain_tr": "\"jeden Mittwoch um drei. Ich warte.\""
+            },
+            {
+              "id": "q3",
+              "question_tr": "Herr Albrecht nerede oturuyor?",
+              "options": [
+                "Alt katta",
+                "Leipzig'de",
+                "Kafede"
+              ],
+              "answer": 0,
+              "explain_tr": "\"Er wohnt unten.\" unten = aşağıda, alt katta."
+            }
           ],
           "teaser_tr": "Ertesi sabah fırında ilk siparişin. Fırının duvarındaki bir fotoğraf sana tanıdık gelecek…"
         },
         {
-          "id": "nib_e2_a1", "number": 2, "level": "A1",
-          "title": "Beim Bäcker", "title_tr": "Fırında",
-          "narrative_tr": "Lina ile köşedeki fırına git, kahvaltılık al – ve kartpostaldaki kafenin izini bul.",
-          "objective_tr": "Kibarca sipariş vermek, Akkusativ (eine Brezel) ve fiyat/ödeme.",
-          "minutes": 6, "start": "n1", "scenario": "baeckerei",
+          "id": "nib_e1_a2",
+          "number": 1,
+          "level": "A2",
+          "title": "Ankunft",
+          "title_tr": "Varış (A2 sürümü)",
+          "narrative_tr": "Yeni evine gir, Lina ile tanış ve odanı al.",
+          "objective_tr": "Daha doğal konuşma: \"weil\" ile sebep söylemek, dolaylı soru sormak ve geçmişten bahsetmek.",
+          "minutes": 8,
+          "start": "n1",
+          "scenario": "kennenlernen",
           "nodes": [
-            {"id": "n1", "type": "narration", "de": "Am Morgen gehen Lina und du zur Bäckerei an der Ecke. Es riecht nach Brot.", "tr": "Sabah Lina ile köşedeki fırına gidiyorsunuz. Ekmek kokuyor.", "next": "n2"},
-            {"id": "n2", "type": "line", "speaker": "weber", "de": "Guten Morgen! Was darf es sein?", "tr": "Günaydın! Ne alırsınız?", "gloss_tr": "Satıcıların klasik sorusu. Kelimesi kelimesine: \"Ne olabilir?\"", "next": "n3"},
-            {"id": "n3", "type": "choice", "prompt_tr": "Frau Weber'e siparişini ver.", "choices": [
-              {"id": "a", "de": "Ich hätte gern zwei Brötchen, bitte.", "tr": "İki ekmek alabilir miyim, lütfen?", "verdict": "best", "feedback_tr": "Mükemmel ve kibar. \"Ich hätte gern …\" sipariş vermenin en doğal yollarından biri.", "next": "n5"},
-              {"id": "b", "de": "Ich will zwei Brötchen.", "tr": "İki ekmek istiyorum.", "verdict": "ok", "feedback_tr": "Dil bilgisi doğru ve anlaşılıyor. Ama \"Ich will\" sert duyulur, \"istiyorum!\" gibi. Frau Weber'in tepkisine bak.", "next": "n4", "flags": ["direkt"]},
-              {"id": "c", "de": "Ich bin zwei Brötchen.", "tr": "(sein ile)", "verdict": "wrong", "feedback_tr": "\"Ich bin\" = \"ben …-im\". Yani \"Ben iki ekmeğim\" demiş oldun 🙂 İstek için \"Ich hätte gern …\" ya da \"Ich möchte …\". Tekrar dene."}
-            ]},
-            {"id": "n4", "type": "line", "speaker": "lina", "de": "(leise) Sag lieber „Ich hätte gern …“. Das klingt netter.", "tr": "(fısıldayarak) \"Ich hätte gern …\" de, daha nazik duruyor.", "next": "n5"},
-            {"id": "n5", "type": "line", "speaker": "weber", "de": "Gern. Sonst noch etwas?", "tr": "Memnuniyetle. Başka bir şey?", "next": "n6"},
-            {"id": "n6", "type": "choice", "prompt_tr": "Bir brezel de istiyorsun.", "choices": [
-              {"id": "a", "de": "Ja, eine Brezel, bitte.", "tr": "Evet, bir brezel lütfen.", "verdict": "best", "feedback_tr": "Doğru: die Brezel → eine Brezel. Dişil isimlerde Akkusativ değişmez.", "next": "n7a", "flags": ["brezel"]},
-              {"id": "b", "de": "Ja, einen Brezel, bitte.", "tr": "(artikel yanlış)", "verdict": "wrong", "feedback_tr": "\"einen\" sadece eril isimler içindir (einen Kaffee). Brezel dişildir: eine Brezel. Tekrar dene."},
-              {"id": "c", "de": "Nein, danke. Das war's.", "tr": "Hayır, teşekkürler. Bu kadar.", "verdict": "best", "feedback_tr": "Doğal bir cevap. \"Das war's\" = bu kadar.", "next": "n7b"}
-            ]},
-            {"id": "n7a", "type": "line", "speaker": "weber", "de": "Das macht zwei Euro vierzig.", "tr": "İki avro kırk sent ediyor.", "gloss_tr": "Fiyatlarda \"Euro\" çoğul eki almaz ve sent kısmı sona eklenir: zwei Euro vierzig = 2,40 €.", "next": "n8"},
-            {"id": "n7b", "type": "line", "speaker": "weber", "de": "Das macht einen Euro zwanzig.", "tr": "Bir avro yirmi sent ediyor.", "gloss_tr": "\"machen\" fiilinin nesnesi olduğu için: einen Euro.", "next": "n8"},
-            {"id": "n8", "type": "choice", "prompt_tr": "Nasıl ödersin?", "choices": [
-              {"id": "a", "de": "Kann ich mit Karte zahlen?", "tr": "Kartla ödeyebilir miyim?", "verdict": "best", "feedback_tr": "Doğru soru: Kann (başta) … zahlen (sonda). Almanya'da bazı küçük dükkânlar sadece nakit kabul eder; sormak iyi fikir.", "next": "n9", "flags": ["karte"]},
-              {"id": "b", "de": "Hier, bitte.", "tr": "Buyurun.", "verdict": "best", "feedback_tr": "Para uzatırken \"Hier, bitte\" ya da \"Bitte schön\" denir.", "next": "n10"},
-              {"id": "c", "de": "Wie viel kostet?", "tr": "(eksik)", "verdict": "wrong", "feedback_tr": "Fiyat zaten söylendi! Ayrıca cümlede özne eksik: \"Wie viel kostet das?\" Tekrar dene."}
-            ]},
-            {"id": "n9", "type": "line", "speaker": "weber", "de": "Ja, natürlich. Bitte hier.", "tr": "Evet, tabii ki. Buyurun, buraya.", "next": "n10"},
-            {"id": "n10", "type": "narration", "de": "An der Wand hängt ein altes Foto: ein kleines Café mit einer grünen Tür. Das Café von der Postkarte!", "tr": "Duvarda eski bir fotoğraf asılı: yeşil kapılı küçük bir kafe. Kartpostaldaki kafe!", "next": "n11"},
-            {"id": "n11", "type": "choice", "prompt_tr": "Frau Weber'e kafeyi sor.", "choices": [
-              {"id": "a", "de": "Entschuldigung, wo ist das Café?", "tr": "Affedersiniz, bu kafe nerede?", "verdict": "best", "feedback_tr": "Mükemmel: \"Entschuldigung\" ile dikkat çekip \"wo\" ile yer sordun.", "next": "n12"},
-              {"id": "b", "de": "Entschuldigung, wer ist das Café?", "tr": "(soru kelimesi yanlış)", "verdict": "wrong", "feedback_tr": "\"wer\" kişiler için (kim). Yer için \"wo\" (nerede). Tekrar dene."},
-              {"id": "c", "de": "Das Café! Wo ist das?", "tr": "Bu kafe! Nerede?", "verdict": "ok", "feedback_tr": "Anlaşılır ve heyecanlı 🙂 Bir yabancıya önce \"Entschuldigung\" demek daha kibar olurdu.", "next": "n12"}
-            ]},
-            {"id": "n12", "type": "line", "speaker": "weber", "de": "Das Café Kastanie? Das ist nicht weit. Gehen Sie hier links und dann immer geradeaus.", "tr": "Café Kastanie mi? Uzak değil. Buradan sola dönün, sonra hep dümdüz gidin.", "gloss_tr": "Emir kipi (Sie): fiil başa gelir: Gehen Sie …", "next": "n13"},
-            {"id": "n13", "type": "line", "speaker": "lina", "de": "Super! Wir gehen am Mittwoch um drei ins Café – wie auf der Postkarte!", "tr": "Süper! Çarşamba saat üçte kafeye gidelim – kartpostaldaki gibi!", "next": "n14"},
-            {"id": "n14", "type": "choice", "prompt_tr": "Lina'ya cevap ver.", "choices": [
-              {"id": "a", "de": "Gute Idee!", "tr": "İyi fikir!", "verdict": "best", "feedback_tr": "Kısa ve doğal.", "next": "n15"},
-              {"id": "b", "de": "Ja, gern! Am Mittwoch um drei.", "tr": "Evet, memnuniyetle! Çarşamba saat üçte.", "verdict": "best", "feedback_tr": "Doğru: günle \"am\", saatle \"um\".", "next": "n15"},
-              {"id": "c", "de": "Ja, um Mittwoch.", "tr": "(edat yanlış)", "verdict": "wrong", "feedback_tr": "Günlerle \"am\" kullanılır: am Mittwoch. \"um\" saatler için: um drei. Tekrar dene."}
-            ]},
-            {"id": "n15", "type": "line", "speaker": "weber", "de": "Tschüss, ihr zwei! Schönen Tag noch!", "tr": "Hoşça kalın ikiniz! İyi günler!", "gloss_tr": "\"Schönen Tag noch\" vedalaşırken söylenen \"iyi günler\"dir.", "next": "end"},
-            {"id": "end", "type": "end"}
+            {
+              "id": "n1",
+              "type": "narration",
+              "de": "Endlich stehst du vor dem Haus in der Kastanienstraße 12. Nach sechs Stunden Reise bist du ziemlich müde, und dein Koffer ist viel zu schwer.",
+              "tr": "Sonunda Kastanienstraße 12 numaralı binanın önündesin. Altı saatlik yolculuktan sonra epey yorgunsun ve bavulun fazlasıyla ağır.",
+              "next": "n2"
+            },
+            {
+              "id": "n2",
+              "type": "narration",
+              "de": "Du klingelst, und sofort geht die Tür auf.",
+              "tr": "Zili çalıyorsun ve kapı hemen açılıyor.",
+              "next": "n3"
+            },
+            {
+              "id": "n3",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Hey, du musst {name} sein! Ich bin Lina. Komm rein, ich helfe dir mit dem Koffer.",
+              "tr": "Selam, sen {name} olmalısın! Ben Lina. Gel içeri, bavulu taşımana yardım edeyim.",
+              "gloss_tr": "\"du musst … sein\" burada bir tahmin bildirir: \"sen … olmalısın\". \"Komm rein\" = içeri gel (rein = herein).",
+              "next": "n4"
+            },
+            {
+              "id": "n4",
+              "type": "choice",
+              "prompt_tr": "Lina'ya nasıl cevap verirsin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Danke, das ist echt nett von dir! Der Koffer ist total schwer.",
+                  "tr": "Teşekkürler, bu gerçekten çok nazik! Bavul çok ağır.",
+                  "verdict": "best",
+                  "feedback_tr": "Çok doğal. \"echt\" ve \"total\" gençler arasında sık kullanılan günlük kelimeler; \"nett von dir\" = senin için nazikçe.",
+                  "next": "n6"
+                },
+                {
+                  "id": "b",
+                  "de": "Vielen Dank, das ist sehr freundlich von Ihnen.",
+                  "tr": "Çok teşekkür ederim, çok naziksiniz.",
+                  "verdict": "ok",
+                  "feedback_tr": "Dil bilgisi kusursuz, ama \"Ihnen\" resmî. Yaşıtın olan bir ev arkadaşı için fazla mesafeli; Lina'nın tepkisine bak.",
+                  "next": "n5",
+                  "flags": [
+                    "formell"
+                  ]
+                },
+                {
+                  "id": "c",
+                  "de": "Danke, aber der Koffer ist schwer nicht.",
+                  "tr": "(olumsuzluk yanlış yerde)",
+                  "verdict": "wrong",
+                  "feedback_tr": "\"nicht\" sıfattan ÖNCE gelir: \"nicht schwer\". Ayrıca anlam olarak da bavul ağır! Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n5",
+              "type": "line",
+              "speaker": "lina",
+              "de": "„Von Ihnen“? Haha, wir sind doch Mitbewohner – sag einfach „du“!",
+              "tr": "\"Sizin\" mi? Haha, ev arkadaşıyız ya – \"sen\" de gitsin!",
+              "gloss_tr": "\"doch\" burada \"ya, sonuçta\" anlamında bir vurgu kelimesidir.",
+              "next": "n6"
+            },
+            {
+              "id": "n6",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Und, wie war die Reise? Woher kommst du eigentlich?",
+              "tr": "Eee, yolculuk nasıldı? Sen aslen nerelisin?",
+              "gloss_tr": "\"war\" sein'ın geçmiş hâli (Präteritum); konuşmada \"war\" çok yaygındır. \"eigentlich\" soruyu yumuşatır.",
+              "next": "n7"
+            },
+            {
+              "id": "n7",
+              "type": "choice",
+              "prompt_tr": "Cevap ver.",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Die Reise war lang, aber okay. Ich komme aus Izmir, das liegt an der Westküste der Türkei.",
+                  "tr": "Yolculuk uzundu ama idare eder. İzmirliyim, Türkiye'nin batı kıyısında.",
+                  "verdict": "best",
+                  "feedback_tr": "Harika: \"war\" ile geçmiş ve \"das liegt …\" ile bir açıklama.",
+                  "next": "n9"
+                },
+                {
+                  "id": "b",
+                  "de": "Ich bin aus der Türkei gekommen.",
+                  "tr": "Türkiye'den geldim.",
+                  "verdict": "ok",
+                  "feedback_tr": "Doğru bir cümle, ama \"geldim\" (yolculuk) demek. Kökeni anlatmak için şimdiki zaman kullanılır: \"Ich komme aus der Türkei.\"",
+                  "next": "n8"
+                },
+                {
+                  "id": "c",
+                  "de": "Die Reise hat lang gewesen.",
+                  "tr": "(yardımcı fiil yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "\"sein\" fiili Perfekt'te \"sein\" ile kurulur: \"Die Reise ist lang gewesen.\" Konuşmada daha da doğalı: \"Die Reise war lang.\" Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n8",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Ah, du kommst also aus der Türkei – cool!",
+              "tr": "Ah, demek Türkiye'densin – harika!",
+              "next": "n9"
+            },
+            {
+              "id": "n9",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Ich komme aus Leipzig und studiere hier Architektur, schon im dritten Semester.",
+              "tr": "Ben Leipzigliyim ve burada mimarlık okuyorum, şu an üçüncü dönemdeyim.",
+              "next": "n10"
+            },
+            {
+              "id": "n10",
+              "type": "narration",
+              "de": "Lina zeigt dir die Wohnung. Die Küche ist klein, aber gemütlich, und vom Balkon aus sieht man den Park.",
+              "tr": "Lina sana evi gösteriyor. Mutfak küçük ama sıcacık ve balkondan park görünüyor.",
+              "next": "n11"
+            },
+            {
+              "id": "n11",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Das hier ist dein Zimmer. Es ist nicht riesig, aber dafür ruhig, weil es zum Hof geht.",
+              "tr": "Burası senin odan. Çok büyük değil ama buna karşılık sessiz, çünkü avluya bakıyor.",
+              "gloss_tr": "\"weil\" ile kurulan yan cümlede çekimli fiil en sona gider: …, weil es zum Hof geht.",
+              "next": "n12"
+            },
+            {
+              "id": "n12",
+              "type": "choice",
+              "prompt_tr": "Odayı nasıl buluyorsun?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Perfekt, ich finde es richtig gemütlich.",
+                  "tr": "Mükemmel, bence gerçekten çok rahat.",
+                  "verdict": "best",
+                  "feedback_tr": "\"Ich finde es …\" bir şey hakkında fikir bildirmenin doğal yolu.",
+                  "next": "n13"
+                },
+                {
+                  "id": "b",
+                  "de": "Super, weil es ist ruhig.",
+                  "tr": "(yan cümlede fiil yanlış yerde)",
+                  "verdict": "wrong",
+                  "feedback_tr": "\"weil\"den sonra fiil sona gider: \"…, weil es ruhig ist.\" Tekrar dene."
+                },
+                {
+                  "id": "c",
+                  "de": "Danke! Das Zimmer gefällt mir sehr.",
+                  "tr": "Teşekkürler! Odayı çok beğendim.",
+                  "verdict": "best",
+                  "feedback_tr": "\"gefallen\": \"Das Zimmer gefällt mir\" = oda bana hoş geliyor. Özne beğenilen şeydir.",
+                  "next": "n13"
+                }
+              ]
+            },
+            {
+              "id": "n13",
+              "type": "narration",
+              "de": "Als Lina wieder in die Küche geht, entdeckst du auf dem Schreibtisch eine alte Postkarte. Vorne ist ein kleines Café mit einer grünen Tür.",
+              "tr": "Lina tekrar mutfağa gidince çalışma masasının üstünde eski bir kartpostal fark ediyorsun. Ön yüzünde yeşil kapılı küçük bir kafe var.",
+              "next": "n14"
+            },
+            {
+              "id": "n14",
+              "type": "narration",
+              "de": "Auf der Rückseite steht in alter, schöner Schrift: „Liebe M., ich warte jeden Mittwoch um drei auf dich. – F.“",
+              "tr": "Arka yüzünde eski, güzel bir el yazısıyla şöyle yazıyor: \"Sevgili M., her çarşamba saat üçte seni bekliyorum. – F.\"",
+              "next": "n15"
+            },
+            {
+              "id": "n15",
+              "type": "choice",
+              "prompt_tr": "Ne yaparsın?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Lina, weißt du, wer M. ist?",
+                  "tr": "Lina, M.'nin kim olduğunu biliyor musun?",
+                  "verdict": "best",
+                  "feedback_tr": "Dolaylı soru: \"weißt du, wer M. ist?\" – iç soruda fiil sona gider.",
+                  "next": "n16"
+                },
+                {
+                  "id": "b",
+                  "de": "Lina, weißt du, wer ist M.?",
+                  "tr": "(iç soruda kelime sırası yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "\"Weißt du, …\" gibi bir girişten sonra iç soruda fiil sona gider: \"…, wer M. ist?\" Tekrar dene."
+                },
+                {
+                  "id": "c",
+                  "de": "Ich lese die Karte noch einmal. Wer könnte das sein?",
+                  "tr": "Kartı bir kez daha okuyorum. Bu kim olabilir?",
+                  "verdict": "best",
+                  "feedback_tr": "\"Wer könnte das sein?\" = kim olabilir? Tahmin yürütmek için güzel bir kalıp.",
+                  "next": "n17"
+                }
+              ]
+            },
+            {
+              "id": "n16",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Keine Ahnung! Aber Herr Albrecht von unten wohnt schon ewig hier. Vielleicht weiß er, wer das ist.",
+              "tr": "Hiçbir fikrim yok! Ama alt kattaki Bay Albrecht ezelden beri burada oturuyor. Belki kim olduğunu biliyordur.",
+              "next": "n18"
+            },
+            {
+              "id": "n17",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Oh, wie spannend! Frag doch mal Herrn Albrecht von unten – der wohnt schon ewig hier.",
+              "tr": "Ooo, ne heyecanlı! Alt kattaki Bay Albrecht'e bir sor – o ezelden beri burada oturuyor.",
+              "gloss_tr": "\"Frag doch mal …\" = bir sorsana; \"doch mal\" öneriyi yumuşatır.",
+              "next": "n18"
+            },
+            {
+              "id": "n18",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Aber jetzt erst mal: Hast du Hunger? Ich habe Pizza gemacht.",
+              "tr": "Ama şimdi önce şu: Acıktın mı? Pizza yaptım.",
+              "next": "n19"
+            },
+            {
+              "id": "n19",
+              "type": "choice",
+              "prompt_tr": "Lina'ya cevap ver.",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Ja, total! Ich habe seit heute Morgen nichts gegessen.",
+                  "tr": "Evet, hem de nasıl! Bu sabahtan beri bir şey yemedim.",
+                  "verdict": "best",
+                  "feedback_tr": "Perfekt: \"habe … gegessen\". \"seit heute Morgen\" = bu sabahtan beri.",
+                  "next": "n20"
+                },
+                {
+                  "id": "b",
+                  "de": "Danke, aber ich bin echt müde. Ich glaube, ich gehe gleich schlafen.",
+                  "tr": "Teşekkürler ama gerçekten yorgunum. Sanırım hemen yatacağım.",
+                  "verdict": "best",
+                  "feedback_tr": "Kibar bir ret. \"Ich glaube, …\" ile fikrini yumuşatarak söylüyorsun.",
+                  "next": "n21"
+                },
+                {
+                  "id": "c",
+                  "de": "Ja, ich bin Hunger.",
+                  "tr": "(Türkçeden birebir çeviri)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Açlık Almancada \"sahip olunan\" bir şeydir: \"Ich habe Hunger.\" Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n20",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Dann los, die Pizza ist noch warm!",
+              "tr": "O zaman hadi, pizza hâlâ sıcak!",
+              "next": "end"
+            },
+            {
+              "id": "n21",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Klar, kein Problem. Schlaf gut, {name}! Morgen zeige ich dir den besten Bäcker im Kiez.",
+              "tr": "Tabii, sorun değil. İyi uykular, {name}! Yarın sana mahalledeki en iyi fırını göstereceğim.",
+              "next": "end"
+            },
+            {
+              "id": "end",
+              "type": "end"
+            }
           ],
-          "recap_tr": "Fırında kibarca sipariş verdin, ödedin ve duvardaki fotoğrafta kartpostaldaki kafeyi buldun: Café Kastanie. Lina ile çarşamba saat üçte oraya gitmeye karar verdiniz.",
-          "vocab": ["baeckerei", "broetchen", "brezel", "was_darf_es_sein", "ich_haette_gern", "sonst_noch_etwas", "das_wars", "mit_karte_zahlen", "links", "geradeaus", "schoenen_tag", "gute_idee"],
+          "recap_tr": "Lina'nın yaşadığı paylaşımlı eve geldin; yolculuğunu ve nereli olduğunu anlattın, odanın neden sessiz olduğunu öğrendin. Masada eski bir kartpostal buldun: \"Sevgili M., her çarşamba saat üçte seni bekliyorum. – F.\" Belki alt kattaki Bay Albrecht bir şey biliyordur.",
+          "vocab": [
+            "koffer",
+            "schwer",
+            "nett",
+            "woher",
+            "eigentlich",
+            "zimmer",
+            "ruhig",
+            "weil",
+            "gemuetlich",
+            "postkarte",
+            "wissen",
+            "keine_ahnung",
+            "hunger",
+            "muede"
+          ],
           "grammar": [
-            {"title_tr": "Ich hätte gern … / Ich will …", "body_tr": "İkisi de dil bilgisi olarak doğru, ama ton çok farklı. Sipariş verirken \"Ich hätte gern\" ya da \"Ich möchte\".", "example_de": "Ich hätte gern zwei Brötchen, bitte.", "concept": "g_hoefliche_bitte"},
-            {"title_tr": "eine Brezel, einen Kaffee", "body_tr": "Akkusativ'de sadece eril artikel değişir: ein → einen. Dişil (eine) ve nötr (ein) aynı kalır.", "example_de": "Ich nehme eine Brezel und einen Kaffee.", "concept": "g_akkusativ"},
-            {"title_tr": "am Mittwoch um drei", "body_tr": "Günlerle \"am\", saatlerle \"um\".", "example_de": "Wir gehen am Mittwoch um drei ins Café.", "concept": "g_zeit"}
+            {
+              "title_tr": "weil: fiil sona",
+              "body_tr": "\"weil\" ile başlayan yan cümlede çekimli fiil en sona gider. Türkçedeki \"-dığı için\" yapısında fiilin sonda olmasına benzer.",
+              "example_de": "Das Zimmer ist ruhig, weil es zum Hof geht."
+            },
+            {
+              "title_tr": "Dolaylı soru",
+              "body_tr": "\"Weißt du, …\" gibi bir girişten sonra soru kelimesi kalır ama fiil sona gider.",
+              "example_de": "Weißt du, wer M. ist?"
+            },
+            {
+              "title_tr": "Geçmiş: war ve Perfekt",
+              "body_tr": "\"sein\" fiilinin geçmişi konuşmada genelde \"war\"dır. Diğer fiillerde çoğunlukla Perfekt kullanılır.",
+              "example_de": "Die Reise war lang. Ich habe nichts gegessen.",
+              "concept": "g_perfekt"
+            }
           ],
           "quiz": [
-            {"id": "q1", "question_tr": "Frau Weber'in tarifine göre kafeye nasıl gidilir?", "options": ["Sağa, sonra sola", "Sola, sonra dümdüz", "Dümdüz, sonra sağa"], "answer": 1, "explain_tr": "\"Gehen Sie hier links und dann immer geradeaus.\""},
-            {"id": "q2", "question_tr": "\"Sonst noch etwas?\" ne demek?", "options": ["Ne kadar?", "Başka bir şey?", "Kartla mı?"], "answer": 1, "explain_tr": "sonst = başka; noch etwas = bir şey daha."},
-            {"id": "q3", "question_tr": "Lina ile kafeye ne zaman gideceksiniz?", "options": ["Pazartesi sabah", "Çarşamba saat üçte", "Bugün akşam"], "answer": 1, "explain_tr": "\"am Mittwoch um drei\" – kartpostaldaki gibi."}
+            {
+              "id": "q1",
+              "question_tr": "Oda neden sessiz?",
+              "options": [
+                "Avluya baktığı için",
+                "Çok küçük olduğu için",
+                "Lina sessiz olduğu için"
+              ],
+              "answer": 0,
+              "explain_tr": "\"…, weil es zum Hof geht.\""
+            },
+            {
+              "id": "q2",
+              "question_tr": "Balkondan ne görünüyor?",
+              "options": [
+                "Kafe",
+                "Park",
+                "Tren istasyonu"
+              ],
+              "answer": 1,
+              "explain_tr": "\"vom Balkon aus sieht man den Park\""
+            },
+            {
+              "id": "q3",
+              "question_tr": "F. kartpostalda ne yazmış?",
+              "options": [
+                "Her çarşamba saat üçte bekliyorum",
+                "Yarın geliyorum",
+                "Seni arayacağım"
+              ],
+              "answer": 0,
+              "explain_tr": "\"ich warte jeden Mittwoch um drei auf dich\""
+            }
+          ],
+          "teaser_tr": "Ertesi sabah Lina seni mahallenin en iyi fırınına götürüyor. Fırının duvarındaki bir fotoğraf sana tanıdık gelecek…"
+        },
+        {
+          "id": "nib_e2_a1",
+          "number": 2,
+          "level": "A1",
+          "title": "Beim Bäcker",
+          "title_tr": "Fırında",
+          "narrative_tr": "Lina ile köşedeki fırına git, kahvaltılık al – ve kartpostaldaki kafenin izini bul.",
+          "objective_tr": "Kibarca sipariş vermek, Akkusativ (eine Brezel) ve fiyat/ödeme.",
+          "minutes": 6,
+          "start": "n1",
+          "scenario": "baeckerei",
+          "nodes": [
+            {
+              "id": "n1",
+              "type": "narration",
+              "de": "Am Morgen gehen Lina und du zur Bäckerei an der Ecke. Es riecht nach Brot.",
+              "tr": "Sabah Lina ile köşedeki fırına gidiyorsunuz. Ekmek kokuyor.",
+              "next": "n2"
+            },
+            {
+              "id": "n2",
+              "type": "line",
+              "speaker": "weber",
+              "de": "Guten Morgen! Was darf es sein?",
+              "tr": "Günaydın! Ne alırsınız?",
+              "gloss_tr": "Satıcıların klasik sorusu. Kelimesi kelimesine: \"Ne olabilir?\"",
+              "next": "n3"
+            },
+            {
+              "id": "n3",
+              "type": "choice",
+              "prompt_tr": "Frau Weber'e siparişini ver.",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Ich hätte gern zwei Brötchen, bitte.",
+                  "tr": "İki ekmek alabilir miyim, lütfen?",
+                  "verdict": "best",
+                  "feedback_tr": "Mükemmel ve kibar. \"Ich hätte gern …\" sipariş vermenin en doğal yollarından biri.",
+                  "next": "n5"
+                },
+                {
+                  "id": "b",
+                  "de": "Ich will zwei Brötchen.",
+                  "tr": "İki ekmek istiyorum.",
+                  "verdict": "ok",
+                  "feedback_tr": "Dil bilgisi doğru ve anlaşılıyor. Ama \"Ich will\" sert duyulur, \"istiyorum!\" gibi. Frau Weber'in tepkisine bak.",
+                  "next": "n4",
+                  "flags": [
+                    "direkt"
+                  ]
+                },
+                {
+                  "id": "c",
+                  "de": "Ich bin zwei Brötchen.",
+                  "tr": "(sein ile)",
+                  "verdict": "wrong",
+                  "feedback_tr": "\"Ich bin\" = \"ben …-im\". Yani \"Ben iki ekmeğim\" demiş oldun 🙂 İstek için \"Ich hätte gern …\" ya da \"Ich möchte …\". Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n4",
+              "type": "line",
+              "speaker": "lina",
+              "de": "(leise) Sag lieber „Ich hätte gern …“. Das klingt netter.",
+              "tr": "(fısıldayarak) \"Ich hätte gern …\" de, daha nazik duruyor.",
+              "next": "n5"
+            },
+            {
+              "id": "n5",
+              "type": "line",
+              "speaker": "weber",
+              "de": "Gern. Sonst noch etwas?",
+              "tr": "Memnuniyetle. Başka bir şey?",
+              "next": "n6"
+            },
+            {
+              "id": "n6",
+              "type": "choice",
+              "prompt_tr": "Bir brezel de istiyorsun.",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Ja, eine Brezel, bitte.",
+                  "tr": "Evet, bir brezel lütfen.",
+                  "verdict": "best",
+                  "feedback_tr": "Doğru: die Brezel → eine Brezel. Dişil isimlerde Akkusativ değişmez.",
+                  "next": "n7a",
+                  "flags": [
+                    "brezel"
+                  ]
+                },
+                {
+                  "id": "b",
+                  "de": "Ja, einen Brezel, bitte.",
+                  "tr": "(artikel yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "\"einen\" sadece eril isimler içindir (einen Kaffee). Brezel dişildir: eine Brezel. Tekrar dene."
+                },
+                {
+                  "id": "c",
+                  "de": "Nein, danke. Das war's.",
+                  "tr": "Hayır, teşekkürler. Bu kadar.",
+                  "verdict": "best",
+                  "feedback_tr": "Doğal bir cevap. \"Das war's\" = bu kadar.",
+                  "next": "n7b"
+                }
+              ]
+            },
+            {
+              "id": "n7a",
+              "type": "line",
+              "speaker": "weber",
+              "de": "Das macht zwei Euro vierzig.",
+              "tr": "İki avro kırk sent ediyor.",
+              "gloss_tr": "Fiyatlarda \"Euro\" çoğul eki almaz ve sent kısmı sona eklenir: zwei Euro vierzig = 2,40 €.",
+              "next": "n8"
+            },
+            {
+              "id": "n7b",
+              "type": "line",
+              "speaker": "weber",
+              "de": "Das macht einen Euro zwanzig.",
+              "tr": "Bir avro yirmi sent ediyor.",
+              "gloss_tr": "\"machen\" fiilinin nesnesi olduğu için: einen Euro.",
+              "next": "n8"
+            },
+            {
+              "id": "n8",
+              "type": "choice",
+              "prompt_tr": "Nasıl ödersin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Kann ich mit Karte zahlen?",
+                  "tr": "Kartla ödeyebilir miyim?",
+                  "verdict": "best",
+                  "feedback_tr": "Doğru soru: Kann (başta) … zahlen (sonda). Almanya'da bazı küçük dükkânlar sadece nakit kabul eder; sormak iyi fikir.",
+                  "next": "n9",
+                  "flags": [
+                    "karte"
+                  ]
+                },
+                {
+                  "id": "b",
+                  "de": "Hier, bitte.",
+                  "tr": "Buyurun.",
+                  "verdict": "best",
+                  "feedback_tr": "Para uzatırken \"Hier, bitte\" ya da \"Bitte schön\" denir.",
+                  "next": "n10"
+                },
+                {
+                  "id": "c",
+                  "de": "Wie viel kostet?",
+                  "tr": "(eksik)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Fiyat zaten söylendi! Ayrıca cümlede özne eksik: \"Wie viel kostet das?\" Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n9",
+              "type": "line",
+              "speaker": "weber",
+              "de": "Ja, natürlich. Bitte hier.",
+              "tr": "Evet, tabii ki. Buyurun, buraya.",
+              "next": "n10"
+            },
+            {
+              "id": "n10",
+              "type": "narration",
+              "de": "An der Wand hängt ein altes Foto: ein kleines Café mit einer grünen Tür. Das Café von der Postkarte!",
+              "tr": "Duvarda eski bir fotoğraf asılı: yeşil kapılı küçük bir kafe. Kartpostaldaki kafe!",
+              "next": "n11"
+            },
+            {
+              "id": "n11",
+              "type": "choice",
+              "prompt_tr": "Frau Weber'e kafeyi sor.",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Entschuldigung, wo ist das Café?",
+                  "tr": "Affedersiniz, bu kafe nerede?",
+                  "verdict": "best",
+                  "feedback_tr": "Mükemmel: \"Entschuldigung\" ile dikkat çekip \"wo\" ile yer sordun.",
+                  "next": "n12"
+                },
+                {
+                  "id": "b",
+                  "de": "Entschuldigung, wer ist das Café?",
+                  "tr": "(soru kelimesi yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "\"wer\" kişiler için (kim). Yer için \"wo\" (nerede). Tekrar dene."
+                },
+                {
+                  "id": "c",
+                  "de": "Das Café! Wo ist das?",
+                  "tr": "Bu kafe! Nerede?",
+                  "verdict": "ok",
+                  "feedback_tr": "Anlaşılır ve heyecanlı 🙂 Bir yabancıya önce \"Entschuldigung\" demek daha kibar olurdu.",
+                  "next": "n12"
+                }
+              ]
+            },
+            {
+              "id": "n12",
+              "type": "line",
+              "speaker": "weber",
+              "de": "Das Café Kastanie? Das ist nicht weit. Gehen Sie hier links und dann immer geradeaus.",
+              "tr": "Café Kastanie mi? Uzak değil. Buradan sola dönün, sonra hep dümdüz gidin.",
+              "gloss_tr": "Emir kipi (Sie): fiil başa gelir: Gehen Sie …",
+              "next": "n13"
+            },
+            {
+              "id": "n13",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Super! Wir gehen am Mittwoch um drei ins Café – wie auf der Postkarte!",
+              "tr": "Süper! Çarşamba saat üçte kafeye gidelim – kartpostaldaki gibi!",
+              "next": "n14"
+            },
+            {
+              "id": "n14",
+              "type": "choice",
+              "prompt_tr": "Lina'ya cevap ver.",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Gute Idee!",
+                  "tr": "İyi fikir!",
+                  "verdict": "best",
+                  "feedback_tr": "Kısa ve doğal.",
+                  "next": "n15"
+                },
+                {
+                  "id": "b",
+                  "de": "Ja, gern! Am Mittwoch um drei.",
+                  "tr": "Evet, memnuniyetle! Çarşamba saat üçte.",
+                  "verdict": "best",
+                  "feedback_tr": "Doğru: günle \"am\", saatle \"um\".",
+                  "next": "n15"
+                },
+                {
+                  "id": "c",
+                  "de": "Ja, um Mittwoch.",
+                  "tr": "(edat yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Günlerle \"am\" kullanılır: am Mittwoch. \"um\" saatler için: um drei. Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n15",
+              "type": "line",
+              "speaker": "weber",
+              "de": "Tschüss, ihr zwei! Schönen Tag noch!",
+              "tr": "Hoşça kalın ikiniz! İyi günler!",
+              "gloss_tr": "\"Schönen Tag noch\" vedalaşırken söylenen \"iyi günler\"dir.",
+              "next": "end"
+            },
+            {
+              "id": "end",
+              "type": "end"
+            }
+          ],
+          "recap_tr": "Fırında kibarca sipariş verdin, ödedin ve duvardaki fotoğrafta kartpostaldaki kafeyi buldun: Café Kastanie. Lina ile çarşamba saat üçte oraya gitmeye karar verdiniz.",
+          "vocab": [
+            "baeckerei",
+            "broetchen",
+            "brezel",
+            "was_darf_es_sein",
+            "ich_haette_gern",
+            "sonst_noch_etwas",
+            "das_wars",
+            "mit_karte_zahlen",
+            "links",
+            "geradeaus",
+            "schoenen_tag",
+            "gute_idee"
+          ],
+          "grammar": [
+            {
+              "title_tr": "Ich hätte gern … / Ich will …",
+              "body_tr": "İkisi de dil bilgisi olarak doğru, ama ton çok farklı. Sipariş verirken \"Ich hätte gern\" ya da \"Ich möchte\".",
+              "example_de": "Ich hätte gern zwei Brötchen, bitte.",
+              "concept": "g_hoefliche_bitte"
+            },
+            {
+              "title_tr": "eine Brezel, einen Kaffee",
+              "body_tr": "Akkusativ'de sadece eril artikel değişir: ein → einen. Dişil (eine) ve nötr (ein) aynı kalır.",
+              "example_de": "Ich nehme eine Brezel und einen Kaffee.",
+              "concept": "g_akkusativ"
+            },
+            {
+              "title_tr": "am Mittwoch um drei",
+              "body_tr": "Günlerle \"am\", saatlerle \"um\".",
+              "example_de": "Wir gehen am Mittwoch um drei ins Café.",
+              "concept": "g_zeit"
+            }
+          ],
+          "quiz": [
+            {
+              "id": "q1",
+              "question_tr": "Frau Weber'in tarifine göre kafeye nasıl gidilir?",
+              "options": [
+                "Sağa, sonra sola",
+                "Sola, sonra dümdüz",
+                "Dümdüz, sonra sağa"
+              ],
+              "answer": 1,
+              "explain_tr": "\"Gehen Sie hier links und dann immer geradeaus.\""
+            },
+            {
+              "id": "q2",
+              "question_tr": "\"Sonst noch etwas?\" ne demek?",
+              "options": [
+                "Ne kadar?",
+                "Başka bir şey?",
+                "Kartla mı?"
+              ],
+              "answer": 1,
+              "explain_tr": "sonst = başka; noch etwas = bir şey daha."
+            },
+            {
+              "id": "q3",
+              "question_tr": "Lina ile kafeye ne zaman gideceksiniz?",
+              "options": [
+                "Pazartesi sabah",
+                "Çarşamba saat üçte",
+                "Bugün akşam"
+              ],
+              "answer": 1,
+              "explain_tr": "\"am Mittwoch um drei\" – kartpostaldaki gibi."
+            }
           ],
           "teaser_tr": "Ama önce bir sorun var: Bürgeramt'tan randevu lazım ve internette her şey dolu. Herr Albrecht yardım edebilir mi?"
         },
         {
-          "id": "nib_e3_a1", "number": 3, "level": "A1",
-          "title": "Der Termin", "title_tr": "Randevu",
+          "id": "nib_e3_a1",
+          "number": 3,
+          "level": "A1",
+          "title": "Der Termin",
+          "title_tr": "Randevu",
           "narrative_tr": "İkamet kaydı (Anmeldung) için randevu al – ve Herr Albrecht'ten kartpostal hakkında ilk ipucunu öğren.",
           "objective_tr": "\"Sie\" ile resmî konuşmak, telefonda randevu almak, \"halb zehn\" gibi saatleri anlamak.",
-          "minutes": 8, "start": "n1", "scenario": "termin",
+          "minutes": 8,
+          "start": "n1",
+          "scenario": "termin",
           "nodes": [
-            {"id": "n1", "type": "narration", "de": "Montag. Du brauchst einen Termin beim Bürgeramt – für die Anmeldung. Aber online ist alles voll.", "tr": "Pazartesi. İkamet kaydı için Bürgeramt'tan randevuya ihtiyacın var. Ama internette her yer dolu.", "next": "n2"},
-            {"id": "n2", "type": "narration", "de": "Du klopfst bei Herrn Albrecht. Ein alter Mann mit Brille öffnet.", "tr": "Bay Albrecht'in kapısını çalıyorsun. Gözlüklü yaşlı bir adam açıyor.", "next": "n3"},
-            {"id": "n3", "type": "line", "speaker": "albrecht", "de": "Guten Tag! Ah, Sie sind neu hier, oder?", "tr": "İyi günler! Ah, siz buraya yeni geldiniz, değil mi?", "next": "n4"},
-            {"id": "n4", "type": "choice", "prompt_tr": "Herr Albrecht'e cevap ver.", "choices": [
-              {"id": "a", "de": "Guten Tag, Herr Albrecht. Ja, ich bin {name}. Ich wohne oben bei Lina.", "tr": "İyi günler, Bay Albrecht. Evet, ben {name}. Yukarıda, Lina'nın yanında oturuyorum.", "verdict": "best", "feedback_tr": "Mükemmel: soyadıyla hitap, \"Guten Tag\" ve tam cümleler.", "next": "n6"},
-              {"id": "b", "de": "Hallo! Ja, ich bin neu. Und du?", "tr": "Selam! Evet, yeniyim. Ya sen?", "verdict": "ok", "feedback_tr": "Anlaşılıyor, ama tanımadığın yaşlı bir komşuya \"du\" demek fazla samimi. Tepkisine bak.", "next": "n5", "flags": ["geduzt"]},
-              {"id": "c", "de": "Guten Tag. Ja, ich neu hier.", "tr": "(fiil eksik)", "verdict": "wrong", "feedback_tr": "Fiil eksik: \"Ich bin neu hier.\" Almanca cümlede çekimli fiil zorunludur. Tekrar dene."}
-            ]},
-            {"id": "n5", "type": "line", "speaker": "albrecht", "de": "(lacht) „Du“? Wir kennen uns ja noch nicht. Sagen wir lieber „Sie“, ja?", "tr": "(gülerek) \"Sen\" mi? Daha tanışmıyoruz ki. \"Siz\" diyelim, olur mu?", "gloss_tr": "Almanya'da sen/siz geçişi genelde açıkça önerilir; o zamana kadar \"Sie\" kullanılır.", "next": "n6"},
-            {"id": "n6", "type": "line", "speaker": "albrecht", "de": "Kann ich Ihnen helfen?", "tr": "Size yardım edebilir miyim?", "gloss_tr": "\"helfen\" Dativ ister: Ihnen (size).", "next": "n7"},
-            {"id": "n7", "type": "choice", "prompt_tr": "Sorununu anlat.", "choices": [
-              {"id": "a", "de": "Ja, bitte. Ich brauche einen Termin für die Anmeldung.", "tr": "Evet, lütfen. İkamet kaydı için bir randevuya ihtiyacım var.", "verdict": "best", "feedback_tr": "Doğru: der Termin → einen Termin (Akkusativ).", "next": "n8"},
-              {"id": "b", "de": "Ja. Ich brauche ein Termin.", "tr": "(artikel yanlış)", "verdict": "wrong", "feedback_tr": "\"Termin\" erildir (der Termin). \"brauchen\" fiilinin nesnesi olunca: einen Termin. Tekrar dene."},
-              {"id": "c", "de": "Ich möchte einen Termin vereinbaren, aber online ist alles voll.", "tr": "Randevu almak istiyorum ama internette her yer dolu.", "verdict": "best", "feedback_tr": "Harika, iki parçalı bir cümle: möchte … vereinbaren, aber … Mastar sonda.", "next": "n8"}
-            ]},
-            {"id": "n8", "type": "line", "speaker": "albrecht", "de": "Ach, das Bürgeramt! Rufen Sie morgen früh um acht an. Dann gibt es oft neue Termine.", "tr": "Ah, Bürgeramt! Yarın sabah saat sekizde arayın. O saatte genelde yeni randevular açılır.", "gloss_tr": "anrufen ayrılabilen bir fiildir: Rufen Sie … an. \"es gibt\" = var.", "next": "n9"},
-            {"id": "n9", "type": "narration", "de": "Am nächsten Morgen, um Punkt acht, rufst du an.", "tr": "Ertesi sabah, tam saat sekizde arıyorsun.", "next": "n10"},
-            {"id": "n10", "type": "line", "speaker": "amt", "de": "Bürgeramt, guten Morgen. Wie kann ich Ihnen helfen?", "tr": "Bürgeramt, günaydın. Size nasıl yardımcı olabilirim?", "next": "n11"},
-            {"id": "n11", "type": "choice", "prompt_tr": "Ne istediğini söyle.", "choices": [
-              {"id": "a", "de": "Guten Morgen. Ich möchte einen Termin für eine Anmeldung vereinbaren.", "tr": "Günaydın. İkamet kaydı için bir randevu almak istiyorum.", "verdict": "best", "feedback_tr": "Tam istenen kalıp: einen Termin vereinbaren.", "next": "n12"},
-              {"id": "b", "de": "Hallo, ich will Anmeldung.", "tr": "(sert ve eksik)", "verdict": "wrong", "feedback_tr": "Ne istediğin anlaşılıyor ama hem sert (ich will) hem eksik: artikel ve randevu kelimesi yok. Dene: \"Ich brauche einen Termin für die Anmeldung.\""},
-              {"id": "c", "de": "Guten Morgen. Ich brauche bitte einen Termin für die Anmeldung.", "tr": "Günaydın. İkamet kaydı için bir randevuya ihtiyacım var, lütfen.", "verdict": "best", "feedback_tr": "Net ve kibar.", "next": "n12"}
-            ]},
-            {"id": "n12", "type": "line", "speaker": "amt", "de": "Einen Moment … Passt Ihnen Donnerstag um halb zehn?", "tr": "Bir saniye… Perşembe dokuz buçuk size uyar mı?", "gloss_tr": "Dikkat: \"halb zehn\" = 9:30 (ona yarım kala). Almancada \"yarım\", bir SONRAKİ saate göre söylenir.", "next": "n13"},
-            {"id": "n13", "type": "choice", "prompt_tr": "Cevap ver.", "choices": [
-              {"id": "a", "de": "Ja, Donnerstag um halb zehn passt gut.", "tr": "Evet, perşembe dokuz buçuk iyi olur.", "verdict": "best", "feedback_tr": "Doğru. \"passen\" = uymak.", "next": "n15"},
-              {"id": "b", "de": "Donnerstag kann ich leider nicht. Geht auch Freitag?", "tr": "Perşembe maalesef olmuyor. Cuma da olur mu?", "verdict": "best", "feedback_tr": "Kibar bir ret ve alternatif: \"leider\" + \"Geht auch …?\"", "next": "n14", "flags": ["freitag"]},
-              {"id": "c", "de": "Ja, gut – um halb zehn, also um 10:30 Uhr.", "tr": "(saat yanlış anlaşıldı)", "verdict": "wrong", "feedback_tr": "Dikkat! \"halb zehn\" 10:30 değil, 9:30 demektir: \"ona doğru yarım\". 10:30 = halb elf. Tekrar dene."}
-            ]},
-            {"id": "n14", "type": "line", "speaker": "amt", "de": "Freitag um elf Uhr ist auch frei. Ich trage Sie ein.", "tr": "Cuma saat on bir de boş. Sizi kaydediyorum.", "next": "n16"},
-            {"id": "n15", "type": "line", "speaker": "amt", "de": "Gut. Ich trage Sie ein: Donnerstag, 9:30 Uhr.", "tr": "Peki. Sizi kaydediyorum: Perşembe, 9:30.", "next": "n16"},
-            {"id": "n16", "type": "line", "speaker": "amt", "de": "Bitte bringen Sie Ihren Pass und die Wohnungsgeberbestätigung mit.", "tr": "Lütfen pasaportunuzu ve ev sahibi onay belgesini getirin.", "gloss_tr": "Wohnungsgeberbestätigung: ev sahibinin taşındığını onaylayan belge. Gerekli belgeler şehre göre değişebilir; resmî siteyi kontrol et.", "next": "n17"},
-            {"id": "n17", "type": "choice", "prompt_tr": "Uzun kelimeyi anlamadın. Ne yaparsın?", "choices": [
-              {"id": "a", "de": "Wie bitte? Können Sie das bitte wiederholen?", "tr": "Efendim? Bunu tekrarlayabilir misiniz lütfen?", "verdict": "best", "feedback_tr": "Anlamadığında sormak en önemli becerilerden biri. \"Können Sie das wiederholen?\" her zaman işe yarar.", "next": "n18", "flags": ["nachgefragt"]},
-              {"id": "b", "de": "Alles klar, vielen Dank!", "tr": "Tamamdır, çok teşekkürler!", "verdict": "ok", "feedback_tr": "Kibar, ama anlamadığın bir şeyi onaylamak riskli. Sorarak öğrenmek daha güvenli!", "next": "n19"}
-            ]},
-            {"id": "n18", "type": "line", "speaker": "amt", "de": "Natürlich: Ihren Pass – und die Wohnungs-geber-bestätigung. Die bekommen Sie von Ihrem Vermieter.", "tr": "Tabii: pasaportunuz – ve ev-sahibi-onay-belgesi. Onu ev sahibinizden alırsınız.", "next": "n19"},
-            {"id": "n19", "type": "line", "speaker": "amt", "de": "Auf Wiederhören!", "tr": "Hoşça kalın! (telefonda)", "gloss_tr": "Telefonda \"Auf Wiedersehen\" (tekrar görüşmek üzere) yerine \"Auf Wiederhören\" (tekrar duymak üzere) denir.", "next": "n20"},
-            {"id": "n20", "type": "narration", "de": "Später zeigst du Herrn Albrecht die Postkarte. Er schaut lange auf die Karte.", "tr": "Sonra kartpostalı Bay Albrecht'e gösteriyorsun. Karta uzun uzun bakıyor.", "next": "n21"},
-            {"id": "n21", "type": "line", "speaker": "albrecht", "de": "Ich war vierzig Jahre Briefträger hier. „M.“ – das ist Marlene. Sie hat in Ihrem Zimmer gewohnt. Vor vielen Jahren.", "tr": "Kırk yıl burada postacılık yaptım. \"M.\" – o Marlene. Sizin odanızda otururdu. Yıllar önce.", "gloss_tr": "\"hat … gewohnt\" Perfekt'tir (geçmiş zaman): haben + Partizip II (gewohnt) sonda.", "next": "n22"},
-            {"id": "n22", "type": "choice", "prompt_tr": "Ne sorarsın?", "choices": [
-              {"id": "a", "de": "Und wer ist F.?", "tr": "Peki F. kim?", "verdict": "best", "feedback_tr": "Doğru soru kelimesi: wer = kim.", "next": "n23"},
-              {"id": "b", "de": "Wo wohnt Marlene jetzt?", "tr": "Marlene şimdi nerede oturuyor?", "verdict": "best", "feedback_tr": "Mükemmel: wo + wohnt (2. sıra) + Marlene.", "next": "n23"},
-              {"id": "c", "de": "Wo Marlene wohnt jetzt?", "tr": "(kelime sırası yanlış)", "verdict": "wrong", "feedback_tr": "Soru kelimesinden hemen sonra fiil gelir: \"Wo wohnt Marlene jetzt?\" Tekrar dene."}
-            ]},
-            {"id": "n23", "type": "line", "speaker": "albrecht", "de": "Das weiß ich leider nicht. Aber das Café Kastanie gibt es noch! Gehen Sie doch am Mittwoch hin.", "tr": "Maalesef bilmiyorum. Ama Café Kastanie hâlâ duruyor! Çarşamba günü bir gidin.", "next": "end"},
-            {"id": "end", "type": "end"}
+            {
+              "id": "n1",
+              "type": "narration",
+              "de": "Montag. Du brauchst einen Termin beim Bürgeramt – für die Anmeldung. Aber online ist alles voll.",
+              "tr": "Pazartesi. İkamet kaydı için Bürgeramt'tan randevuya ihtiyacın var. Ama internette her yer dolu.",
+              "next": "n2"
+            },
+            {
+              "id": "n2",
+              "type": "narration",
+              "de": "Du klopfst bei Herrn Albrecht. Ein alter Mann mit Brille öffnet.",
+              "tr": "Bay Albrecht'in kapısını çalıyorsun. Gözlüklü yaşlı bir adam açıyor.",
+              "next": "n3"
+            },
+            {
+              "id": "n3",
+              "type": "line",
+              "speaker": "albrecht",
+              "de": "Guten Tag! Ah, Sie sind neu hier, oder?",
+              "tr": "İyi günler! Ah, siz buraya yeni geldiniz, değil mi?",
+              "next": "n4"
+            },
+            {
+              "id": "n4",
+              "type": "choice",
+              "prompt_tr": "Herr Albrecht'e cevap ver.",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Guten Tag, Herr Albrecht. Ja, ich bin {name}. Ich wohne oben bei Lina.",
+                  "tr": "İyi günler, Bay Albrecht. Evet, ben {name}. Yukarıda, Lina'nın yanında oturuyorum.",
+                  "verdict": "best",
+                  "feedback_tr": "Mükemmel: soyadıyla hitap, \"Guten Tag\" ve tam cümleler.",
+                  "next": "n6"
+                },
+                {
+                  "id": "b",
+                  "de": "Hallo! Ja, ich bin neu. Und du?",
+                  "tr": "Selam! Evet, yeniyim. Ya sen?",
+                  "verdict": "ok",
+                  "feedback_tr": "Anlaşılıyor, ama tanımadığın yaşlı bir komşuya \"du\" demek fazla samimi. Tepkisine bak.",
+                  "next": "n5",
+                  "flags": [
+                    "geduzt"
+                  ]
+                },
+                {
+                  "id": "c",
+                  "de": "Guten Tag. Ja, ich neu hier.",
+                  "tr": "(fiil eksik)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Fiil eksik: \"Ich bin neu hier.\" Almanca cümlede çekimli fiil zorunludur. Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n5",
+              "type": "line",
+              "speaker": "albrecht",
+              "de": "(lacht) „Du“? Wir kennen uns ja noch nicht. Sagen wir lieber „Sie“, ja?",
+              "tr": "(gülerek) \"Sen\" mi? Daha tanışmıyoruz ki. \"Siz\" diyelim, olur mu?",
+              "gloss_tr": "Almanya'da sen/siz geçişi genelde açıkça önerilir; o zamana kadar \"Sie\" kullanılır.",
+              "next": "n6"
+            },
+            {
+              "id": "n6",
+              "type": "line",
+              "speaker": "albrecht",
+              "de": "Kann ich Ihnen helfen?",
+              "tr": "Size yardım edebilir miyim?",
+              "gloss_tr": "\"helfen\" Dativ ister: Ihnen (size).",
+              "next": "n7"
+            },
+            {
+              "id": "n7",
+              "type": "choice",
+              "prompt_tr": "Sorununu anlat.",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Ja, bitte. Ich brauche einen Termin für die Anmeldung.",
+                  "tr": "Evet, lütfen. İkamet kaydı için bir randevuya ihtiyacım var.",
+                  "verdict": "best",
+                  "feedback_tr": "Doğru: der Termin → einen Termin (Akkusativ).",
+                  "next": "n8"
+                },
+                {
+                  "id": "b",
+                  "de": "Ja. Ich brauche ein Termin.",
+                  "tr": "(artikel yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "\"Termin\" erildir (der Termin). \"brauchen\" fiilinin nesnesi olunca: einen Termin. Tekrar dene."
+                },
+                {
+                  "id": "c",
+                  "de": "Ich möchte einen Termin vereinbaren, aber online ist alles voll.",
+                  "tr": "Randevu almak istiyorum ama internette her yer dolu.",
+                  "verdict": "best",
+                  "feedback_tr": "Harika, iki parçalı bir cümle: möchte … vereinbaren, aber … Mastar sonda.",
+                  "next": "n8"
+                }
+              ]
+            },
+            {
+              "id": "n8",
+              "type": "line",
+              "speaker": "albrecht",
+              "de": "Ach, das Bürgeramt! Rufen Sie morgen früh um acht an. Dann gibt es oft neue Termine.",
+              "tr": "Ah, Bürgeramt! Yarın sabah saat sekizde arayın. O saatte genelde yeni randevular açılır.",
+              "gloss_tr": "anrufen ayrılabilen bir fiildir: Rufen Sie … an. \"es gibt\" = var.",
+              "next": "n9"
+            },
+            {
+              "id": "n9",
+              "type": "narration",
+              "de": "Am nächsten Morgen, um Punkt acht, rufst du an.",
+              "tr": "Ertesi sabah, tam saat sekizde arıyorsun.",
+              "next": "n10"
+            },
+            {
+              "id": "n10",
+              "type": "line",
+              "speaker": "amt",
+              "de": "Bürgeramt, guten Morgen. Wie kann ich Ihnen helfen?",
+              "tr": "Bürgeramt, günaydın. Size nasıl yardımcı olabilirim?",
+              "next": "n11"
+            },
+            {
+              "id": "n11",
+              "type": "choice",
+              "prompt_tr": "Ne istediğini söyle.",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Guten Morgen. Ich möchte einen Termin für eine Anmeldung vereinbaren.",
+                  "tr": "Günaydın. İkamet kaydı için bir randevu almak istiyorum.",
+                  "verdict": "best",
+                  "feedback_tr": "Tam istenen kalıp: einen Termin vereinbaren.",
+                  "next": "n12"
+                },
+                {
+                  "id": "b",
+                  "de": "Hallo, ich will Anmeldung.",
+                  "tr": "(sert ve eksik)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Ne istediğin anlaşılıyor ama hem sert (ich will) hem eksik: artikel ve randevu kelimesi yok. Dene: \"Ich brauche einen Termin für die Anmeldung.\""
+                },
+                {
+                  "id": "c",
+                  "de": "Guten Morgen. Ich brauche bitte einen Termin für die Anmeldung.",
+                  "tr": "Günaydın. İkamet kaydı için bir randevuya ihtiyacım var, lütfen.",
+                  "verdict": "best",
+                  "feedback_tr": "Net ve kibar.",
+                  "next": "n12"
+                }
+              ]
+            },
+            {
+              "id": "n12",
+              "type": "line",
+              "speaker": "amt",
+              "de": "Einen Moment … Passt Ihnen Donnerstag um halb zehn?",
+              "tr": "Bir saniye… Perşembe dokuz buçuk size uyar mı?",
+              "gloss_tr": "Dikkat: \"halb zehn\" = 9:30 (ona yarım kala). Almancada \"yarım\", bir SONRAKİ saate göre söylenir.",
+              "next": "n13"
+            },
+            {
+              "id": "n13",
+              "type": "choice",
+              "prompt_tr": "Cevap ver.",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Ja, Donnerstag um halb zehn passt gut.",
+                  "tr": "Evet, perşembe dokuz buçuk iyi olur.",
+                  "verdict": "best",
+                  "feedback_tr": "Doğru. \"passen\" = uymak.",
+                  "next": "n15"
+                },
+                {
+                  "id": "b",
+                  "de": "Donnerstag kann ich leider nicht. Geht auch Freitag?",
+                  "tr": "Perşembe maalesef olmuyor. Cuma da olur mu?",
+                  "verdict": "best",
+                  "feedback_tr": "Kibar bir ret ve alternatif: \"leider\" + \"Geht auch …?\"",
+                  "next": "n14",
+                  "flags": [
+                    "freitag"
+                  ]
+                },
+                {
+                  "id": "c",
+                  "de": "Ja, gut – um halb zehn, also um 10:30 Uhr.",
+                  "tr": "(saat yanlış anlaşıldı)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Dikkat! \"halb zehn\" 10:30 değil, 9:30 demektir: \"ona doğru yarım\". 10:30 = halb elf. Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n14",
+              "type": "line",
+              "speaker": "amt",
+              "de": "Freitag um elf Uhr ist auch frei. Ich trage Sie ein.",
+              "tr": "Cuma saat on bir de boş. Sizi kaydediyorum.",
+              "next": "n16"
+            },
+            {
+              "id": "n15",
+              "type": "line",
+              "speaker": "amt",
+              "de": "Gut. Ich trage Sie ein: Donnerstag, 9:30 Uhr.",
+              "tr": "Peki. Sizi kaydediyorum: Perşembe, 9:30.",
+              "next": "n16"
+            },
+            {
+              "id": "n16",
+              "type": "line",
+              "speaker": "amt",
+              "de": "Bitte bringen Sie Ihren Pass und die Wohnungsgeberbestätigung mit.",
+              "tr": "Lütfen pasaportunuzu ve ev sahibi onay belgesini getirin.",
+              "gloss_tr": "Wohnungsgeberbestätigung: ev sahibinin taşındığını onaylayan belge. Gerekli belgeler şehre göre değişebilir; resmî siteyi kontrol et.",
+              "next": "n17"
+            },
+            {
+              "id": "n17",
+              "type": "choice",
+              "prompt_tr": "Uzun kelimeyi anlamadın. Ne yaparsın?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Wie bitte? Können Sie das bitte wiederholen?",
+                  "tr": "Efendim? Bunu tekrarlayabilir misiniz lütfen?",
+                  "verdict": "best",
+                  "feedback_tr": "Anlamadığında sormak en önemli becerilerden biri. \"Können Sie das wiederholen?\" her zaman işe yarar.",
+                  "next": "n18",
+                  "flags": [
+                    "nachgefragt"
+                  ]
+                },
+                {
+                  "id": "b",
+                  "de": "Alles klar, vielen Dank!",
+                  "tr": "Tamamdır, çok teşekkürler!",
+                  "verdict": "ok",
+                  "feedback_tr": "Kibar, ama anlamadığın bir şeyi onaylamak riskli. Sorarak öğrenmek daha güvenli!",
+                  "next": "n19"
+                }
+              ]
+            },
+            {
+              "id": "n18",
+              "type": "line",
+              "speaker": "amt",
+              "de": "Natürlich: Ihren Pass – und die Wohnungs-geber-bestätigung. Die bekommen Sie von Ihrem Vermieter.",
+              "tr": "Tabii: pasaportunuz – ve ev-sahibi-onay-belgesi. Onu ev sahibinizden alırsınız.",
+              "next": "n19"
+            },
+            {
+              "id": "n19",
+              "type": "line",
+              "speaker": "amt",
+              "de": "Auf Wiederhören!",
+              "tr": "Hoşça kalın! (telefonda)",
+              "gloss_tr": "Telefonda \"Auf Wiedersehen\" (tekrar görüşmek üzere) yerine \"Auf Wiederhören\" (tekrar duymak üzere) denir.",
+              "next": "n20"
+            },
+            {
+              "id": "n20",
+              "type": "narration",
+              "de": "Später zeigst du Herrn Albrecht die Postkarte. Er schaut lange auf die Karte.",
+              "tr": "Sonra kartpostalı Bay Albrecht'e gösteriyorsun. Karta uzun uzun bakıyor.",
+              "next": "n21"
+            },
+            {
+              "id": "n21",
+              "type": "line",
+              "speaker": "albrecht",
+              "de": "Ich war vierzig Jahre Briefträger hier. „M.“ – das ist Marlene. Sie hat in Ihrem Zimmer gewohnt. Vor vielen Jahren.",
+              "tr": "Kırk yıl burada postacılık yaptım. \"M.\" – o Marlene. Sizin odanızda otururdu. Yıllar önce.",
+              "gloss_tr": "\"hat … gewohnt\" Perfekt'tir (geçmiş zaman): haben + Partizip II (gewohnt) sonda.",
+              "next": "n22"
+            },
+            {
+              "id": "n22",
+              "type": "choice",
+              "prompt_tr": "Ne sorarsın?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Und wer ist F.?",
+                  "tr": "Peki F. kim?",
+                  "verdict": "best",
+                  "feedback_tr": "Doğru soru kelimesi: wer = kim.",
+                  "next": "n23"
+                },
+                {
+                  "id": "b",
+                  "de": "Wo wohnt Marlene jetzt?",
+                  "tr": "Marlene şimdi nerede oturuyor?",
+                  "verdict": "best",
+                  "feedback_tr": "Mükemmel: wo + wohnt (2. sıra) + Marlene.",
+                  "next": "n23"
+                },
+                {
+                  "id": "c",
+                  "de": "Wo Marlene wohnt jetzt?",
+                  "tr": "(kelime sırası yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Soru kelimesinden hemen sonra fiil gelir: \"Wo wohnt Marlene jetzt?\" Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n23",
+              "type": "line",
+              "speaker": "albrecht",
+              "de": "Das weiß ich leider nicht. Aber das Café Kastanie gibt es noch! Gehen Sie doch am Mittwoch hin.",
+              "tr": "Maalesef bilmiyorum. Ama Café Kastanie hâlâ duruyor! Çarşamba günü bir gidin.",
+              "next": "end"
+            },
+            {
+              "id": "end",
+              "type": "end"
+            }
           ],
           "recap_tr": "Herr Albrecht'e \"Sie\" ile hitap ettin, telefonda Bürgeramt'tan randevu aldın ve \"halb zehn\"in 9:30 olduğunu öğrendin. Büyük haber: \"M.\" = Marlene, yıllar önce senin odanda oturmuş. F. hâlâ bir sır.",
-          "vocab": ["termin", "termin_vereinbaren", "anmeldung", "buergeramt", "anrufen", "passen", "pass", "kann_ich_helfen", "wie_bitte", "sie_formal", "herr", "halb", "auf_wiederhoeren", "wiederholen"],
+          "vocab": [
+            "termin",
+            "termin_vereinbaren",
+            "anmeldung",
+            "buergeramt",
+            "anrufen",
+            "passen",
+            "pass",
+            "kann_ich_helfen",
+            "wie_bitte",
+            "sie_formal",
+            "herr",
+            "halb",
+            "auf_wiederhoeren",
+            "wiederholen"
+          ],
           "grammar": [
-            {"title_tr": "du ya da Sie", "body_tr": "Soyadıyla hitap ettiğin, tanımadığın yetişkinlere ve resmî kurumlara \"Sie\". Fiil çoğul gibi çekilir: Können Sie …?", "example_de": "Kann ich Ihnen helfen?", "concept": "g_du_sie"},
-            {"title_tr": "anrufen: Rufen Sie … an", "body_tr": "Ayrılabilen fiillerde ön ek cümle sonuna gider.", "example_de": "Rufen Sie morgen früh um acht an.", "concept": "g_trennbar"},
-            {"title_tr": "halb zehn = 9:30", "body_tr": "\"halb\" bir sonraki saate göre söylenir: halb zehn = 9:30, halb elf = 10:30.", "example_de": "Der Termin ist um halb zehn."}
+            {
+              "title_tr": "du ya da Sie",
+              "body_tr": "Soyadıyla hitap ettiğin, tanımadığın yetişkinlere ve resmî kurumlara \"Sie\". Fiil çoğul gibi çekilir: Können Sie …?",
+              "example_de": "Kann ich Ihnen helfen?",
+              "concept": "g_du_sie"
+            },
+            {
+              "title_tr": "anrufen: Rufen Sie … an",
+              "body_tr": "Ayrılabilen fiillerde ön ek cümle sonuna gider.",
+              "example_de": "Rufen Sie morgen früh um acht an.",
+              "concept": "g_trennbar"
+            },
+            {
+              "title_tr": "halb zehn = 9:30",
+              "body_tr": "\"halb\" bir sonraki saate göre söylenir: halb zehn = 9:30, halb elf = 10:30.",
+              "example_de": "Der Termin ist um halb zehn."
+            }
           ],
           "quiz": [
-            {"id": "q1", "question_tr": "\"halb zehn\" saat kaç?", "options": ["9:30", "10:30", "10:00"], "answer": 0, "explain_tr": "Ona yarım kala: 9:30."},
-            {"id": "q2", "question_tr": "Herr Albrecht'e göre Bürgeramt'ı ne zaman aramalısın?", "options": ["Akşam", "Sabah saat sekizde", "Pazar günü"], "answer": 1, "explain_tr": "\"Rufen Sie morgen früh um acht an.\""},
-            {"id": "q3", "question_tr": "\"M.\" kim?", "options": ["Lina'nın annesi", "Marlene – eskiden senin odanda oturmuş", "Fırıncı Frau Weber"], "answer": 1, "explain_tr": "\"Sie hat in Ihrem Zimmer gewohnt.\""}
+            {
+              "id": "q1",
+              "question_tr": "\"halb zehn\" saat kaç?",
+              "options": [
+                "9:30",
+                "10:30",
+                "10:00"
+              ],
+              "answer": 0,
+              "explain_tr": "Ona yarım kala: 9:30."
+            },
+            {
+              "id": "q2",
+              "question_tr": "Herr Albrecht'e göre Bürgeramt'ı ne zaman aramalısın?",
+              "options": [
+                "Akşam",
+                "Sabah saat sekizde",
+                "Pazar günü"
+              ],
+              "answer": 1,
+              "explain_tr": "\"Rufen Sie morgen früh um acht an.\""
+            },
+            {
+              "id": "q3",
+              "question_tr": "\"M.\" kim?",
+              "options": [
+                "Lina'nın annesi",
+                "Marlene – eskiden senin odanda oturmuş",
+                "Fırıncı Frau Weber"
+              ],
+              "answer": 1,
+              "explain_tr": "\"Sie hat in Ihrem Zimmer gewohnt.\""
+            }
           ],
           "teaser_tr": "Çarşamba, saat üç. Café Kastanie'de biri bekliyor mu?"
         },
         {
-          "id": "nib_e4_a1", "number": 4, "level": "A1",
-          "title": "Im Café Kastanie", "title_tr": "Café Kastanie'de",
+          "id": "nib_e4_a1",
+          "number": 4,
+          "level": "A1",
+          "title": "Im Café Kastanie",
+          "title_tr": "Café Kastanie'de",
           "narrative_tr": "Kartpostaldaki kafeye git, sipariş ver ve \"F.\"yi bul.",
           "objective_tr": "Kafede sipariş, \"kennen\" ile \"wissen\" farkı, birine kibarca yaklaşmak.",
-          "minutes": 7, "start": "n1", "scenario": "cafe",
+          "minutes": 7,
+          "start": "n1",
+          "scenario": "cafe",
           "nodes": [
-            {"id": "n1", "type": "narration", "de": "Mittwoch, drei Uhr. Lina und du steht vor einer grünen Tür: Café Kastanie.", "tr": "Çarşamba, saat üç. Lina ile yeşil bir kapının önündesiniz: Café Kastanie.", "next": "n2"},
-            {"id": "n2", "type": "line", "speaker": "can", "de": "Hallo, ihr zwei! Herzlich willkommen. Was darf's sein?", "tr": "Merhaba ikiniz! Hoş geldiniz. Ne alırsınız?", "gloss_tr": "\"darf's\" = darf es. Kafelerde genç çalışanlar genelde \"du/ihr\" kullanır.", "next": "n3"},
-            {"id": "n3", "type": "choice", "prompt_tr": "Siparişini ver.", "choices": [
-              {"id": "a", "de": "Ich hätte gern einen Cappuccino und ein Stück Kuchen, bitte.", "tr": "Bir kapuçino ve bir dilim kek alabilir miyim, lütfen?", "verdict": "best", "feedback_tr": "Harika: einen Cappuccino (eril) ve \"ein Stück Kuchen\" (bir dilim kek) kalıbı.", "next": "n4"},
-              {"id": "b", "de": "Ich möchte ein Kaffee, bitte.", "tr": "(artikel yanlış)", "verdict": "wrong", "feedback_tr": "Neredeyse! der Kaffee eril, nesne olunca: einen Kaffee. Tekrar dene."},
-              {"id": "c", "de": "Einen Tee mit Milch, bitte.", "tr": "Sütlü bir çay, lütfen.", "verdict": "best", "feedback_tr": "Kısa ve doğal. \"mit\" = ile.", "next": "n4"}
-            ]},
-            {"id": "n4", "type": "line", "speaker": "lina", "de": "Und für mich einen Kaffee, bitte.", "tr": "Benim için de bir kahve, lütfen.", "next": "n5"},
-            {"id": "n5", "type": "line", "speaker": "can", "de": "Kommt sofort! Für hier oder zum Mitnehmen?", "tr": "Hemen geliyor! Burada mı, paket mi?", "next": "n6"},
-            {"id": "n6", "type": "choice", "prompt_tr": "Cevap ver.", "choices": [
-              {"id": "a", "de": "Für hier, bitte.", "tr": "Burada, lütfen.", "verdict": "best", "feedback_tr": "Doğru.", "next": "n8"},
-              {"id": "b", "de": "Zum Mitnehmen, bitte.", "tr": "Paket, lütfen.", "verdict": "ok", "feedback_tr": "Dil olarak doğru! Ama F.'yi bulmak için kafede kalman gerekiyor… Lina'ya bak.", "next": "n7", "flags": ["mitnehmen"]},
-              {"id": "c", "de": "Hier, bitte.", "tr": "Buyurun.", "verdict": "wrong", "feedback_tr": "\"Hier, bitte\" bir şey uzatırken söylenir (buyurun). Burada kalmak için: \"Für hier, bitte.\" Tekrar dene."}
-            ]},
-            {"id": "n7", "type": "line", "speaker": "lina", "de": "Zum Mitnehmen? Nein, nein – wir bleiben hier. Wir suchen doch F.!", "tr": "Paket mi? Yok yok – burada kalıyoruz. F.'yi arıyoruz ya!", "next": "n8"},
-            {"id": "n8", "type": "narration", "de": "Ihr sitzt am Tisch. An der Wand hängen alte Fotos. Auf einem Foto ist die grüne Tür von der Postkarte.", "tr": "Masaya oturuyorsunuz. Duvarda eski fotoğraflar asılı. Birinde kartpostaldaki yeşil kapı var.", "next": "n9"},
-            {"id": "n9", "type": "choice", "prompt_tr": "Can'a kartpostalı göster ve sor.", "choices": [
-              {"id": "a", "de": "Entschuldigung, kennst du diese Postkarte?", "tr": "Pardon, bu kartpostalı tanıyor musun?", "verdict": "best", "feedback_tr": "Doğru: kişi, yer ya da nesne \"tanımak\" için \"kennen\". Can genç bir çalışan, \"du\" burada sorun değil.", "next": "n10"},
-              {"id": "b", "de": "Entschuldigung, kennen Sie diese Postkarte?", "tr": "Pardon, bu kartpostalı tanıyor musunuz?", "verdict": "best", "feedback_tr": "Doğru ve kibar. Can'a \"Sie\" demek de hiç yanlış değil.", "next": "n10"},
-              {"id": "c", "de": "Entschuldigung, weißt du diese Postkarte?", "tr": "(fiil yanlış)", "verdict": "wrong", "feedback_tr": "\"wissen\" bir bilgiyi bilmektir (Ich weiß, wo das Café ist). Bir şeyi/birini tanımak için \"kennen\": Kennst du diese Postkarte? Tekrar dene."}
-            ]},
-            {"id": "n10", "type": "line", "speaker": "can", "de": "Zeig mal! „Jeden Mittwoch um drei“ … Moment! Der Mann da am Fenster – er kommt jeden Mittwoch um drei. Immer!", "tr": "Göster bakayım! \"Her çarşamba saat üçte\"… Dur bir dakika! Şuradaki pencere kenarındaki adam – her çarşamba saat üçte geliyor. Her zaman!", "next": "n11"},
-            {"id": "n11", "type": "narration", "de": "Am Fenster sitzt ein alter Mann mit einem Buch. Vor ihm steht ein Stück Kuchen.", "tr": "Pencere kenarında elinde kitapla yaşlı bir adam oturuyor. Önünde bir dilim kek duruyor.", "next": "n12"},
-            {"id": "n12", "type": "choice", "prompt_tr": "Adama nasıl yaklaşırsın?", "choices": [
-              {"id": "a", "de": "Entschuldigung, haben Sie kurz Zeit? Ich habe hier eine alte Postkarte.", "tr": "Affedersiniz, kısa bir vaktiniz var mı? Elimde eski bir kartpostal var.", "verdict": "best", "feedback_tr": "Çok kibar: \"Entschuldigung\" + \"Haben Sie kurz Zeit?\"", "next": "n13"},
-              {"id": "b", "de": "Entschuldigung! Sind Sie F.?", "tr": "Affedersiniz! F. siz misiniz?", "verdict": "ok", "feedback_tr": "Dil bilgisi doğru ve kibar, ama çok direkt. Adam şaşırabilir 🙂", "next": "n14", "flags": ["direkt"]},
-              {"id": "c", "de": "Hallo! Bist du F.?", "tr": "Selam! F. sen misin?", "verdict": "wrong", "feedback_tr": "Tanımadığın yaşlı bir insana \"du\" demek uygun değil. \"Sind Sie …?\" kullan. Tekrar dene."}
-            ]},
-            {"id": "n13", "type": "line", "speaker": "friedrich", "de": "Natürlich. Zeigen Sie mal … Das ist ja meine Schrift! Ich bin Friedrich.", "tr": "Tabii. Gösterin bakalım… Bu benim el yazım! Ben Friedrich.", "next": "n15"},
-            {"id": "n14", "type": "line", "speaker": "friedrich", "de": "Wie bitte? … Ja, ich bin Friedrich. Aber woher wissen Sie das?", "tr": "Efendim? … Evet, ben Friedrich. Ama bunu nereden biliyorsunuz?", "next": "n15"},
-            {"id": "n15", "type": "line", "speaker": "friedrich", "de": "Marlene und ich – wir waren gute Freunde. Dann ist sie nach Hamburg gezogen.", "tr": "Marlene ile ben – iyi arkadaştık. Sonra o Hamburg'a taşındı.", "gloss_tr": "\"ist … gezogen\": taşınmak (yer değiştirme) Perfekt'te \"sein\" alır.", "next": "n16"},
-            {"id": "n16", "type": "line", "speaker": "friedrich", "de": "Ich komme immer noch jeden Mittwoch. Der Kuchen hier ist so gut – und ich denke an Marlene.", "tr": "Hâlâ her çarşamba geliyorum. Buradaki kek çok güzel – ve Marlene'yi düşünüyorum.", "next": "n17"},
-            {"id": "n17", "type": "choice", "prompt_tr": "Ne dersin?", "choices": [
-              {"id": "a", "de": "Vielleicht können wir Marlene finden!", "tr": "Belki Marlene'yi bulabiliriz!", "verdict": "best", "feedback_tr": "Modal fiil + mastar sonda: können … finden.", "next": "n18", "flags": ["suchen"]},
-              {"id": "b", "de": "Das ist eine schöne Geschichte.", "tr": "Bu güzel bir hikâye.", "verdict": "best", "feedback_tr": "Doğru ve nazik: die Geschichte → eine schöne Geschichte.", "next": "n19"},
-              {"id": "c", "de": "Vielleicht wir können Marlene finden!", "tr": "(kelime sırası yanlış)", "verdict": "wrong", "feedback_tr": "\"Vielleicht\" birinci sıradaysa fiil hemen gelir: \"Vielleicht können wir …\". Tekrar dene."}
-            ]},
-            {"id": "n18", "type": "line", "speaker": "friedrich", "de": "Marlene finden? Nach so vielen Jahren? … Das wäre wunderbar.", "tr": "Marlene'yi bulmak mı? Bunca yıl sonra mı? … Bu harika olurdu.", "next": "n20"},
-            {"id": "n19", "type": "line", "speaker": "friedrich", "de": "Danke. Und jetzt haben Sie die Postkarte. Vielleicht ist das kein Zufall.", "tr": "Teşekkürler. Şimdi kartpostal sizde. Belki bu bir tesadüf değildir.", "next": "n20"},
-            {"id": "n20", "type": "line", "speaker": "lina", "de": "{name}, ich glaube, wir haben ein neues Projekt!", "tr": "{name}, sanırım yeni bir projemiz var!", "next": "end"},
-            {"id": "end", "type": "end"}
+            {
+              "id": "n1",
+              "type": "narration",
+              "de": "Mittwoch, drei Uhr. Lina und du steht vor einer grünen Tür: Café Kastanie.",
+              "tr": "Çarşamba, saat üç. Lina ile yeşil bir kapının önündesiniz: Café Kastanie.",
+              "next": "n2"
+            },
+            {
+              "id": "n2",
+              "type": "line",
+              "speaker": "can",
+              "de": "Hallo, ihr zwei! Herzlich willkommen. Was darf's sein?",
+              "tr": "Merhaba ikiniz! Hoş geldiniz. Ne alırsınız?",
+              "gloss_tr": "\"darf's\" = darf es. Kafelerde genç çalışanlar genelde \"du/ihr\" kullanır.",
+              "next": "n3"
+            },
+            {
+              "id": "n3",
+              "type": "choice",
+              "prompt_tr": "Siparişini ver.",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Ich hätte gern einen Cappuccino und ein Stück Kuchen, bitte.",
+                  "tr": "Bir kapuçino ve bir dilim kek alabilir miyim, lütfen?",
+                  "verdict": "best",
+                  "feedback_tr": "Harika: einen Cappuccino (eril) ve \"ein Stück Kuchen\" (bir dilim kek) kalıbı.",
+                  "next": "n4"
+                },
+                {
+                  "id": "b",
+                  "de": "Ich möchte ein Kaffee, bitte.",
+                  "tr": "(artikel yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Neredeyse! der Kaffee eril, nesne olunca: einen Kaffee. Tekrar dene."
+                },
+                {
+                  "id": "c",
+                  "de": "Einen Tee mit Milch, bitte.",
+                  "tr": "Sütlü bir çay, lütfen.",
+                  "verdict": "best",
+                  "feedback_tr": "Kısa ve doğal. \"mit\" = ile.",
+                  "next": "n4"
+                }
+              ]
+            },
+            {
+              "id": "n4",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Und für mich einen Kaffee, bitte.",
+              "tr": "Benim için de bir kahve, lütfen.",
+              "next": "n5"
+            },
+            {
+              "id": "n5",
+              "type": "line",
+              "speaker": "can",
+              "de": "Kommt sofort! Für hier oder zum Mitnehmen?",
+              "tr": "Hemen geliyor! Burada mı, paket mi?",
+              "next": "n6"
+            },
+            {
+              "id": "n6",
+              "type": "choice",
+              "prompt_tr": "Cevap ver.",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Für hier, bitte.",
+                  "tr": "Burada, lütfen.",
+                  "verdict": "best",
+                  "feedback_tr": "Doğru.",
+                  "next": "n8"
+                },
+                {
+                  "id": "b",
+                  "de": "Zum Mitnehmen, bitte.",
+                  "tr": "Paket, lütfen.",
+                  "verdict": "ok",
+                  "feedback_tr": "Dil olarak doğru! Ama F.'yi bulmak için kafede kalman gerekiyor… Lina'ya bak.",
+                  "next": "n7",
+                  "flags": [
+                    "mitnehmen"
+                  ]
+                },
+                {
+                  "id": "c",
+                  "de": "Hier, bitte.",
+                  "tr": "Buyurun.",
+                  "verdict": "wrong",
+                  "feedback_tr": "\"Hier, bitte\" bir şey uzatırken söylenir (buyurun). Burada kalmak için: \"Für hier, bitte.\" Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n7",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Zum Mitnehmen? Nein, nein – wir bleiben hier. Wir suchen doch F.!",
+              "tr": "Paket mi? Yok yok – burada kalıyoruz. F.'yi arıyoruz ya!",
+              "next": "n8"
+            },
+            {
+              "id": "n8",
+              "type": "narration",
+              "de": "Ihr sitzt am Tisch. An der Wand hängen alte Fotos. Auf einem Foto ist die grüne Tür von der Postkarte.",
+              "tr": "Masaya oturuyorsunuz. Duvarda eski fotoğraflar asılı. Birinde kartpostaldaki yeşil kapı var.",
+              "next": "n9"
+            },
+            {
+              "id": "n9",
+              "type": "choice",
+              "prompt_tr": "Can'a kartpostalı göster ve sor.",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Entschuldigung, kennst du diese Postkarte?",
+                  "tr": "Pardon, bu kartpostalı tanıyor musun?",
+                  "verdict": "best",
+                  "feedback_tr": "Doğru: kişi, yer ya da nesne \"tanımak\" için \"kennen\". Can genç bir çalışan, \"du\" burada sorun değil.",
+                  "next": "n10"
+                },
+                {
+                  "id": "b",
+                  "de": "Entschuldigung, kennen Sie diese Postkarte?",
+                  "tr": "Pardon, bu kartpostalı tanıyor musunuz?",
+                  "verdict": "best",
+                  "feedback_tr": "Doğru ve kibar. Can'a \"Sie\" demek de hiç yanlış değil.",
+                  "next": "n10"
+                },
+                {
+                  "id": "c",
+                  "de": "Entschuldigung, weißt du diese Postkarte?",
+                  "tr": "(fiil yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "\"wissen\" bir bilgiyi bilmektir (Ich weiß, wo das Café ist). Bir şeyi/birini tanımak için \"kennen\": Kennst du diese Postkarte? Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n10",
+              "type": "line",
+              "speaker": "can",
+              "de": "Zeig mal! „Jeden Mittwoch um drei“ … Moment! Der Mann da am Fenster – er kommt jeden Mittwoch um drei. Immer!",
+              "tr": "Göster bakayım! \"Her çarşamba saat üçte\"… Dur bir dakika! Şuradaki pencere kenarındaki adam – her çarşamba saat üçte geliyor. Her zaman!",
+              "next": "n11"
+            },
+            {
+              "id": "n11",
+              "type": "narration",
+              "de": "Am Fenster sitzt ein alter Mann mit einem Buch. Vor ihm steht ein Stück Kuchen.",
+              "tr": "Pencere kenarında elinde kitapla yaşlı bir adam oturuyor. Önünde bir dilim kek duruyor.",
+              "next": "n12"
+            },
+            {
+              "id": "n12",
+              "type": "choice",
+              "prompt_tr": "Adama nasıl yaklaşırsın?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Entschuldigung, haben Sie kurz Zeit? Ich habe hier eine alte Postkarte.",
+                  "tr": "Affedersiniz, kısa bir vaktiniz var mı? Elimde eski bir kartpostal var.",
+                  "verdict": "best",
+                  "feedback_tr": "Çok kibar: \"Entschuldigung\" + \"Haben Sie kurz Zeit?\"",
+                  "next": "n13"
+                },
+                {
+                  "id": "b",
+                  "de": "Entschuldigung! Sind Sie F.?",
+                  "tr": "Affedersiniz! F. siz misiniz?",
+                  "verdict": "ok",
+                  "feedback_tr": "Dil bilgisi doğru ve kibar, ama çok direkt. Adam şaşırabilir 🙂",
+                  "next": "n14",
+                  "flags": [
+                    "direkt"
+                  ]
+                },
+                {
+                  "id": "c",
+                  "de": "Hallo! Bist du F.?",
+                  "tr": "Selam! F. sen misin?",
+                  "verdict": "wrong",
+                  "feedback_tr": "Tanımadığın yaşlı bir insana \"du\" demek uygun değil. \"Sind Sie …?\" kullan. Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n13",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Natürlich. Zeigen Sie mal … Das ist ja meine Schrift! Ich bin Friedrich.",
+              "tr": "Tabii. Gösterin bakalım… Bu benim el yazım! Ben Friedrich.",
+              "next": "n15"
+            },
+            {
+              "id": "n14",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Wie bitte? … Ja, ich bin Friedrich. Aber woher wissen Sie das?",
+              "tr": "Efendim? … Evet, ben Friedrich. Ama bunu nereden biliyorsunuz?",
+              "next": "n15"
+            },
+            {
+              "id": "n15",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Marlene und ich – wir waren gute Freunde. Dann ist sie nach Hamburg gezogen.",
+              "tr": "Marlene ile ben – iyi arkadaştık. Sonra o Hamburg'a taşındı.",
+              "gloss_tr": "\"ist … gezogen\": taşınmak (yer değiştirme) Perfekt'te \"sein\" alır.",
+              "next": "n16"
+            },
+            {
+              "id": "n16",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Ich komme immer noch jeden Mittwoch. Der Kuchen hier ist so gut – und ich denke an Marlene.",
+              "tr": "Hâlâ her çarşamba geliyorum. Buradaki kek çok güzel – ve Marlene'yi düşünüyorum.",
+              "next": "n17"
+            },
+            {
+              "id": "n17",
+              "type": "choice",
+              "prompt_tr": "Ne dersin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Vielleicht können wir Marlene finden!",
+                  "tr": "Belki Marlene'yi bulabiliriz!",
+                  "verdict": "best",
+                  "feedback_tr": "Modal fiil + mastar sonda: können … finden.",
+                  "next": "n18",
+                  "flags": [
+                    "suchen"
+                  ]
+                },
+                {
+                  "id": "b",
+                  "de": "Das ist eine schöne Geschichte.",
+                  "tr": "Bu güzel bir hikâye.",
+                  "verdict": "best",
+                  "feedback_tr": "Doğru ve nazik: die Geschichte → eine schöne Geschichte.",
+                  "next": "n19"
+                },
+                {
+                  "id": "c",
+                  "de": "Vielleicht wir können Marlene finden!",
+                  "tr": "(kelime sırası yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "\"Vielleicht\" birinci sıradaysa fiil hemen gelir: \"Vielleicht können wir …\". Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n18",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Marlene finden? Nach so vielen Jahren? … Das wäre wunderbar.",
+              "tr": "Marlene'yi bulmak mı? Bunca yıl sonra mı? … Bu harika olurdu.",
+              "next": "n20"
+            },
+            {
+              "id": "n19",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Danke. Und jetzt haben Sie die Postkarte. Vielleicht ist das kein Zufall.",
+              "tr": "Teşekkürler. Şimdi kartpostal sizde. Belki bu bir tesadüf değildir.",
+              "next": "n20"
+            },
+            {
+              "id": "n20",
+              "type": "line",
+              "speaker": "lina",
+              "de": "{name}, ich glaube, wir haben ein neues Projekt!",
+              "tr": "{name}, sanırım yeni bir projemiz var!",
+              "next": "end"
+            },
+            {
+              "id": "end",
+              "type": "end"
+            }
           ],
           "recap_tr": "Café Kastanie'de sipariş verdin, \"kennen\" ile \"wissen\"in farkını öğrendin ve F.'yi buldun: Friedrich. Marlene yıllar önce Hamburg'a taşınmış. Belki onu bulabilirsiniz…",
-          "vocab": ["cafe", "cappuccino", "stueck", "kuchen", "fuer_hier", "zum_mitnehmen", "kennen", "wissen", "fenster", "freund", "geschichte", "vielleicht"],
+          "vocab": [
+            "cafe",
+            "cappuccino",
+            "stueck",
+            "kuchen",
+            "fuer_hier",
+            "zum_mitnehmen",
+            "kennen",
+            "wissen",
+            "fenster",
+            "freund",
+            "geschichte",
+            "vielleicht"
+          ],
           "grammar": [
-            {"title_tr": "kennen ya da wissen", "body_tr": "kennen: bir kişiyi, yeri, şeyi tanımak (Ich kenne das Café). wissen: bir bilgiyi bilmek (Ich weiß, wo das Café ist / Ich weiß es nicht).", "example_de": "Kennst du diese Postkarte? – Nein, aber ich weiß, wer F. ist!"},
-            {"title_tr": "ein Stück Kuchen", "body_tr": "Ölçü ve miktar kalıplarında ikinci isim artikel almaz: ein Stück Kuchen, eine Tasse Kaffee, ein Glas Wasser.", "example_de": "Ich hätte gern ein Stück Kuchen."},
-            {"title_tr": "Sie ist nach Hamburg gezogen", "body_tr": "Taşınmak, gitmek, gelmek gibi yer değiştirme fiilleri Perfekt'te \"sein\" alır.", "example_de": "Marlene ist nach Hamburg gezogen.", "concept": "g_perfekt"}
+            {
+              "title_tr": "kennen ya da wissen",
+              "body_tr": "kennen: bir kişiyi, yeri, şeyi tanımak (Ich kenne das Café). wissen: bir bilgiyi bilmek (Ich weiß, wo das Café ist / Ich weiß es nicht).",
+              "example_de": "Kennst du diese Postkarte? – Nein, aber ich weiß, wer F. ist!"
+            },
+            {
+              "title_tr": "ein Stück Kuchen",
+              "body_tr": "Ölçü ve miktar kalıplarında ikinci isim artikel almaz: ein Stück Kuchen, eine Tasse Kaffee, ein Glas Wasser.",
+              "example_de": "Ich hätte gern ein Stück Kuchen."
+            },
+            {
+              "title_tr": "Sie ist nach Hamburg gezogen",
+              "body_tr": "Taşınmak, gitmek, gelmek gibi yer değiştirme fiilleri Perfekt'te \"sein\" alır.",
+              "example_de": "Marlene ist nach Hamburg gezogen.",
+              "concept": "g_perfekt"
+            }
           ],
           "quiz": [
-            {"id": "q1", "question_tr": "F. kim?", "options": ["Can", "Friedrich", "Herr Albrecht"], "answer": 1, "explain_tr": "\"Das ist ja meine Schrift! Ich bin Friedrich.\""},
-            {"id": "q2", "question_tr": "Marlene nereye taşınmış?", "options": ["Leipzig", "Hamburg", "İzmir"], "answer": 1, "explain_tr": "\"Dann ist sie nach Hamburg gezogen.\""},
-            {"id": "q3", "question_tr": "\"Bu kartpostalı tanıyor musun?\" için hangi fiil?", "options": ["wissen", "kennen", "sein"], "answer": 1, "explain_tr": "Bir şeyi/birini tanımak: kennen."}
+            {
+              "id": "q1",
+              "question_tr": "F. kim?",
+              "options": [
+                "Can",
+                "Friedrich",
+                "Herr Albrecht"
+              ],
+              "answer": 1,
+              "explain_tr": "\"Das ist ja meine Schrift! Ich bin Friedrich.\""
+            },
+            {
+              "id": "q2",
+              "question_tr": "Marlene nereye taşınmış?",
+              "options": [
+                "Leipzig",
+                "Hamburg",
+                "İzmir"
+              ],
+              "answer": 1,
+              "explain_tr": "\"Dann ist sie nach Hamburg gezogen.\""
+            },
+            {
+              "id": "q3",
+              "question_tr": "\"Bu kartpostalı tanıyor musun?\" için hangi fiil?",
+              "options": [
+                "wissen",
+                "kennen",
+                "sein"
+              ],
+              "answer": 1,
+              "explain_tr": "Bir şeyi/birini tanımak: kennen."
+            }
           ],
           "teaser_tr": "\"Neu in Berlin\"in ilk sezonu burada bitiyor. Yeni bölümler hazırlanıyor: Hamburg'a bir mektup…"
         }

@@ -72,6 +72,16 @@ class SettingsScreen extends ConsumerWidget {
                     onChanged: (v) => notifier.edit((p) => p.copyWith(weeklyGoalDays: v.round())),
                   ),
                   Text('Esnek bir hedef. Kaçırılan günler hiçbir şeyi sıfırlamaz.', style: context.text.bodySmall),
+                  const SizedBox(height: 16),
+                  Text('Hikâyelerin dil seviyesi', style: context.text.titleSmall),
+                  const SizedBox(height: 8),
+                  SegmentedButton<String>(
+                    segments: const [ButtonSegment(value: 'A1', label: Text('A1')), ButtonSegment(value: 'A2', label: Text('A2'))],
+                    selected: {profile.level},
+                    onSelectionChanged: (s) => notifier.edit((p) => p.copyWith(level: s.first)),
+                  ),
+                  const SizedBox(height: 4),
+                  Text('Aynı hikâye, aynı karakterler: A2 sürümünde cümleler daha uzun ve doğal. A2 sürümü olmayan bölümler A1 olarak açılır.', style: context.text.bodySmall),
                   const Divider(height: 28),
                   SwitchListTile(
                     contentPadding: EdgeInsets.zero,
