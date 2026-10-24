@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:deutschap/app/app.dart';
 import 'package:deutschap/app/providers.dart';
 import 'package:deutschap/app/router.dart';
@@ -71,7 +73,7 @@ void main() {
 
   testWidgets('story word → library with context → review (Journey A)', (tester) async {
     final (c, db) = await boot(tester);
-    c.read(routerProvider).push('/episode/nib_e3_a1');
+    unawaited(c.read(routerProvider).push('/episode/nib_e3_a1'));
     await settle(tester);
     await tapAndSettle(tester, find.text('Başla'));
     // First narration: "Du brauchst einen Termin beim Bürgeramt – für die Anmeldung."
@@ -87,7 +89,7 @@ void main() {
 
     Navigator.of(tester.element(find.text('Cümle'))).pop(); // close the sheet
     await settle(tester);
-    c.read(routerProvider).push('/review');
+    unawaited(c.read(routerProvider).push('/review'));
     await settle(tester);
     await tapAndSettle(tester, find.text('Anlamı göster'));
     expect(find.text('randevu'), findsOneWidget);
@@ -103,7 +105,7 @@ void main() {
   testWidgets('conversation understands meaning, corrects, and records usage (Journey B, offline engine)', (tester) async {
     final (c, db) = await boot(tester);
     await tester.runAsync(() => c.read(vocabRepositoryProvider).saveLexeme(content.lexicon.byId('kaffee')!));
-    c.read(routerProvider).push('/scenario/cafe');
+    unawaited(c.read(routerProvider).push('/scenario/cafe'));
     await settle(tester);
     await tapAndSettle(tester, find.text('Konuşmayı başlat'));
     Future<void> say(String text) async {
@@ -128,7 +130,7 @@ void main() {
 
   testWidgets('reading: save a word with its sentence (Journey C)', (tester) async {
     final (c, db) = await boot(tester);
-    c.read(routerProvider).push('/reader/builtin:r_mein_zimmer');
+    unawaited(c.read(routerProvider).push('/reader/builtin:r_mein_zimmer'));
     await settle(tester);
     await tester.tapOnText(find.textRange.ofSubstring('Lampe').first);
     await settle(tester);
@@ -142,7 +144,7 @@ void main() {
 
   testWidgets('lesson progress and vocabulary survive a restart (Journey D)', (tester) async {
     var (c, db) = await boot(tester);
-    c.read(routerProvider).push('/lesson/u1l1');
+    unawaited(c.read(routerProvider).push('/lesson/u1l1'));
     await settle(tester);
     await tapAndSettle(tester, find.text('Kaydet').first); // save "Hallo"
     await tapAndSettle(tester, find.text('Devam'));
@@ -153,7 +155,7 @@ void main() {
     final entries = await query(tester, db, 'SELECT headword FROM vocab_entries');
     expect(entries.single['headword'], 'Hallo');
     expect(find.text('Kaldığın yerden devam et'), findsOneWidget, reason: 'home offers to continue');
-    c.read(routerProvider).push('/lesson/u1l1');
+    unawaited(c.read(routerProvider).push('/lesson/u1l1'));
     await settle(tester);
     expect(find.text('Kaldığın yerden devam ediyorsun.'), findsOneWidget);
     expect(find.text('Fırında, sabah 8'), findsOneWidget, reason: 'resumes at the dialogue step');
