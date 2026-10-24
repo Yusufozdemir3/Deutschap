@@ -6,6 +6,7 @@ import 'package:deutschap/app/router.dart';
 import 'package:deutschap/core/audio/speech_service.dart';
 import 'package:deutschap/core/clock.dart';
 import 'package:deutschap/core/db/app_database.dart';
+import 'package:deutschap/features/conversation/domain/language_issue.dart';
 import 'package:deutschap/features/profile/data/profile_repository.dart';
 import 'package:deutschap/features/profile/domain/learner_profile.dart';
 import 'package:flutter/material.dart';
@@ -139,6 +140,34 @@ void main() {
     expect(rows.single['headword'], 'die Lampe');
     expect(rows.single['source_type'], 'reading');
     expect(rows.single['sentence'], 'Die Lampe ist alt.');
+    await shutdown(tester, c, db);
+  });
+
+  testWidgets('recurring conversation errors lead to focused practice, which then retires the suggestion', (tester) async {
+    final (c, db) = await boot(tester);
+    const issue = LanguageIssue(kind: IssueKind.grammar, severity: IssueSeverity.error, original: 'Ich möchte ein Kaffee', corrected: 'Ich möchte einen Kaffee', explanationTr: '-', ruleId: 'akkusativ_der');
+    await tester.runAsync(() async {
+      await c.read(progressRepositoryProvider).saveConversation(id: 'a', scenarioId: 'cafe', mode: 'practice', completed: true, goalsDone: const [], corrections: const [issue]);
+      await c.read(progressRepositoryProvider).saveConversation(id: 'b', scenarioId: 'baeckerei', mode: 'practice', completed: true, goalsDone: const [], corrections: const [issue]);
+    });
+    c.read(dataRevisionProvider.notifier).state++;
+    await settle(tester);
+    expect(find.textContaining('Odaklı alıştırma: Akkusativ'), findsWidgets);
+
+    clock.advance(const Duration(minutes: 5));
+    unawaited(c.read(routerProvider).push('/practice/akkusativ'));
+    await settle(tester);
+    await tapAndSettle(tester, find.text('Anladım, devam')); // grammar step
+    for (var i = 0; i < 12 && find.text('Ders tamamlandı').evaluate().isEmpty; i++) {
+      await tapAndSettle(tester, find.text('einen').first);
+      await tapAndSettle(tester, find.text('Kontrol et'));
+      await tapAndSettle(tester, find.text('Devam'));
+    }
+    expect(find.text('Ders tamamlandı'), findsOneWidget);
+    final lessons = await query(tester, db, 'SELECT COUNT(*) AS n FROM lesson_progress');
+    expect(lessons.single['n'], 0, reason: 'practice does not count as a curriculum lesson');
+    await tapAndSettle(tester, find.text('Şimdilik bu kadar'));
+    expect(find.textContaining('Odaklı alıştırma'), findsNothing, reason: 'errors before the practice no longer count');
     await shutdown(tester, c, db);
   });
 

@@ -28,6 +28,11 @@ import 'shell.dart';
 
 final _rootKey = GlobalKey<NavigatorState>();
 
+/// Where the app should open. Captured in `main` from the platform's
+/// initial route (web URL or app link) before the splash screen's
+/// Navigator can replace it with "/".
+final initialLocationProvider = Provider<String>((ref) => '/heute');
+
 final routerProvider = Provider<GoRouter>((ref) {
   final onboarded = ValueNotifier<bool>(ref.read(profileProvider).valueOrNull?.onboarded ?? false);
   ref.listen(profileProvider, (_, next) => onboarded.value = next.valueOrNull?.onboarded ?? false);
@@ -38,7 +43,7 @@ final routerProvider = Provider<GoRouter>((ref) {
 
   return GoRouter(
     navigatorKey: _rootKey,
-    initialLocation: '/heute',
+    initialLocation: ref.read(initialLocationProvider),
     refreshListenable: onboarded,
     redirect: (context, state) {
       final loc = state.matchedLocation;

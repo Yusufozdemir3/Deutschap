@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/providers.dart';
 import '../../../content/models/scenario.dart';
+import '../../conversation/domain/language_issue.dart';
 import '../../practice/domain/practice_generator.dart';
 import '../../progress/application/progress_providers.dart';
 import '../../progress/data/progress_repository.dart';
@@ -83,10 +84,16 @@ final homeDataProvider = FutureProvider<HomeData>((ref) async {
   final recent = await progress.recentActivity(limit: 4);
   (String, String, int)? recurring;
   final practiced = await progress.recentActivity(limit: 50);
+  final conversations = await progress.conversations(limit: 100);
   for (final topic in PracticeTopic.values) {
+    // Only errors made since the topic was last practised count.
     final last = practiced.where((a) => a.kind == ActivityKind.practice && a.refId == topic.name).map((a) => a.at).firstOrNull;
-    final issues = await progress.recurringIssues(since: last);
-    final count = issues.entries.where((e) => PracticeTopic.forRule(e.key) == topic).fold<int>(0, (a, e) => a + e.value);
+    final count = [
+      for (final c in conversations)
+        if (last == null || c.updatedAt.isAfter(last))
+          for (final i in c.corrections)
+            if (i.severity == IssueSeverity.error && PracticeTopic.forRule(i.ruleId) == topic) i,
+    ].length;
     if (count >= 2 && (recurring == null || count > recurring.$3)) recurring = (topic.name, topic.titleTr, count);
   }
   final scenario = practiceScenarioFor(
