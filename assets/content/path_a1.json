@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.2",
+  "version": "2026.10.4",
   "level": "A1",
   "units": [
     {
@@ -2120,24 +2120,599 @@
       "number": 10,
       "title_de": "Was hast du gemacht?",
       "title_tr": "Geçmişten bahsetmek",
-      "goal_tr": "Perfekt ile dün ne yaptığını anlatabilirsin.",
-      "lessons": []
+      "goal_tr": "Perfekt ile dün ve geçen hafta ne yaptığını anlatabilirsin.",
+      "grammar": [
+        "g_perfekt"
+      ],
+      "lessons": [
+        {
+          "id": "u10l1",
+          "title_tr": "haben ile geçmiş",
+          "objective_tr": "\"Ich habe … gemacht\" kalıbını kur.",
+          "minutes": 7,
+          "vocab": [
+            "machen",
+            "letzte",
+            "gestern"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "machen",
+                "gestern",
+                "letzte",
+                "kaufen"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_perfekt"
+            },
+            {
+              "type": "cloze",
+              "de": "Gestern habe ich Brot ___. (kaufen)",
+              "tr": "Dün ekmek aldım.",
+              "answers": [
+                "gekauft"
+              ],
+              "options": [
+                "gekauft",
+                "kaufen",
+                "gekaufen"
+              ],
+              "explain_tr": "Düzenli fiil: ge- + kök + -t: kaufen → gekauft."
+            },
+            {
+              "type": "cloze",
+              "de": "Wir haben Pizza ___. (essen)",
+              "tr": "Pizza yedik.",
+              "answers": [
+                "gegessen"
+              ],
+              "options": [
+                "gegessen",
+                "geesst",
+                "essen"
+              ],
+              "explain_tr": "Düzensiz fiil: essen → gegessen. Bunları kelimeyle birlikte öğren."
+            },
+            {
+              "type": "order",
+              "tr": "Dün uzun süre uyudum.",
+              "tokens": [
+                "Gestern",
+                "habe",
+                "ich",
+                "lange",
+                "geschlafen"
+              ],
+              "answers": [
+                "Gestern habe ich lange geschlafen",
+                "Ich habe gestern lange geschlafen"
+              ],
+              "explain_tr": "habe ikinci sırada, Partizip (geschlafen) en sonda."
+            },
+            {
+              "type": "listen",
+              "de": "Am Wochenende habe ich viel gelernt.",
+              "prompt_tr": "Hafta sonu ne yapmış?",
+              "options": [
+                "Çok çalışmış (ders)",
+                "Çok uyumuş",
+                "Alışveriş yapmış"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "gelernt ← lernen (öğrenmek, ders çalışmak)."
+            },
+            {
+              "type": "translate",
+              "tr": "Dün kahve içtim.",
+              "answers": [
+                "Gestern habe ich Kaffee getrunken.",
+                "Ich habe gestern Kaffee getrunken.",
+                "Ich habe gestern einen Kaffee getrunken.",
+                "Gestern habe ich einen Kaffee getrunken."
+              ],
+              "hint_tr": "trinken → getrunken"
+            }
+          ]
+        },
+        {
+          "id": "u10l2",
+          "title_tr": "sein ile geçmiş",
+          "objective_tr": "Gitmek, gelmek gibi fiillerde \"bin … gegangen\" de.",
+          "minutes": 7,
+          "vocab": [
+            "gehen",
+            "fahren",
+            "kommen",
+            "bleiben",
+            "kino"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "gehen",
+                "fahren",
+                "kommen",
+                "bleiben",
+                "kino"
+              ],
+              "note_tr": "Bu fiillerin hepsi Perfekt'te \"sein\" alır."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Boşluğa ne gelir?",
+              "de": "Ich ___ gestern ins Kino gegangen.",
+              "options": [
+                "habe",
+                "bin",
+                "ist"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "gehen yer değiştirme bildirir → sein: ich bin gegangen."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Hangisi doğru?",
+              "options": [
+                "Ich habe zu Hause geblieben.",
+                "Ich bin zu Hause geblieben.",
+                "Ich bin zu Hause bleiben."
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "bleiben de \"sein\" alır: Ich bin geblieben."
+            },
+            {
+              "type": "cloze",
+              "de": "Letzte Woche ___ wir nach Hamburg gefahren.",
+              "tr": "Geçen hafta Hamburg'a gittik.",
+              "answers": [
+                "sind"
+              ],
+              "options": [
+                "haben",
+                "sind",
+                "seid"
+              ],
+              "explain_tr": "fahren (bir yere gitmek) → sein; wir → sind."
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Dün ne yaptın? Perfekt ile en az iki cümle yaz.",
+              "requirements": [
+                {
+                  "label_tr": "Perfekt kullan (habe/bin + ge…)",
+                  "pattern": "\\b(habe|hab|bin|haben|sind)\\b.*\\b(ge\\w+|\\w+iert)\\b"
+                },
+                {
+                  "label_tr": "Bir zaman ifadesi (gestern, letzte Woche …)",
+                  "pattern": "(gestern|letzte|am wochenende|heute morgen)"
+                }
+              ],
+              "model": "Gestern bin ich ins Café gegangen. Dann habe ich ein Buch gelesen.",
+              "min_words": 8
+            },
+            {
+              "type": "translate",
+              "tr": "Hafta sonu sinemaya gittim.",
+              "answers": [
+                "Am Wochenende bin ich ins Kino gegangen.",
+                "Ich bin am Wochenende ins Kino gegangen."
+              ],
+              "hint_tr": "gehen → bin … gegangen · ins Kino"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "u11",
       "number": 11,
       "title_de": "Probleme im Alltag",
       "title_tr": "Gündelik sorunlar",
-      "goal_tr": "Bir sorunu kibarca anlatıp çözüm isteyebilirsin.",
-      "lessons": []
+      "goal_tr": "Bir sorunu kibarca anlatabilir, özür dileyebilir ve yardım isteyebilirsin.",
+      "grammar": [
+        "g_negation",
+        "g_hoefliche_bitte"
+      ],
+      "lessons": [
+        {
+          "id": "u11l1",
+          "title_tr": "Bir şey bozuk",
+          "objective_tr": "Ev sahibine bir sorunu kibarca bildir.",
+          "minutes": 8,
+          "vocab": [
+            "kaputt",
+            "funktionieren",
+            "heizung",
+            "problem",
+            "koennten_sie",
+            "vermieterin"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "kaputt",
+                "funktionieren",
+                "heizung",
+                "waschmaschine",
+                "problem"
+              ]
+            },
+            {
+              "type": "intro",
+              "lexemes": [
+                "koennten_sie",
+                "hilfe"
+              ]
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Ev sahibini arıyorsun",
+              "lines": [
+                {
+                  "speaker": "Frau Kaya",
+                  "de": "Kaya, guten Tag.",
+                  "tr": "Kaya, iyi günler."
+                },
+                {
+                  "speaker": "Du",
+                  "de": "Guten Tag, Frau Kaya. Hier ist Deniz aus der Kastanienstraße. Ich habe ein Problem: Die Heizung funktioniert nicht.",
+                  "tr": "İyi günler Kaya Hanım. Kastanienstraße'den Deniz. Bir sorunum var: Kalorifer çalışmıyor."
+                },
+                {
+                  "speaker": "Frau Kaya",
+                  "de": "Oh, das tut mir leid. Seit wann?",
+                  "tr": "Ah, çok üzüldüm. Ne zamandan beri?"
+                },
+                {
+                  "speaker": "Du",
+                  "de": "Seit gestern. Könnten Sie bitte einen Techniker schicken?",
+                  "tr": "Dünden beri. Rica etsem bir teknisyen gönderebilir misiniz?"
+                }
+              ]
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Hangisi cihazlar için doğru?",
+              "options": [
+                "Die Heizung arbeitet nicht.",
+                "Die Heizung funktioniert nicht.",
+                "Die Heizung macht nicht."
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "Cihazlar için \"funktionieren\". \"arbeiten\" insanlar için."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "En kibar rica hangisi?",
+              "options": [
+                "Schicken Sie einen Techniker!",
+                "Könnten Sie bitte einen Techniker schicken?",
+                "Ich will einen Techniker."
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "\"Könnten Sie bitte …?\" en kibar kalıp. Emir kipi ve \"Ich will\" sert duyulur."
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Ev sahibine kısa bir mesaj yaz: neyin bozuk olduğunu söyle ve kibarca yardım iste.",
+              "requirements": [
+                {
+                  "label_tr": "Sorunu söyle (kaputt / funktioniert nicht / Problem)",
+                  "pattern": "(kaputt|funktioniert nicht|problem)"
+                },
+                {
+                  "label_tr": "Kibarca yardım iste (bitte / könnten)",
+                  "pattern": "(bitte|koennten|koennen sie)"
+                }
+              ],
+              "model": "Guten Tag, Frau Kaya, die Waschmaschine ist kaputt. Könnten Sie bitte jemanden schicken? Viele Grüße, Deniz",
+              "min_words": 8
+            },
+            {
+              "type": "translate",
+              "tr": "Çamaşır makinesi bozuk.",
+              "answers": [
+                "Die Waschmaschine ist kaputt.",
+                "Die Waschmaschine funktioniert nicht."
+              ],
+              "hint_tr": "die Waschmaschine · kaputt"
+            }
+          ]
+        },
+        {
+          "id": "u11l2",
+          "title_tr": "Özür dilemek",
+          "objective_tr": "Geç kaldığında ya da bir şey olmadığında özür dile.",
+          "minutes": 6,
+          "vocab": [
+            "es_tut_mir_leid",
+            "spaet",
+            "leider",
+            "entschuldigung"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "es_tut_mir_leid",
+                "spaet",
+                "leider"
+              ]
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Kursa 20 dakika geç kaldın. Öğretmene ne dersin?",
+              "options": [
+                "Hallo!",
+                "Es tut mir leid, ich bin zu spät.",
+                "Kein Problem."
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "\"Es tut mir leid\" + sebep. \"zu spät\" = geç (fazla geç)."
+            },
+            {
+              "type": "listen",
+              "de": "Leider habe ich heute keine Zeit. Geht es auch morgen?",
+              "prompt_tr": "Ne söylüyor?",
+              "options": [
+                "Bugün vakti yok, yarın olur mu diye soruyor",
+                "Bugün geliyor",
+                "Yarın vakti yok"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "leider = maalesef; keine Zeit = vakit yok; Geht es auch morgen? = yarın da olur mu?"
+            },
+            {
+              "type": "cloze",
+              "de": "Ich habe ___ Zeit. (hiç)",
+              "tr": "Hiç vaktim yok.",
+              "answers": [
+                "keine"
+              ],
+              "options": [
+                "nicht",
+                "keine",
+                "kein"
+              ],
+              "explain_tr": "die Zeit, artikelsiz isim → keine Zeit."
+            },
+            {
+              "type": "order",
+              "tr": "Maalesef bugün gelemiyorum.",
+              "tokens": [
+                "Leider",
+                "kann",
+                "ich",
+                "heute",
+                "nicht",
+                "kommen"
+              ],
+              "answers": [
+                "Leider kann ich heute nicht kommen",
+                "Ich kann heute leider nicht kommen"
+              ],
+              "explain_tr": "Modal fiil ikinci sırada, mastar (kommen) sonda; nicht mastardan önce."
+            },
+            {
+              "type": "translate",
+              "tr": "Özür dilerim, geç kaldım.",
+              "answers": [
+                "Es tut mir leid, ich bin zu spät.",
+                "Entschuldigung, ich bin zu spät.",
+                "Tut mir leid, ich bin zu spät.",
+                "Es tut mir leid, ich bin spät."
+              ],
+              "hint_tr": "zu spät sein = geç kalmak"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "u12",
       "number": 12,
       "title_de": "Bei der Arbeit",
       "title_tr": "İş yerinde",
-      "goal_tr": "İş yerinde basit iletişim kurabilirsin.",
-      "lessons": []
+      "goal_tr": "İş arkadaşlarıyla tanışabilir, iş yerinde temel ifadeleri kullanabilir ve kısa bir e-posta yazabilirsin.",
+      "grammar": [
+        "g_du_sie",
+        "g_brief"
+      ],
+      "lessons": [
+        {
+          "id": "u12l1",
+          "title_tr": "İlk iş günü",
+          "objective_tr": "İş arkadaşlarıyla tanış ve iş yeri kültürünü tanı.",
+          "minutes": 7,
+          "vocab": [
+            "kollege",
+            "kollegin",
+            "buero",
+            "chefin",
+            "besprechung",
+            "mittagspause",
+            "feierabend"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "kollege",
+                "kollegin",
+                "buero",
+                "chefin"
+              ]
+            },
+            {
+              "type": "intro",
+              "lexemes": [
+                "besprechung",
+                "mittagspause",
+                "feierabend"
+              ],
+              "note_tr": "\"Schönen Feierabend!\" mesai bitiminde söylenir."
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Ofiste ilk gün",
+              "lines": [
+                {
+                  "speaker": "Sara",
+                  "de": "Hallo, du bist bestimmt neu hier! Ich bin Sara, wir duzen uns hier alle.",
+                  "tr": "Selam, sen burada yenisin herhalde! Ben Sara, burada hepimiz birbirimize \"sen\" diyoruz."
+                },
+                {
+                  "speaker": "Du",
+                  "de": "Hallo Sara, ich bin Deniz. Freut mich!",
+                  "tr": "Selam Sara, ben Deniz. Memnun oldum!"
+                },
+                {
+                  "speaker": "Sara",
+                  "de": "Um zehn haben wir eine Besprechung, und um zwölf machen wir Mittagspause. Kommst du mit?",
+                  "tr": "Onda bir toplantımız var, on ikide de öğle arası veriyoruz. Gelir misin?"
+                },
+                {
+                  "speaker": "Du",
+                  "de": "Gern!",
+                  "tr": "Memnuniyetle!"
+                }
+              ]
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Yeni iş yerindesin ve herkes \"Sie\" diyor. Yöneticiye nasıl hitap edersin?",
+              "options": [
+                "Hallo, wie geht's dir?",
+                "Guten Morgen, Frau Berger. Wie geht es Ihnen?",
+                "Hi Chefin!"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "Şirket kültürü \"du\" demeyi önermedikçe yöneticiye \"Sie\" ve soyadıyla hitap edilir."
+            },
+            {
+              "type": "article",
+              "lexeme": "buero"
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Saat 17:00, iş arkadaşın çıkıyor. Ne dersin?",
+              "options": [
+                "Guten Morgen!",
+                "Schönen Feierabend!",
+                "Herzlich willkommen!"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "Mesai bitiminde: Schönen Feierabend! (İyi akşamlar, keyifli bir iş sonrası)."
+            },
+            {
+              "type": "translate",
+              "tr": "Toplantı onda başlıyor.",
+              "answers": [
+                "Die Besprechung beginnt um zehn.",
+                "Die Besprechung beginnt um zehn Uhr.",
+                "Das Meeting beginnt um zehn.",
+                "Das Meeting beginnt um zehn Uhr."
+              ],
+              "hint_tr": "beginnen = başlamak · um zehn (Uhr)"
+            }
+          ]
+        },
+        {
+          "id": "u12l2",
+          "title_tr": "Kısa bir iş e-postası",
+          "objective_tr": "Uygun hitap ve kapanışla kısa bir e-posta yaz.",
+          "minutes": 8,
+          "vocab": [
+            "sehr_geehrte",
+            "viele_gruesse",
+            "termin",
+            "leider"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "sehr_geehrte",
+                "viele_gruesse"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_brief"
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Tanımadığın bir kadına resmî e-posta. Nasıl başlarsın?",
+              "options": [
+                "Liebe Frau Kaya,",
+                "Sehr geehrte Frau Kaya,",
+                "Hey Frau Kaya,"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "Resmî ve tanımadığın biri: Sehr geehrte Frau …,"
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Erkeğe resmî hitap hangisi?",
+              "options": [
+                "Sehr geehrte Herr Albrecht,",
+                "Sehr geehrter Herr Albrecht,",
+                "Sehr geehrten Herr Albrecht,"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "Herr → geehrter (-r)."
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Yöneticin Frau Berger'e e-posta yaz: yarınki toplantıya maalesef gelemeyeceğini söyle. Resmî hitap ve kapanış kullan.",
+              "requirements": [
+                {
+                  "label_tr": "Resmî hitap (Sehr geehrte …)",
+                  "pattern": "sehr geehrte"
+                },
+                {
+                  "label_tr": "Gelemeyeceğini söyle (leider / nicht kommen)",
+                  "pattern": "(leider|nicht kommen|kann nicht)"
+                },
+                {
+                  "label_tr": "Kapanış (Grüße)",
+                  "pattern": "gruesse"
+                }
+              ],
+              "model": "Sehr geehrte Frau Berger, leider kann ich morgen nicht zur Besprechung kommen. Ich habe einen Arzttermin. Mit freundlichen Grüßen, Deniz Aydın",
+              "min_words": 12
+            }
+          ]
+        }
+      ]
     }
   ]
 }

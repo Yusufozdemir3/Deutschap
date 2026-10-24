@@ -99,7 +99,7 @@ void showAboutSheet(BuildContext context) => showModalBottomSheet<void>(
             Text('İlk sürüm: A1 seviyesinde, çevrimdışı çalışan bir temel.', style: c.text.bodyMedium),
             const SectionTitle('Neler var'),
             for (final s in const [
-              '9 ünite / 18 ders (A1 yolunun büyük kısmı)',
+              '12 ünite / 24 ders: A1 yolunun tamamı',
               '"Neu in Berlin" hikâye serisi: 4 bağlantılı bölüm',
               'Kelime defteri: bağlam, koleksiyonlar, aralıklı tekrar',
               '5 gerçek hayat senaryosu (kural tabanlı, çevrimdışı)',
