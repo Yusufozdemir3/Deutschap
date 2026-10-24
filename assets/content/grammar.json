@@ -1,155 +1,23 @@
 {
-  "version": "2026.10.1",
+  "version": "2026.10.2",
   "concepts": [
-    {
-      "id": "g_sein_pronomen",
-      "title_tr": "Kişi zamirleri ve \"sein\" (olmak)",
-      "level": "A1",
-      "rule_tr": "Almancada \"ben öğrenciyim\" demek için ayrı bir fiil gerekir: sein. Türkçedeki \"-im, -sin\" eklerinin işini bu fiil yapar ve her kişide farklı çekilir.",
-      "table": [["Zamir", "sein", "Türkçe"], ["ich", "bin", "ben …-im"], ["du", "bist", "sen …-sin"], ["er / sie / es", "ist", "o …"], ["wir", "sind", "biz …-iz"], ["ihr", "seid", "siz …-siniz (samimi çoğul)"], ["sie / Sie", "sind", "onlar / siz (resmî)"]],
-      "examples": [{"de": "Ich bin neu in Berlin.", "tr": "Berlin'de yeniyim."}, {"de": "Bist du Lina?", "tr": "Lina sen misin?"}, {"de": "Herr Albrecht ist sehr nett.", "tr": "Bay Albrecht çok nazik."}],
-      "turkish_tr": "Türkçede özne düşebilir (\"Yeniyim\"); Almancada özne neredeyse her zaman söylenir: \"Ich bin neu.\" Sadece \"bin neu\" demek eksik olur.",
-      "mistake": {"wrong": "Ich neu.", "right": "Ich bin neu.", "explain_tr": "Fiil eksik. Almanca cümlede çekimli bir fiil zorunludur."}
-    },
-    {
-      "id": "g_praesens",
-      "title_tr": "Şimdiki zaman: fiil çekimi",
-      "level": "A1",
-      "requires": ["g_sein_pronomen"],
-      "rule_tr": "Mastardan -en (ya da -n) atılır, kişiye göre ek gelir. Bu tek zaman hem \"oturuyorum\" hem \"otururum\" anlamına gelir; yakın gelecek için de kullanılır.",
-      "table": [["Kişi", "Ek", "wohnen", "kommen"], ["ich", "-e", "wohne", "komme"], ["du", "-st", "wohnst", "kommst"], ["er / sie / es", "-t", "wohnt", "kommt"], ["wir", "-en", "wohnen", "kommen"], ["ihr", "-t", "wohnt", "kommt"], ["sie / Sie", "-en", "wohnen", "kommen"]],
-      "examples": [{"de": "Ich wohne in Berlin.", "tr": "Berlin'de oturuyorum."}, {"de": "Morgen komme ich um acht.", "tr": "Yarın sekizde geliyorum."}],
-      "turkish_tr": "Türkçede \"-iyor\" ve geniş zaman ayrıdır; Almancada ikisi de Präsens ile söylenir. Bağlam anlamı belirler.",
-      "mistake": {"wrong": "Er wohnen in Berlin.", "right": "Er wohnt in Berlin.", "explain_tr": "er/sie/es ile ek -t olur."}
-    },
-    {
-      "id": "g_w_fragen",
-      "title_tr": "Soru kelimeleri ve soru cümlesi",
-      "level": "A1",
-      "requires": ["g_praesens"],
-      "rule_tr": "W-sorularında soru kelimesi başa, çekimli fiil ikinci sıraya, özne fiilin arkasına gelir. Evet/hayır sorularında ise fiil en başa geçer.",
-      "table": [["Tür", "1", "2", "3"], ["W-soru", "Woher", "kommst", "du?"], ["W-soru", "Wie", "heißen", "Sie?"], ["Evet/hayır", "Kommst", "du", "aus Izmir?"]],
-      "examples": [{"de": "Wo wohnst du?", "tr": "Nerede oturuyorsun?"}, {"de": "Sprechen Sie Türkisch?", "tr": "Türkçe konuşuyor musunuz?"}],
-      "turkish_tr": "Türkçede soru \"mi\" ekiyle ya da soru kelimesi fiilin yanına konarak yapılır; Almancada soru, kelimelerin yeri değiştirilerek kurulur.",
-      "mistake": {"wrong": "Woher du kommst?", "right": "Woher kommst du?", "explain_tr": "Soru kelimesinden hemen sonra fiil gelir."}
-    },
-    {
-      "id": "g_artikel",
-      "title_tr": "Artikel: der, die, das",
-      "level": "A1",
-      "rule_tr": "Her ismin bir cinsiyeti vardır: eril (der), dişil (die), nötr (das). Cinsiyet çoğunlukla anlamdan tahmin edilemez, bu yüzden isimleri her zaman artikeliyle öğren: der Tisch, die Lampe, das Fenster. Belirsiz artikel: ein (der/das), eine (die).",
-      "table": [["", "Eril", "Dişil", "Nötr", "Çoğul"], ["Belirli", "der Tisch", "die Lampe", "das Fenster", "die Tische"], ["Belirsiz", "ein Tisch", "eine Lampe", "ein Fenster", "– Tische"]],
-      "examples": [{"de": "Das ist ein Schlüssel. Der Schlüssel ist alt.", "tr": "Bu bir anahtar. Anahtar eski."}, {"de": "Das ist eine Postkarte.", "tr": "Bu bir kartpostal."}],
-      "turkish_tr": "Türkçede dil bilgisel cinsiyet yoktur, bu yüzden bu konu Türk öğrenciler için yenidir. İpucu kalıplar yardımcı olur ama kesin kural değildir: -ung, -heit, -keit, -ei → die; -chen, -lein → das; günler ve aylar → der.",
-      "mistake": {"wrong": "der Wohnung", "right": "die Wohnung", "explain_tr": "-ung ile biten isimler dişildir."}
-    },
-    {
-      "id": "g_plural",
-      "title_tr": "Çoğul",
-      "level": "A1",
-      "requires": ["g_artikel"],
-      "rule_tr": "Çoğulda artikel her zaman \"die\" olur. Ekler değişir: -e, -en/-n, -er, -s ya da hiç ek yok; bazen ünlü değişir (Stadt → Städte). Çoğulu da artikel gibi kelimeyle birlikte öğren.",
-      "table": [["Tekil", "Çoğul", "Tür"], ["der Tisch", "die Tische", "-e"], ["die Lampe", "die Lampen", "-n"], ["das Buch", "die Bücher", "¨-er"], ["das Handy", "die Handys", "-s"], ["das Zimmer", "die Zimmer", "ek yok"]],
-      "examples": [{"de": "Zwei Brötchen, bitte.", "tr": "İki ekmek, lütfen."}, {"de": "Die Bücher sind alt.", "tr": "Kitaplar eski."}],
-      "turkish_tr": "Türkçede sayıdan sonra isim tekil kalır (iki ekmek); Almancada sayıdan sonra çoğul kullanılır: zwei Brötchen (zaten çoğulu aynı), zwei Bücher.",
-      "mistake": {"wrong": "zwei Buch", "right": "zwei Bücher", "explain_tr": "Birden fazla için çoğul biçim gerekir."}
-    },
-    {
-      "id": "g_akkusativ",
-      "title_tr": "Akkusativ: nesne hâli (einen / den)",
-      "level": "A1",
-      "requires": ["g_artikel"],
-      "rule_tr": "Bir fiilin doğrudan nesnesi (neyi? kimi?) Akkusativ olur. İyi haber: sadece eril artikeller değişir. der → den, ein → einen, kein → keinen. Dişil, nötr ve çoğul aynı kalır.",
-      "table": [["", "Eril", "Dişil", "Nötr"], ["Nominativ (özne)", "der / ein Kaffee", "die / eine Brezel", "das / ein Wasser"], ["Akkusativ (nesne)", "den / einen Kaffee", "die / eine Brezel", "das / ein Wasser"]],
-      "examples": [{"de": "Ich hätte gern einen Kaffee.", "tr": "Bir kahve alabilir miyim?"}, {"de": "Ich nehme eine Brezel und ein Wasser.", "tr": "Bir brezel ve bir su alayım."}, {"de": "Ich suche den Schlüssel.", "tr": "Anahtarı arıyorum."}],
-      "turkish_tr": "Türkçedeki belirtme hâli eki (-ı, -i: anahtarı) bir ölçüde benzer, ama Türkçede ek isme gelir; Almancada değişen şey artikeldir ve sadece erillerde görünür.",
-      "mistake": {"wrong": "Ich möchte ein Kaffee.", "right": "Ich möchte einen Kaffee.", "explain_tr": "Kaffee erildir ve \"möchte\" fiilinin nesnesidir: einen."}
-    },
-    {
-      "id": "g_hoefliche_bitte",
-      "title_tr": "Kibar istekler: möchte, hätte gern, können",
-      "level": "A1",
-      "requires": ["g_akkusativ"],
-      "rule_tr": "Bir şey isterken \"Ich will\" yerine \"Ich möchte …\", \"Ich hätte gern …\" ya da soru olarak \"Kann ich … haben?\" kullan. Hepsinden sonra nesne Akkusativ olur.",
-      "table": [["Kalıp", "Örnek", "Ton"], ["Ich hätte gern …", "Ich hätte gern einen Tee.", "çok kibar, doğal"], ["Ich möchte …", "Ich möchte einen Tee.", "kibar"], ["Ich nehme …", "Ich nehme einen Tee.", "nötr, sipariş"], ["Ich will …", "Ich will einen Tee.", "sert, talepkâr"]],
-      "examples": [{"de": "Ich hätte gern zwei Brötchen, bitte.", "tr": "İki ekmek alabilir miyim, lütfen?"}, {"de": "Kann ich mit Karte zahlen?", "tr": "Kartla ödeyebilir miyim?"}],
-      "turkish_tr": "Türkçede \"istiyorum\" çoğu zaman nötrdür; Almancada \"Ich will\" sipariş verirken kaba kaçabilir. Türkçedeki \"… alabilir miyim?\" inceliğine en yakın kalıp \"Ich hätte gern …\".",
-      "mistake": {"wrong": "Ich will zwei Brötchen.", "right": "Ich hätte gern zwei Brötchen.", "explain_tr": "Dil bilgisi doğru, ama ton fazla sert."}
-    },
-    {
-      "id": "g_verbzweit",
-      "title_tr": "Fiil ikinci sırada (V2)",
-      "level": "A1",
-      "requires": ["g_praesens"],
-      "rule_tr": "Ana cümlede çekimli fiil her zaman ikinci sıradadır. Cümle zaman ya da yer bilgisiyle başlarsa özne fiilin arkasına geçer.",
-      "table": [["1", "2 (fiil)", "3", "…"], ["Ich", "gehe", "heute", "ins Café."], ["Heute", "gehe", "ich", "ins Café."], ["Am Montag", "habe", "ich", "einen Termin."]],
-      "examples": [{"de": "Morgen habe ich Zeit.", "tr": "Yarın vaktim var."}, {"de": "In Berlin wohne ich in einer WG.", "tr": "Berlin'de paylaşımlı bir evde oturuyorum."}],
-      "turkish_tr": "Türkçede fiil sonda durur ve kelime sırası esnektir. Almancada fiilin yeri sabittir: \"Heute ich gehe\" yanlıştır, \"Heute gehe ich\" doğrudur.",
-      "mistake": {"wrong": "Heute ich gehe ins Café.", "right": "Heute gehe ich ins Café.", "explain_tr": "\"Heute\" birinci sırada, fiil ikinci sırada olmalı."}
-    },
-    {
-      "id": "g_trennbar",
-      "title_tr": "Ayrılabilen fiiller",
-      "level": "A1",
-      "requires": ["g_verbzweit"],
-      "rule_tr": "Bazı fiillerin ön eki (auf-, an-, ein-, mit- …) cümlede ayrılır: çekimli kısım ikinci sırada, ön ek en sonda durur. Vurgu ön ektedir: AUFstehen.",
-      "table": [["Mastar", "Cümle"], ["aufstehen", "Ich stehe um sieben Uhr auf."], ["anrufen", "Ich rufe die Praxis an."], ["einkaufen", "Am Samstag kaufe ich ein."]],
-      "examples": [{"de": "Wann stehst du auf?", "tr": "Ne zaman kalkıyorsun?"}],
-      "turkish_tr": "Türkçede böyle bir yapı yok. Cümlenin sonundaki küçük kelimeye dikkat et: anlamı o tamamlar (stehen = ayakta durmak, aufstehen = kalkmak).",
-      "mistake": {"wrong": "Ich aufstehe um sieben.", "right": "Ich stehe um sieben auf.", "explain_tr": "Ön ek cümlenin sonuna gider."}
-    },
-    {
-      "id": "g_modal_koennen",
-      "title_tr": "Modal fiiller: können, möchten",
-      "level": "A1",
-      "requires": ["g_verbzweit"],
-      "rule_tr": "Modal fiil ikinci sırada çekilir, asıl fiil mastar hâlinde cümlenin sonuna gider. ich ve er/sie/es formları aynıdır ve ek almaz: ich kann, er kann.",
-      "table": [["1", "2 (modal)", "…", "son (mastar)"], ["Ich", "kann", "heute nicht", "kommen."], ["Kann", "ich", "mit Karte", "zahlen?"], ["Ich", "möchte", "einen Termin", "vereinbaren."]],
-      "examples": [{"de": "Können Sie das bitte wiederholen?", "tr": "Bunu tekrarlayabilir misiniz lütfen?"}],
-      "turkish_tr": "Türkçede \"-ebilmek\" fiile ek olarak gelir (gelebilirim); Almancada ayrı bir fiildir ve asıl fiil sona kayar.",
-      "mistake": {"wrong": "Ich kann kommen heute nicht.", "right": "Ich kann heute nicht kommen.", "explain_tr": "Mastar (kommen) en sonda durur."}
-    },
-    {
-      "id": "g_zeit",
-      "title_tr": "Zaman ifadeleri: um, am, im",
-      "level": "A1",
-      "rule_tr": "Saat için \"um\", günler ve gün bölümleri için \"am\", aylar ve mevsimler için \"im\" kullanılır.",
-      "table": [["Edat", "Ne için", "Örnek"], ["um", "saat", "um acht Uhr"], ["am", "gün, gün bölümü", "am Montag, am Abend"], ["im", "ay, mevsim", "im Mai, im Sommer"]],
-      "examples": [{"de": "Der Termin ist am Dienstag um zehn Uhr.", "tr": "Randevu salı günü saat onda."}],
-      "turkish_tr": "Türkçede hepsi tek ekle (-de/-da) söylenir: salı günü, saat onda. Almancada edat zamanın türüne göre değişir.",
-      "mistake": {"wrong": "um Montag", "right": "am Montag", "explain_tr": "Günlerle \"am\" kullanılır."}
-    },
-    {
-      "id": "g_du_sie",
-      "title_tr": "du mu, Sie mi?",
-      "level": "A1",
-      "rule_tr": "\"du\" arkadaşlar, aile, çocuklar ve genelde aynı yaştaki gençler arasında kullanılır. Tanımadığın yetişkinlere, resmî kurumlarda ve hizmet alırken \"Sie\" kullan. Sie fiili çoğul gibi çeker: Sie kommen.",
-      "table": [["Durum", "Hitap"], ["Ev arkadaşı, arkadaş", "du"], ["Komşu (yaşlı), ev sahibi", "Sie"], ["Fırın, kafe, Bürgeramt", "Sie"], ["İş yeri", "şirkete göre değişir"]],
-      "examples": [{"de": "Woher kommst du?", "tr": "Nerelisin?"}, {"de": "Woher kommen Sie?", "tr": "Nerelisiniz?"}],
-      "turkish_tr": "Türkçedeki sen/siz ayrımına çok benzer. Fark: Almancada \"Sie\" büyük harfle yazılır ve geçiş genelde açıkça teklif edilir: \"Wollen wir uns duzen?\"",
-      "mistake": {"wrong": "Herr Albrecht, kommst du mit?", "right": "Herr Albrecht, kommen Sie mit?", "explain_tr": "Soyadıyla hitap ettiğin kişiye \"Sie\" ile konuşursun."}
-    },
-    {
-      "id": "g_negation",
-      "title_tr": "Olumsuzluk: nicht ve kein",
-      "level": "A1",
-      "requires": ["g_artikel"],
-      "rule_tr": "Belirsiz artikelli (ein/eine) ya da artikelsiz isimleri \"kein\" ile olumsuz yaparsın. Fiilleri, sıfatları, belirli isimleri ve bütün cümleyi \"nicht\" ile.",
-      "table": [["Olumlu", "Olumsuz"], ["Ich habe einen Termin.", "Ich habe keinen Termin."], ["Ich habe Zeit.", "Ich habe keine Zeit."], ["Ich verstehe das.", "Ich verstehe das nicht."], ["Das ist teuer.", "Das ist nicht teuer."]],
-      "examples": [{"de": "Das ist kein Problem.", "tr": "Bu sorun değil."}],
-      "turkish_tr": "Türkçede \"yok\" ve \"değil\" ayrımına benzer şekilde düşünebilirsin: \"Zamanım yok\" → keine Zeit; \"pahalı değil\" → nicht teuer.",
-      "mistake": {"wrong": "Ich habe nicht Zeit.", "right": "Ich habe keine Zeit.", "explain_tr": "Artikelsiz isim \"kein\" ile olumsuz yapılır."}
-    },
-    {
-      "id": "g_perfekt",
-      "title_tr": "Geçmiş zaman (Perfekt) – ilk bakış",
-      "level": "A1",
-      "requires": ["g_verbzweit"],
-      "rule_tr": "Konuşmada geçmiş genelde Perfekt ile anlatılır: haben/sein (ikinci sırada) + Partizip II (sonda). Yer değiştirme (gehen, kommen, fahren) ve durum değişikliği (aufstehen, werden) bildiren fiiller \"sein\" alır; çoğu fiil \"haben\" alır.",
-      "table": [["Fiil", "Perfekt", "Yardımcı"], ["kaufen", "ich habe gekauft", "haben"], ["essen", "ich habe gegessen", "haben"], ["gehen", "ich bin gegangen", "sein"], ["ankommen", "ich bin angekommen", "sein"]],
-      "examples": [{"de": "Gestern bin ich in Berlin angekommen.", "tr": "Dün Berlin'e vardım."}, {"de": "Ich habe zwei Brötchen gekauft.", "tr": "İki ekmek aldım."}],
-      "turkish_tr": "Türkçede geçmiş tek bir ekle yapılır (-di). Almancada iki parça var ve aralarına cümlenin geri kalanı girer: Ich habe gestern zwei Brötchen gekauft.",
-      "mistake": {"wrong": "Ich habe ins Kino gegangen.", "right": "Ich bin ins Kino gegangen.", "explain_tr": "\"gehen\" yer değiştirme bildirir, \"sein\" alır."}
-    }
+    {"id": "g_sein_pronomen", "title_tr": "Kişi zamirleri ve \"sein\" (olmak)", "level": "A1", "rule_tr": "Almancada \"ben öğrenciyim\" demek için ayrı bir fiil gerekir: sein. Türkçedeki \"-im, -sin\" eklerinin işini bu fiil yapar ve her kişide farklı çekilir.", "table": [["Zamir", "sein", "Türkçe"], ["ich", "bin", "ben …-im"], ["du", "bist", "sen …-sin"], ["er / sie / es", "ist", "o …"], ["wir", "sind", "biz …-iz"], ["ihr", "seid", "siz …-siniz (samimi çoğul)"], ["sie / Sie", "sind", "onlar / siz (resmî)"]], "examples": [{"de": "Ich bin neu in Berlin.", "tr": "Berlin'de yeniyim."}, {"de": "Bist du Lina?", "tr": "Lina sen misin?"}, {"de": "Herr Albrecht ist sehr nett.", "tr": "Bay Albrecht çok nazik."}], "turkish_tr": "Türkçede özne düşebilir (\"Yeniyim\"); Almancada özne neredeyse her zaman söylenir: \"Ich bin neu.\" Sadece \"bin neu\" demek eksik olur.", "mistake": {"wrong": "Ich neu.", "right": "Ich bin neu.", "explain_tr": "Fiil eksik. Almanca cümlede çekimli bir fiil zorunludur."}},
+    {"id": "g_praesens", "title_tr": "Şimdiki zaman: fiil çekimi", "level": "A1", "requires": ["g_sein_pronomen"], "rule_tr": "Mastardan -en (ya da -n) atılır, kişiye göre ek gelir. Bu tek zaman hem \"oturuyorum\" hem \"otururum\" anlamına gelir; yakın gelecek için de kullanılır.", "table": [["Kişi", "Ek", "wohnen", "kommen"], ["ich", "-e", "wohne", "komme"], ["du", "-st", "wohnst", "kommst"], ["er / sie / es", "-t", "wohnt", "kommt"], ["wir", "-en", "wohnen", "kommen"], ["ihr", "-t", "wohnt", "kommt"], ["sie / Sie", "-en", "wohnen", "kommen"]], "examples": [{"de": "Ich wohne in Berlin.", "tr": "Berlin'de oturuyorum."}, {"de": "Morgen komme ich um acht.", "tr": "Yarın sekizde geliyorum."}], "turkish_tr": "Türkçede \"-iyor\" ve geniş zaman ayrıdır; Almancada ikisi de Präsens ile söylenir. Bağlam anlamı belirler.", "mistake": {"wrong": "Er wohnen in Berlin.", "right": "Er wohnt in Berlin.", "explain_tr": "er/sie/es ile ek -t olur."}},
+    {"id": "g_w_fragen", "title_tr": "Soru kelimeleri ve soru cümlesi", "level": "A1", "requires": ["g_praesens"], "rule_tr": "W-sorularında soru kelimesi başa, çekimli fiil ikinci sıraya, özne fiilin arkasına gelir. Evet/hayır sorularında ise fiil en başa geçer.", "table": [["Tür", "1", "2", "3"], ["W-soru", "Woher", "kommst", "du?"], ["W-soru", "Wie", "heißen", "Sie?"], ["Evet/hayır", "Kommst", "du", "aus Izmir?"]], "examples": [{"de": "Wo wohnst du?", "tr": "Nerede oturuyorsun?"}, {"de": "Sprechen Sie Türkisch?", "tr": "Türkçe konuşuyor musunuz?"}], "turkish_tr": "Türkçede soru \"mi\" ekiyle ya da soru kelimesi fiilin yanına konarak yapılır; Almancada soru, kelimelerin yeri değiştirilerek kurulur.", "mistake": {"wrong": "Woher du kommst?", "right": "Woher kommst du?", "explain_tr": "Soru kelimesinden hemen sonra fiil gelir."}},
+    {"id": "g_artikel", "title_tr": "Artikel: der, die, das", "level": "A1", "rule_tr": "Her ismin bir cinsiyeti vardır: eril (der), dişil (die), nötr (das). Cinsiyet çoğunlukla anlamdan tahmin edilemez, bu yüzden isimleri her zaman artikeliyle öğren: der Tisch, die Lampe, das Fenster. Belirsiz artikel: ein (der/das), eine (die).", "table": [["", "Eril", "Dişil", "Nötr", "Çoğul"], ["Belirli", "der Tisch", "die Lampe", "das Fenster", "die Tische"], ["Belirsiz", "ein Tisch", "eine Lampe", "ein Fenster", "– Tische"]], "examples": [{"de": "Das ist ein Schlüssel. Der Schlüssel ist alt.", "tr": "Bu bir anahtar. Anahtar eski."}, {"de": "Das ist eine Postkarte.", "tr": "Bu bir kartpostal."}], "turkish_tr": "Türkçede dil bilgisel cinsiyet yoktur, bu yüzden bu konu Türk öğrenciler için yenidir. İpucu kalıplar yardımcı olur ama kesin kural değildir: -ung, -heit, -keit, -ei → die; -chen, -lein → das; günler ve aylar → der.", "mistake": {"wrong": "der Wohnung", "right": "die Wohnung", "explain_tr": "-ung ile biten isimler dişildir."}},
+    {"id": "g_plural", "title_tr": "Çoğul", "level": "A1", "requires": ["g_artikel"], "rule_tr": "Çoğulda artikel her zaman \"die\" olur. Ekler değişir: -e, -en/-n, -er, -s ya da hiç ek yok; bazen ünlü değişir (Stadt → Städte). Çoğulu da artikel gibi kelimeyle birlikte öğren.", "table": [["Tekil", "Çoğul", "Tür"], ["der Tisch", "die Tische", "-e"], ["die Lampe", "die Lampen", "-n"], ["das Buch", "die Bücher", "¨-er"], ["das Handy", "die Handys", "-s"], ["das Zimmer", "die Zimmer", "ek yok"]], "examples": [{"de": "Zwei Brötchen, bitte.", "tr": "İki ekmek, lütfen."}, {"de": "Die Bücher sind alt.", "tr": "Kitaplar eski."}], "turkish_tr": "Türkçede sayıdan sonra isim tekil kalır (iki ekmek); Almancada sayıdan sonra çoğul kullanılır: zwei Brötchen (zaten çoğulu aynı), zwei Bücher.", "mistake": {"wrong": "zwei Buch", "right": "zwei Bücher", "explain_tr": "Birden fazla için çoğul biçim gerekir."}},
+    {"id": "g_akkusativ", "title_tr": "Akkusativ: nesne hâli (einen / den)", "level": "A1", "requires": ["g_artikel"], "rule_tr": "Bir fiilin doğrudan nesnesi (neyi? kimi?) Akkusativ olur. İyi haber: sadece eril artikeller değişir. der → den, ein → einen, kein → keinen. Dişil, nötr ve çoğul aynı kalır.", "table": [["", "Eril", "Dişil", "Nötr"], ["Nominativ (özne)", "der / ein Kaffee", "die / eine Brezel", "das / ein Wasser"], ["Akkusativ (nesne)", "den / einen Kaffee", "die / eine Brezel", "das / ein Wasser"]], "examples": [{"de": "Ich hätte gern einen Kaffee.", "tr": "Bir kahve alabilir miyim?"}, {"de": "Ich nehme eine Brezel und ein Wasser.", "tr": "Bir brezel ve bir su alayım."}, {"de": "Ich suche den Schlüssel.", "tr": "Anahtarı arıyorum."}], "turkish_tr": "Türkçedeki belirtme hâli eki (-ı, -i: anahtarı) bir ölçüde benzer, ama Türkçede ek isme gelir; Almancada değişen şey artikeldir ve sadece erillerde görünür.", "mistake": {"wrong": "Ich möchte ein Kaffee.", "right": "Ich möchte einen Kaffee.", "explain_tr": "Kaffee erildir ve \"möchte\" fiilinin nesnesidir: einen."}},
+    {"id": "g_hoefliche_bitte", "title_tr": "Kibar istekler: möchte, hätte gern, können", "level": "A1", "requires": ["g_akkusativ"], "rule_tr": "Bir şey isterken \"Ich will\" yerine \"Ich möchte …\", \"Ich hätte gern …\" ya da soru olarak \"Kann ich … haben?\" kullan. Hepsinden sonra nesne Akkusativ olur.", "table": [["Kalıp", "Örnek", "Ton"], ["Ich hätte gern …", "Ich hätte gern einen Tee.", "çok kibar, doğal"], ["Ich möchte …", "Ich möchte einen Tee.", "kibar"], ["Ich nehme …", "Ich nehme einen Tee.", "nötr, sipariş"], ["Ich will …", "Ich will einen Tee.", "sert, talepkâr"]], "examples": [{"de": "Ich hätte gern zwei Brötchen, bitte.", "tr": "İki ekmek alabilir miyim, lütfen?"}, {"de": "Kann ich mit Karte zahlen?", "tr": "Kartla ödeyebilir miyim?"}], "turkish_tr": "Türkçede \"istiyorum\" çoğu zaman nötrdür; Almancada \"Ich will\" sipariş verirken kaba kaçabilir. Türkçedeki \"… alabilir miyim?\" inceliğine en yakın kalıp \"Ich hätte gern …\".", "mistake": {"wrong": "Ich will zwei Brötchen.", "right": "Ich hätte gern zwei Brötchen.", "explain_tr": "Dil bilgisi doğru, ama ton fazla sert."}},
+    {"id": "g_verbzweit", "title_tr": "Fiil ikinci sırada (V2)", "level": "A1", "requires": ["g_praesens"], "rule_tr": "Ana cümlede çekimli fiil her zaman ikinci sıradadır. Cümle zaman ya da yer bilgisiyle başlarsa özne fiilin arkasına geçer.", "table": [["1", "2 (fiil)", "3", "…"], ["Ich", "gehe", "heute", "ins Café."], ["Heute", "gehe", "ich", "ins Café."], ["Am Montag", "habe", "ich", "einen Termin."]], "examples": [{"de": "Morgen habe ich Zeit.", "tr": "Yarın vaktim var."}, {"de": "In Berlin wohne ich in einer WG.", "tr": "Berlin'de paylaşımlı bir evde oturuyorum."}], "turkish_tr": "Türkçede fiil sonda durur ve kelime sırası esnektir. Almancada fiilin yeri sabittir: \"Heute ich gehe\" yanlıştır, \"Heute gehe ich\" doğrudur.", "mistake": {"wrong": "Heute ich gehe ins Café.", "right": "Heute gehe ich ins Café.", "explain_tr": "\"Heute\" birinci sırada, fiil ikinci sırada olmalı."}},
+    {"id": "g_trennbar", "title_tr": "Ayrılabilen fiiller", "level": "A1", "requires": ["g_verbzweit"], "rule_tr": "Bazı fiillerin ön eki (auf-, an-, ein-, mit- …) cümlede ayrılır: çekimli kısım ikinci sırada, ön ek en sonda durur. Vurgu ön ektedir: AUFstehen.", "table": [["Mastar", "Cümle"], ["aufstehen", "Ich stehe um sieben Uhr auf."], ["anrufen", "Ich rufe die Praxis an."], ["einkaufen", "Am Samstag kaufe ich ein."]], "examples": [{"de": "Wann stehst du auf?", "tr": "Ne zaman kalkıyorsun?"}], "turkish_tr": "Türkçede böyle bir yapı yok. Cümlenin sonundaki küçük kelimeye dikkat et: anlamı o tamamlar (stehen = ayakta durmak, aufstehen = kalkmak).", "mistake": {"wrong": "Ich aufstehe um sieben.", "right": "Ich stehe um sieben auf.", "explain_tr": "Ön ek cümlenin sonuna gider."}},
+    {"id": "g_modal_koennen", "title_tr": "Modal fiiller: können, möchten", "level": "A1", "requires": ["g_verbzweit"], "rule_tr": "Modal fiil ikinci sırada çekilir, asıl fiil mastar hâlinde cümlenin sonuna gider. ich ve er/sie/es formları aynıdır ve ek almaz: ich kann, er kann.", "table": [["1", "2 (modal)", "…", "son (mastar)"], ["Ich", "kann", "heute nicht", "kommen."], ["Kann", "ich", "mit Karte", "zahlen?"], ["Ich", "möchte", "einen Termin", "vereinbaren."]], "examples": [{"de": "Können Sie das bitte wiederholen?", "tr": "Bunu tekrarlayabilir misiniz lütfen?"}], "turkish_tr": "Türkçede \"-ebilmek\" fiile ek olarak gelir (gelebilirim); Almancada ayrı bir fiildir ve asıl fiil sona kayar.", "mistake": {"wrong": "Ich kann kommen heute nicht.", "right": "Ich kann heute nicht kommen.", "explain_tr": "Mastar (kommen) en sonda durur."}},
+    {"id": "g_zeit", "title_tr": "Zaman ifadeleri: um, am, im", "level": "A1", "rule_tr": "Saat için \"um\", günler ve gün bölümleri için \"am\", aylar ve mevsimler için \"im\" kullanılır.", "table": [["Edat", "Ne için", "Örnek"], ["um", "saat", "um acht Uhr"], ["am", "gün, gün bölümü", "am Montag, am Abend"], ["im", "ay, mevsim", "im Mai, im Sommer"]], "examples": [{"de": "Der Termin ist am Dienstag um zehn Uhr.", "tr": "Randevu salı günü saat onda."}], "turkish_tr": "Türkçede hepsi tek ekle (-de/-da) söylenir: salı günü, saat onda. Almancada edat zamanın türüne göre değişir.", "mistake": {"wrong": "um Montag", "right": "am Montag", "explain_tr": "Günlerle \"am\" kullanılır."}},
+    {"id": "g_du_sie", "title_tr": "du mu, Sie mi?", "level": "A1", "rule_tr": "\"du\" arkadaşlar, aile, çocuklar ve genelde aynı yaştaki gençler arasında kullanılır. Tanımadığın yetişkinlere, resmî kurumlarda ve hizmet alırken \"Sie\" kullan. Sie fiili çoğul gibi çeker: Sie kommen.", "table": [["Durum", "Hitap"], ["Ev arkadaşı, arkadaş", "du"], ["Komşu (yaşlı), ev sahibi", "Sie"], ["Fırın, kafe, Bürgeramt", "Sie"], ["İş yeri", "şirkete göre değişir"]], "examples": [{"de": "Woher kommst du?", "tr": "Nerelisin?"}, {"de": "Woher kommen Sie?", "tr": "Nerelisiniz?"}], "turkish_tr": "Türkçedeki sen/siz ayrımına çok benzer. Fark: Almancada \"Sie\" büyük harfle yazılır ve geçiş genelde açıkça teklif edilir: \"Wollen wir uns duzen?\"", "mistake": {"wrong": "Herr Albrecht, kommst du mit?", "right": "Herr Albrecht, kommen Sie mit?", "explain_tr": "Soyadıyla hitap ettiğin kişiye \"Sie\" ile konuşursun."}},
+    {"id": "g_negation", "title_tr": "Olumsuzluk: nicht ve kein", "level": "A1", "requires": ["g_artikel"], "rule_tr": "Belirsiz artikelli (ein/eine) ya da artikelsiz isimleri \"kein\" ile olumsuz yaparsın. Fiilleri, sıfatları, belirli isimleri ve bütün cümleyi \"nicht\" ile.", "table": [["Olumlu", "Olumsuz"], ["Ich habe einen Termin.", "Ich habe keinen Termin."], ["Ich habe Zeit.", "Ich habe keine Zeit."], ["Ich verstehe das.", "Ich verstehe das nicht."], ["Das ist teuer.", "Das ist nicht teuer."]], "examples": [{"de": "Das ist kein Problem.", "tr": "Bu sorun değil."}], "turkish_tr": "Türkçede \"yok\" ve \"değil\" ayrımına benzer şekilde düşünebilirsin: \"Zamanım yok\" → keine Zeit; \"pahalı değil\" → nicht teuer.", "mistake": {"wrong": "Ich habe nicht Zeit.", "right": "Ich habe keine Zeit.", "explain_tr": "Artikelsiz isim \"kein\" ile olumsuz yapılır."}},
+    {"id": "g_perfekt", "title_tr": "Geçmiş zaman (Perfekt) – ilk bakış", "level": "A1", "requires": ["g_verbzweit"], "rule_tr": "Konuşmada geçmiş genelde Perfekt ile anlatılır: haben/sein (ikinci sırada) + Partizip II (sonda). Yer değiştirme (gehen, kommen, fahren) ve durum değişikliği (aufstehen, werden) bildiren fiiller \"sein\" alır; çoğu fiil \"haben\" alır.", "table": [["Fiil", "Perfekt", "Yardımcı"], ["kaufen", "ich habe gekauft", "haben"], ["essen", "ich habe gegessen", "haben"], ["gehen", "ich bin gegangen", "sein"], ["ankommen", "ich bin angekommen", "sein"]], "examples": [{"de": "Gestern bin ich in Berlin angekommen.", "tr": "Dün Berlin'e vardım."}, {"de": "Ich habe zwei Brötchen gekauft.", "tr": "İki ekmek aldım."}], "turkish_tr": "Türkçede geçmiş tek bir ekle yapılır (-di). Almancada iki parça var ve aralarına cümlenin geri kalanı girer: Ich habe gestern zwei Brötchen gekauft.", "mistake": {"wrong": "Ich habe ins Kino gegangen.", "right": "Ich bin ins Kino gegangen.", "explain_tr": "\"gehen\" yer değiştirme bildirir, \"sein\" alır."}},
+    {"id": "g_zahlen", "title_tr": "Sayılar 13–100", "level": "A1", "rule_tr": "13–19: birler + -zehn (dreizehn). Onlar -zig ile biter (vierzig), istisna dreißig. 21–99 arası birler önce söylenir, sonra \"und\", sonra onlar: einundzwanzig = bir-ve-yirmi.", "table": [["Sayı", "Almanca", "Dikkat"], ["16", "sechzehn", "sechs değil"], ["17", "siebzehn", "sieben değil"], ["21", "einundzwanzig", "ein (eins değil)"], ["35", "fünfunddreißig", "dreißig: ß"], ["99", "neunundneunzig", "tek kelime"]], "examples": [{"de": "Das kostet siebenundzwanzig Euro.", "tr": "Bu yirmi yedi avro tutuyor."}, {"de": "Ich bin vierunddreißig Jahre alt.", "tr": "Otuz dört yaşındayım."}], "turkish_tr": "Türkçede onlar önce gelir (yirmi bir); Almancada tersidir (bir-ve-yirmi). Telefon numaralarında ve fiyatlarda bu yüzden dikkatli dinle.", "mistake": {"wrong": "zwanzigeins", "right": "einundzwanzig", "explain_tr": "Birler önce, sonra \"und\", sonra onlar."}},
+    {"id": "g_adjektiv_sein", "title_tr": "Sıfatlar: \"sein\"den sonra ek yok", "level": "A1", "requires": ["g_sein_pronomen"], "rule_tr": "Sıfat \"sein\" (ya da \"werden\") fiilinden sonra gelirse hiç ek almaz: Das Zimmer ist schön. İsimden önce gelirse ek alır (ein schönes Zimmer); bu konuyu A2'de ayrıntılı göreceksin.", "table": [["Konum", "Örnek"], ["sein + sıfat", "Die Küche ist hell."], ["sein + sıfat", "Lina ist lustig."], ["isimden önce (A2)", "eine helle Küche"]], "examples": [{"de": "Der Park ist groß und ruhig.", "tr": "Park büyük ve sakin."}], "turkish_tr": "Türkçede sıfat her yerde aynı kalır (büyük park, park büyük). Almancada \"park büyük\" yapısında da ek yok, bu kolay kısım.", "mistake": {"wrong": "Das Zimmer ist schönes.", "right": "Das Zimmer ist schön.", "explain_tr": "\"ist\"ten sonra sıfat yalın kalır."}},
+    {"id": "g_possessiv", "title_tr": "İyelik: mein, dein, sein, ihr …", "level": "A1", "requires": ["g_artikel"], "rule_tr": "İyelik sözcükleri \"ein\" gibi çekilir: eril ve nötrde ek yok (mein Schlüssel, mein Zimmer), dişil ve çoğulda -e (meine Tasche, meine Bücher). Akkusativ'de erilde -en: meinen Schlüssel.", "table": [["Kişi", "İyelik", "Örnek"], ["ich", "mein", "meine Wohnung"], ["du", "dein", "dein Zimmer"], ["er / es", "sein", "sein Koffer"], ["sie", "ihr", "ihre Freundin"], ["wir", "unser", "unser Kiez"], ["Sie", "Ihr", "Ihr Pass"]], "examples": [{"de": "Das ist meine Mitbewohnerin. Ihr Name ist Lina.", "tr": "Bu benim ev arkadaşım. Onun adı Lina."}], "turkish_tr": "Türkçede iyelik bir ektir (evim, evin); Almancada ayrı bir kelimedir ve sahiplenilen ismin cinsiyetine göre değişir.", "mistake": {"wrong": "mein Tasche", "right": "meine Tasche", "explain_tr": "die Tasche dişil → meine."}},
+    {"id": "g_zu_dativ", "title_tr": "zum ve zur: bir yere gitmek", "level": "A1", "requires": ["g_artikel"], "rule_tr": "\"zu\" (…e/…a) her zaman Dativ ister ve artikelle birleşir: zu + dem = zum (der/das isimler), zu + der = zur (die isimler).", "table": [["İsim", "zu +", "Örnek"], ["der Bahnhof", "zum", "zum Bahnhof"], ["das Café", "zum", "zum Café"], ["die Haltestelle", "zur", "zur Haltestelle"], ["der Arzt", "zum", "zum Arzt"]], "examples": [{"de": "Wie komme ich zur Apotheke?", "tr": "Eczaneye nasıl giderim?"}], "turkish_tr": "Türkçedeki yönelme hâli eki (-e/-a) gibi düşünebilirsin; fark şu: Almancada şekil ismin artikeline göre değişir.", "mistake": {"wrong": "Wie komme ich zu der Bahnhof?", "right": "Wie komme ich zum Bahnhof?", "explain_tr": "der Bahnhof → Dativ'de dem → zu + dem = zum."}}
   ]
 }

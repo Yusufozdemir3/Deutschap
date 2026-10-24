@@ -1,240 +1,2143 @@
 {
-  "version": "2026.10.1",
+  "version": "2026.10.2",
   "level": "A1",
   "units": [
     {
-      "id": "u1", "number": 1, "title_de": "Hallo!", "title_tr": "Merhaba!", "goal_tr": "Selamlaşabilir, kendini tanıtabilir ve nereli olduğunu söyleyebilirsin.",
-      "grammar": ["g_sein_pronomen", "g_du_sie"],
+      "id": "u1",
+      "number": 1,
+      "title_de": "Hallo!",
+      "title_tr": "Merhaba!",
+      "goal_tr": "Selamlaşabilir, kendini tanıtabilir ve nereli olduğunu söyleyebilirsin.",
+      "grammar": [
+        "g_sein_pronomen",
+        "g_du_sie"
+      ],
       "lessons": [
         {
-          "id": "u1l1", "title_tr": "Selamlaşma ve vedalaşma", "objective_tr": "Günün saatine ve kişiye uygun selam ver.", "minutes": 5,
-          "vocab": ["hallo", "guten_morgen", "guten_tag", "guten_abend", "tschuess", "auf_wiedersehen", "danke", "bitte"],
+          "id": "u1l1",
+          "title_tr": "Selamlaşma ve vedalaşma",
+          "objective_tr": "Günün saatine ve kişiye uygun selam ver.",
+          "minutes": 5,
+          "vocab": [
+            "hallo",
+            "guten_morgen",
+            "guten_tag",
+            "guten_abend",
+            "tschuess",
+            "auf_wiedersehen",
+            "danke",
+            "bitte"
+          ],
           "steps": [
-            {"type": "intro", "lexemes": ["hallo", "guten_morgen", "guten_tag", "guten_abend"], "note_tr": "Dinle, tekrar et. Beğendiğin ifadeyi kelime defterine kaydedebilirsin."},
-            {"type": "intro", "lexemes": ["tschuess", "auf_wiedersehen", "danke", "bitte"]},
-            {"type": "dialogue", "title_tr": "Fırında, sabah 8", "lines": [
-              {"speaker": "Verkäuferin", "de": "Guten Morgen!", "tr": "Günaydın!"},
-              {"speaker": "Du", "de": "Guten Morgen! Zwei Brötchen, bitte.", "tr": "Günaydın! İki ekmek, lütfen."},
-              {"speaker": "Verkäuferin", "de": "Bitte schön. Das macht einen Euro.", "tr": "Buyurun. Bir avro ediyor."},
-              {"speaker": "Du", "de": "Danke! Auf Wiedersehen!", "tr": "Teşekkürler! Hoşça kalın!"}
-            ]},
-            {"type": "choice", "prompt_tr": "Saat 19:00. Komşunla merdivende karşılaşıyorsun. Ne dersin?", "options": ["Guten Morgen!", "Guten Abend!", "Tschüss!"], "answers": [1], "explain_tr": "Akşam karşılaşırken \"Guten Abend\" denir. \"Tschüss\" vedalaşmak içindir."},
-            {"type": "choice", "prompt_tr": "Bürgeramt'tan çıkıyorsun. Memura nasıl veda edersin?", "options": ["Tschüss!", "Auf Wiedersehen!", "Hallo!"], "answers": [1], "explain_tr": "Resmî ortamda \"Auf Wiedersehen\" uygundur. \"Tschüss\" samimidir; birçok yerde duyulur ama resmî yerde \"Auf Wiedersehen\" daha güvenli."},
-            {"type": "choice", "prompt_tr": "Biri sana \"Danke!\" dedi. En doğal cevap hangisi?", "options": ["Bitte!", "Danke!", "Hallo!"], "answers": [0], "explain_tr": "\"Bitte\" burada \"rica ederim\" anlamındadır. \"Gern geschehen\" da denebilir."},
-            {"type": "cloze", "de": "Guten ___! (sabah)", "tr": "Günaydın!", "answers": ["Morgen"], "options": ["Morgen", "Abend", "Tag"], "explain_tr": "Sabah: Guten Morgen. Gün içinde: Guten Tag. Akşam: Guten Abend."},
-            {"type": "listen", "de": "Guten Abend, Frau Weber!", "prompt_tr": "Bu selam günün hangi saatinde söylenir?", "options": ["Sabah", "Akşam", "Gece yatarken"], "answers": [1], "explain_tr": "\"Guten Abend\" akşam karşılaşırken söylenir. Yatarken \"Gute Nacht\" denir."},
-            {"type": "translate", "tr": "Teşekkürler, hoşça kalın!", "answers": ["Danke, auf Wiedersehen!", "Vielen Dank, auf Wiedersehen!", "Danke schön, auf Wiedersehen!", "Danke und auf Wiedersehen!"], "hint_tr": "Teşekkür: danke · Resmî veda: auf Wiedersehen"}
+            {
+              "type": "intro",
+              "lexemes": [
+                "hallo",
+                "guten_morgen",
+                "guten_tag",
+                "guten_abend"
+              ],
+              "note_tr": "Dinle, tekrar et. Beğendiğin ifadeyi kelime defterine kaydedebilirsin."
+            },
+            {
+              "type": "intro",
+              "lexemes": [
+                "tschuess",
+                "auf_wiedersehen",
+                "danke",
+                "bitte"
+              ]
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Fırında, sabah 8",
+              "lines": [
+                {
+                  "speaker": "Verkäuferin",
+                  "de": "Guten Morgen!",
+                  "tr": "Günaydın!"
+                },
+                {
+                  "speaker": "Du",
+                  "de": "Guten Morgen! Zwei Brötchen, bitte.",
+                  "tr": "Günaydın! İki ekmek, lütfen."
+                },
+                {
+                  "speaker": "Verkäuferin",
+                  "de": "Bitte schön. Das macht einen Euro.",
+                  "tr": "Buyurun. Bir avro ediyor."
+                },
+                {
+                  "speaker": "Du",
+                  "de": "Danke! Auf Wiedersehen!",
+                  "tr": "Teşekkürler! Hoşça kalın!"
+                }
+              ]
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Saat 19:00. Komşunla merdivende karşılaşıyorsun. Ne dersin?",
+              "options": [
+                "Guten Morgen!",
+                "Guten Abend!",
+                "Tschüss!"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "Akşam karşılaşırken \"Guten Abend\" denir. \"Tschüss\" vedalaşmak içindir."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Bürgeramt'tan çıkıyorsun. Memura nasıl veda edersin?",
+              "options": [
+                "Tschüss!",
+                "Auf Wiedersehen!",
+                "Hallo!"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "Resmî ortamda \"Auf Wiedersehen\" uygundur. \"Tschüss\" samimidir; birçok yerde duyulur ama resmî yerde \"Auf Wiedersehen\" daha güvenli."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Biri sana \"Danke!\" dedi. En doğal cevap hangisi?",
+              "options": [
+                "Bitte!",
+                "Danke!",
+                "Hallo!"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "\"Bitte\" burada \"rica ederim\" anlamındadır. \"Gern geschehen\" da denebilir."
+            },
+            {
+              "type": "cloze",
+              "de": "Guten ___! (sabah)",
+              "tr": "Günaydın!",
+              "answers": [
+                "Morgen"
+              ],
+              "options": [
+                "Morgen",
+                "Abend",
+                "Tag"
+              ],
+              "explain_tr": "Sabah: Guten Morgen. Gün içinde: Guten Tag. Akşam: Guten Abend."
+            },
+            {
+              "type": "listen",
+              "de": "Guten Abend, Frau Weber!",
+              "prompt_tr": "Bu selam günün hangi saatinde söylenir?",
+              "options": [
+                "Sabah",
+                "Akşam",
+                "Gece yatarken"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "\"Guten Abend\" akşam karşılaşırken söylenir. Yatarken \"Gute Nacht\" denir."
+            },
+            {
+              "type": "translate",
+              "tr": "Teşekkürler, hoşça kalın!",
+              "answers": [
+                "Danke, auf Wiedersehen!",
+                "Vielen Dank, auf Wiedersehen!",
+                "Danke schön, auf Wiedersehen!",
+                "Danke und auf Wiedersehen!"
+              ],
+              "hint_tr": "Teşekkür: danke · Resmî veda: auf Wiedersehen"
+            }
           ]
         },
         {
-          "id": "u1l2", "title_tr": "Kendini tanıt", "objective_tr": "Adını, nereli olduğunu ve nerede oturduğunu söyle.", "minutes": 7,
-          "vocab": ["heissen", "kommen", "wohnen", "ich_komme_aus", "freut_mich", "wie", "woher", "sein"],
+          "id": "u1l2",
+          "title_tr": "Kendini tanıt",
+          "objective_tr": "Adını, nereli olduğunu ve nerede oturduğunu söyle.",
+          "minutes": 7,
+          "vocab": [
+            "heissen",
+            "kommen",
+            "wohnen",
+            "ich_komme_aus",
+            "freut_mich",
+            "wie",
+            "woher",
+            "sein"
+          ],
           "steps": [
-            {"type": "intro", "lexemes": ["heissen", "kommen", "wohnen", "freut_mich"]},
-            {"type": "grammar", "concept": "g_sein_pronomen"},
-            {"type": "dialogue", "title_tr": "Yeni ev arkadaşı", "lines": [
-              {"speaker": "Lina", "de": "Hallo! Ich bin Lina. Wie heißt du?", "tr": "Merhaba! Ben Lina. Senin adın ne?"},
-              {"speaker": "Du", "de": "Ich heiße Deniz. Freut mich!", "tr": "Benim adım Deniz. Memnun oldum!"},
-              {"speaker": "Lina", "de": "Woher kommst du, Deniz?", "tr": "Nerelisin, Deniz?"},
-              {"speaker": "Du", "de": "Ich komme aus der Türkei, aus Izmir.", "tr": "Türkiye'denim, İzmirliyim."}
-            ]},
-            {"type": "cloze", "de": "Ich ___ Deniz.", "tr": "Benim adım Deniz.", "answers": ["heiße", "bin"], "options": ["heiße", "heißt", "heißen"], "explain_tr": "ich ile fiil -e alır: ich heiße. \"Ich bin Deniz\" de doğrudur."},
-            {"type": "cloze", "de": "Woher ___ du?", "tr": "Nerelisin?", "answers": ["kommst"], "options": ["komme", "kommst", "kommt"], "explain_tr": "du ile ek -st: du kommst."},
-            {"type": "choice", "prompt_tr": "\"Ich komme aus der Türkei\" ne demek?", "options": ["Türkiye'ye gidiyorum.", "Türkiye'denim.", "Türkiye'de oturuyorum."], "answers": [1], "explain_tr": "aus = -den. \"kommen aus\" kökeni anlatır. \"in der Türkei wohnen\" = Türkiye'de oturmak."},
-            {"type": "choice", "prompt_tr": "Yaşlı komşuna adını soruyorsun. Hangisi uygun?", "options": ["Wie heißt du?", "Wie heißen Sie?", "Wer bist du?"], "answers": [1], "explain_tr": "Tanımadığın bir yetişkine \"Sie\" ile hitap edilir: Wie heißen Sie?"},
-            {"type": "order", "tr": "Berlin'de oturuyorum.", "tokens": ["Ich", "wohne", "in", "Berlin"], "answers": ["Ich wohne in Berlin", "In Berlin wohne ich"], "explain_tr": "Fiil (wohne) ikinci sırada."},
-            {"type": "order", "tr": "Türkiye'denim.", "tokens": ["Ich", "komme", "aus", "der", "Türkei"], "answers": ["Ich komme aus der Türkei", "Aus der Türkei komme ich"]},
-            {"type": "write", "prompt_tr": "Yeni ev arkadaşın Lina'ya kısa bir mesaj yaz: adını ve nereli olduğunu söyle.", "requirements": [{"label_tr": "Adını söyle", "pattern": "(ich heisse|ich bin|mein name ist)"}, {"label_tr": "Nereli olduğunu söyle", "pattern": "(komme|bin) aus"}], "model": "Hallo Lina! Ich heiße Deniz. Ich komme aus der Türkei, aus Izmir.", "min_words": 6},
-            {"type": "translate", "tr": "Benim adım Can. Memnun oldum!", "answers": ["Ich heiße Can. Freut mich!", "Mein Name ist Can. Freut mich!", "Ich bin Can. Freut mich!", "Ich heiße Can, freut mich!", "Ich bin Can, freut mich!", "Mein Name ist Can, freut mich!"], "hint_tr": "adı … olmak: heißen", "explain_tr": "Üç yol da doğru: Ich heiße …, Ich bin …, Mein Name ist … (biraz daha resmî)."}
+            {
+              "type": "intro",
+              "lexemes": [
+                "heissen",
+                "kommen",
+                "wohnen",
+                "freut_mich"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_sein_pronomen"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Yeni ev arkadaşı",
+              "lines": [
+                {
+                  "speaker": "Lina",
+                  "de": "Hallo! Ich bin Lina. Wie heißt du?",
+                  "tr": "Merhaba! Ben Lina. Senin adın ne?"
+                },
+                {
+                  "speaker": "Du",
+                  "de": "Ich heiße Deniz. Freut mich!",
+                  "tr": "Benim adım Deniz. Memnun oldum!"
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Woher kommst du, Deniz?",
+                  "tr": "Nerelisin, Deniz?"
+                },
+                {
+                  "speaker": "Du",
+                  "de": "Ich komme aus der Türkei, aus Izmir.",
+                  "tr": "Türkiye'denim, İzmirliyim."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Ich ___ Deniz.",
+              "tr": "Benim adım Deniz.",
+              "answers": [
+                "heiße",
+                "bin"
+              ],
+              "options": [
+                "heiße",
+                "heißt",
+                "heißen"
+              ],
+              "explain_tr": "ich ile fiil -e alır: ich heiße. \"Ich bin Deniz\" de doğrudur."
+            },
+            {
+              "type": "cloze",
+              "de": "Woher ___ du?",
+              "tr": "Nerelisin?",
+              "answers": [
+                "kommst"
+              ],
+              "options": [
+                "komme",
+                "kommst",
+                "kommt"
+              ],
+              "explain_tr": "du ile ek -st: du kommst."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "\"Ich komme aus der Türkei\" ne demek?",
+              "options": [
+                "Türkiye'ye gidiyorum.",
+                "Türkiye'denim.",
+                "Türkiye'de oturuyorum."
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "aus = -den. \"kommen aus\" kökeni anlatır. \"in der Türkei wohnen\" = Türkiye'de oturmak."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Yaşlı komşuna adını soruyorsun. Hangisi uygun?",
+              "options": [
+                "Wie heißt du?",
+                "Wie heißen Sie?",
+                "Wer bist du?"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "Tanımadığın bir yetişkine \"Sie\" ile hitap edilir: Wie heißen Sie?"
+            },
+            {
+              "type": "order",
+              "tr": "Berlin'de oturuyorum.",
+              "tokens": [
+                "Ich",
+                "wohne",
+                "in",
+                "Berlin"
+              ],
+              "answers": [
+                "Ich wohne in Berlin",
+                "In Berlin wohne ich"
+              ],
+              "explain_tr": "Fiil (wohne) ikinci sırada."
+            },
+            {
+              "type": "order",
+              "tr": "Türkiye'denim.",
+              "tokens": [
+                "Ich",
+                "komme",
+                "aus",
+                "der",
+                "Türkei"
+              ],
+              "answers": [
+                "Ich komme aus der Türkei",
+                "Aus der Türkei komme ich"
+              ]
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Yeni ev arkadaşın Lina'ya kısa bir mesaj yaz: adını ve nereli olduğunu söyle.",
+              "requirements": [
+                {
+                  "label_tr": "Adını söyle",
+                  "pattern": "(ich heisse|ich bin|mein name ist)"
+                },
+                {
+                  "label_tr": "Nereli olduğunu söyle",
+                  "pattern": "(komme|bin) aus"
+                }
+              ],
+              "model": "Hallo Lina! Ich heiße Deniz. Ich komme aus der Türkei, aus Izmir.",
+              "min_words": 6
+            },
+            {
+              "type": "translate",
+              "tr": "Benim adım Can. Memnun oldum!",
+              "answers": [
+                "Ich heiße Can. Freut mich!",
+                "Mein Name ist Can. Freut mich!",
+                "Ich bin Can. Freut mich!",
+                "Ich heiße Can, freut mich!",
+                "Ich bin Can, freut mich!",
+                "Mein Name ist Can, freut mich!"
+              ],
+              "hint_tr": "adı … olmak: heißen",
+              "explain_tr": "Üç yol da doğru: Ich heiße …, Ich bin …, Mein Name ist … (biraz daha resmî)."
+            }
           ]
         }
       ]
     },
     {
-      "id": "u2", "number": 2, "title_de": "Zahlen und Fragen", "title_tr": "Sayılar ve sorular", "goal_tr": "Sayıları kullanabilir, basit sorular sorabilir ve cevaplayabilirsin.",
-      "grammar": ["g_w_fragen"],
+      "id": "u2",
+      "number": 2,
+      "title_de": "Zahlen und Fragen",
+      "title_tr": "Sayılar ve sorular",
+      "goal_tr": "Sayıları kullanabilir, basit sorular sorabilir ve cevaplayabilirsin.",
+      "grammar": [
+        "g_w_fragen"
+      ],
       "lessons": [
         {
-          "id": "u2l1", "title_tr": "Sayılar 1–12", "objective_tr": "Fiyatları, saatleri ve telefon numaralarını anla.", "minutes": 5,
-          "vocab": ["eins", "zwei", "drei", "vier", "fuenf", "sechs", "sieben", "acht", "neun", "zehn", "elf", "zwoelf"],
+          "id": "u2l1",
+          "title_tr": "Sayılar 1–12",
+          "objective_tr": "Fiyatları, saatleri ve telefon numaralarını anla.",
+          "minutes": 5,
+          "vocab": [
+            "eins",
+            "zwei",
+            "drei",
+            "vier",
+            "fuenf",
+            "sechs",
+            "sieben",
+            "acht",
+            "neun",
+            "zehn",
+            "elf",
+            "zwoelf"
+          ],
           "steps": [
-            {"type": "intro", "lexemes": ["eins", "zwei", "drei", "vier", "fuenf", "sechs"]},
-            {"type": "intro", "lexemes": ["sieben", "acht", "neun", "zehn", "elf", "zwoelf"], "note_tr": "Sesli dinle: \"sieben\" [zi:bın], \"acht\" sonundaki ch sesi gırtlaktan gelir."},
-            {"type": "choice", "prompt_tr": "\"acht\" hangi sayı?", "options": ["6", "8", "11"], "answers": [1], "explain_tr": "acht = 8. sechs = 6, elf = 11."},
-            {"type": "choice", "prompt_tr": "\"Das kostet drei Euro.\" Fiyat ne?", "options": ["2 €", "3 €", "13 €"], "answers": [1], "explain_tr": "drei = 3. 13 \"dreizehn\" olurdu."},
-            {"type": "cloze", "de": "Eins, zwei, ___, vier.", "tr": "Bir, iki, üç, dört.", "answers": ["drei"], "explain_tr": "drei = üç."},
-            {"type": "listen", "de": "Das kostet acht Euro.", "prompt_tr": "Fiyat ne?", "options": ["8 €", "18 €", "6 €"], "answers": [0], "explain_tr": "acht = 8. 18 \"achtzehn\", 6 \"sechs\" olurdu."},
-            {"type": "translate", "tr": "on iki", "answers": ["zwölf"], "hint_tr": "z ile başlar, ö var"}
+            {
+              "type": "intro",
+              "lexemes": [
+                "eins",
+                "zwei",
+                "drei",
+                "vier",
+                "fuenf",
+                "sechs"
+              ]
+            },
+            {
+              "type": "intro",
+              "lexemes": [
+                "sieben",
+                "acht",
+                "neun",
+                "zehn",
+                "elf",
+                "zwoelf"
+              ],
+              "note_tr": "Sesli dinle: \"sieben\" [zi:bın], \"acht\" sonundaki ch sesi gırtlaktan gelir."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "\"acht\" hangi sayı?",
+              "options": [
+                "6",
+                "8",
+                "11"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "acht = 8. sechs = 6, elf = 11."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "\"Das kostet drei Euro.\" Fiyat ne?",
+              "options": [
+                "2 €",
+                "3 €",
+                "13 €"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "drei = 3. 13 \"dreizehn\" olurdu."
+            },
+            {
+              "type": "cloze",
+              "de": "Eins, zwei, ___, vier.",
+              "tr": "Bir, iki, üç, dört.",
+              "answers": [
+                "drei"
+              ],
+              "explain_tr": "drei = üç."
+            },
+            {
+              "type": "listen",
+              "de": "Das kostet acht Euro.",
+              "prompt_tr": "Fiyat ne?",
+              "options": [
+                "8 €",
+                "18 €",
+                "6 €"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "acht = 8. 18 \"achtzehn\", 6 \"sechs\" olurdu."
+            },
+            {
+              "type": "translate",
+              "tr": "on iki",
+              "answers": [
+                "zwölf"
+              ],
+              "hint_tr": "z ile başlar, ö var"
+            }
           ]
         },
         {
-          "id": "u2l2", "title_tr": "Soru sormak", "objective_tr": "Kim, ne, nerede, nereden, ne zaman sorularını sor.", "minutes": 6,
-          "vocab": ["wo", "woher", "wann", "wer", "was", "wie_alt", "wie"],
+          "id": "u2l2",
+          "title_tr": "Soru sormak",
+          "objective_tr": "Kim, ne, nerede, nereden, ne zaman sorularını sor.",
+          "minutes": 6,
+          "vocab": [
+            "wo",
+            "woher",
+            "wann",
+            "wer",
+            "was",
+            "wie_alt",
+            "wie"
+          ],
           "steps": [
-            {"type": "intro", "lexemes": ["wer", "was", "wo", "woher", "wann", "wie"]},
-            {"type": "grammar", "concept": "g_w_fragen"},
-            {"type": "choice", "prompt_tr": "Bir kişinin kim olduğunu soruyorsun:", "options": ["Wo ist das?", "Wer ist das?", "Was ist das?"], "answers": [1], "explain_tr": "wer = kim, wo = nerede, was = ne. İngilizcedeki \"where\" ile \"wer\"i karıştırma."},
-            {"type": "cloze", "de": "___ wohnst du? – In Berlin.", "tr": "Nerede oturuyorsun? – Berlin'de.", "answers": ["Wo"], "options": ["Wo", "Woher", "Wann"], "explain_tr": "Cevap bir yer (in Berlin) → wo. woher = nereden."},
-            {"type": "order", "tr": "Nerelisin?", "tokens": ["Woher", "kommst", "du"], "answers": ["Woher kommst du"], "explain_tr": "Soru kelimesi + fiil + özne."},
-            {"type": "order", "tr": "Türkçe konuşuyor musun?", "tokens": ["Sprichst", "du", "Türkisch"], "answers": ["Sprichst du Türkisch"], "explain_tr": "Evet/hayır sorusunda fiil başa gelir."},
-            {"type": "choice", "prompt_tr": "Hangi cümle doğru?", "options": ["Wo du wohnst?", "Wo wohnst du?", "Du wo wohnst?"], "answers": [1], "explain_tr": "Soru kelimesinden hemen sonra çekimli fiil gelir."},
-            {"type": "translate", "tr": "Kaç yaşındasın?", "answers": ["Wie alt bist du?"], "hint_tr": "Almancada \"ne kadar yaşlısın?\" diye sorulur: wie alt"}
+            {
+              "type": "intro",
+              "lexemes": [
+                "wer",
+                "was",
+                "wo",
+                "woher",
+                "wann",
+                "wie"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_w_fragen"
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Bir kişinin kim olduğunu soruyorsun:",
+              "options": [
+                "Wo ist das?",
+                "Wer ist das?",
+                "Was ist das?"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "wer = kim, wo = nerede, was = ne. İngilizcedeki \"where\" ile \"wer\"i karıştırma."
+            },
+            {
+              "type": "cloze",
+              "de": "___ wohnst du? – In Berlin.",
+              "tr": "Nerede oturuyorsun? – Berlin'de.",
+              "answers": [
+                "Wo"
+              ],
+              "options": [
+                "Wo",
+                "Woher",
+                "Wann"
+              ],
+              "explain_tr": "Cevap bir yer (in Berlin) → wo. woher = nereden."
+            },
+            {
+              "type": "order",
+              "tr": "Nerelisin?",
+              "tokens": [
+                "Woher",
+                "kommst",
+                "du"
+              ],
+              "answers": [
+                "Woher kommst du"
+              ],
+              "explain_tr": "Soru kelimesi + fiil + özne."
+            },
+            {
+              "type": "order",
+              "tr": "Türkçe konuşuyor musun?",
+              "tokens": [
+                "Sprichst",
+                "du",
+                "Türkisch"
+              ],
+              "answers": [
+                "Sprichst du Türkisch"
+              ],
+              "explain_tr": "Evet/hayır sorusunda fiil başa gelir."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Hangi cümle doğru?",
+              "options": [
+                "Wo du wohnst?",
+                "Wo wohnst du?",
+                "Du wo wohnst?"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "Soru kelimesinden hemen sonra çekimli fiil gelir."
+            },
+            {
+              "type": "translate",
+              "tr": "Kaç yaşındasın?",
+              "answers": [
+                "Wie alt bist du?"
+              ],
+              "hint_tr": "Almancada \"ne kadar yaşlısın?\" diye sorulur: wie alt"
+            }
           ]
         }
       ]
     },
     {
-      "id": "u3", "number": 3, "title_de": "Dinge im Alltag", "title_tr": "Günlük eşyalar ve artikeller", "goal_tr": "Eşyaları artikelleriyle adlandırabilir, tekil ve çoğul kullanabilirsin.",
-      "grammar": ["g_artikel", "g_plural"],
+      "id": "u3",
+      "number": 3,
+      "title_de": "Dinge im Alltag",
+      "title_tr": "Günlük eşyalar ve artikeller",
+      "goal_tr": "Eşyaları artikelleriyle adlandırabilir, tekil ve çoğul kullanabilirsin.",
+      "grammar": [
+        "g_artikel",
+        "g_plural"
+      ],
       "lessons": [
         {
-          "id": "u3l1", "title_tr": "der, die, das", "objective_tr": "İsimleri artikeliyle öğren ve ein/eine kullan.", "minutes": 7,
-          "vocab": ["tisch", "lampe", "fenster", "stuhl", "tuer", "bett"],
+          "id": "u3l1",
+          "title_tr": "der, die, das",
+          "objective_tr": "İsimleri artikeliyle öğren ve ein/eine kullan.",
+          "minutes": 7,
+          "vocab": [
+            "tisch",
+            "lampe",
+            "fenster",
+            "stuhl",
+            "tuer",
+            "bett"
+          ],
           "steps": [
-            {"type": "intro", "lexemes": ["tisch", "lampe", "fenster", "stuhl", "tuer", "bett"], "note_tr": "Her ismi artikeliyle birlikte söyle: \"der Tisch\", sadece \"Tisch\" değil."},
-            {"type": "grammar", "concept": "g_artikel"},
-            {"type": "article", "lexeme": "tisch"},
-            {"type": "article", "lexeme": "lampe"},
-            {"type": "article", "lexeme": "fenster"},
-            {"type": "article", "lexeme": "tuer"},
-            {"type": "choice", "prompt_tr": "Doğru olan hangisi?", "de": "Das ist ___ Lampe.", "options": ["ein", "eine"], "answers": [1], "explain_tr": "die Lampe → eine Lampe. Eril ve nötr isimler \"ein\" alır."},
-            {"type": "cloze", "de": "Das ist ___ Bett.", "tr": "Bu bir yatak.", "answers": ["ein"], "options": ["ein", "eine"], "explain_tr": "das Bett (nötr) → ein Bett."},
-            {"type": "translate", "tr": "Pencere açık.", "answers": ["Das Fenster ist offen.", "Das Fenster ist auf."], "hint_tr": "açık: offen", "explain_tr": "das Fenster: nötr."}
+            {
+              "type": "intro",
+              "lexemes": [
+                "tisch",
+                "lampe",
+                "fenster",
+                "stuhl",
+                "tuer",
+                "bett"
+              ],
+              "note_tr": "Her ismi artikeliyle birlikte söyle: \"der Tisch\", sadece \"Tisch\" değil."
+            },
+            {
+              "type": "grammar",
+              "concept": "g_artikel"
+            },
+            {
+              "type": "article",
+              "lexeme": "tisch"
+            },
+            {
+              "type": "article",
+              "lexeme": "lampe"
+            },
+            {
+              "type": "article",
+              "lexeme": "fenster"
+            },
+            {
+              "type": "article",
+              "lexeme": "tuer"
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Doğru olan hangisi?",
+              "de": "Das ist ___ Lampe.",
+              "options": [
+                "ein",
+                "eine"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "die Lampe → eine Lampe. Eril ve nötr isimler \"ein\" alır."
+            },
+            {
+              "type": "cloze",
+              "de": "Das ist ___ Bett.",
+              "tr": "Bu bir yatak.",
+              "answers": [
+                "ein"
+              ],
+              "options": [
+                "ein",
+                "eine"
+              ],
+              "explain_tr": "das Bett (nötr) → ein Bett."
+            },
+            {
+              "type": "translate",
+              "tr": "Pencere açık.",
+              "answers": [
+                "Das Fenster ist offen.",
+                "Das Fenster ist auf."
+              ],
+              "hint_tr": "açık: offen",
+              "explain_tr": "das Fenster: nötr."
+            }
           ]
         },
         {
-          "id": "u3l2", "title_tr": "Bir, iki, çok: çoğul", "objective_tr": "Çoğul biçimleri tanı ve sayılarla kullan.", "minutes": 6,
-          "vocab": ["zimmer", "buch", "schluessel", "tasche", "handy"],
+          "id": "u3l2",
+          "title_tr": "Bir, iki, çok: çoğul",
+          "objective_tr": "Çoğul biçimleri tanı ve sayılarla kullan.",
+          "minutes": 6,
+          "vocab": [
+            "zimmer",
+            "buch",
+            "schluessel",
+            "tasche",
+            "handy"
+          ],
           "steps": [
-            {"type": "intro", "lexemes": ["zimmer", "buch", "schluessel", "tasche", "handy"]},
-            {"type": "grammar", "concept": "g_plural"},
-            {"type": "choice", "prompt_tr": "\"das Buch\" kelimesinin çoğulu:", "options": ["die Buchs", "die Bücher", "die Buchen"], "answers": [1], "explain_tr": "Buch → Bücher (ünlü değişimi + -er)."},
-            {"type": "choice", "prompt_tr": "Çoğulda artikel hangisi?", "options": ["der", "die", "das"], "answers": [1], "explain_tr": "Bütün çoğullar \"die\" alır."},
-            {"type": "cloze", "de": "Ich habe zwei ___. (çanta)", "tr": "İki çantam var.", "answers": ["Taschen"], "options": ["Tasche", "Taschen", "Taschens"], "explain_tr": "die Tasche → die Taschen."},
-            {"type": "article", "lexeme": "schluessel"},
-            {"type": "article", "lexeme": "handy"},
-            {"type": "translate", "tr": "Odalar büyük.", "answers": ["Die Zimmer sind groß.", "Die Zimmer sind gross."], "hint_tr": "Zimmer'in çoğulu aynıdır; fiil: sind", "explain_tr": "Çoğul özne → sind."}
+            {
+              "type": "intro",
+              "lexemes": [
+                "zimmer",
+                "buch",
+                "schluessel",
+                "tasche",
+                "handy"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_plural"
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "\"das Buch\" kelimesinin çoğulu:",
+              "options": [
+                "die Buchs",
+                "die Bücher",
+                "die Buchen"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "Buch → Bücher (ünlü değişimi + -er)."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Çoğulda artikel hangisi?",
+              "options": [
+                "der",
+                "die",
+                "das"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "Bütün çoğullar \"die\" alır."
+            },
+            {
+              "type": "cloze",
+              "de": "Ich habe zwei ___. (çanta)",
+              "tr": "İki çantam var.",
+              "answers": [
+                "Taschen"
+              ],
+              "options": [
+                "Tasche",
+                "Taschen",
+                "Taschens"
+              ],
+              "explain_tr": "die Tasche → die Taschen."
+            },
+            {
+              "type": "article",
+              "lexeme": "schluessel"
+            },
+            {
+              "type": "article",
+              "lexeme": "handy"
+            },
+            {
+              "type": "translate",
+              "tr": "Odalar büyük.",
+              "answers": [
+                "Die Zimmer sind groß.",
+                "Die Zimmer sind gross."
+              ],
+              "hint_tr": "Zimmer'in çoğulu aynıdır; fiil: sind",
+              "explain_tr": "Çoğul özne → sind."
+            }
           ]
         }
       ]
     },
     {
-      "id": "u4", "number": 4, "title_de": "Im Café", "title_tr": "Kafede sipariş", "goal_tr": "Kibarca sipariş verebilir, fiyat sorabilir ve ödeyebilirsin.",
-      "grammar": ["g_hoefliche_bitte", "g_akkusativ"],
+      "id": "u4",
+      "number": 4,
+      "title_de": "Im Café",
+      "title_tr": "Kafede sipariş",
+      "goal_tr": "Kibarca sipariş verebilir, fiyat sorabilir ve ödeyebilirsin.",
+      "grammar": [
+        "g_hoefliche_bitte",
+        "g_akkusativ"
+      ],
       "lessons": [
         {
-          "id": "u4l1", "title_tr": "Kibarca sipariş vermek", "objective_tr": "\"Ich hätte gern …\" ile sipariş ver.", "minutes": 7,
-          "vocab": ["kaffee", "tee", "wasser", "broetchen", "croissant", "kuchen", "ich_haette_gern", "was_darf_es_sein"],
+          "id": "u4l1",
+          "title_tr": "Kibarca sipariş vermek",
+          "objective_tr": "\"Ich hätte gern …\" ile sipariş ver.",
+          "minutes": 7,
+          "vocab": [
+            "kaffee",
+            "tee",
+            "wasser",
+            "broetchen",
+            "croissant",
+            "kuchen",
+            "ich_haette_gern",
+            "was_darf_es_sein"
+          ],
           "steps": [
-            {"type": "intro", "lexemes": ["kaffee", "tee", "wasser", "croissant", "kuchen"]},
-            {"type": "intro", "lexemes": ["was_darf_es_sein", "ich_haette_gern", "sonst_noch_etwas", "das_wars"]},
-            {"type": "grammar", "concept": "g_hoefliche_bitte"},
-            {"type": "dialogue", "title_tr": "Kafe \"Kastanie\"", "lines": [
-              {"speaker": "Can", "de": "Hallo! Was darf es sein?", "tr": "Merhaba! Ne alırsınız?"},
-              {"speaker": "Du", "de": "Ich hätte gern einen Tee, bitte.", "tr": "Bir çay alabilir miyim, lütfen?"},
-              {"speaker": "Can", "de": "Gern. Sonst noch etwas?", "tr": "Memnuniyetle. Başka bir şey?"},
-              {"speaker": "Du", "de": "Ein Croissant, bitte. Das war's.", "tr": "Bir kruvasan, lütfen. Bu kadar."}
-            ]},
-            {"type": "choice", "prompt_tr": "Hangisi en kibar sipariş?", "options": ["Ich will einen Kaffee.", "Ich hätte gern einen Kaffee.", "Kaffee!"], "answers": [1], "explain_tr": "\"Ich will\" dil bilgisi olarak doğru ama sert. \"Ich hätte gern\" kibar ve doğal."},
-            {"type": "choice", "prompt_tr": "Garson \"Sonst noch etwas?\" diyor. Ne soruyor?", "options": ["Ne kadar ödeyeceksiniz?", "Başka bir şey ister misiniz?", "Burada mı içeceksiniz?"], "answers": [1], "explain_tr": "sonst = başka, noch etwas = bir şey daha."},
-            {"type": "cloze", "de": "Ich hätte gern ___ Kaffee.", "tr": "Bir kahve alabilir miyim?", "answers": ["einen"], "options": ["ein", "einen", "eine"], "explain_tr": "der Kaffee eril; nesne olduğu için Akkusativ: einen Kaffee."},
-            {"type": "listen", "de": "Ich hätte gern einen Tee und ein Croissant, bitte.", "prompt_tr": "Ne sipariş ediyor?", "options": ["Çay ve kruvasan", "Kahve ve kek", "Su ve brezel"], "answers": [0], "explain_tr": "einen Tee (çay) und ein Croissant (kruvasan)."},
-            {"type": "translate", "tr": "Bir çay alabilir miyim, lütfen?", "answers": ["Ich hätte gern einen Tee, bitte.", "Ich hätte gerne einen Tee, bitte.", "Ich möchte einen Tee, bitte.", "Einen Tee, bitte.", "Kann ich einen Tee haben, bitte?", "Ich hätte gern einen Tee.", "Ich möchte bitte einen Tee.", "Ich hätte bitte gern einen Tee."], "hint_tr": "der Tee → einen Tee"}
+            {
+              "type": "intro",
+              "lexemes": [
+                "kaffee",
+                "tee",
+                "wasser",
+                "croissant",
+                "kuchen"
+              ]
+            },
+            {
+              "type": "intro",
+              "lexemes": [
+                "was_darf_es_sein",
+                "ich_haette_gern",
+                "sonst_noch_etwas",
+                "das_wars"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_hoefliche_bitte"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Kafe \"Kastanie\"",
+              "lines": [
+                {
+                  "speaker": "Can",
+                  "de": "Hallo! Was darf es sein?",
+                  "tr": "Merhaba! Ne alırsınız?"
+                },
+                {
+                  "speaker": "Du",
+                  "de": "Ich hätte gern einen Tee, bitte.",
+                  "tr": "Bir çay alabilir miyim, lütfen?"
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Gern. Sonst noch etwas?",
+                  "tr": "Memnuniyetle. Başka bir şey?"
+                },
+                {
+                  "speaker": "Du",
+                  "de": "Ein Croissant, bitte. Das war's.",
+                  "tr": "Bir kruvasan, lütfen. Bu kadar."
+                }
+              ]
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Hangisi en kibar sipariş?",
+              "options": [
+                "Ich will einen Kaffee.",
+                "Ich hätte gern einen Kaffee.",
+                "Kaffee!"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "\"Ich will\" dil bilgisi olarak doğru ama sert. \"Ich hätte gern\" kibar ve doğal."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Garson \"Sonst noch etwas?\" diyor. Ne soruyor?",
+              "options": [
+                "Ne kadar ödeyeceksiniz?",
+                "Başka bir şey ister misiniz?",
+                "Burada mı içeceksiniz?"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "sonst = başka, noch etwas = bir şey daha."
+            },
+            {
+              "type": "cloze",
+              "de": "Ich hätte gern ___ Kaffee.",
+              "tr": "Bir kahve alabilir miyim?",
+              "answers": [
+                "einen"
+              ],
+              "options": [
+                "ein",
+                "einen",
+                "eine"
+              ],
+              "explain_tr": "der Kaffee eril; nesne olduğu için Akkusativ: einen Kaffee."
+            },
+            {
+              "type": "listen",
+              "de": "Ich hätte gern einen Tee und ein Croissant, bitte.",
+              "prompt_tr": "Ne sipariş ediyor?",
+              "options": [
+                "Çay ve kruvasan",
+                "Kahve ve kek",
+                "Su ve brezel"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "einen Tee (çay) und ein Croissant (kruvasan)."
+            },
+            {
+              "type": "translate",
+              "tr": "Bir çay alabilir miyim, lütfen?",
+              "answers": [
+                "Ich hätte gern einen Tee, bitte.",
+                "Ich hätte gerne einen Tee, bitte.",
+                "Ich möchte einen Tee, bitte.",
+                "Einen Tee, bitte.",
+                "Kann ich einen Tee haben, bitte?",
+                "Ich hätte gern einen Tee.",
+                "Ich möchte bitte einen Tee.",
+                "Ich hätte bitte gern einen Tee."
+              ],
+              "hint_tr": "der Tee → einen Tee"
+            }
           ]
         },
         {
-          "id": "u4l2", "title_tr": "Fiyat sormak ve ödemek", "objective_tr": "Fiyat sor, kartla ya da ayrı ayrı öde.", "minutes": 7,
-          "vocab": ["rechnung", "zahlen", "mit_karte_zahlen", "zusammen", "getrennt", "stimmt_so", "wie_viel_kostet"],
+          "id": "u4l2",
+          "title_tr": "Fiyat sormak ve ödemek",
+          "objective_tr": "Fiyat sor, kartla ya da ayrı ayrı öde.",
+          "minutes": 7,
+          "vocab": [
+            "rechnung",
+            "zahlen",
+            "mit_karte_zahlen",
+            "zusammen",
+            "getrennt",
+            "stimmt_so",
+            "wie_viel_kostet"
+          ],
           "steps": [
-            {"type": "intro", "lexemes": ["wie_viel_kostet", "rechnung", "zahlen", "mit_karte_zahlen"]},
-            {"type": "intro", "lexemes": ["zusammen", "getrennt", "stimmt_so"], "note_tr": "Almanya'da arkadaşlar arasında hesabı ayrı ödemek (getrennt) çok normaldir."},
-            {"type": "grammar", "concept": "g_akkusativ"},
-            {"type": "cloze", "de": "Ich nehme ___ Brezel.", "tr": "Bir brezel alayım.", "answers": ["eine"], "options": ["ein", "einen", "eine"], "explain_tr": "die Brezel dişil: Akkusativ'de değişmez → eine Brezel."},
-            {"type": "cloze", "de": "Ich nehme ___ Wasser.", "tr": "Bir su alayım.", "answers": ["ein"], "options": ["ein", "einen", "eine"], "explain_tr": "das Wasser nötr: Akkusativ'de değişmez → ein Wasser."},
-            {"type": "choice", "prompt_tr": "Garson \"Zusammen oder getrennt?\" diye soruyor. Arkadaşınla ayrı ödemek istiyorsun:", "options": ["Zusammen, bitte.", "Getrennt, bitte.", "Stimmt so."], "answers": [1], "explain_tr": "getrennt = ayrı ayrı. \"Stimmt so\" = üstü kalsın."},
-            {"type": "order", "tr": "Kartla ödeyebilir miyim?", "tokens": ["Kann", "ich", "mit", "Karte", "zahlen"], "answers": ["Kann ich mit Karte zahlen"], "explain_tr": "Soru: modal fiil başta, asıl fiil (zahlen) sonda."},
-            {"type": "write", "prompt_tr": "Kafedesin. Bir içecek ve bir yiyecek sipariş et; kibar ol.", "requirements": [{"label_tr": "Bir içecek", "pattern": "(kaffee|tee|wasser|saft|cappuccino|milch|cola)"}, {"label_tr": "Bir yiyecek", "pattern": "(kuchen|croissant|brezel|broetchen|brot|pizza)"}, {"label_tr": "Kibar bir ifade (bitte / hätte gern / möchte)", "pattern": "(bitte|haette gern|moechte)"}], "model": "Ich hätte gern einen Tee und ein Stück Kuchen, bitte.", "min_words": 5},
-            {"type": "translate", "tr": "Hesap, lütfen.", "answers": ["Die Rechnung, bitte.", "Ich möchte bitte zahlen.", "Zahlen, bitte.", "Ich möchte zahlen, bitte.", "Die Rechnung bitte."], "hint_tr": "hesap: die Rechnung"}
+            {
+              "type": "intro",
+              "lexemes": [
+                "wie_viel_kostet",
+                "rechnung",
+                "zahlen",
+                "mit_karte_zahlen"
+              ]
+            },
+            {
+              "type": "intro",
+              "lexemes": [
+                "zusammen",
+                "getrennt",
+                "stimmt_so"
+              ],
+              "note_tr": "Almanya'da arkadaşlar arasında hesabı ayrı ödemek (getrennt) çok normaldir."
+            },
+            {
+              "type": "grammar",
+              "concept": "g_akkusativ"
+            },
+            {
+              "type": "cloze",
+              "de": "Ich nehme ___ Brezel.",
+              "tr": "Bir brezel alayım.",
+              "answers": [
+                "eine"
+              ],
+              "options": [
+                "ein",
+                "einen",
+                "eine"
+              ],
+              "explain_tr": "die Brezel dişil: Akkusativ'de değişmez → eine Brezel."
+            },
+            {
+              "type": "cloze",
+              "de": "Ich nehme ___ Wasser.",
+              "tr": "Bir su alayım.",
+              "answers": [
+                "ein"
+              ],
+              "options": [
+                "ein",
+                "einen",
+                "eine"
+              ],
+              "explain_tr": "das Wasser nötr: Akkusativ'de değişmez → ein Wasser."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Garson \"Zusammen oder getrennt?\" diye soruyor. Arkadaşınla ayrı ödemek istiyorsun:",
+              "options": [
+                "Zusammen, bitte.",
+                "Getrennt, bitte.",
+                "Stimmt so."
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "getrennt = ayrı ayrı. \"Stimmt so\" = üstü kalsın."
+            },
+            {
+              "type": "order",
+              "tr": "Kartla ödeyebilir miyim?",
+              "tokens": [
+                "Kann",
+                "ich",
+                "mit",
+                "Karte",
+                "zahlen"
+              ],
+              "answers": [
+                "Kann ich mit Karte zahlen"
+              ],
+              "explain_tr": "Soru: modal fiil başta, asıl fiil (zahlen) sonda."
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Kafedesin. Bir içecek ve bir yiyecek sipariş et; kibar ol.",
+              "requirements": [
+                {
+                  "label_tr": "Bir içecek",
+                  "pattern": "(kaffee|tee|wasser|saft|cappuccino|milch|cola)"
+                },
+                {
+                  "label_tr": "Bir yiyecek",
+                  "pattern": "(kuchen|croissant|brezel|broetchen|brot|pizza)"
+                },
+                {
+                  "label_tr": "Kibar bir ifade (bitte / hätte gern / möchte)",
+                  "pattern": "(bitte|haette gern|moechte)"
+                }
+              ],
+              "model": "Ich hätte gern einen Tee und ein Stück Kuchen, bitte.",
+              "min_words": 5
+            },
+            {
+              "type": "translate",
+              "tr": "Hesap, lütfen.",
+              "answers": [
+                "Die Rechnung, bitte.",
+                "Ich möchte bitte zahlen.",
+                "Zahlen, bitte.",
+                "Ich möchte zahlen, bitte.",
+                "Die Rechnung bitte."
+              ],
+              "hint_tr": "hesap: die Rechnung"
+            }
           ]
         }
       ]
     },
     {
-      "id": "u5", "number": 5, "title_de": "Mein Tag", "title_tr": "Günlük rutin", "goal_tr": "Gününü anlatabilir, ayrılabilen fiilleri ve kelime sırasını kullanabilirsin.",
-      "grammar": ["g_trennbar", "g_verbzweit"],
+      "id": "u5",
+      "number": 5,
+      "title_de": "Mein Tag",
+      "title_tr": "Günlük rutin",
+      "goal_tr": "Gününü anlatabilir, ayrılabilen fiilleri ve kelime sırasını kullanabilirsin.",
+      "grammar": [
+        "g_trennbar",
+        "g_verbzweit"
+      ],
       "lessons": [
         {
-          "id": "u5l1", "title_tr": "Sabahtan akşama", "objective_tr": "Ayrılabilen fiillerle gününü anlat.", "minutes": 7,
-          "vocab": ["aufstehen", "fruehstuecken", "arbeiten", "schlafen", "einkaufen"],
+          "id": "u5l1",
+          "title_tr": "Sabahtan akşama",
+          "objective_tr": "Ayrılabilen fiillerle gününü anlat.",
+          "minutes": 7,
+          "vocab": [
+            "aufstehen",
+            "fruehstuecken",
+            "arbeiten",
+            "schlafen",
+            "einkaufen"
+          ],
           "steps": [
-            {"type": "intro", "lexemes": ["aufstehen", "fruehstuecken", "arbeiten", "einkaufen", "schlafen"]},
-            {"type": "grammar", "concept": "g_trennbar"},
-            {"type": "order", "tr": "Saat yedide kalkıyorum.", "tokens": ["Ich", "stehe", "um", "sieben", "Uhr", "auf"], "answers": ["Ich stehe um sieben Uhr auf", "Um sieben Uhr stehe ich auf"], "explain_tr": "\"stehe\" ikinci sırada, \"auf\" en sonda."},
-            {"type": "cloze", "de": "Am Samstag kaufe ich ___.", "tr": "Cumartesi alışveriş yapıyorum.", "answers": ["ein"], "options": ["ein", "an", "auf"], "explain_tr": "einkaufen → kaufe … ein."},
-            {"type": "choice", "prompt_tr": "Hangisi doğru?", "options": ["Ich aufstehe um sieben.", "Ich stehe um sieben auf.", "Ich stehe auf um sieben."], "answers": [1], "explain_tr": "Ön ek (auf) cümle sonuna gider."},
-            {"type": "listen", "de": "Ich stehe um sechs Uhr auf.", "prompt_tr": "Kaçta kalkıyor?", "options": ["06:00", "07:00", "08:00"], "answers": [0], "explain_tr": "sechs = 6. \"auf\" cümlenin sonunda: aufstehen."},
-            {"type": "translate", "tr": "Birlikte kahvaltı yapıyoruz.", "answers": ["Wir frühstücken zusammen.", "Wir fruehstuecken zusammen."], "hint_tr": "kahvaltı yapmak: frühstücken"}
+            {
+              "type": "intro",
+              "lexemes": [
+                "aufstehen",
+                "fruehstuecken",
+                "arbeiten",
+                "einkaufen",
+                "schlafen"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_trennbar"
+            },
+            {
+              "type": "order",
+              "tr": "Saat yedide kalkıyorum.",
+              "tokens": [
+                "Ich",
+                "stehe",
+                "um",
+                "sieben",
+                "Uhr",
+                "auf"
+              ],
+              "answers": [
+                "Ich stehe um sieben Uhr auf",
+                "Um sieben Uhr stehe ich auf"
+              ],
+              "explain_tr": "\"stehe\" ikinci sırada, \"auf\" en sonda."
+            },
+            {
+              "type": "cloze",
+              "de": "Am Samstag kaufe ich ___.",
+              "tr": "Cumartesi alışveriş yapıyorum.",
+              "answers": [
+                "ein"
+              ],
+              "options": [
+                "ein",
+                "an",
+                "auf"
+              ],
+              "explain_tr": "einkaufen → kaufe … ein."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Hangisi doğru?",
+              "options": [
+                "Ich aufstehe um sieben.",
+                "Ich stehe um sieben auf.",
+                "Ich stehe auf um sieben."
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "Ön ek (auf) cümle sonuna gider."
+            },
+            {
+              "type": "listen",
+              "de": "Ich stehe um sechs Uhr auf.",
+              "prompt_tr": "Kaçta kalkıyor?",
+              "options": [
+                "06:00",
+                "07:00",
+                "08:00"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "sechs = 6. \"auf\" cümlenin sonunda: aufstehen."
+            },
+            {
+              "type": "translate",
+              "tr": "Birlikte kahvaltı yapıyoruz.",
+              "answers": [
+                "Wir frühstücken zusammen.",
+                "Wir fruehstuecken zusammen."
+              ],
+              "hint_tr": "kahvaltı yapmak: frühstücken"
+            }
           ]
         },
         {
-          "id": "u5l2", "title_tr": "Fiil hep ikinci sırada", "objective_tr": "Cümleyi zamanla başlatınca kelime sırasını doğru kur.", "minutes": 6,
-          "vocab": ["heute", "morgen_adv", "jetzt", "spaeter", "gestern"],
+          "id": "u5l2",
+          "title_tr": "Fiil hep ikinci sırada",
+          "objective_tr": "Cümleyi zamanla başlatınca kelime sırasını doğru kur.",
+          "minutes": 6,
+          "vocab": [
+            "heute",
+            "morgen_adv",
+            "jetzt",
+            "spaeter",
+            "gestern"
+          ],
           "steps": [
-            {"type": "intro", "lexemes": ["heute", "morgen_adv", "jetzt", "spaeter"]},
-            {"type": "grammar", "concept": "g_verbzweit"},
-            {"type": "choice", "prompt_tr": "Hangisi doğru?", "options": ["Heute ich gehe ins Café.", "Heute gehe ich ins Café.", "Heute ins Café ich gehe."], "answers": [1], "explain_tr": "Heute (1) + gehe (2, fiil) + ich (3)."},
-            {"type": "order", "tr": "Yarın vaktim var.", "tokens": ["Morgen", "habe", "ich", "Zeit"], "answers": ["Morgen habe ich Zeit", "Ich habe morgen Zeit"], "explain_tr": "İki sıra da doğru: fiil her zaman ikinci."},
-            {"type": "order", "tr": "Bugün Bürgeramt'a gidiyorum.", "tokens": ["Heute", "gehe", "ich", "zum", "Bürgeramt"], "answers": ["Heute gehe ich zum Bürgeramt", "Ich gehe heute zum Bürgeramt"]},
-            {"type": "translate", "tr": "Şimdi Berlin'de oturuyorum.", "answers": ["Jetzt wohne ich in Berlin.", "Ich wohne jetzt in Berlin."], "hint_tr": "Jetzt ile başlarsan: Jetzt wohne ich …"}
+            {
+              "type": "intro",
+              "lexemes": [
+                "heute",
+                "morgen_adv",
+                "jetzt",
+                "spaeter"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_verbzweit"
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Hangisi doğru?",
+              "options": [
+                "Heute ich gehe ins Café.",
+                "Heute gehe ich ins Café.",
+                "Heute ins Café ich gehe."
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "Heute (1) + gehe (2, fiil) + ich (3)."
+            },
+            {
+              "type": "order",
+              "tr": "Yarın vaktim var.",
+              "tokens": [
+                "Morgen",
+                "habe",
+                "ich",
+                "Zeit"
+              ],
+              "answers": [
+                "Morgen habe ich Zeit",
+                "Ich habe morgen Zeit"
+              ],
+              "explain_tr": "İki sıra da doğru: fiil her zaman ikinci."
+            },
+            {
+              "type": "order",
+              "tr": "Bugün Bürgeramt'a gidiyorum.",
+              "tokens": [
+                "Heute",
+                "gehe",
+                "ich",
+                "zum",
+                "Bürgeramt"
+              ],
+              "answers": [
+                "Heute gehe ich zum Bürgeramt",
+                "Ich gehe heute zum Bürgeramt"
+              ]
+            },
+            {
+              "type": "translate",
+              "tr": "Şimdi Berlin'de oturuyorum.",
+              "answers": [
+                "Jetzt wohne ich in Berlin.",
+                "Ich wohne jetzt in Berlin."
+              ],
+              "hint_tr": "Jetzt ile başlarsan: Jetzt wohne ich …"
+            }
           ]
         }
       ]
     },
     {
-      "id": "u6", "number": 6, "title_de": "Termine", "title_tr": "Randevular", "goal_tr": "Günleri ve saatleri söyleyebilir, telefonda randevu alabilirsin.",
-      "grammar": ["g_zeit", "g_modal_koennen"],
+      "id": "u6",
+      "number": 6,
+      "title_de": "Termine",
+      "title_tr": "Randevular",
+      "goal_tr": "Günleri ve saatleri söyleyebilir, telefonda randevu alabilirsin.",
+      "grammar": [
+        "g_zeit",
+        "g_modal_koennen"
+      ],
       "lessons": [
         {
-          "id": "u6l1", "title_tr": "Günler ve saatler", "objective_tr": "\"am Montag\", \"um zehn Uhr\" de.", "minutes": 6,
-          "vocab": ["montag", "dienstag", "mittwoch", "donnerstag", "freitag", "samstag", "sonntag", "uhr"],
+          "id": "u6l1",
+          "title_tr": "Günler ve saatler",
+          "objective_tr": "\"am Montag\", \"um zehn Uhr\" de.",
+          "minutes": 6,
+          "vocab": [
+            "montag",
+            "dienstag",
+            "mittwoch",
+            "donnerstag",
+            "freitag",
+            "samstag",
+            "sonntag",
+            "uhr"
+          ],
           "steps": [
-            {"type": "intro", "lexemes": ["montag", "dienstag", "mittwoch", "donnerstag"]},
-            {"type": "intro", "lexemes": ["freitag", "samstag", "sonntag", "uhr"]},
-            {"type": "grammar", "concept": "g_zeit"},
-            {"type": "cloze", "de": "Der Termin ist ___ Dienstag.", "tr": "Randevu salı günü.", "answers": ["am"], "options": ["am", "um", "im"], "explain_tr": "Günlerle: am."},
-            {"type": "cloze", "de": "Ich komme ___ zehn Uhr.", "tr": "Saat onda geliyorum.", "answers": ["um"], "options": ["am", "um", "im"], "explain_tr": "Saatle: um."},
-            {"type": "article", "lexeme": "montag"},
-            {"type": "listen", "de": "Der Termin ist am Donnerstag um zehn Uhr.", "prompt_tr": "Randevu ne zaman?", "options": ["Salı 10:00", "Perşembe 10:00", "Perşembe 9:30"], "answers": [1], "explain_tr": "am Donnerstag (perşembe) um zehn Uhr (saat onda)."},
-            {"type": "translate", "tr": "Cumartesi alışveriş yapıyorum.", "answers": ["Am Samstag kaufe ich ein.", "Ich kaufe am Samstag ein.", "Samstag kaufe ich ein."], "hint_tr": "einkaufen ayrılır: kaufe … ein"}
+            {
+              "type": "intro",
+              "lexemes": [
+                "montag",
+                "dienstag",
+                "mittwoch",
+                "donnerstag"
+              ]
+            },
+            {
+              "type": "intro",
+              "lexemes": [
+                "freitag",
+                "samstag",
+                "sonntag",
+                "uhr"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_zeit"
+            },
+            {
+              "type": "cloze",
+              "de": "Der Termin ist ___ Dienstag.",
+              "tr": "Randevu salı günü.",
+              "answers": [
+                "am"
+              ],
+              "options": [
+                "am",
+                "um",
+                "im"
+              ],
+              "explain_tr": "Günlerle: am."
+            },
+            {
+              "type": "cloze",
+              "de": "Ich komme ___ zehn Uhr.",
+              "tr": "Saat onda geliyorum.",
+              "answers": [
+                "um"
+              ],
+              "options": [
+                "am",
+                "um",
+                "im"
+              ],
+              "explain_tr": "Saatle: um."
+            },
+            {
+              "type": "article",
+              "lexeme": "montag"
+            },
+            {
+              "type": "listen",
+              "de": "Der Termin ist am Donnerstag um zehn Uhr.",
+              "prompt_tr": "Randevu ne zaman?",
+              "options": [
+                "Salı 10:00",
+                "Perşembe 10:00",
+                "Perşembe 9:30"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "am Donnerstag (perşembe) um zehn Uhr (saat onda)."
+            },
+            {
+              "type": "translate",
+              "tr": "Cumartesi alışveriş yapıyorum.",
+              "answers": [
+                "Am Samstag kaufe ich ein.",
+                "Ich kaufe am Samstag ein.",
+                "Samstag kaufe ich ein."
+              ],
+              "hint_tr": "einkaufen ayrılır: kaufe … ein"
+            }
           ]
         },
         {
-          "id": "u6l2", "title_tr": "Telefonda randevu", "objective_tr": "Randevu iste, gün öner ve kabul et.", "minutes": 8,
-          "vocab": ["termin", "termin_vereinbaren", "passen", "koennen", "leider", "frei", "praxis"],
+          "id": "u6l2",
+          "title_tr": "Telefonda randevu",
+          "objective_tr": "Randevu iste, gün öner ve kabul et.",
+          "minutes": 8,
+          "vocab": [
+            "termin",
+            "termin_vereinbaren",
+            "passen",
+            "koennen",
+            "leider",
+            "frei",
+            "praxis"
+          ],
           "steps": [
-            {"type": "intro", "lexemes": ["termin", "termin_vereinbaren", "passen", "frei", "leider"]},
-            {"type": "grammar", "concept": "g_modal_koennen"},
-            {"type": "dialogue", "title_tr": "Muayenehaneyi arıyorsun", "lines": [
-              {"speaker": "Praxis", "de": "Praxis Dr. Brandt, guten Tag.", "tr": "Dr. Brandt muayenehanesi, iyi günler."},
-              {"speaker": "Du", "de": "Guten Tag, mein Name ist Deniz Aydın. Ich möchte einen Termin vereinbaren.", "tr": "İyi günler, adım Deniz Aydın. Bir randevu almak istiyorum."},
-              {"speaker": "Praxis", "de": "Passt Ihnen Dienstag um zehn Uhr?", "tr": "Salı saat on size uyar mı?"},
-              {"speaker": "Du", "de": "Dienstag kann ich leider nicht. Geht Mittwoch?", "tr": "Salı maalesef olmuyor. Çarşamba olur mu?"},
-              {"speaker": "Praxis", "de": "Ja, Mittwoch um neun ist frei.", "tr": "Evet, çarşamba saat dokuz boş."}
-            ]},
-            {"type": "order", "tr": "Bir randevu almak istiyorum.", "tokens": ["Ich", "möchte", "einen", "Termin", "vereinbaren"], "answers": ["Ich möchte einen Termin vereinbaren"], "explain_tr": "möchte ikinci sırada, vereinbaren en sonda."},
-            {"type": "choice", "prompt_tr": "\"Passt Ihnen Dienstag?\" ne demek?", "options": ["Salı günü nerdesiniz?", "Salı size uyar mı?", "Salı günü ödeyebilir misiniz?"], "answers": [1], "explain_tr": "passen = uymak, uygun olmak. Ihnen = size (Dativ)."},
-            {"type": "choice", "prompt_tr": "Önerilen gün sana uymuyor. Kibarca ne dersin?", "options": ["Nein.", "Das passt mir leider nicht.", "Ich will Mittwoch."], "answers": [1], "explain_tr": "\"leider\" (maalesef) ile reddetmek kibardır."},
-            {"type": "write", "prompt_tr": "Muayenehaneye kısa bir mesaj yaz: randevu istediğini ve hangi gün vaktin olduğunu söyle.", "requirements": [{"label_tr": "Randevu iste", "pattern": "termin"}, {"label_tr": "Bir gün söyle", "pattern": "(montag|dienstag|mittwoch|donnerstag|freitag|samstag)"}], "model": "Guten Tag, ich möchte einen Termin vereinbaren. Am Mittwoch habe ich Zeit.", "min_words": 6},
-            {"type": "translate", "tr": "Çarşamba vaktim var.", "answers": ["Am Mittwoch habe ich Zeit.", "Ich habe am Mittwoch Zeit.", "Mittwoch habe ich Zeit."], "hint_tr": "vaktim var: ich habe Zeit · çarşamba: am Mittwoch"}
+            {
+              "type": "intro",
+              "lexemes": [
+                "termin",
+                "termin_vereinbaren",
+                "passen",
+                "frei",
+                "leider"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_modal_koennen"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Muayenehaneyi arıyorsun",
+              "lines": [
+                {
+                  "speaker": "Praxis",
+                  "de": "Praxis Dr. Brandt, guten Tag.",
+                  "tr": "Dr. Brandt muayenehanesi, iyi günler."
+                },
+                {
+                  "speaker": "Du",
+                  "de": "Guten Tag, mein Name ist Deniz Aydın. Ich möchte einen Termin vereinbaren.",
+                  "tr": "İyi günler, adım Deniz Aydın. Bir randevu almak istiyorum."
+                },
+                {
+                  "speaker": "Praxis",
+                  "de": "Passt Ihnen Dienstag um zehn Uhr?",
+                  "tr": "Salı saat on size uyar mı?"
+                },
+                {
+                  "speaker": "Du",
+                  "de": "Dienstag kann ich leider nicht. Geht Mittwoch?",
+                  "tr": "Salı maalesef olmuyor. Çarşamba olur mu?"
+                },
+                {
+                  "speaker": "Praxis",
+                  "de": "Ja, Mittwoch um neun ist frei.",
+                  "tr": "Evet, çarşamba saat dokuz boş."
+                }
+              ]
+            },
+            {
+              "type": "order",
+              "tr": "Bir randevu almak istiyorum.",
+              "tokens": [
+                "Ich",
+                "möchte",
+                "einen",
+                "Termin",
+                "vereinbaren"
+              ],
+              "answers": [
+                "Ich möchte einen Termin vereinbaren"
+              ],
+              "explain_tr": "möchte ikinci sırada, vereinbaren en sonda."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "\"Passt Ihnen Dienstag?\" ne demek?",
+              "options": [
+                "Salı günü nerdesiniz?",
+                "Salı size uyar mı?",
+                "Salı günü ödeyebilir misiniz?"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "passen = uymak, uygun olmak. Ihnen = size (Dativ)."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Önerilen gün sana uymuyor. Kibarca ne dersin?",
+              "options": [
+                "Nein.",
+                "Das passt mir leider nicht.",
+                "Ich will Mittwoch."
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "\"leider\" (maalesef) ile reddetmek kibardır."
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Muayenehaneye kısa bir mesaj yaz: randevu istediğini ve hangi gün vaktin olduğunu söyle.",
+              "requirements": [
+                {
+                  "label_tr": "Randevu iste",
+                  "pattern": "termin"
+                },
+                {
+                  "label_tr": "Bir gün söyle",
+                  "pattern": "(montag|dienstag|mittwoch|donnerstag|freitag|samstag)"
+                }
+              ],
+              "model": "Guten Tag, ich möchte einen Termin vereinbaren. Am Mittwoch habe ich Zeit.",
+              "min_words": 6
+            },
+            {
+              "type": "translate",
+              "tr": "Çarşamba vaktim var.",
+              "answers": [
+                "Am Mittwoch habe ich Zeit.",
+                "Ich habe am Mittwoch Zeit.",
+                "Mittwoch habe ich Zeit."
+              ],
+              "hint_tr": "vaktim var: ich habe Zeit · çarşamba: am Mittwoch"
+            }
           ]
         }
       ]
     },
-    {"id": "u7", "number": 7, "title_de": "Einkaufen", "title_tr": "Alışveriş", "goal_tr": "Markette ve dükkânda alışveriş yapabilirsin.", "lessons": []},
-    {"id": "u8", "number": 8, "title_de": "Menschen und Orte", "title_tr": "İnsanları ve yerleri anlatmak", "goal_tr": "Kişileri ve yerleri basitçe tarif edebilirsin.", "lessons": []},
-    {"id": "u9", "number": 9, "title_de": "Wie komme ich …?", "title_tr": "Yol sormak", "goal_tr": "Yol sorabilir ve basit tarifleri anlayabilirsin.", "lessons": []},
-    {"id": "u10", "number": 10, "title_de": "Was hast du gemacht?", "title_tr": "Geçmişten bahsetmek", "goal_tr": "Perfekt ile dün ne yaptığını anlatabilirsin.", "lessons": []},
-    {"id": "u11", "number": 11, "title_de": "Probleme im Alltag", "title_tr": "Gündelik sorunlar", "goal_tr": "Bir sorunu kibarca anlatıp çözüm isteyebilirsin.", "lessons": []},
-    {"id": "u12", "number": 12, "title_de": "Bei der Arbeit", "title_tr": "İş yerinde", "goal_tr": "İş yerinde basit iletişim kurabilirsin.", "lessons": []}
+    {
+      "id": "u7",
+      "number": 7,
+      "title_de": "Einkaufen",
+      "title_tr": "Alışveriş",
+      "goal_tr": "Fiyatları anlayabilir, markette ürün sorabilir ve alışveriş listesi yazabilirsin.",
+      "grammar": [
+        "g_zahlen"
+      ],
+      "lessons": [
+        {
+          "id": "u7l1",
+          "title_tr": "Sayılar 13–100 ve fiyatlar",
+          "objective_tr": "Büyük sayıları ve fiyatları anla.",
+          "minutes": 6,
+          "vocab": [
+            "dreizehn",
+            "sechzehn",
+            "siebzehn",
+            "vierzig",
+            "fuenfzig",
+            "achtzig"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "dreizehn",
+                "sechzehn",
+                "siebzehn",
+                "neunzehn"
+              ],
+              "note_tr": "16 ve 17'ye dikkat: sechzehn, siebzehn."
+            },
+            {
+              "type": "intro",
+              "lexemes": [
+                "vierzig",
+                "fuenfzig",
+                "achtzig",
+                "neunzig"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_zahlen"
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "\"einundzwanzig\" hangi sayı?",
+              "options": [
+                "12",
+                "21",
+                "20"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "ein-und-zwanzig: bir ve yirmi = 21."
+            },
+            {
+              "type": "listen",
+              "de": "Das kostet siebzehn Euro.",
+              "prompt_tr": "Fiyat ne?",
+              "options": [
+                "7 €",
+                "17 €",
+                "70 €"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "siebzehn = 17. siebzig = 70 olurdu."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "45 Almanca nasıl söylenir?",
+              "options": [
+                "vierzigfünf",
+                "fünfundvierzig",
+                "fünfvierzig"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "Birler önce + und + onlar: fünf-und-vierzig."
+            },
+            {
+              "type": "translate",
+              "tr": "otuz beş",
+              "answers": [
+                "fünfunddreißig",
+                "fuenfunddreissig"
+              ],
+              "hint_tr": "beş-ve-otuz; otuz = dreißig"
+            }
+          ]
+        },
+        {
+          "id": "u7l2",
+          "title_tr": "Markette",
+          "objective_tr": "Ürün sor, miktar söyle ve alışveriş listesi yaz.",
+          "minutes": 8,
+          "vocab": [
+            "supermarkt",
+            "kasse",
+            "apfel",
+            "banane",
+            "kaese",
+            "ei",
+            "kilo",
+            "wo_finde_ich",
+            "haben_sie"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "supermarkt",
+                "kasse",
+                "apfel",
+                "banane",
+                "kaese",
+                "ei"
+              ]
+            },
+            {
+              "type": "intro",
+              "lexemes": [
+                "wo_finde_ich",
+                "haben_sie",
+                "kilo",
+                "flasche",
+                "zu_teuer"
+              ]
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Süpermarkette",
+              "lines": [
+                {
+                  "speaker": "Du",
+                  "de": "Entschuldigung, wo finde ich die Eier?",
+                  "tr": "Affedersiniz, yumurtaları nerede bulabilirim?"
+                },
+                {
+                  "speaker": "Mitarbeiter",
+                  "de": "Die Eier sind da hinten, neben der Milch.",
+                  "tr": "Yumurtalar şurada arkada, sütün yanında."
+                },
+                {
+                  "speaker": "Du",
+                  "de": "Danke! Und haben Sie auch Bio-Äpfel?",
+                  "tr": "Teşekkürler! Organik elma da var mı?"
+                },
+                {
+                  "speaker": "Mitarbeiter",
+                  "de": "Ja, ein Kilo kostet drei Euro neunzig.",
+                  "tr": "Evet, kilosu üç avro doksan."
+                }
+              ]
+            },
+            {
+              "type": "article",
+              "lexeme": "apfel"
+            },
+            {
+              "type": "article",
+              "lexeme": "banane"
+            },
+            {
+              "type": "cloze",
+              "de": "Ich kaufe ein ___ Äpfel.",
+              "tr": "Bir kilo elma alıyorum.",
+              "answers": [
+                "Kilo"
+              ],
+              "options": [
+                "Kilo",
+                "Kilos",
+                "Stück"
+              ],
+              "explain_tr": "Miktarlarda: ein Kilo Äpfel, zwei Kilo Kartoffeln (Kilo çoğul eki almaz)."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Bir ürün çok pahalı. Ne dersin?",
+              "options": [
+                "Das ist zu teuer.",
+                "Das ist zu billig.",
+                "Das ist sehr lecker."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "zu teuer = fazla pahalı."
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Lina'ya kısa bir alışveriş listesi mesajı yaz: neye ihtiyacınız olduğunu söyle.",
+              "requirements": [
+                {
+                  "label_tr": "En az bir yiyecek/içecek",
+                  "pattern": "(apfel|aepfel|banane|tomate|kartoffel|kaese|eier|\\bei\\b|milch|brot|wasser|kaffee|tee|broetchen)"
+                },
+                {
+                  "label_tr": "İhtiyaç bildiren bir fiil (brauchen / kaufen)",
+                  "pattern": "(brauch|kauf)"
+                }
+              ],
+              "model": "Hallo Lina! Wir brauchen Milch, sechs Eier und ein Kilo Äpfel. Kaufst du das?",
+              "min_words": 5
+            },
+            {
+              "type": "translate",
+              "tr": "Affedersiniz, peyniri nerede bulabilirim?",
+              "answers": [
+                "Entschuldigung, wo finde ich den Käse?",
+                "Entschuldigung, wo ist der Käse?",
+                "Entschuldigung, wo finde ich Käse?"
+              ],
+              "hint_tr": "Wo finde ich …? · der Käse → den Käse (nesne)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u8",
+      "number": 8,
+      "title_de": "Menschen und Orte",
+      "title_tr": "İnsanları ve yerleri anlatmak",
+      "goal_tr": "Kişileri ve yerleri basit sıfatlarla anlatabilir, iyelik sözcüklerini kullanabilirsin.",
+      "grammar": [
+        "g_adjektiv_sein",
+        "g_possessiv"
+      ],
+      "lessons": [
+        {
+          "id": "u8l1",
+          "title_tr": "İnsanları anlatmak",
+          "objective_tr": "Biri hakkında \"… ist nett und lustig\" de.",
+          "minutes": 7,
+          "vocab": [
+            "lustig",
+            "freundlich",
+            "ruhig",
+            "nett",
+            "jung",
+            "mein",
+            "sein_poss"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "lustig",
+                "freundlich",
+                "ruhig",
+                "nett",
+                "jung"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_adjektiv_sein"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Jonas soruyor",
+              "lines": [
+                {
+                  "speaker": "Jonas",
+                  "de": "Wie sind deine Nachbarn?",
+                  "tr": "Komşuların nasıl?"
+                },
+                {
+                  "speaker": "Du",
+                  "de": "Herr Albrecht ist alt, aber sehr nett. Er ist ein bisschen ruhig.",
+                  "tr": "Bay Albrecht yaşlı ama çok nazik. Biraz sessiz."
+                },
+                {
+                  "speaker": "Jonas",
+                  "de": "Und Lina?",
+                  "tr": "Ya Lina?"
+                },
+                {
+                  "speaker": "Du",
+                  "de": "Lina ist jung und sehr lustig!",
+                  "tr": "Lina genç ve çok eğlenceli!"
+                }
+              ]
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Hangisi doğru?",
+              "options": [
+                "Lina ist lustige.",
+                "Lina ist lustig.",
+                "Lina lustig ist."
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "\"ist\"ten sonra sıfat ek almaz ve fiil ikinci sırada."
+            },
+            {
+              "type": "grammar",
+              "concept": "g_possessiv"
+            },
+            {
+              "type": "cloze",
+              "de": "Das ist ___ Mitbewohnerin. (benim)",
+              "tr": "Bu benim ev arkadaşım.",
+              "answers": [
+                "meine"
+              ],
+              "options": [
+                "mein",
+                "meine",
+                "meinen"
+              ],
+              "explain_tr": "die Mitbewohnerin dişil → meine."
+            },
+            {
+              "type": "cloze",
+              "de": "Herr Albrecht und ___ Briefe. (onun)",
+              "tr": "Bay Albrecht ve onun mektupları.",
+              "answers": [
+                "seine"
+              ],
+              "options": [
+                "sein",
+                "seine",
+                "ihre"
+              ],
+              "explain_tr": "Sahip eril (Herr Albrecht) → sein; çoğul isim → seine."
+            },
+            {
+              "type": "translate",
+              "tr": "Bay Albrecht yaşlı ama çok nazik.",
+              "answers": [
+                "Herr Albrecht ist alt, aber sehr nett.",
+                "Herr Albrecht ist alt, aber sehr freundlich.",
+                "Herr Albrecht ist alt aber sehr nett."
+              ],
+              "hint_tr": "aber = ama · nazik: nett / freundlich"
+            }
+          ]
+        },
+        {
+          "id": "u8l2",
+          "title_tr": "Mahalleni anlat",
+          "objective_tr": "\"Es gibt …\" ile bir yerde ne olduğunu söyle.",
+          "minutes": 7,
+          "vocab": [
+            "park",
+            "haus",
+            "kiez",
+            "hell",
+            "dunkel",
+            "laut",
+            "es_gibt"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "park",
+                "haus",
+                "kiez",
+                "es_gibt"
+              ]
+            },
+            {
+              "type": "intro",
+              "lexemes": [
+                "hell",
+                "dunkel",
+                "laut",
+                "interessant"
+              ]
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Benim mahallem",
+              "lines": [
+                {
+                  "speaker": "Lina",
+                  "de": "Wie findest du unseren Kiez?",
+                  "tr": "Mahallemizi nasıl buluyorsun?"
+                },
+                {
+                  "speaker": "Du",
+                  "de": "Sehr schön! Es gibt einen Park und viele Cafés.",
+                  "tr": "Çok güzel! Bir park ve bir sürü kafe var."
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Aber die Straße ist manchmal laut, oder?",
+                  "tr": "Ama sokak bazen gürültülü, değil mi?"
+                },
+                {
+                  "speaker": "Du",
+                  "de": "Ja, aber mein Zimmer ist ruhig und hell.",
+                  "tr": "Evet, ama odam sessiz ve aydınlık."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "In meinem Kiez gibt es ___ Park.",
+              "tr": "Mahallemde bir park var.",
+              "answers": [
+                "einen"
+              ],
+              "options": [
+                "ein",
+                "einen",
+                "eine"
+              ],
+              "explain_tr": "\"es gibt\" Akkusativ ister: der Park → einen Park."
+            },
+            {
+              "type": "listen",
+              "de": "Die Wohnung ist hell, aber die Straße ist laut.",
+              "prompt_tr": "Sorun ne?",
+              "options": [
+                "Daire karanlık",
+                "Sokak gürültülü",
+                "Daire küçük"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "laut = gürültülü. hell = aydınlık (bu iyi bir şey)."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "\"hell\"in zıttı hangisi?",
+              "options": [
+                "laut",
+                "dunkel",
+                "ruhig"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "hell (aydınlık) ↔ dunkel (karanlık); laut (gürültülü) ↔ ruhig (sakin)."
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Mahalleni ya da sokağını anlat: \"Es gibt …\" ile bir şey söyle ve bir sıfat kullan.",
+              "requirements": [
+                {
+                  "label_tr": "\"es gibt\" kullan",
+                  "pattern": "(es gibt|gibt es)"
+                },
+                {
+                  "label_tr": "Bir sıfat kullan (ruhig, laut, schön …)",
+                  "pattern": "(gross|klein|schoen|ruhig|laut|hell|dunkel|alt|neu|nett|interessant|teuer|billig)"
+                }
+              ],
+              "model": "In meinem Kiez gibt es einen Park und ein Café. Die Straße ist ruhig und schön.",
+              "min_words": 6
+            },
+            {
+              "type": "translate",
+              "tr": "Odam küçük ama aydınlık.",
+              "answers": [
+                "Mein Zimmer ist klein, aber hell.",
+                "Mein Zimmer ist klein aber hell."
+              ],
+              "hint_tr": "das Zimmer → mein Zimmer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u9",
+      "number": 9,
+      "title_de": "Wie komme ich …?",
+      "title_tr": "Yol sormak",
+      "goal_tr": "Yol sorabilir, basit tarifleri anlayabilir ve kendin tarif verebilirsin.",
+      "grammar": [
+        "g_zu_dativ"
+      ],
+      "lessons": [
+        {
+          "id": "u9l1",
+          "title_tr": "Yol sormak",
+          "objective_tr": "\"Wie komme ich zum/zur …?\" diye sor.",
+          "minutes": 7,
+          "vocab": [
+            "wie_komme_ich",
+            "ampel",
+            "kreuzung",
+            "erste",
+            "zweite",
+            "dann",
+            "apotheke"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "wie_komme_ich",
+                "ampel",
+                "kreuzung",
+                "apotheke"
+              ]
+            },
+            {
+              "type": "intro",
+              "lexemes": [
+                "erste",
+                "zweite",
+                "dann",
+                "links",
+                "rechts",
+                "geradeaus"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_zu_dativ"
+            },
+            {
+              "type": "cloze",
+              "de": "Wie komme ich ___ Bahnhof?",
+              "tr": "İstasyona nasıl giderim?",
+              "answers": [
+                "zum"
+              ],
+              "options": [
+                "zum",
+                "zur",
+                "zu"
+              ],
+              "explain_tr": "der Bahnhof → zum."
+            },
+            {
+              "type": "cloze",
+              "de": "Wie komme ich ___ Apotheke?",
+              "tr": "Eczaneye nasıl giderim?",
+              "answers": [
+                "zur"
+              ],
+              "options": [
+                "zum",
+                "zur",
+                "zu"
+              ],
+              "explain_tr": "die Apotheke → zur."
+            },
+            {
+              "type": "order",
+              "tr": "Soldaki ikinci sokağa girin.",
+              "tokens": [
+                "Nehmen",
+                "Sie",
+                "die",
+                "zweite",
+                "Straße",
+                "links"
+              ],
+              "answers": [
+                "Nehmen Sie die zweite Straße links"
+              ],
+              "explain_tr": "Resmî emir: fiil başta, sonra Sie."
+            },
+            {
+              "type": "translate",
+              "tr": "Affedersiniz, istasyona nasıl giderim?",
+              "answers": [
+                "Entschuldigung, wie komme ich zum Bahnhof?",
+                "Entschuldigung, wo ist der Bahnhof?",
+                "Entschuldigung, wie komme ich zum Bahnhof, bitte?"
+              ],
+              "hint_tr": "Wie komme ich zum …?"
+            }
+          ]
+        },
+        {
+          "id": "u9l2",
+          "title_tr": "Tarifi anlamak",
+          "objective_tr": "Kısa yol tariflerini dinleyerek anla.",
+          "minutes": 6,
+          "vocab": [
+            "gegenueber",
+            "neben",
+            "nah",
+            "weit"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "gegenueber",
+                "neben",
+                "nah",
+                "weit"
+              ]
+            },
+            {
+              "type": "listen",
+              "de": "Gehen Sie geradeaus und dann rechts.",
+              "prompt_tr": "Nereye gitmelisin?",
+              "options": [
+                "Düz, sonra sağa",
+                "Sola, sonra düz",
+                "Sağa, sonra sola"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "geradeaus = düz, dann = sonra, rechts = sağa."
+            },
+            {
+              "type": "listen",
+              "de": "Die Haltestelle ist gegenüber vom Café.",
+              "prompt_tr": "Durak nerede?",
+              "options": [
+                "Kafenin yanında",
+                "Kafenin karşısında",
+                "Kafenin içinde"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "gegenüber = karşısında. neben = yanında."
+            },
+            {
+              "type": "listen",
+              "de": "Das ist nicht weit, nur fünf Minuten.",
+              "prompt_tr": "Ne kadar uzak?",
+              "options": [
+                "Çok uzak",
+                "Beş dakika",
+                "Elli dakika"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "nicht weit = uzak değil; fünf Minuten = beş dakika."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Tarifi anlamadın. En iyi cevap?",
+              "options": [
+                "Ja, ja.",
+                "Können Sie das bitte noch einmal sagen?",
+                "Tschüss!"
+              ],
+              "answers": [
+                1
+              ],
+              "explain_tr": "Anlamadığında tekrar istemek hem kibar hem de en işe yarar yöntem."
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Bir arkadaşına evinden fırına giden yolu tarif et.",
+              "requirements": [
+                {
+                  "label_tr": "Bir yön (links / rechts / geradeaus)",
+                  "pattern": "(links|rechts|geradeaus)"
+                },
+                {
+                  "label_tr": "Sıralama ya da yer (dann / neben / gegenüber / an der Ecke)",
+                  "pattern": "(dann|neben|gegenueber|ecke|ampel|kreuzung)"
+                }
+              ],
+              "model": "Geh geradeaus bis zur Ampel. Dann links. Die Bäckerei ist neben der Apotheke.",
+              "min_words": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u10",
+      "number": 10,
+      "title_de": "Was hast du gemacht?",
+      "title_tr": "Geçmişten bahsetmek",
+      "goal_tr": "Perfekt ile dün ne yaptığını anlatabilirsin.",
+      "lessons": []
+    },
+    {
+      "id": "u11",
+      "number": 11,
+      "title_de": "Probleme im Alltag",
+      "title_tr": "Gündelik sorunlar",
+      "goal_tr": "Bir sorunu kibarca anlatıp çözüm isteyebilirsin.",
+      "lessons": []
+    },
+    {
+      "id": "u12",
+      "number": 12,
+      "title_de": "Bei der Arbeit",
+      "title_tr": "İş yerinde",
+      "goal_tr": "İş yerinde basit iletişim kurabilirsin.",
+      "lessons": []
+    }
   ]
 }
