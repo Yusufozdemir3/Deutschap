@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.3",
+  "version": "2026.10.5",
   "stories": [
     {
       "id": "neu_in_berlin",
@@ -1907,7 +1907,369 @@
               "explain_tr": "Bir şeyi/birini tanımak: kennen."
             }
           ],
-          "teaser_tr": "\"Neu in Berlin\"in ilk sezonu burada bitiyor. Yeni bölümler hazırlanıyor: Hamburg'a bir mektup…"
+          "teaser_tr": "Lina'nın bir fikri var: Marlene'yi bulmak için önce soyadını öğrenmeleri gerekiyor…"
+        },
+        {
+          "id": "nib_e5_a1",
+          "number": 5,
+          "level": "A1",
+          "title": "Ein Brief nach Hamburg",
+          "title_tr": "Hamburg'a bir mektup",
+          "narrative_tr": "Marlene'nin soyadını öğren, onu bul ve Lina ile birlikte ona bir mektup yaz.",
+          "objective_tr": "Mektup kalıpları (hitap ve kapanış), Perfekt ile ne olduğunu anlatmak.",
+          "minutes": 8,
+          "start": "n1",
+          "nodes": [
+            {
+              "id": "n1",
+              "type": "narration",
+              "de": "Am Abend sitzt du mit Lina in der Küche. Auf dem Tisch liegt die Postkarte.",
+              "tr": "Akşam Lina ile mutfakta oturuyorsunuz. Masanın üstünde kartpostal duruyor.",
+              "next": "n2"
+            },
+            {
+              "id": "n2",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Ich habe eine Idee: Wir suchen Marlene im Internet!",
+              "tr": "Bir fikrim var: Marlene'yi internette arayalım!",
+              "next": "n3"
+            },
+            {
+              "id": "n3",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Aber wir brauchen ihren Nachnamen.",
+              "tr": "Ama onun soyadına ihtiyacımız var.",
+              "gloss_tr": "\"ihren\" = onun (kadın); der Nachname → Akkusativ: ihren Nachnamen.",
+              "next": "n4"
+            },
+            {
+              "id": "n4",
+              "type": "choice",
+              "prompt_tr": "Kime soralım?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Vielleicht weiß Herr Albrecht ihren Nachnamen.",
+                  "tr": "Belki Bay Albrecht onun soyadını biliyordur.",
+                  "verdict": "best",
+                  "feedback_tr": "Doğru: \"Vielleicht\" birinci sırada, fiil (weiß) hemen ikinci sırada.",
+                  "next": "n6"
+                },
+                {
+                  "id": "b",
+                  "de": "Vielleicht Herr Albrecht weiß ihren Nachnamen.",
+                  "tr": "(kelime sırası yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "\"Vielleicht\" ile başlayınca fiil ikinci sıraya gelir: \"Vielleicht weiß Herr Albrecht …\". Tekrar dene."
+                },
+                {
+                  "id": "c",
+                  "de": "Wir fragen Friedrich!",
+                  "tr": "Friedrich'e soralım!",
+                  "verdict": "ok",
+                  "feedback_tr": "Cümle doğru! Ama Friedrich'in telefon numarası yok; Lina'nın ne dediğine bak.",
+                  "next": "n5",
+                  "flags": [
+                    "friedrich"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "n5",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Gute Idee, aber wir haben seine Telefonnummer nicht. Herr Albrecht wohnt näher!",
+              "tr": "İyi fikir ama onun telefon numarası bizde yok. Bay Albrecht daha yakında oturuyor!",
+              "next": "n6"
+            },
+            {
+              "id": "n6",
+              "type": "narration",
+              "de": "Ihr klopft bei Herrn Albrecht.",
+              "tr": "Bay Albrecht'in kapısını çalıyorsunuz.",
+              "next": "n7"
+            },
+            {
+              "id": "n7",
+              "type": "line",
+              "speaker": "albrecht",
+              "de": "Marlene? Ja, natürlich! Marlene Vogt. Sie hat damals in einer Buchhandlung gearbeitet.",
+              "tr": "Marlene mi? Evet, tabii! Marlene Vogt. O zamanlar bir kitapçıda çalışırdı.",
+              "gloss_tr": "\"hat … gearbeitet\" Perfekt'tir; \"damals\" = o zamanlar.",
+              "next": "n8"
+            },
+            {
+              "id": "n8",
+              "type": "narration",
+              "de": "Zurück in der Küche sucht Lina im Internet. Nach zehn Minuten ruft sie:",
+              "tr": "Mutfağa dönünce Lina internette arıyor. On dakika sonra sesleniyor:",
+              "next": "n9"
+            },
+            {
+              "id": "n9",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Hier! „Buchhandlung Vogt, Hamburg“. Die Inhaberin heißt Marlene Vogt!",
+              "tr": "İşte! \"Vogt Kitabevi, Hamburg\". Sahibinin adı Marlene Vogt!",
+              "next": "n10"
+            },
+            {
+              "id": "n10",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Wir schreiben ihr einen Brief. Hilfst du mir?",
+              "tr": "Ona bir mektup yazalım. Bana yardım eder misin?",
+              "next": "n11"
+            },
+            {
+              "id": "n11",
+              "type": "choice",
+              "prompt_tr": "Mektuba nasıl başlarsınız?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Sehr geehrte Frau Vogt,",
+                  "tr": "Sayın Vogt Hanım,",
+                  "verdict": "best",
+                  "feedback_tr": "Onu tanımıyorsunuz, bu yüzden resmî hitap en güvenlisi. Kadına: \"geehrte\".",
+                  "next": "n12"
+                },
+                {
+                  "id": "b",
+                  "de": "Liebe Frau Vogt,",
+                  "tr": "Sevgili Vogt Hanım,",
+                  "verdict": "ok",
+                  "feedback_tr": "Mümkün, sıcak ama biraz kişisel bir başlangıç. Tanımadığınız biri için \"Sehr geehrte\" daha yaygındır.",
+                  "next": "n12"
+                },
+                {
+                  "id": "c",
+                  "de": "Sehr geehrter Frau Vogt,",
+                  "tr": "(hitap eki yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "\"geehrter\" erkekler için (Herr). Kadına: \"Sehr geehrte Frau Vogt,\". Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n12",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Gut. Und dann? Wir erklären, was passiert ist.",
+              "tr": "Güzel. Sonra? Ne olduğunu açıklayalım.",
+              "gloss_tr": "\"was passiert ist\": passieren Perfekt'te \"sein\" alır; yan cümlede fiil sona gider.",
+              "next": "n13"
+            },
+            {
+              "id": "n13",
+              "type": "choice",
+              "prompt_tr": "Mektubun ilk cümlesini seç.",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Wir haben in unserer Wohnung eine alte Postkarte gefunden.",
+                  "tr": "Dairemizde eski bir kartpostal bulduk.",
+                  "verdict": "best",
+                  "feedback_tr": "Doğru Perfekt: habe/haben + Partizip (gefunden) en sonda.",
+                  "next": "n14"
+                },
+                {
+                  "id": "b",
+                  "de": "Wir haben eine alte Postkarte finden.",
+                  "tr": "(Partizip eksik)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Perfekt'te mastar değil Partizip II kullanılır: finden → gefunden. Tekrar dene."
+                },
+                {
+                  "id": "c",
+                  "de": "Ich wohne jetzt in Ihrem alten Zimmer. Dort habe ich eine Postkarte gefunden.",
+                  "tr": "Şimdi sizin eski odanızda oturuyorum. Orada bir kartpostal buldum.",
+                  "verdict": "best",
+                  "feedback_tr": "Çok güzel: \"Ihrem\" (resmî \"sizin\") ve \"Dort habe ich …\" ile fiil ikinci sırada.",
+                  "next": "n14"
+                }
+              ]
+            },
+            {
+              "id": "n14",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Super. Und Friedrich? Wir müssen von ihm erzählen.",
+              "tr": "Süper. Peki Friedrich? Ondan da bahsetmeliyiz.",
+              "next": "n15"
+            },
+            {
+              "id": "n15",
+              "type": "choice",
+              "prompt_tr": "Friedrich hakkında ne yazarsınız?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Friedrich geht immer noch jeden Mittwoch ins Café Kastanie.",
+                  "tr": "Friedrich hâlâ her çarşamba Café Kastanie'ye gidiyor.",
+                  "verdict": "best",
+                  "feedback_tr": "Net ve doğru. \"immer noch\" = hâlâ.",
+                  "next": "n16"
+                },
+                {
+                  "id": "b",
+                  "de": "Friedrich wartet seit vierzig Jahren auf Sie!",
+                  "tr": "Friedrich kırk yıldır sizi bekliyor!",
+                  "verdict": "ok",
+                  "feedback_tr": "Dil bilgisi doğru (\"warten auf\" + Akkusativ). Ama belki biraz fazla dramatik? Lina gülüyor.",
+                  "next": "n16",
+                  "flags": [
+                    "dramatisch"
+                  ]
+                },
+                {
+                  "id": "c",
+                  "de": "Friedrich gehen jeden Mittwoch ins Café.",
+                  "tr": "(fiil çekimi yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Özne tekil (Friedrich = er): \"Friedrich geht …\". Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n16",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Und am Ende?",
+              "tr": "Peki sonunda?",
+              "next": "n17"
+            },
+            {
+              "id": "n17",
+              "type": "choice",
+              "prompt_tr": "Mektubu nasıl bitirirsiniz?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Mit freundlichen Grüßen, {name} und Lina",
+                  "tr": "Saygılarımızla, {name} ve Lina",
+                  "verdict": "best",
+                  "feedback_tr": "Resmî bir mektubun klasik kapanışı.",
+                  "next": "n18"
+                },
+                {
+                  "id": "b",
+                  "de": "Viele Grüße aus Berlin, {name} und Lina",
+                  "tr": "Berlin'den selamlar, {name} ve Lina",
+                  "verdict": "best",
+                  "feedback_tr": "Daha sıcak ama hâlâ kibar; tanımadığın birine de yazılabilir.",
+                  "next": "n18"
+                },
+                {
+                  "id": "c",
+                  "de": "Viele Gruß, {name} und Lina",
+                  "tr": "(biçim yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Kalıp çoğuldur: \"Viele Grüße\". Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n18",
+              "type": "narration",
+              "de": "Am nächsten Morgen bringst du den Brief zum Briefkasten an der Ecke. Herr Albrecht steht an der Tür und lächelt.",
+              "tr": "Ertesi sabah mektubu köşedeki posta kutusuna götürüyorsun. Bay Albrecht kapıda durmuş gülümsüyor.",
+              "next": "n19"
+            },
+            {
+              "id": "n19",
+              "type": "line",
+              "speaker": "albrecht",
+              "de": "Früher habe ich solche Briefe getragen. Jetzt schreiben Sie sie. Viel Glück!",
+              "tr": "Eskiden böyle mektupları ben taşırdım. Şimdi siz yazıyorsunuz. Bol şans!",
+              "next": "n20"
+            },
+            {
+              "id": "n20",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Jetzt müssen wir warten …",
+              "tr": "Şimdi beklememiz gerekiyor…",
+              "next": "end"
+            },
+            {
+              "id": "end",
+              "type": "end"
+            }
+          ],
+          "recap_tr": "Bay Albrecht'ten Marlene'nin soyadını öğrendin: Vogt. Lina onu internette buldu: Hamburg'da bir kitapçının sahibi. Birlikte resmî bir mektup yazdınız ve posta kutusuna attınız. Şimdi cevap bekleniyor…",
+          "vocab": [
+            "nachname",
+            "internet",
+            "inhaberin",
+            "brief",
+            "sehr_geehrte",
+            "finden",
+            "erzaehlen",
+            "viele_gruesse",
+            "briefkasten",
+            "viel_glueck",
+            "vielleicht"
+          ],
+          "grammar": [
+            {
+              "title_tr": "Mektup: hitap ve kapanış",
+              "body_tr": "Tanımadığın birine: \"Sehr geehrte Frau …,\" / \"Sehr geehrter Herr …,\" ve \"Mit freundlichen Grüßen\". Daha sıcak: \"Liebe …,\" ve \"Viele Grüße\".",
+              "example_de": "Sehr geehrte Frau Vogt, … Mit freundlichen Grüßen",
+              "concept": "g_brief"
+            },
+            {
+              "title_tr": "Perfekt: haben + Partizip II",
+              "body_tr": "Konuşma ve mektuplarda geçmiş çoğunlukla Perfekt ile anlatılır. Partizip cümlenin sonuna gider.",
+              "example_de": "Wir haben eine alte Postkarte gefunden.",
+              "concept": "g_perfekt"
+            },
+            {
+              "title_tr": "Vielleicht + fiil",
+              "body_tr": "Cümle bir zarfla başlarsa fiil yine ikinci sıradadır.",
+              "example_de": "Vielleicht weiß Herr Albrecht ihren Nachnamen.",
+              "concept": "g_verbzweit"
+            }
+          ],
+          "quiz": [
+            {
+              "id": "q1",
+              "question_tr": "Marlene'nin soyadı ne?",
+              "options": [
+                "Weber",
+                "Vogt",
+                "Albrecht"
+              ],
+              "answer": 1,
+              "explain_tr": "\"Marlene Vogt\""
+            },
+            {
+              "id": "q2",
+              "question_tr": "Marlene bugün ne yapıyor?",
+              "options": [
+                "Hamburg'da bir kitapçının sahibi",
+                "Berlin'de kafe işletiyor",
+                "Postacı"
+              ],
+              "answer": 0,
+              "explain_tr": "\"Buchhandlung Vogt, Hamburg … Die Inhaberin heißt Marlene Vogt.\""
+            },
+            {
+              "id": "q3",
+              "question_tr": "\"Viel Glück!\" ne demek?",
+              "options": [
+                "Çok teşekkürler",
+                "Bol şans",
+                "Görüşürüz"
+              ],
+              "answer": 1,
+              "explain_tr": "Glück = şans, mutluluk."
+            }
+          ],
+          "teaser_tr": "Bir hafta sonra posta kutusunda Hamburg damgalı bir zarf… Yeni bölümler hazırlanıyor."
         }
       ]
     }

@@ -100,9 +100,9 @@ void showAboutSheet(BuildContext context) => showModalBottomSheet<void>(
             const SectionTitle('Neler var'),
             for (final s in const [
               '12 ünite / 24 ders: A1 yolunun tamamı',
-              '"Neu in Berlin" hikâye serisi: 4 bağlantılı bölüm',
+              '"Neu in Berlin" hikâye serisi: 5 bağlantılı bölüm (1. bölümün A2 sürümüyle)',
               'Kelime defteri: bağlam, koleksiyonlar, aralıklı tekrar',
-              '5 gerçek hayat senaryosu (kural tabanlı, çevrimdışı)',
+              '6 gerçek hayat senaryosu (kural tabanlı, çevrimdışı)',
               'Okuma: hazır metinler ve kendi metnin',
               'Cihazın metin-okuma sesiyle telaffuz',
             ])
