@@ -272,10 +272,12 @@ class ProgressRepository {
     ];
   }
 
-  /// Most frequent correction rules (recurring difficulties).
-  Future<Map<String, int>> recurringIssues() async {
+  /// Most frequent correction rules (recurring difficulties), optionally
+  /// only from conversations after [since].
+  Future<Map<String, int>> recurringIssues({DateTime? since}) async {
     final counts = <String, int>{};
     for (final c in await conversations(limit: 100)) {
+      if (since != null && !c.updatedAt.isAfter(since)) continue;
       for (final i in c.corrections) {
         if (i.severity == IssueSeverity.error) counts[i.ruleId] = (counts[i.ruleId] ?? 0) + 1;
       }

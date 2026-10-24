@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/providers.dart';
 import '../../../content/models/scenario.dart';
+import '../../practice/domain/practice_generator.dart';
 import '../../progress/application/progress_providers.dart';
 import '../../progress/data/progress_repository.dart';
 import '../../vocabulary/domain/vocab_entry.dart';
@@ -80,6 +81,14 @@ final homeDataProvider = FutureProvider<HomeData>((ref) async {
   final counts = await vocab.statusCounts();
   final gap = await vocab.productionGap();
   final recent = await progress.recentActivity(limit: 4);
+  (String, String, int)? recurring;
+  final practiced = await progress.recentActivity(limit: 50);
+  for (final topic in PracticeTopic.values) {
+    final last = practiced.where((a) => a.kind == ActivityKind.practice && a.refId == topic.name).map((a) => a.at).firstOrNull;
+    final issues = await progress.recurringIssues(since: last);
+    final count = issues.entries.where((e) => PracticeTopic.forRule(e.key) == topic).fold<int>(0, (a, e) => a + e.value);
+    if (count >= 2 && (recurring == null || count > recurring.$3)) recurring = (topic.name, topic.titleTr, count);
+  }
   final scenario = practiceScenarioFor(
     content.scenarios,
     {for (final e in gap) ?e.lexemeId},
@@ -97,6 +106,7 @@ final homeDataProvider = FutureProvider<HomeData>((ref) async {
     practiceScenario: scenario == null ? null : NamedRef(scenario.id, scenario.titleTr, minutes: 5),
     lastKinds: [for (final a in recent) a.kind],
     totalEntries: counts.values.fold(0, (a, b) => a + b),
+    recurringIssue: recurring,
   ));
   // Point production-gap practice at the exact words.
   final withFocus = [

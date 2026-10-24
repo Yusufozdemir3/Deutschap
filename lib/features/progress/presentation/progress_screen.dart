@@ -6,6 +6,7 @@ import '../../../app/providers.dart';
 import '../../../app/theme/app_theme.dart';
 import '../../../ui/widgets.dart';
 import '../../vocabulary/domain/vocab_status.dart';
+import '../../practice/domain/practice_generator.dart';
 import '../application/progress_providers.dart';
 import '../data/stats_repository.dart';
 
@@ -153,7 +154,12 @@ class _Body extends ConsumerWidget {
           Padding(
             padding: const EdgeInsets.only(bottom: 8),
             child: AppCard(
-              onTap: _ruleInfo[e.key] == null ? null : () => context.push('/grammar/${_ruleInfo[e.key]!.$2}'),
+              onTap: _ruleInfo[e.key] == null
+                  ? null
+                  : () {
+                      final topic = PracticeTopic.forRule(e.key);
+                      context.push(topic != null ? '/practice/${topic.name}' : '/grammar/${_ruleInfo[e.key]!.$2}');
+                    },
               child: Row(children: [
                 Expanded(child: Text(_ruleInfo[e.key]?.$1 ?? e.key, style: context.text.titleSmall)),
                 Text('${e.value} kez', style: context.text.labelSmall),

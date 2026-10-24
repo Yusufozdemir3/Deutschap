@@ -1,5 +1,5 @@
 /// Kinds of activity the home screen can recommend.
-enum ActivityKind { review, lesson, story, scenario, reading, discover }
+enum ActivityKind { review, lesson, story, scenario, reading, discover, practice }
 
 class Recommendation {
   const Recommendation({
@@ -39,6 +39,7 @@ class LearnerSnapshot {
     this.practiceScenario,
     this.lastKinds = const [],
     this.totalEntries = 0,
+    this.recurringIssue,
   });
 
   final int dueCards;
@@ -54,6 +55,10 @@ class LearnerSnapshot {
   /// Most recent activity kinds, newest first (for variety).
   final List<ActivityKind> lastKinds;
   final int totalEntries;
+
+  /// A practice topic whose error recurred since it was last practised:
+  /// (route segment, Turkish title, occurrences).
+  final (String, String, int)? recurringIssue;
 }
 
 class Recommender {
@@ -102,6 +107,19 @@ class Recommender {
           minutes: s.practiceScenario!.minutes,
         ),
         score: 40,
+      ));
+    }
+
+    if (s.recurringIssue case (final topic, final title, final count) when count >= 2) {
+      out.add((
+        r: Recommendation(
+          kind: ActivityKind.practice,
+          titleTr: 'Odaklı alıştırma: $title',
+          reasonTr: 'Son konuşmalarında bu hata $count kez görüldü. Kısa, hedefli bir alıştırma bu kalıbı oturtmaya yardım eder.',
+          route: '/practice/$topic',
+          minutes: 4,
+        ),
+        score: 42,
       ));
     }
 

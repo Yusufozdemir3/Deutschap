@@ -6,15 +6,22 @@ import '../../../app/providers.dart';
 import '../../../app/theme/app_theme.dart';
 import '../../../content/models/lesson.dart';
 import '../../../content/models/scenario.dart';
+import '../../../core/clock.dart';
 import '../../../ui/widgets.dart';
 import '../../progress/application/progress_providers.dart';
 import '../../progress/data/progress_repository.dart';
 import '../../vocabulary/domain/vocab_entry.dart';
+import '../../home/domain/recommender.dart';
+import '../../practice/domain/practice_generator.dart';
 import 'step_views.dart';
 
 class LessonScreen extends ConsumerStatefulWidget {
-  const LessonScreen({super.key, required this.lessonId});
+  const LessonScreen({super.key, required this.lessonId, this.practice});
   final String lessonId;
+
+  /// Generated, focused practice instead of a curriculum lesson. It
+  /// records attempts but does not touch lesson progress.
+  final PracticeTopic? practice;
   @override
   ConsumerState<LessonScreen> createState() => _LessonScreenState();
 }
@@ -40,12 +47,15 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
   }
 
   Future<void> _init() async {
-    final lesson = ref.read(contentProvider).lesson(widget.lessonId);
+    final now = ref.read(clockProvider)();
+    final lesson = widget.practice != null
+        ? PracticeGenerator(ref.read(contentProvider).lexicon).build(widget.practice!, seed: now.year * 1000 + now.month * 50 + now.day)
+        : ref.read(contentProvider).lesson(widget.lessonId);
     if (lesson == null) {
       setState(() => _loading = false);
       return;
     }
-    final saved = await ref.read(progressRepositoryProvider).lesson(lesson.id);
+    final saved = widget.practice != null ? null : await ref.read(progressRepositoryProvider).lesson(lesson.id);
     var start = 0;
     if (saved != null && saved.status == LessonStatus.inProgress && saved.stepIndex > 0 && saved.stepIndex < lesson.steps.length) {
       start = saved.stepIndex;
@@ -84,7 +94,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
     final step = lesson.steps[index];
     final repo = ref.read(progressRepositoryProvider);
     if (outcome != null) {
-      await repo.recordAttempt(activityType: 'lesson', activityId: lesson.id, itemId: step.id, correct: outcome.correct, assisted: outcome.assisted);
+      await repo.recordAttempt(activityType: widget.practice != null ? 'practice' : 'lesson', activityId: lesson.id, itemId: step.id, correct: outcome.correct, assisted: outcome.assisted);
       if (!_graded.contains(index)) {
         _graded.add(index);
         if (outcome.correct && !outcome.assisted) _firstTryCorrect++;
@@ -94,13 +104,17 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
     }
     final nextPos = _pos + 1;
     if (nextPos >= _queue.length) {
-      await repo.completeLesson(lesson.id, correct: _firstTryCorrect, total: lesson.gradedStepCount);
+      if (widget.practice != null) {
+        await repo.logActivity(ActivityKind.practice, refId: widget.practice!.name, summary: '$_firstTryCorrect/${lesson.gradedStepCount}');
+      } else {
+        await repo.completeLesson(lesson.id, correct: _firstTryCorrect, total: lesson.gradedStepCount);
+      }
       ref.bumpData();
       if (mounted) setState(() => _finished = true);
       return;
     }
     final nextIndex = _queue[nextPos];
-    if (nextIndex > index) {
+    if (nextIndex > index && widget.practice == null) {
       await repo.saveLessonStep(lesson.id, stepIndex: nextIndex, correct: _firstTryCorrect, total: lesson.gradedStepCount);
     }
     if (mounted) setState(() => _pos = nextPos);
