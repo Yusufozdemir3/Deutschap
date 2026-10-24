@@ -1,0 +1,199 @@
+{
+  "version": "2026.10.1",
+  "scenarios": [
+    {
+      "id": "kennenlernen", "title_de": "Neue Leute kennenlernen", "title_tr": "Yeni insanlarla tanışmak", "level": "A1",
+      "objective_tr": "Adını söyle, nereli olduğunu anlat ve ne yaptığını söyle.",
+      "setting_tr": "WG'deki küçük bir mutfak partisi. Lina'nın arkadaşı Jonas seninle tanışmak istiyor.",
+      "partner": "Jonas", "partner_role_tr": "Lina'nın arkadaşı, müzik öğrencisi", "formal": false, "service": false,
+      "opening": {"de": "Hey! Ich bin Jonas, ein Freund von Lina. Und du? Wie heißt du?", "tr": "Selam! Ben Jonas, Lina'nın bir arkadaşı. Ya sen? Adın ne?"},
+      "goals": [
+        {"id": "name", "label_tr": "Adını söyle", "hints": [{"de": "Ich heiße …", "tr": "Benim adım …"}, {"de": "Ich bin … Freut mich!", "tr": "Ben … Memnun oldum!"}]},
+        {"id": "herkunft", "label_tr": "Nereli olduğunu söyle", "hints": [{"de": "Ich komme aus der Türkei.", "tr": "Türkiye'denim."}, {"de": "Ich komme aus Izmir, aus der Türkei.", "tr": "İzmirliyim, Türkiye'den."}]},
+        {"id": "taetigkeit", "label_tr": "Berlin'de ne yaptığını anlat", "hints": [{"de": "Ich lerne Deutsch.", "tr": "Almanca öğreniyorum."}, {"de": "Ich arbeite als …", "tr": "… olarak çalışıyorum."}, {"de": "Ich studiere …", "tr": "… okuyorum."}]}
+      ],
+      "intents": [
+        {"id": "name", "goal": "name", "match": [
+          {"pattern": "(ich heisse|mein name ist|ich bin (?!student|studentin|neu|hier|aus|muede|gut|in|auch)[a-z]+)", "de": "Freut mich! Woher kommst du?", "tr": "Memnun oldum! Nerelisin?"}
+        ]},
+        {"id": "herkunft", "goal": "herkunft", "match": [
+          {"pattern": "(tuerkei|istanbul|izmir|ankara|antalya|bursa|adana|trabzon|konya)", "de": "Oh, cool! Ich war einmal in Istanbul. Und was machst du hier in Berlin?", "tr": "Aa, harika! Bir kere İstanbul'a gittim. Peki Berlin'de ne yapıyorsun?"},
+          {"pattern": "(komme aus|bin aus) [a-z]+", "de": "Ah, schön! Und was machst du hier in Berlin?", "tr": "Ah, güzel! Peki Berlin'de ne yapıyorsun?"}
+        ]},
+        {"id": "taetigkeit", "goal": "taetigkeit", "match": [
+          {"pattern": "(lerne deutsch|deutschkurs|sprachkurs)", "de": "Super! Und du sprichst schon gut. Ich studiere Musik.", "tr": "Süper! Şimdiden iyi konuşuyorsun. Ben müzik okuyorum."},
+          {"pattern": "(arbeite|job|firma|ingenieur|designer|entwickler|programmier|kellner|aerzt|lehrer)", "de": "Spannend! Ich studiere noch – Musik.", "tr": "Heyecan verici! Ben hâlâ öğrenciyim – müzik."},
+          {"pattern": "(studiere|student|uni|universitaet)", "de": "Ich auch! Ich studiere Musik. Was studierst du?", "tr": "Ben de! Müzik okuyorum. Sen ne okuyorsun?"}
+        ]},
+        {"id": "frage_zurueck", "match": [
+          {"pattern": "(und du|und dir|woher kommst du|was machst du)", "de": "Ich komme aus Hamburg und studiere hier Musik.", "tr": "Ben Hamburgluyum, burada müzik okuyorum."}
+        ]},
+        {"id": "befinden", "match": [
+          {"pattern": "wie geht", "de": "Gut, danke! Die Party ist super, oder?", "tr": "İyi, teşekkürler! Parti süper, değil mi?"}
+        ]},
+        {"id": "gruss", "match": [
+          {"pattern": "^(hallo|hi|hey|guten (tag|abend|morgen)|servus|moin)\\b", "de": "Hallo! Wie heißt du?", "tr": "Selam! Adın ne?"}
+        ]}
+      ],
+      "fallback": [
+        {"de": "Sorry, das habe ich nicht verstanden. Noch einmal?", "tr": "Pardon, anlamadım. Bir daha?"},
+        {"de": "Hm? Die Musik ist so laut! Sag das noch mal, bitte.", "tr": "Hı? Müzik çok yüksek! Bir daha söyler misin?"}
+      ],
+      "closing": {"de": "Schön, dich kennenzulernen! Bis bald!", "tr": "Seninle tanıştığıma sevindim! Görüşürüz!"},
+      "vocab": ["heissen", "ich_komme_aus", "freut_mich", "lernen", "arbeiten", "studieren", "woher"]
+    },
+    {
+      "id": "baeckerei", "title_de": "In der Bäckerei", "title_tr": "Fırında alışveriş", "level": "A1",
+      "objective_tr": "Kahvaltılık sipariş ver, \"Sonst noch etwas?\" sorusuna cevap ver ve öde.",
+      "setting_tr": "Sabah 8, köşedeki fırın. Frau Weber tezgâhın arkasında.",
+      "partner": "Frau Weber", "partner_role_tr": "Fırın sahibi", "formal": true, "service": true,
+      "opening": {"de": "Guten Morgen! Was darf es sein?", "tr": "Günaydın! Ne alırsınız?"},
+      "goals": [
+        {"id": "bestellen", "label_tr": "Bir şey sipariş et", "hints": [{"de": "Zwei Brötchen, bitte.", "tr": "İki ekmek, lütfen."}, {"de": "Ich hätte gern eine Brezel, bitte.", "tr": "Bir brezel alabilir miyim, lütfen?"}]},
+        {"id": "fertig", "label_tr": "Başka bir şey istemediğini söyle", "hints": [{"de": "Nein, danke. Das war's.", "tr": "Hayır, teşekkürler. Bu kadar."}, {"de": "Das ist alles, danke.", "tr": "Hepsi bu, teşekkürler."}]},
+        {"id": "bezahlen", "label_tr": "Öde", "hints": [{"de": "Kann ich mit Karte zahlen?", "tr": "Kartla ödeyebilir miyim?"}, {"de": "Hier, bitte.", "tr": "Buyurun."}]}
+      ],
+      "intents": [
+        {"id": "bestellen", "goal": "bestellen", "match": [
+          {"pattern": "(broetchen|semmel|schrippe)", "de": "Gern. Sonst noch etwas?", "tr": "Memnuniyetle. Başka bir şey?"},
+          {"pattern": "(brezel|breze|croissant|kuchen|brot\\b|baguette|schnecke)", "de": "Sehr gern. Sonst noch etwas?", "tr": "Seve seve. Başka bir şey?"},
+          {"pattern": "(kaffee|tee|cappuccino)", "de": "Einen Moment, ich mache ihn frisch. Sonst noch etwas?", "tr": "Bir saniye, taze hazırlıyorum. Başka bir şey?"}
+        ]},
+        {"id": "fertig", "goal": "fertig", "requires": ["bestellen"], "blocked": {"de": "Was möchten Sie denn?", "tr": "Ne istersiniz?"}, "match": [
+          {"pattern": "(das war'?s|das waere alles|das ist alles|sonst nichts|nein,? danke|nichts mehr)", "de": "Das macht zwei Euro vierzig.", "tr": "İki avro kırk sent ediyor."}
+        ]},
+        {"id": "bezahlen", "goal": "bezahlen", "requires": ["fertig"], "blocked": {"de": "Möchten Sie noch etwas?", "tr": "Başka bir şey ister misiniz?"}, "match": [
+          {"pattern": "(mit karte|karte|kartenzahlung)", "de": "Ja, natürlich. Bitte hier. … Danke schön!", "tr": "Evet, tabii. Buyurun, buraya. … Teşekkürler!"},
+          {"pattern": "(bar|hier,? bitte|bitte schoen|bitte sehr|hier sind|stimmt so|euro)", "de": "Danke schön!", "tr": "Çok teşekkürler!"},
+          {"pattern": "(zahlen|bezahlen)", "de": "Gern. Bar oder mit Karte? Beides geht.", "tr": "Tabii. Nakit mi, kartla mı? İkisi de olur."}
+        ]},
+        {"id": "preis", "match": [
+          {"pattern": "(was kostet|wie ?viel kostet|wie teuer|was macht das)", "de": "Ein Brötchen kostet sechzig Cent, eine Brezel einen Euro zwanzig.", "tr": "Bir ekmek altmış sent, bir brezel bir avro yirmi."}
+        ]},
+        {"id": "gruss", "match": [
+          {"pattern": "^(hallo|guten (morgen|tag)|morgen|moin)\\b", "de": "Guten Morgen! Was darf es sein?", "tr": "Günaydın! Ne alırsınız?"}
+        ]}
+      ],
+      "fallback": [
+        {"de": "Entschuldigung, wie bitte?", "tr": "Pardon, efendim?"},
+        {"de": "Das habe ich leider nicht verstanden. Brötchen, Brezel, Croissant …?", "tr": "Maalesef anlayamadım. Ekmek, brezel, kruvasan…?"}
+      ],
+      "closing": {"de": "Danke und einen schönen Tag noch!", "tr": "Teşekkürler, iyi günler!"},
+      "vocab": ["broetchen", "brezel", "ich_haette_gern", "sonst_noch_etwas", "das_wars", "mit_karte_zahlen"]
+    },
+    {
+      "id": "cafe", "title_de": "Im Café bestellen", "title_tr": "Kafede sipariş", "level": "A1",
+      "objective_tr": "Bir içecek ya da yiyecek sipariş et, burada mı paket mi söyle ve öde.",
+      "setting_tr": "Café Kastanie, öğleden sonra. Barista Can seni karşılıyor.",
+      "partner": "Can", "partner_role_tr": "Barista", "formal": false, "service": true,
+      "opening": {"de": "Hallo! Was darf's sein?", "tr": "Merhaba! Ne alırsın?"},
+      "goals": [
+        {"id": "bestellen", "label_tr": "Bir şey sipariş et", "hints": [{"de": "Einen Kaffee, bitte.", "tr": "Bir kahve, lütfen."}, {"de": "Ich hätte gern einen Cappuccino und ein Stück Kuchen.", "tr": "Bir kapuçino ve bir dilim kek alabilir miyim?"}]},
+        {"id": "ort", "label_tr": "Burada mı, paket mi söyle", "hints": [{"de": "Für hier, bitte.", "tr": "Burada, lütfen."}, {"de": "Zum Mitnehmen, bitte.", "tr": "Paket, lütfen."}]},
+        {"id": "bezahlen", "label_tr": "Öde", "hints": [{"de": "Kann ich mit Karte zahlen?", "tr": "Kartla ödeyebilir miyim?"}, {"de": "Ich möchte zahlen, bitte.", "tr": "Ödemek istiyorum, lütfen."}]}
+      ],
+      "intents": [
+        {"id": "bestellen", "goal": "bestellen", "match": [
+          {"pattern": "(kaffee|cappuccino|latte|espresso|flat white)", "de": "Gern! Für hier oder zum Mitnehmen?", "tr": "Memnuniyetle! Burada mı, paket mi?"},
+          {"pattern": "\\btee\\b", "de": "Ein Tee, gern. Für hier oder zum Mitnehmen?", "tr": "Bir çay, tabii. Burada mı, paket mi?"},
+          {"pattern": "(wasser|saft|cola|limo|schorle)", "de": "Kein Problem. Für hier oder zum Mitnehmen?", "tr": "Sorun değil. Burada mı, paket mi?"},
+          {"pattern": "(kuchen|croissant|brezel|muffin|sandwich|toast)", "de": "Sehr gern. Möchtest du auch etwas trinken? Und: für hier oder zum Mitnehmen?", "tr": "Seve seve. Bir şey de içmek ister misin? Ve: burada mı, paket mi?"}
+        ]},
+        {"id": "ort", "goal": "ort", "requires": ["bestellen"], "blocked": {"de": "Klar – aber was möchtest du denn bestellen?", "tr": "Tabii – ama ne sipariş etmek istiyorsun?"}, "match": [
+          {"pattern": "(fuer hier|hier trinken|hier essen|zum hier|hier,? bitte$)", "de": "Super, setz dich gern. Ich bringe es dir.", "tr": "Süper, otur istersen. Getiririm."},
+          {"pattern": "(mitnehmen|to go|take away)", "de": "Alles klar, zum Mitnehmen.", "tr": "Tamamdır, paket."}
+        ]},
+        {"id": "bezahlen", "goal": "bezahlen", "requires": ["bestellen"], "blocked": {"de": "Erst bestellen, dann zahlen. Was möchtest du?", "tr": "Önce sipariş, sonra ödeme. Ne istersin?"}, "match": [
+          {"pattern": "(zahlen|bezahlen|rechnung|mit karte|bar\\b|kartenzahlung)", "de": "Das macht drei Euro achtzig. Karte geht auch.", "tr": "Üç avro seksen sent. Kart da olur."}
+        ]},
+        {"id": "preis", "match": [
+          {"pattern": "(was kostet|wie ?viel kostet|wie teuer|preis)", "de": "Ein Cappuccino kostet drei Euro achtzig, ein Stück Kuchen drei Euro.", "tr": "Kapuçino üç seksen, bir dilim kek üç avro."}
+        ]},
+        {"id": "empfehlung", "match": [
+          {"pattern": "(empfiehlst|empfehlen|empfehlung|was ist gut|was ist lecker)", "de": "Der Apfelkuchen ist heute super!", "tr": "Bugün elmalı kek harika!"}
+        ]},
+        {"id": "befinden", "match": [
+          {"pattern": "wie geht", "de": "Gut, danke! Viel los heute. Was darf's sein?", "tr": "İyi, teşekkürler! Bugün çok yoğun. Ne alırsın?"}
+        ]},
+        {"id": "gruss", "match": [
+          {"pattern": "^(hallo|hi|hey|guten (tag|morgen|abend)|moin|servus)\\b", "de": "Hallo! Was möchtest du?", "tr": "Merhaba! Ne istersin?"}
+        ]}
+      ],
+      "fallback": [
+        {"de": "Sorry, das habe ich nicht verstanden. Möchtest du etwas trinken?", "tr": "Pardon, anlamadım. Bir şey içmek ister misin?"},
+        {"de": "Wie bitte? Kaffee, Tee, Kuchen …?", "tr": "Efendim? Kahve, çay, kek…?"},
+        {"de": "Hm? Sag es noch einmal, bitte.", "tr": "Hı? Bir kez daha söyler misin?"}
+      ],
+      "closing": {"de": "Danke dir! Schönen Tag noch!", "tr": "Teşekkürler! İyi günler!"},
+      "vocab": ["kaffee", "cappuccino", "stueck", "kuchen", "fuer_hier", "zum_mitnehmen", "mit_karte_zahlen", "ich_haette_gern"]
+    },
+    {
+      "id": "termin", "title_de": "Einen Termin vereinbaren", "title_tr": "Telefonda randevu almak", "level": "A1",
+      "objective_tr": "Muayenehaneyi ara: randevu istediğini söyle, adını ver ve bir gün üzerinde anlaş.",
+      "setting_tr": "Dr. Brandt'ın muayenehanesini arıyorsun. Resepsiyondaki görevli telefonu açıyor.",
+      "disclaimer_tr": "Bu bir dil alıştırmasıdır; tıbbi ya da resmî bir tavsiye değildir. Gerçek işlemler kuruma ve şehre göre değişebilir.",
+      "partner": "Frau Schulz", "partner_role_tr": "Muayenehane resepsiyonu", "formal": true, "service": true,
+      "opening": {"de": "Praxis Dr. Brandt, Schulz am Apparat. Guten Tag!", "tr": "Dr. Brandt muayenehanesi, ben Schulz. İyi günler!"},
+      "goals": [
+        {"id": "anliegen", "label_tr": "Randevu istediğini söyle", "hints": [{"de": "Ich möchte einen Termin vereinbaren.", "tr": "Bir randevu almak istiyorum."}, {"de": "Ich brauche bitte einen Termin.", "tr": "Bir randevuya ihtiyacım var, lütfen."}]},
+        {"id": "name", "label_tr": "Adını söyle", "hints": [{"de": "Mein Name ist …", "tr": "Adım …"}, {"de": "Ich heiße …", "tr": "Benim adım …"}]},
+        {"id": "tag", "label_tr": "Bir gün ve saat üzerinde anlaş", "hints": [{"de": "Ja, das passt gut.", "tr": "Evet, uyar."}, {"de": "Dienstag kann ich leider nicht. Geht auch Mittwoch?", "tr": "Salı maalesef olmuyor. Çarşamba da olur mu?"}]}
+      ],
+      "intents": [
+        {"id": "anliegen", "goal": "anliegen", "match": [
+          {"pattern": "(termin|vereinbaren|untersuchung|kontrolle)", "de": "Gern. Wie ist Ihr Name, bitte?", "tr": "Tabii. Adınız nedir, lütfen?"}
+        ]},
+        {"id": "name", "goal": "name", "requires": ["anliegen"], "blocked": {"de": "Wie kann ich Ihnen helfen?", "tr": "Size nasıl yardımcı olabilirim?"}, "match": [
+          {"pattern": "(mein name ist|ich heisse|hier ist|hier spricht|ich bin (?!neu|krank|hier|muede)[a-z]+)", "de": "Danke schön. Passt Ihnen Dienstag um zehn Uhr?", "tr": "Teşekkürler. Salı saat on size uyar mı?"}
+        ]},
+        {"id": "ablehnen", "match": [
+          {"pattern": "\\b(nicht|leider|kein|schlecht)\\b", "de": "Kein Problem. Und Mittwoch um neun Uhr?", "tr": "Sorun değil. Peki çarşamba saat dokuz?"}
+        ]},
+        {"id": "tag", "goal": "tag", "requires": ["name"], "blocked": {"de": "Einen Moment – wie ist Ihr Name, bitte?", "tr": "Bir saniye – adınız nedir, lütfen?"}, "match": [
+          {"pattern": "^(?!.*\\b(nicht|leider|kein)\\b).*\\b(ja|passt|gut|okay|ok|geht|einverstanden|perfekt|prima)\\b", "de": "Wunderbar. Dann trage ich Sie ein.", "tr": "Harika. O zaman sizi kaydediyorum."},
+          {"pattern": "^(?!.*\\b(nicht|leider|kein)\\b).*\\b(montag|dienstag|mittwoch|donnerstag|freitag)\\b", "de": "Ja, das geht. Dann trage ich Sie ein.", "tr": "Evet, olur. O zaman sizi kaydediyorum."}
+        ]},
+        {"id": "wiederholen", "match": [
+          {"pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen)", "de": "Natürlich: Dienstag, um zehn Uhr.", "tr": "Tabii: Salı, saat onda."}
+        ]}
+      ],
+      "fallback": [
+        {"de": "Entschuldigung, das habe ich nicht verstanden.", "tr": "Pardon, anlayamadım."},
+        {"de": "Wie bitte? Möchten Sie einen Termin?", "tr": "Efendim? Randevu mu istiyorsunuz?"}
+      ],
+      "closing": {"de": "Ihr Termin ist eingetragen. Bitte bringen Sie Ihre Versichertenkarte mit. Auf Wiederhören!", "tr": "Randevunuz kaydedildi. Lütfen sigorta kartınızı getirin. Hoşça kalın!"},
+      "vocab": ["termin", "termin_vereinbaren", "passen", "leider", "dienstag", "mittwoch", "auf_wiederhoeren"]
+    },
+    {
+      "id": "weg", "title_de": "Nach dem Weg fragen", "title_tr": "Yol sormak", "level": "A1",
+      "objective_tr": "Bir yabancıya kibarca yol sor, anlamadığında tekrar iste ve teşekkür et.",
+      "setting_tr": "Sokaktasın ve Café Kastanie'yi arıyorsun. Bir kadın yanından geçiyor ve duruyor.",
+      "partner": "Passantin", "partner_role_tr": "Yoldan geçen biri", "formal": true, "service": false,
+      "opening": {"de": "Ja? Kann ich Ihnen helfen?", "tr": "Evet? Size yardım edebilir miyim?"},
+      "goals": [
+        {"id": "fragen", "label_tr": "Yerin nerede olduğunu sor", "hints": [{"de": "Entschuldigung, wo ist das Café Kastanie?", "tr": "Affedersiniz, Café Kastanie nerede?"}, {"de": "Ich suche das Café Kastanie.", "tr": "Café Kastanie'yi arıyorum."}]},
+        {"id": "bedanken", "label_tr": "Teşekkür et", "hints": [{"de": "Vielen Dank!", "tr": "Çok teşekkürler!"}]}
+      ],
+      "intents": [
+        {"id": "fragen", "goal": "fragen", "match": [
+          {"pattern": "(wo ist|wo finde|wie komme ich|ich suche|suche|weg zu|wo gibt es)", "de": "Das ist nicht weit. Gehen Sie hier geradeaus und dann links. Etwa fünf Minuten.", "tr": "Uzak değil. Buradan dümdüz gidin, sonra sola. Yaklaşık beş dakika."}
+        ]},
+        {"id": "wiederholen", "match": [
+          {"pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen|verstehe)", "de": "Natürlich: ge-ra-de-aus. Dann links. Fünf Minuten.", "tr": "Tabii: düm-düz. Sonra sola. Beş dakika."}
+        ]},
+        {"id": "bedanken", "goal": "bedanken", "requires": ["fragen"], "blocked": {"de": "Gern – aber was suchen Sie denn?", "tr": "Rica ederim – ama ne arıyorsunuz?"}, "match": [
+          {"pattern": "(dank|super|toll|prima)", "de": "Gern geschehen!", "tr": "Rica ederim!"}
+        ]},
+        {"id": "gruss", "match": [
+          {"pattern": "^(hallo|entschuldigung|guten (tag|morgen|abend))\\b", "de": "Ja, bitte?", "tr": "Evet, buyurun?"}
+        ]}
+      ],
+      "fallback": [
+        {"de": "Entschuldigung, das verstehe ich nicht.", "tr": "Pardon, bunu anlamıyorum."},
+        {"de": "Wie bitte? Was suchen Sie?", "tr": "Efendim? Ne arıyorsunuz?"}
+      ],
+      "closing": {"de": "Auf Wiedersehen!", "tr": "Hoşça kalın!"},
+      "vocab": ["entschuldigung", "suchen", "geradeaus", "links", "rechts", "wie_bitte", "vielen_dank"]
+    }
+  ]
+}

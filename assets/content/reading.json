@@ -1,0 +1,57 @@
+{
+  "version": "2026.10.1",
+  "texts": [
+    {
+      "id": "r_mein_zimmer", "title": "Mein Zimmer", "level": "A1", "minutes": 2, "topic_tr": "Ev ve eşyalar",
+      "paragraphs": [
+        {"de": "Ich wohne in einer WG in Berlin. Mein Zimmer ist nicht groß, aber es ist hell.", "tr": "Berlin'de paylaşımlı bir evde oturuyorum. Odam büyük değil ama aydınlık."},
+        {"de": "Links ist das Bett. Rechts sind der Tisch und der Stuhl. Auf dem Tisch liegt ein Buch.", "tr": "Solda yatak var. Sağda masa ve sandalye var. Masanın üstünde bir kitap duruyor."},
+        {"de": "Das Fenster ist groß. Am Morgen ist das Zimmer sehr schön.", "tr": "Pencere büyük. Sabahları oda çok güzel."},
+        {"de": "Die Lampe ist alt. Ich brauche eine neue Lampe!", "tr": "Lamba eski. Yeni bir lambaya ihtiyacım var!"}
+      ],
+      "questions": [
+        {"question_tr": "Oda nasıl?", "options": ["Büyük ve karanlık", "Küçük ama aydınlık", "Çok büyük ve yeni"], "answer": 1, "explain_tr": "\"nicht groß, aber … hell\""},
+        {"question_tr": "Ne lazım?", "options": ["Yeni bir lamba", "Yeni bir yatak", "Yeni bir masa"], "answer": 0, "explain_tr": "\"Ich brauche eine neue Lampe!\""}
+      ]
+    },
+    {
+      "id": "r_ein_tag", "title": "Ein Tag von Lina", "level": "A1", "minutes": 3, "topic_tr": "Günlük rutin",
+      "paragraphs": [
+        {"de": "Lina steht um sieben Uhr auf. Sie trinkt einen Kaffee in der Küche.", "tr": "Lina saat yedide kalkıyor. Mutfakta bir kahve içiyor."},
+        {"de": "Um acht Uhr fährt sie mit der U-Bahn zur Uni. Sie studiert Architektur.", "tr": "Saat sekizde metroyla üniversiteye gidiyor. Mimarlık okuyor."},
+        {"de": "Am Mittag isst sie mit Freunden in der Mensa. Das Essen ist billig, aber nicht immer lecker.", "tr": "Öğlen arkadaşlarıyla yemekhanede yiyor. Yemek ucuz ama her zaman lezzetli değil."},
+        {"de": "Am Abend kauft sie ein. Dann kocht sie und liest ein Buch. Um elf Uhr schläft sie.", "tr": "Akşam alışveriş yapıyor. Sonra yemek pişiriyor ve kitap okuyor. Saat on birde uyuyor."}
+      ],
+      "questions": [
+        {"question_tr": "Lina üniversiteye nasıl gidiyor?", "options": ["Otobüsle", "Metroyla", "Yürüyerek"], "answer": 1, "explain_tr": "\"mit der U-Bahn\""},
+        {"question_tr": "Yemekhanedeki yemek nasıl?", "options": ["Pahalı ama lezzetli", "Ucuz ama her zaman lezzetli değil", "Hem ucuz hem çok lezzetli"], "answer": 1, "explain_tr": "\"billig, aber nicht immer lecker\""}
+      ]
+    },
+    {
+      "id": "r_sonntag", "title": "Sonntag in Deutschland", "level": "A1", "minutes": 3, "topic_tr": "Kültür",
+      "paragraphs": [
+        {"de": "In Deutschland ist der Sonntag ein ruhiger Tag. Die meisten Geschäfte sind zu.", "tr": "Almanya'da pazar sakin bir gündür. Dükkânların çoğu kapalıdır."},
+        {"de": "Aber viele Bäckereien sind am Morgen offen. Dort kaufen die Leute frische Brötchen.", "tr": "Ama birçok fırın sabahları açıktır. İnsanlar orada taze ekmek alır."},
+        {"de": "Am Sonntag gehen viele Menschen spazieren, oder sie besuchen Freunde und Familie.", "tr": "Pazar günü birçok kişi yürüyüşe çıkar ya da arkadaşlarını ve ailesini ziyaret eder."},
+        {"de": "Tipp: Kaufen Sie am Samstag ein! Am Sonntag ist das oft schwer.", "tr": "İpucu: Alışverişinizi cumartesi yapın! Pazar günü bu çoğu zaman zordur."}
+      ],
+      "questions": [
+        {"question_tr": "Pazar günü ne genelde açıktır?", "options": ["Süpermarketler", "Bazı fırınlar (sabahları)", "Bütün dükkânlar"], "answer": 1, "explain_tr": "\"viele Bäckereien sind am Morgen offen\""},
+        {"question_tr": "Metne göre alışverişi ne zaman yapmalısın?", "options": ["Pazar", "Cumartesi", "Pazartesi sabahı"], "answer": 1, "explain_tr": "\"Kaufen Sie am Samstag ein!\""}
+      ]
+    },
+    {
+      "id": "r_cafe_kastanie", "title": "Das Café Kastanie", "level": "A1", "minutes": 3, "topic_tr": "Şehir hayatı",
+      "paragraphs": [
+        {"de": "Das Café Kastanie ist klein und alt. Es hat eine grüne Tür und große Fenster.", "tr": "Café Kastanie küçük ve eski. Yeşil bir kapısı ve büyük pencereleri var."},
+        {"de": "Can arbeitet hier. Er macht den besten Cappuccino in der Straße – sagt er.", "tr": "Can burada çalışıyor. Sokaktaki en iyi kapuçinoyu o yapıyor – öyle diyor."},
+        {"de": "Der Apfelkuchen ist sehr beliebt. Am Nachmittag ist das Café oft voll.", "tr": "Elmalı kek çok seviliyor. Öğleden sonra kafe genelde dolu."},
+        {"de": "An der Wand hängen viele alte Fotos. Auf einem Foto steht: 1987.", "tr": "Duvarda birçok eski fotoğraf asılı. Birinin üzerinde şöyle yazıyor: 1987."}
+      ],
+      "questions": [
+        {"question_tr": "Kafenin kapısı ne renk?", "options": ["Kırmızı", "Yeşil", "Mavi"], "answer": 1, "explain_tr": "\"eine grüne Tür\""},
+        {"question_tr": "Kafe ne zaman genelde dolu?", "options": ["Sabah erken", "Öğleden sonra", "Gece"], "answer": 1, "explain_tr": "\"Am Nachmittag ist das Café oft voll.\""}
+      ]
+    }
+  ]
+}
