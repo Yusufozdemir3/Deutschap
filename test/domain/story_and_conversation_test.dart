@@ -60,7 +60,7 @@ void main() {
     });
 
     test('history round-trips through JSON', () {
-      final step = StoryStep('n4', choiceId: 'a', wrongChoiceIds: const ['c']);
+      const step = StoryStep('n4', choiceId: 'a', wrongChoiceIds: ['c']);
       final back = StoryStep.fromJson(step.toJson().cast<String, dynamic>());
       expect(back.nodeId, 'n4');
       expect(back.choiceId, 'a');

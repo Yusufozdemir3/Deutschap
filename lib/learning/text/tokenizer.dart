@@ -35,7 +35,13 @@ List<String> words(String text) => [for (final m in _word.allMatches(text)) m.gr
 
 /// Sentence containing [offset]; used to store a saved word's context.
 String sentenceAround(String text, int offset) {
-  final enders = RegExp(r'[.!?…]|\n');
+  final (s, e) = sentenceBounds(text, offset);
+  return text.substring(s, e).trim();
+}
+
+/// Start and end offsets of the sentence containing [offset].
+(int, int) sentenceBounds(String text, int offset) {
+  final enders = RegExp(r'[.!?]+(?=\s|$|[“"»])|\n');
   var start = 0;
   for (final m in enders.allMatches(text)) {
     if (m.end <= offset) start = m.end;
@@ -45,7 +51,7 @@ String sentenceAround(String text, int offset) {
     end = m.end;
     break;
   }
-  return text.substring(start, end).trim();
+  return (start, end);
 }
 
 /// Lower case and ASCII-folded form used for lenient comparison.

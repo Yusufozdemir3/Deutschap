@@ -10,13 +10,14 @@ import '../../stories/domain/story_runner.dart';
 enum LessonStatus { notStarted, inProgress, completed }
 
 class LessonProgress {
-  const LessonProgress({required this.lessonId, required this.status, this.stepIndex = 0, this.correct = 0, this.total = 0, this.completedAt});
+  const LessonProgress({required this.lessonId, required this.status, this.stepIndex = 0, this.correct = 0, this.total = 0, this.completedAt, this.updatedAt});
   final String lessonId;
   final LessonStatus status;
   final int stepIndex;
   final int correct;
   final int total;
   final DateTime? completedAt;
+  final DateTime? updatedAt;
 }
 
 enum EpisodeStatus { inProgress, completed }
@@ -183,12 +184,14 @@ class ProgressRepository {
       final prev = await txn.query('story_progress', where: 'episode_id = ?', whereArgs: [episodeId]);
       if (prev.isEmpty) return;
       final first = prev.first['status'] != EpisodeStatus.completed.name;
+      // Re-opening a recap without answering the quiz keeps the earlier score.
+      final keepScore = !first && quizTotal == 0;
       await txn.update(
         'story_progress',
         {
           'status': EpisodeStatus.completed.name,
-          'quiz_correct': quizCorrect,
-          'quiz_total': quizTotal,
+          if (!keepScore) 'quiz_correct': quizCorrect,
+          if (!keepScore) 'quiz_total': quizTotal,
           if (first) 'completed_at': toMillis(now),
           'updated_at': toMillis(now),
         },
@@ -326,6 +329,7 @@ class ProgressRepository {
         correct: r['correct']! as int,
         total: r['total']! as int,
         completedAt: r['completed_at'] == null ? null : fromMillis(r['completed_at']! as int),
+        updatedAt: fromMillis(r['updated_at']! as int),
       );
 
   static EpisodeProgress _episode(Map<String, Object?> r) => EpisodeProgress(

@@ -6,6 +6,7 @@ import '../content/content_bundle.dart';
 import '../core/audio/speech_service.dart';
 import '../core/clock.dart';
 import '../core/db/app_database.dart';
+import '../core/db/kv_store.dart';
 import '../features/conversation/domain/conversation_engine.dart';
 import '../features/conversation/domain/error_detectors.dart';
 import '../features/profile/data/profile_repository.dart';
@@ -56,6 +57,8 @@ final dataRepositoryProvider = Provider<DataRepository>(
   (ref) => DataRepository(ref.watch(databaseProvider), clock: ref.watch(clockProvider)),
 );
 
+final kvStoreProvider = Provider<KvStore>((ref) => KvStore(ref.watch(databaseProvider)));
+
 final speechServiceProvider = Provider<SpeechService>((ref) {
   final rate = ref.watch(profileProvider.select((p) => p.valueOrNull?.speechRate ?? 0.45));
   return PlatformSpeechService(normalRate: rate);
@@ -81,7 +84,7 @@ class ProfileNotifier extends AsyncNotifier<LearnerProfile> {
   @override
   Future<LearnerProfile> build() => ref.watch(profileRepositoryProvider).load();
 
-  Future<void> update(LearnerProfile Function(LearnerProfile p) change) async {
+  Future<void> edit(LearnerProfile Function(LearnerProfile p) change) async {
     final current = state.valueOrNull ?? await future;
     final next = change(current);
     state = AsyncData(next);

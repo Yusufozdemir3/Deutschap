@@ -88,7 +88,7 @@ class Lesson {
 sealed class LessonStep {
   const LessonStep(this.id);
 
-  /// Stable id: "<lessonId>#<index>" unless the content sets one.
+  /// Stable id: `lessonId#index` unless the content sets one.
   final String id;
 
   bool get isGraded => true;

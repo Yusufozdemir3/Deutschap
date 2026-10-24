@@ -1,5 +1,4 @@
 import '../json_utils.dart';
-import 'lexeme.dart';
 
 enum DiscoverKind {
   phrase,
