@@ -2,7 +2,7 @@
 
 German for Turkish speakers. **Discover** it in connected stories, **keep** every word with the sentence you met it in, **remember** it with honest spaced repetition, and **use** it in realistic conversations.
 
-v0.2 is a local-first A1–A2 foundation: no account, no network, all learner data on the device.
+v0.2 is a local-first A1–A2 foundation (with the first B1 units): no account, no network, all learner data on the device.
 
 ## Run
 ```bash

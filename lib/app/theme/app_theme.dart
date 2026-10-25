@@ -239,6 +239,8 @@ class AppTheme {
         style: ButtonStyle(
           side: WidgetStatePropertyAll(BorderSide(color: p.line)),
           backgroundColor: WidgetStateProperty.resolveWith((s) => s.contains(WidgetState.selected) ? p.accentSoft : p.surface),
+          foregroundColor: WidgetStateProperty.resolveWith((s) => s.contains(WidgetState.selected) ? p.ink : p.inkMuted),
+          iconColor: WidgetStateProperty.resolveWith((s) => s.contains(WidgetState.selected) ? p.accent : p.inkMuted),
         ),
       ),
       progressIndicatorTheme: ProgressIndicatorThemeData(color: p.primary, linearTrackColor: p.surfaceAlt),
