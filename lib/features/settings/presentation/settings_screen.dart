@@ -82,7 +82,7 @@ class SettingsScreen extends ConsumerWidget {
                     onSelectionChanged: (s) => notifier.edit((p) => p.copyWith(level: s.first)),
                   ),
                   const SizedBox(height: 4),
-                  Text('Aynı hikâye, aynı karakterler: A2 sürümünde cümleler daha uzun ve doğal. A2 sürümü olmayan bölümler A1 olarak açılır.', style: context.text.bodySmall),
+                  Text('Aynı hikâye, aynı karakterler: A2 sürümünde cümleler daha uzun ve doğal. Bölümlerin bir kısmı (6. bölümden sonrası) sadece A2 sürümüyle var; seviyen A1 ise ana sayfada önerilmez ama hikâye listesinden açılır.', style: context.text.bodySmall),
                   const Divider(height: 28),
                   SwitchListTile(
                     contentPadding: EdgeInsets.zero,

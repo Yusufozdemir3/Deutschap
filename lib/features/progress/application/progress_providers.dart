@@ -63,6 +63,9 @@ final nextEpisodeProvider = Provider<Episode?>((ref) {
   for (final s in content.stories) {
     for (final n in s.episodeNumbers) {
       final e = s.variantFor(n, level);
+      // Episodes that only exist above the learner's level are not pushed;
+      // they stay available in the story list.
+      if (e.level.compareTo(level) > 0) break;
       if (progress[e.id]?.status != EpisodeStatus.completed) return e;
     }
   }

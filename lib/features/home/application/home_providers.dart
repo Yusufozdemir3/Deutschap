@@ -102,7 +102,7 @@ final homeDataProvider = FutureProvider<HomeData>((ref) async {
     for (final a in await progress.recentActivity(limit: 300))
       if (a.kind == ActivityKind.listening) a.refId,
   };
-  final level = nextLesson == null ? 'A2' : content.levelOfLesson(nextLesson.id);
+  final level = nextLesson == null ? content.paths.last.level : content.levelOfLesson(nextLesson.id);
   final listening = content.listening.where((t) => !listened.contains(t.id) && t.level.compareTo(level) <= 0).firstOrNull;
   final scenario = practiceScenarioFor(
     content.scenarios,
