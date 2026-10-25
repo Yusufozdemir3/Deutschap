@@ -96,7 +96,7 @@ class _PathTabState extends ConsumerState<_PathTab> {
                 Expanded(
                   child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                     Text('${path.level} mini sınav', style: context.text.titleSmall),
-                    Text('Okuma, dinleme, dil bilgisi ve yazma · yaklaşık 15 dakika. Sınav provası; ipucu ve tekrar yok.', style: context.text.bodySmall),
+                    Text('Okuma, dinleme, dil bilgisi ve yazma · yaklaşık 15 dakika. Sınav provası: yanlışlar sonda tekrarlanmaz, ipucu kullanırsan doğru sayılmaz.', style: context.text.bodySmall),
                   ]),
                 ),
                 const Icon(Icons.chevron_right_rounded),
