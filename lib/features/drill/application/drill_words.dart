@@ -1,11 +1,30 @@
 import 'dart:math';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../../app/providers.dart';
 import '../../../content/content_bundle.dart';
 import '../../../content/models/lesson.dart';
 import '../../../content/models/lexeme.dart';
 import '../../progress/data/progress_repository.dart';
 import '../../vocabulary/data/vocab_repository.dart';
 import '../domain/vocab_drill.dart';
+
+/// Words for the home card. Chosen once per day from the words that were
+/// not saved at that moment, so saving them does not swap the card's words.
+final dailyWordsProvider = FutureProvider.family<List<Lexeme>, String>((ref, day) async {
+  final content = ref.watch(contentProvider);
+  final saved = await ref.watch(vocabRepositoryProvider).savedLexemeIds();
+  final profile = ref.watch(profileProvider).valueOrNull;
+  final parts = day.split('-').map(int.parse).toList();
+  return pickDailyWords(
+    content.lexicon,
+    saved: saved,
+    interests: profile?.interests ?? const {},
+    level: profile?.level ?? 'A1',
+    day: DateTime(parts[0], parts[1], parts[2]),
+  );
+});
 
 /// Words a learner keeps missing in drills: more misses than hits.
 Future<List<String>> weakLexemeIds(ProgressRepository progress, {DateTime? since}) async {
@@ -35,6 +54,9 @@ Future<List<Lexeme>> resolveDrillWords(
   final src = spec.source;
   if (src == 'saved') {
     return shuffled((await vocab.savedLexemeIds()).map(lex.byId).whereType<Lexeme>());
+  }
+  if (src.startsWith('words:')) {
+    return [for (final id in src.substring('words:'.length).split(',')) ?lex.byId(id)];
   }
   if (src.startsWith('collection:')) {
     return shuffled((await vocab.collectionLexemeIds(src.substring('collection:'.length))).map(lex.byId).whereType<Lexeme>());

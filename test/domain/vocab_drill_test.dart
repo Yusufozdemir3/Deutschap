@@ -111,4 +111,17 @@ void main() {
     expect(content.lexicon.byId('sein')!.verb!.presentForms.values, contains(c.answers.single));
     expect(gen.supports(content.lexicon.byId('fahren')!, DrillMode.perfekt), isFalse, reason: 'both auxiliaries are possible');
   });
+
+  test('daily words: unsaved, within level, interest-first and stable for a day', () {
+    final day = DateTime(2026, 3, 2);
+    final a = pickDailyWords(content.lexicon, saved: const {}, interests: const {'essen'}, level: 'A1', day: day);
+    final b = pickDailyWords(content.lexicon, saved: const {}, interests: const {'essen'}, level: 'A1', day: day);
+    expect(a.map((l) => l.id), b.map((l) => l.id));
+    expect(a.length, 5);
+    expect(a.every((l) => levelRank(l.cefr) <= 1 && !l.tags.contains('proper')), isTrue);
+    expect(a.every((l) => l.tags.contains('essen')), isTrue, reason: 'plenty of A1 food words exist');
+    final c = pickDailyWords(content.lexicon, saved: {for (final l in a) l.id}, interests: const {'essen'}, level: 'A1', day: day);
+    expect(c.map((l) => l.id).toSet().intersection(a.map((l) => l.id).toSet()), isEmpty);
+    expect(pickDailyWords(content.lexicon, saved: const {}, interests: const {}, level: 'A1', day: DateTime(2026, 3, 3)).map((l) => l.id), isNot(a.map((l) => l.id)));
+  });
 }

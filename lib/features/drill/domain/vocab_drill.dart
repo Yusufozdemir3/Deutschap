@@ -328,3 +328,37 @@ class VocabDrillGenerator {
     return null;
   }
 }
+
+/// Level order for choosing content; unknown levels sort last.
+int levelRank(String level) => const {'A0': 0, 'A1': 1, 'A2': 2, 'B1': 3, 'B2': 4}[level] ?? 9;
+
+/// Today's new words: not saved yet, at or below the learner's level,
+/// preferably matching their interests. Deterministic for a given day so
+/// the card does not change on every refresh.
+List<Lexeme> pickDailyWords(
+  Lexicon lexicon, {
+  required Set<String> saved,
+  required Set<String> interests,
+  required String level,
+  required DateTime day,
+  int count = 5,
+}) {
+  final maxLevel = levelRank(level);
+  final pool = lexicon.all
+      .where((l) =>
+          !saved.contains(l.id) &&
+          !l.tags.contains('proper') &&
+          levelRank(l.cefr) <= maxLevel &&
+          l.pos != PartOfSpeech.number &&
+          !l.isMultiWord)
+      .toList()
+    ..sort((a, b) => a.id.compareTo(b.id));
+  if (pool.isEmpty) return const [];
+  final rnd = Random(day.year * 10000 + day.month * 100 + day.day);
+  pool.shuffle(rnd);
+  // Newest level first so a learner is not handed words far below their level,
+  // then interests, keeping the shuffle order inside each group.
+  int score(Lexeme l) => (levelRank(l.cefr) == maxLevel ? 2 : 0) + (l.tags.any(interests.contains) ? 3 : 0);
+  final ranked = [...pool]..sort((a, b) => score(b).compareTo(score(a)));
+  return ranked.take(count).toList(growable: false);
+}

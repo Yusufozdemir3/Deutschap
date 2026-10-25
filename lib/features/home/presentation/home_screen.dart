@@ -7,7 +7,9 @@ import '../../../app/theme/app_theme.dart';
 import '../../../content/models/discover.dart';
 import '../../../core/clock.dart';
 import '../../../ui/widgets.dart';
+import '../../drill/application/drill_words.dart';
 import '../../progress/application/progress_providers.dart';
+import '../../vocabulary/application/vocab_providers.dart';
 import '../../world/presentation/world_home_section.dart';
 import '../application/home_providers.dart';
 import '../domain/recommender.dart';
@@ -62,6 +64,7 @@ class HomeScreen extends ConsumerWidget {
                     builder: (d) => _Recommendations(recs: d.recommendations),
                   ),
                   const KiezHomeCard(),
+                  const _DailyWords(),
                   const _PhraseOfDay(),
                   const _WeekSummary(),
                   const SizedBox(height: 12),
@@ -157,6 +160,63 @@ class _Recommendations extends StatelessWidget {
             ),
           ),
       ],
+    ]);
+  }
+}
+
+class _DailyWords extends ConsumerWidget {
+  const _DailyWords();
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final now = ref.watch(clockProvider)();
+    final key = '${now.year}-${now.month}-${now.day}';
+    final words = ref.watch(dailyWordsProvider(key)).valueOrNull ?? const [];
+    if (words.isEmpty) return const SizedBox.shrink();
+    final saved = ref.watch(savedLexemeIdsProvider).valueOrNull ?? const <String>{};
+    final unsaved = words.where((w) => !saved.contains(w.id)).toList();
+    final p = context.palette;
+    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+      const SectionTitle('Bugünün kelimeleri'),
+      AppCard(
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          for (final w in words)
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 3),
+              child: InkWell(
+                onTap: () => context.push('/lexeme/${w.id}'),
+                child: Row(children: [
+                  Expanded(
+                    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      Headword(lemma: w.lemma, article: w.article, style: context.text.titleSmall),
+                      Text(w.tr, style: context.text.bodySmall),
+                    ]),
+                  ),
+                  if (saved.contains(w.id)) Icon(Icons.bookmark_added_rounded, color: p.success, size: 20, semanticLabel: 'Kayıtlı'),
+                  SpeakButton(w.headword, size: 20),
+                ]),
+              ),
+            ),
+          const SizedBox(height: 8),
+          Wrap(spacing: 8, runSpacing: 8, children: [
+            if (unsaved.isNotEmpty)
+              FilledButton.icon(
+                onPressed: () async {
+                  for (final w in unsaved) {
+                    await saveLexeme(ref, w, null);
+                  }
+                  if (context.mounted) showToast(context, '${unsaved.length} kelime kelime defterine eklendi');
+                },
+                icon: const Icon(Icons.bookmark_add_outlined),
+                label: Text('Hepsini kaydet (${unsaved.length})'),
+              ),
+            OutlinedButton.icon(
+              onPressed: () => context.push('/drill/run?src=${Uri.encodeComponent('words:${words.map((w) => w.id).join(',')}')}&mode=mixed&n=10'),
+              icon: const Icon(Icons.fitness_center_rounded),
+              label: const Text('Alıştır'),
+            ),
+          ]),
+        ]),
+      ),
     ]);
   }
 }
