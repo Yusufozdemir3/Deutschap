@@ -1,5 +1,6 @@
 import 'package:deutschap/content/models/lesson.dart';
 import 'package:deutschap/features/drill/domain/vocab_drill.dart';
+import 'package:deutschap/features/home/domain/recommender.dart';
 import 'package:deutschap/learning/answer_checker.dart';
 import 'package:deutschap/ui/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -93,5 +94,11 @@ void main() {
     expect(optionOrder(4, 'x#1').toSet(), {0, 1, 2, 3});
     final firstPositions = {for (var i = 0; i < 40; i++) optionOrder(3, 'step#$i').indexOf(0)};
     expect(firstPositions, {0, 1, 2});
+  });
+
+  test('weak drill words and unheard tracks are recommended', () {
+    final recs = const Recommender().recommend(const LearnerSnapshot(weakWords: 5, nextListening: NamedRef('l_bahnhof', 'Durchsagen', minutes: 2)));
+    expect(recs.map((r) => r.route), containsAll(['/drill/run?src=weak&mode=mixed&n=10', '/listen/l_bahnhof']));
+    expect(const Recommender().recommend(const LearnerSnapshot(weakWords: 2)).where((r) => r.route.startsWith('/drill')), isEmpty);
   });
 }

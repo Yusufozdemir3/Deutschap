@@ -40,6 +40,8 @@ class LearnerSnapshot {
     this.lastKinds = const [],
     this.totalEntries = 0,
     this.recurringIssue,
+    this.weakWords = 0,
+    this.nextListening,
   });
 
   final int dueCards;
@@ -59,6 +61,12 @@ class LearnerSnapshot {
   /// A practice topic whose error recurred since it was last practised:
   /// (route segment, Turkish title, occurrences).
   final (String, String, int)? recurringIssue;
+
+  /// Words missed more often than not in vocabulary drills.
+  final int weakWords;
+
+  /// A listening track the learner has not finished yet.
+  final NamedRef? nextListening;
 }
 
 class Recommender {
@@ -123,6 +131,19 @@ class Recommender {
       ));
     }
 
+    if (s.weakWords >= 3) {
+      out.add((
+        r: Recommendation(
+          kind: ActivityKind.practice,
+          titleTr: 'Zorlandığın ${s.weakWords} kelimeyle antrenman',
+          reasonTr: 'Kelime antrenmanlarında bu kelimeleri çoğu zaman yanlış yaptın. Kısa bir tur, onları farklı alıştırma türleriyle yeniden çalıştırır.',
+          route: '/drill/run?src=weak&mode=mixed&n=10',
+          minutes: 4,
+        ),
+        score: 38,
+      ));
+    }
+
     if (s.nextLesson != null) {
       out.add((
         r: Recommendation(
@@ -161,6 +182,19 @@ class Recommender {
           minutes: s.practiceScenario!.minutes,
         ),
         score: 25,
+      ));
+    }
+
+    if (s.nextListening != null) {
+      out.add((
+        r: Recommendation(
+          kind: ActivityKind.listening,
+          titleTr: 'Dinle: ${s.nextListening!.title}',
+          reasonTr: 'Kulağını Almancaya alıştır: önce metne bakmadan dinle, soruları cevapla, sonra metni aç.',
+          route: '/listen/${s.nextListening!.id}',
+          minutes: s.nextListening!.minutes,
+        ),
+        score: 22,
       ));
     }
 

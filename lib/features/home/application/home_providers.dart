@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../app/providers.dart';
 import '../../../content/models/scenario.dart';
 import '../../conversation/domain/language_issue.dart';
+import '../../drill/application/drill_words.dart';
 import '../../practice/domain/practice_generator.dart';
 import '../../progress/application/progress_providers.dart';
 import '../../progress/data/progress_repository.dart';
@@ -96,6 +97,13 @@ final homeDataProvider = FutureProvider<HomeData>((ref) async {
     ].length;
     if (count >= 2 && (recurring == null || count > recurring.$3)) recurring = (topic.name, topic.titleTr, count);
   }
+  final weak = await weakLexemeIds(progress);
+  final listened = {
+    for (final a in await progress.recentActivity(limit: 300))
+      if (a.kind == ActivityKind.listening) a.refId,
+  };
+  final level = nextLesson == null ? 'A2' : content.levelOfLesson(nextLesson.id);
+  final listening = content.listening.where((t) => !listened.contains(t.id) && t.level.compareTo(level) <= 0).firstOrNull;
   final scenario = practiceScenarioFor(
     content.scenarios,
     {for (final e in gap) ?e.lexemeId},
@@ -114,6 +122,8 @@ final homeDataProvider = FutureProvider<HomeData>((ref) async {
     lastKinds: [for (final a in recent) a.kind],
     totalEntries: counts.values.fold(0, (a, b) => a + b),
     recurringIssue: recurring,
+    weakWords: weak.length,
+    nextListening: listening == null ? null : NamedRef(listening.id, listening.title, minutes: listening.minutes),
   ));
   // Point production-gap practice at the exact words.
   final withFocus = [
