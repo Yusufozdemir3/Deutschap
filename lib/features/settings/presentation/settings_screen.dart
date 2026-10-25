@@ -7,6 +7,7 @@ import '../../../app/providers.dart';
 import '../../../app/theme/app_theme.dart';
 import '../../../ui/widgets.dart';
 import '../../profile/domain/learner_profile.dart';
+import 'voice_picker.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -106,10 +107,10 @@ class SettingsScreen extends ConsumerWidget {
                     label: profile.speechRate.toStringAsFixed(2),
                     onChanged: (v) => notifier.edit((p) => p.copyWith(speechRate: v)),
                   ),
-                  const Row(children: [
-                    Text('Deneme:'),
-                    SpeakButton('Guten Morgen! Ich hätte gern zwei Brötchen, bitte.'),
-                  ]),
+                  const Divider(height: 28),
+                  Text('Almanca ses', style: context.text.titleSmall),
+                  const SizedBox(height: 4),
+                  const VoicePicker(),
                 ]),
               ),
               const SectionTitle('İlgi alanları'),

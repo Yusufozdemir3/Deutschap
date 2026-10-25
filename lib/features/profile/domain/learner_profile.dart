@@ -128,6 +128,7 @@ class LearnerProfile {
     this.speechRate = 0.45,
     this.notifications = const NotificationPrefs(),
     this.hiddenTopics = const {},
+    this.voiceName,
   });
 
   final bool onboarded;
@@ -154,6 +155,9 @@ class LearnerProfile {
   /// Discover topics the learner asked not to see.
   final Set<String> hiddenTopics;
 
+  /// Text-to-speech voice chosen in settings; null = pick the best one.
+  final String? voiceName;
+
   LearnerProfile copyWith({
     bool? onboarded,
     String? name,
@@ -170,6 +174,7 @@ class LearnerProfile {
     double? speechRate,
     NotificationPrefs? notifications,
     Set<String>? hiddenTopics,
+    String? Function()? voiceName,
   }) =>
       LearnerProfile(
         onboarded: onboarded ?? this.onboarded,
@@ -187,6 +192,7 @@ class LearnerProfile {
         speechRate: speechRate ?? this.speechRate,
         notifications: notifications ?? this.notifications,
         hiddenTopics: hiddenTopics ?? this.hiddenTopics,
+        voiceName: voiceName == null ? this.voiceName : voiceName(),
       );
 
   Map<String, Object?> toJson() => {
@@ -205,6 +211,7 @@ class LearnerProfile {
         'speechRate': speechRate,
         'notifications': notifications.toJson(),
         'hiddenTopics': hiddenTopics.toList(),
+        'voiceName': voiceName,
       };
 
   factory LearnerProfile.fromJson(Map<String, dynamic> j) => LearnerProfile(
@@ -226,5 +233,6 @@ class LearnerProfile {
         speechRate: (j['speechRate'] as num?)?.toDouble() ?? 0.45,
         notifications: NotificationPrefs.fromJson((j['notifications'] as Map?)?.cast<String, dynamic>() ?? const {}),
         hiddenTopics: {...((j['hiddenTopics'] as List?) ?? const []).cast<String>()},
+        voiceName: j['voiceName'] as String?,
       );
 }

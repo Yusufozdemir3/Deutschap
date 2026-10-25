@@ -1,7 +1,7 @@
 name: deutschap
 description: "Deutschap: learn German through stories, a personal vocabulary library and real conversations."
 publish_to: 'none'
-version: 0.1.1+2
+version: 0.1.2+3
 
 environment:
   sdk: ^3.11.0

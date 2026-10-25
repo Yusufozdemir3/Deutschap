@@ -61,7 +61,8 @@ final kvStoreProvider = Provider<KvStore>((ref) => KvStore(ref.watch(databasePro
 
 final speechServiceProvider = Provider<SpeechService>((ref) {
   final rate = ref.watch(profileProvider.select((p) => p.valueOrNull?.speechRate ?? 0.45));
-  return PlatformSpeechService(normalRate: rate);
+  final voice = ref.watch(profileProvider.select((p) => p.valueOrNull?.voiceName));
+  return PlatformSpeechService(normalRate: rate, preferredVoice: voice);
 });
 
 final conversationEngineProvider = Provider<ConversationEngine>(
