@@ -39,6 +39,7 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
       appBar: AppBar(
         title: const Text('Kelimelerim'),
         actions: [
+          IconButton(tooltip: 'Sözlük', icon: const Icon(Icons.menu_book_outlined), onPressed: () => context.push('/dictionary')),
           IconButton(tooltip: 'Koleksiyonlar', icon: const Icon(Icons.collections_bookmark_outlined), onPressed: () => context.push('/collections')),
           IconButton(tooltip: 'Kelime ekle', icon: const Icon(Icons.add_rounded), onPressed: () => showManualAddDialog(context, ref)),
         ],

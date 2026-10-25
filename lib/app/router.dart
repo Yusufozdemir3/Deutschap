@@ -24,6 +24,7 @@ import '../features/settings/presentation/settings_screen.dart';
 import '../features/stories/presentation/episode_screen.dart';
 import '../features/stories/presentation/story_screen.dart';
 import '../features/vocabulary/presentation/collections_screen.dart';
+import '../features/vocabulary/presentation/dictionary_screen.dart';
 import '../features/vocabulary/presentation/library_screen.dart';
 import '../features/vocabulary/presentation/word_detail_screen.dart';
 import '../features/world/presentation/kiez_screen.dart';
@@ -94,6 +95,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       page('/kiez', (_) => const KiezScreen()),
       page('/mystery', (_) => const MysteryScreen()),
       page('/milestones', (_) => const MilestonesScreen()),
+      page('/dictionary', (_) => const DictionaryScreen()),
       page('/collections', (_) => const CollectionsScreen()),
       page('/progress', (_) => const ProgressScreen()),
       page('/settings', (_) => const SettingsScreen()),
