@@ -44,25 +44,48 @@ class LearnScreen extends StatelessWidget {
       );
 }
 
-class _PathTab extends ConsumerWidget {
+class _PathTab extends ConsumerStatefulWidget {
   const _PathTab();
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<_PathTab> createState() => _PathTabState();
+}
+
+class _PathTabState extends ConsumerState<_PathTab> {
+  String? _level;
+
+  @override
+  Widget build(BuildContext context) {
     final content = ref.watch(contentProvider);
     final progress = ref.watch(lessonProgressProvider).valueOrNull ?? const {};
     final next = ref.watch(nextLessonProvider);
+    final paths = content.paths.where((p) => p.units.isNotEmpty).toList();
+    final level = _level ?? (next != null ? content.levelOfLesson(next.id) : paths.first.level);
+    final path = paths.firstWhere((p) => p.level == level, orElse: () => paths.first);
+    final lessons = [for (final u in path.units) ...u.lessons];
+    final done = lessons.where((l) => progress[l.id]?.status == LessonStatus.completed).length;
     return ListView(
       padding: pagePadding,
       children: [
         PageWidth(
           child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+            if (paths.length > 1) ...[
+              const SizedBox(height: 8),
+              SegmentedButton<String>(
+                segments: [for (final p in paths) ButtonSegment(value: p.level, label: Text(p.level))],
+                selected: {path.level},
+                onSelectionChanged: (s) => setState(() => _level = s.first),
+              ),
+            ],
             Padding(
-              padding: const EdgeInsets.fromLTRB(2, 8, 2, 4),
-              child: Text('A1 öğrenme yolu', style: context.text.headlineSmall),
+              padding: const EdgeInsets.fromLTRB(2, 12, 2, 4),
+              child: Text('${path.level} öğrenme yolu', style: context.text.headlineSmall),
             ),
-            Text('Dersler sırayla ilerler ama hepsi açık: istediğin yerden başlayabilirsin.', style: context.text.bodySmall),
+            Text(
+              '${lessons.isEmpty ? '' : '$done/${lessons.length} ders tamamlandı. '}Dersler sırayla ilerler ama hepsi açık: istediğin yerden başlayabilirsin.',
+              style: context.text.bodySmall,
+            ),
             const SizedBox(height: 8),
-            for (final u in content.path.units) _UnitCard(unit: u, progress: progress, nextId: next?.id),
+            for (final u in path.units) _UnitCard(unit: u, progress: progress, nextId: next?.id),
           ]),
         ),
       ],

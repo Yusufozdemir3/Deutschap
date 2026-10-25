@@ -789,3 +789,132 @@ class _WriteStepViewState extends ConsumerState<WriteStepView> with _Checkable {
     );
   }
 }
+
+// ---------------------------------------------------------------- match
+
+/// Tap a German item, then its meaning. Correct pairs lock; a wrong pair
+/// is shown briefly and counted. The step counts as correct with no
+/// mistakes; the learner always finishes the board.
+class MatchStepView extends ConsumerStatefulWidget {
+  const MatchStepView({super.key, required this.step, required this.done, this.seed = 0});
+  final MatchStep step;
+  final StepDone done;
+  final int seed;
+  @override
+  ConsumerState<MatchStepView> createState() => _MatchStepViewState();
+}
+
+class _MatchStepViewState extends ConsumerState<MatchStepView> {
+  late final List<int> _left;
+  late final List<int> _right;
+  final _matched = <int>{};
+  int? _pickLeft;
+  int? _pickRight;
+  (int, int)? _wrong;
+  int _mistakes = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    final n = widget.step.pairs.length;
+    final rnd = Random(widget.seed ^ widget.step.id.hashCode);
+    _left = List.generate(n, (i) => i)..shuffle(rnd);
+    _right = List.generate(n, (i) => i)..shuffle(rnd);
+  }
+
+  bool get _complete => _matched.length == widget.step.pairs.length;
+
+  void _tryPair() {
+    final l = _pickLeft, r = _pickRight;
+    if (l == null || r == null) return;
+    if (l == r) {
+      _matched.add(l);
+      _pickLeft = _pickRight = null;
+      ref.read(speechServiceProvider).speak(widget.step.pairs[l].de);
+    } else {
+      _mistakes++;
+      _wrong = (l, r);
+      _pickLeft = _pickRight = null;
+      Future.delayed(const Duration(milliseconds: 700), () {
+        if (mounted) setState(() => _wrong = null);
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final s = widget.step;
+    final p = context.palette;
+    Widget tile(String label, {required bool done, required bool selected, required bool wrong, required VoidCallback onTap, bool german = false}) {
+      final color = done ? p.successSoft : (wrong ? p.dangerSoft : (selected ? p.accentSoft : null));
+      final border = done ? p.success : (wrong ? p.danger : (selected ? p.accent : null));
+      return Padding(
+        padding: const EdgeInsets.only(bottom: 8),
+        child: Semantics(
+          button: !done,
+          selected: selected,
+          label: done ? '$label, eşleşti' : label,
+          excludeSemantics: true,
+          child: AppCard(
+            onTap: done ? null : onTap,
+            color: color,
+            borderColor: border,
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+            child: Text(label, style: german ? context.reading.copyWith(fontSize: 16) : context.text.bodyMedium, textAlign: TextAlign.center),
+          ),
+        ),
+      );
+    }
+
+    return StepFrame(
+      action: FilledButton(
+        onPressed: _complete ? () => widget.done(StepOutcome(correct: _mistakes == 0)) : null,
+        child: Text(_complete ? 'Devam' : 'Eşleştir (${_matched.length}/${s.pairs.length})'),
+      ),
+      children: [
+        Text(s.promptTr ?? 'Eşleştir', style: context.text.titleLarge),
+        const SizedBox(height: 4),
+        Text('Önce Almanca kelimeye, sonra anlamına dokun.', style: context.text.bodySmall),
+        const SizedBox(height: 16),
+        Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Expanded(
+            child: Column(children: [
+              for (final i in _left)
+                tile(s.pairs[i].de,
+                    german: true,
+                    done: _matched.contains(i),
+                    selected: _pickLeft == i,
+                    wrong: _wrong?.$1 == i,
+                    onTap: () => setState(() {
+                          _pickLeft = i;
+                          _tryPair();
+                        })),
+            ]),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(children: [
+              for (final i in _right)
+                tile(s.pairs[i].tr,
+                    done: _matched.contains(i),
+                    selected: _pickRight == i,
+                    wrong: _wrong?.$2 == i,
+                    onTap: () => setState(() {
+                          _pickRight = i;
+                          _tryPair();
+                        })),
+            ]),
+          ),
+        ]),
+        if (_complete) ...[
+          const SizedBox(height: 8),
+          FeedbackPanel(
+            positive: _mistakes == 0,
+            title: _mistakes == 0 ? 'Hepsi ilk seferde doğru!' : 'Tamamlandı',
+            body: _mistakes == 0 ? null : '$_mistakes yanlış eşleştirme oldu. Bu kelimeler bir sonraki turda yine karşına çıkabilir.',
+          ),
+        ],
+      ],
+    );
+  }
+}

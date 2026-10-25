@@ -69,6 +69,25 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
                   ],
                 ]),
               ),
+              const SizedBox(height: 10),
+              AppCard(
+                onTap: () => context.push('/drill'),
+                child: Row(children: [
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(color: p.accentSoft, borderRadius: BorderRadius.circular(14)),
+                    child: Icon(Icons.fitness_center_rounded, color: p.accent),
+                  ),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      Text('Kelime antrenmanı', style: context.text.titleSmall),
+                      Text('Eşleştir, dinle, yaz, artikel ve çoğul çalış. Kaydettiklerinle ya da konuya göre.', style: context.text.bodySmall),
+                    ]),
+                  ),
+                  Icon(Icons.chevron_right_rounded, color: p.inkMuted),
+                ]),
+              ),
               const SizedBox(height: 16),
               TextField(
                 controller: _search,

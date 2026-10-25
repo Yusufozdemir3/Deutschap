@@ -12,12 +12,18 @@ import '../../progress/application/progress_providers.dart';
 import '../../progress/data/progress_repository.dart';
 import '../../vocabulary/domain/vocab_entry.dart';
 import '../../home/domain/recommender.dart';
+import '../../drill/application/drill_words.dart';
+import '../../drill/domain/vocab_drill.dart';
 import '../../practice/domain/practice_generator.dart';
 import 'step_views.dart';
 
 class LessonScreen extends ConsumerStatefulWidget {
-  const LessonScreen({super.key, required this.lessonId, this.practice});
+  const LessonScreen({super.key, required this.lessonId, this.practice, this.drill});
   final String lessonId;
+
+  /// A generated vocabulary drill. Like [practice], it records attempts
+  /// (per word and exercise type) but not lesson progress.
+  final DrillSpec? drill;
 
   /// Generated, focused practice instead of a curriculum lesson. It
   /// records attempts but does not touch lesson progress.
@@ -40,6 +46,8 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
   bool _resumed = false;
   bool _finished = false;
 
+  bool get _generated => widget.practice != null || widget.drill != null;
+
   @override
   void initState() {
     super.initState();
@@ -48,14 +56,24 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
 
   Future<void> _init() async {
     final now = ref.read(clockProvider)();
-    final lesson = widget.practice != null
-        ? PracticeGenerator(ref.read(contentProvider).lexicon).build(widget.practice!, seed: now.year * 1000 + now.month * 50 + now.day)
-        : ref.read(contentProvider).lesson(widget.lessonId);
+    final content = ref.read(contentProvider);
+    final Lesson? lesson;
+    if (widget.drill case final spec?) {
+      final seed = now.millisecondsSinceEpoch;
+      final words = await resolveDrillWords(spec,
+          content: content, vocab: ref.read(vocabRepositoryProvider), progress: ref.read(progressRepositoryProvider), seed: seed);
+      final built = VocabDrillGenerator(content.lexicon).build(words, mode: spec.mode, size: spec.size, seed: seed);
+      lesson = built.steps.where((s) => s.isGraded).isEmpty ? null : built;
+    } else if (widget.practice != null) {
+      lesson = PracticeGenerator(content.lexicon).build(widget.practice!, seed: now.year * 1000 + now.month * 50 + now.day);
+    } else {
+      lesson = content.lesson(widget.lessonId);
+    }
     if (lesson == null) {
-      setState(() => _loading = false);
+      if (mounted) setState(() => _loading = false);
       return;
     }
-    final saved = widget.practice != null ? null : await ref.read(progressRepositoryProvider).lesson(lesson.id);
+    final saved = _generated ? null : await ref.read(progressRepositoryProvider).lesson(lesson.id);
     var start = 0;
     if (saved != null && saved.status == LessonStatus.inProgress && saved.stepIndex > 0 && saved.stepIndex < lesson.steps.length) {
       start = saved.stepIndex;
@@ -66,9 +84,10 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
       }
     }
     if (!mounted) return;
+    final steps = lesson.steps.length;
     setState(() {
       _lesson = lesson;
-      _queue.addAll([for (var i = start; i < lesson.steps.length; i++) i]);
+      _queue.addAll([for (var i = start; i < steps; i++) i]);
       _mainCount = _queue.length;
       _loading = false;
     });
@@ -94,7 +113,14 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
     final step = lesson.steps[index];
     final repo = ref.read(progressRepositoryProvider);
     if (outcome != null) {
-      await repo.recordAttempt(activityType: widget.practice != null ? 'practice' : 'lesson', activityId: lesson.id, itemId: step.id, correct: outcome.correct, assisted: outcome.assisted);
+      final drillItem = widget.drill == null ? null : VocabDrillGenerator.describe(step, lesson);
+      await repo.recordAttempt(
+        activityType: widget.drill != null ? 'drill' : (widget.practice != null ? 'practice' : 'lesson'),
+        activityId: lesson.id,
+        itemId: drillItem == null ? step.id : drillItemId(drillItem.$1, drillItem.$2),
+        correct: outcome.correct,
+        assisted: outcome.assisted,
+      );
       if (!_graded.contains(index)) {
         _graded.add(index);
         if (outcome.correct && !outcome.assisted) _firstTryCorrect++;
@@ -104,7 +130,9 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
     }
     final nextPos = _pos + 1;
     if (nextPos >= _queue.length) {
-      if (widget.practice != null) {
+      if (widget.drill != null) {
+        await repo.logActivity(ActivityKind.practice, refId: 'drill', summary: '$_firstTryCorrect/${lesson.gradedStepCount}');
+      } else if (widget.practice != null) {
         await repo.logActivity(ActivityKind.practice, refId: widget.practice!.name, summary: '$_firstTryCorrect/${lesson.gradedStepCount}');
       } else {
         await repo.completeLesson(lesson.id, correct: _firstTryCorrect, total: lesson.gradedStepCount);
@@ -114,7 +142,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
       return;
     }
     final nextIndex = _queue[nextPos];
-    if (nextIndex > index && widget.practice == null) {
+    if (nextIndex > index && !_generated) {
       await repo.saveLessonStep(lesson.id, stepIndex: nextIndex, correct: _firstTryCorrect, total: lesson.gradedStepCount);
     }
     if (mounted) setState(() => _pos = nextPos);
@@ -124,11 +152,25 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
   Widget build(BuildContext context) {
     if (_loading) return const Scaffold(body: LoadingView());
     final lesson = _lesson;
-    if (lesson == null) return Scaffold(appBar: AppBar(leading: const BackOrHomeButton()), body: const ErrorState(message: 'Bu ders bulunamadı.'));
+    if (lesson == null) {
+      return Scaffold(
+        appBar: AppBar(leading: const BackOrHomeButton()),
+        body: widget.drill != null
+            ? EmptyState(
+                icon: Icons.style_outlined,
+                title: 'Bu seçim için kelime yok',
+                message: widget.drill!.source == 'weak'
+                    ? 'Henüz zorlandığın bir kelime yok. Birkaç antrenman yaptıktan sonra burada yanlış yaptığın kelimeler toplanır.'
+                    : 'Başka bir kaynak ya da alıştırma türü seç. Kaydettiğin kelimelerle çalışmak için önce kelime kaydet.',
+              )
+            : const ErrorState(message: 'Bu ders bulunamadı.'),
+      );
+    }
     if (_finished) {
       return _LessonComplete(
         lesson: lesson,
         firstTry: _firstTryCorrect,
+        drill: widget.drill,
         onRestart: () => setState(() {
           _finished = false;
           _restart();
@@ -176,6 +218,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                 TranslateStep() => TranslateStepView(step: step, done: _onDone),
                 ListenStep() => ListenStepView(step: step, done: _onDone),
                 WriteStep() => WriteStepView(step: step, done: _onDone),
+                MatchStep() => MatchStepView(step: step, done: _onDone),
               },
             ),
           ),
@@ -186,8 +229,9 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
 }
 
 class _LessonComplete extends ConsumerWidget {
-  const _LessonComplete({required this.lesson, required this.firstTry, required this.onRestart});
+  const _LessonComplete({required this.lesson, required this.firstTry, required this.onRestart, this.drill});
   final Lesson lesson;
+  final DrillSpec? drill;
   final int firstTry;
   final VoidCallback onRestart;
 
@@ -222,7 +266,7 @@ class _LessonComplete extends ConsumerWidget {
             child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
               Icon(Icons.check_circle_rounded, size: 56, color: p.success),
               const SizedBox(height: 12),
-              Text('Ders tamamlandı', style: context.text.headlineMedium, textAlign: TextAlign.center),
+              Text(drill != null ? 'Antrenman bitti' : 'Ders tamamlandı', style: context.text.headlineMedium, textAlign: TextAlign.center),
               const SizedBox(height: 4),
               Text(lesson.titleTr, style: context.text.bodyLarge!.copyWith(color: p.inkMuted), textAlign: TextAlign.center),
               const SizedBox(height: 24),
@@ -237,7 +281,7 @@ class _LessonComplete extends ConsumerWidget {
                 ]),
               ),
               if (lesson.vocab.isNotEmpty) ...[
-                const SectionTitle('Bu dersin kelimeleri'),
+                SectionTitle(drill != null ? 'Çalıştığın kelimeler' : 'Bu dersin kelimeleri'),
                 Wrap(spacing: 8, runSpacing: 8, children: [
                   for (final id in lesson.vocab)
                     if (content.lexicon.byId(id) case final l?)
@@ -267,8 +311,18 @@ class _LessonComplete extends ConsumerWidget {
                   ),
                 ],
               ],
-              const SectionTitle('Sırada ne var? (isteğe bağlı)'),
-              if (scenario != null)
+              if (drill != null) ...[
+                const SizedBox(height: 16),
+                FilledButton.icon(
+                  onPressed: () => context.pushReplacement('/drill/run?${drill!.query}'),
+                  icon: const Icon(Icons.refresh_rounded),
+                  label: const Text('Yeni tur'),
+                ),
+                const SizedBox(height: 8),
+                OutlinedButton(onPressed: () => context.pushReplacement('/drill'), child: const Text('Başka bir antrenman seç')),
+              ],
+              if (drill == null) const SectionTitle('Sırada ne var? (isteğe bağlı)'),
+              if (scenario != null && drill == null)
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: AppCard(
@@ -285,7 +339,7 @@ class _LessonComplete extends ConsumerWidget {
                     ]),
                   ),
                 ),
-              if (next != null && next.id != lesson.id)
+              if (next != null && next.id != lesson.id && drill == null)
                 AppCard(
                   onTap: () => context.pushReplacement('/lesson/${next.id}'),
                   child: Row(children: [
@@ -302,7 +356,7 @@ class _LessonComplete extends ConsumerWidget {
               const SizedBox(height: 16),
               FilledButton(onPressed: () => closeOrHome(context), child: const Text('Şimdilik bu kadar')),
               const SizedBox(height: 8),
-              TextButton(onPressed: onRestart, child: const Text('Dersi tekrar yap')),
+              if (drill == null) TextButton(onPressed: onRestart, child: const Text('Dersi tekrar yap')),
             ]),
           ),
         ],

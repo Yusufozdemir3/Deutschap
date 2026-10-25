@@ -149,6 +149,11 @@ sealed class LessonStep {
           model: j.str('model'),
           minWords: j.integer('min_words', fallback: 3),
         ),
+      'match' => MatchStep(
+          id,
+          pairs: j.objList('pairs').map(MatchPair.fromJson).toList(growable: false),
+          promptTr: j.optStr('prompt_tr'),
+        ),
       final t => throw ContentFormatException('unknown step type "$t"'),
     };
   }
@@ -281,4 +286,19 @@ class WriteStep extends LessonStep {
   final List<WriteRequirement> requirements;
   final String model;
   final int minWords;
+}
+
+class MatchPair {
+  const MatchPair({required this.de, required this.tr});
+  final String de;
+  final String tr;
+  factory MatchPair.fromJson(Json j) => MatchPair(de: j.str('de'), tr: j.str('tr'));
+}
+
+/// Match German items with their Turkish meanings. Every side must be
+/// unique so there is exactly one valid pairing.
+class MatchStep extends LessonStep {
+  const MatchStep(super.id, {required this.pairs, this.promptTr});
+  final List<MatchPair> pairs;
+  final String? promptTr;
 }

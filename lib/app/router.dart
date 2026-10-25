@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 
 import '../features/conversation/presentation/scenario_screen.dart';
 import '../features/discover/presentation/discover_screen.dart';
+import '../features/drill/domain/vocab_drill.dart';
+import '../features/drill/presentation/drill_screen.dart';
 import '../features/grammar/presentation/grammar_screen.dart';
 import '../features/home/presentation/home_screen.dart';
 import '../features/learn/presentation/learn_screen.dart';
@@ -76,6 +78,8 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       page('/lesson/:id', (s) => LessonScreen(lessonId: s.pathParameters['id']!)),
       page('/practice/:topic', (s) => LessonScreen(lessonId: 'practice', practice: PracticeTopic.parse(s.pathParameters['topic']!))),
+      page('/drill', (s) => DrillScreen(initialSource: s.uri.queryParameters['src'])),
+      page('/drill/run', (s) => LessonScreen(lessonId: 'drill', drill: DrillSpec.fromQuery(s.uri.queryParameters))),
       page('/grammar/:id', (s) => GrammarScreen(conceptId: s.pathParameters['id']!)),
       page('/story/:id', (s) => StoryScreen(storyId: s.pathParameters['id']!)),
       page('/episode/:id', (s) => EpisodeScreen(episodeId: s.pathParameters['id']!)),

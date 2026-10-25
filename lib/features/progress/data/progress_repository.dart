@@ -145,6 +145,19 @@ class ProgressRepository {
     });
   }
 
+  /// Right/wrong counts per item for one activity type, newest first
+  /// when [since] is set. Used to find words a learner keeps missing.
+  Future<Map<String, ({int right, int wrong})>> itemStats(String activityType, {DateTime? since}) async {
+    final rows = await _db.rawQuery(
+      'SELECT item_id, SUM(correct) AS r, SUM(1 - correct) AS w FROM exercise_attempts '
+      'WHERE activity_type = ? AND created_at >= ? GROUP BY item_id',
+      [activityType, since == null ? 0 : toMillis(since)],
+    );
+    return {
+      for (final row in rows) row['item_id']! as String: (right: (row['r'] as num? ?? 0).toInt(), wrong: (row['w'] as num? ?? 0).toInt()),
+    };
+  }
+
   // ---------------------------------------------------------------- stories
 
   Future<Map<String, EpisodeProgress>> episodeProgress() async {

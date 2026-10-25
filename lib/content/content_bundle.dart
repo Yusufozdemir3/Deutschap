@@ -20,7 +20,7 @@ class ContentBundle {
     required this.version,
     required this.lexicon,
     required this.grammar,
-    required this.path,
+    required this.paths,
     required this.stories,
     required this.readings,
     required this.scenarios,
@@ -28,7 +28,8 @@ class ContentBundle {
     this.places = const [],
     this.clues = const [],
   }) {
-    for (final u in path.units) {
+    for (final u in paths.expand((p) => p.units)) {
+      _units[u.id] = u;
       for (final l in u.lessons) {
         _lessons[l.id] = l;
         _unitOfLesson[l.id] = u;
@@ -46,6 +47,7 @@ class ContentBundle {
     'lexicon.json',
     'grammar.json',
     'path_a1.json',
+    'path_a2.json',
     'stories.json',
     'reading.json',
     'scenarios.json',
@@ -56,7 +58,8 @@ class ContentBundle {
   final String version;
   final Lexicon lexicon;
   final Map<String, GrammarConcept> grammar;
-  final LearningPath path;
+  /// Learning paths in level order (A1, A2, …).
+  final List<LearningPath> paths;
   final List<Story> stories;
   final List<ReadingText> readings;
   final List<Scenario> scenarios;
@@ -64,6 +67,7 @@ class ContentBundle {
   final List<Place> places;
   final List<Clue> clues;
 
+  final _units = <String, Unit>{};
   final _lessons = <String, Lesson>{};
   final _unitOfLesson = <String, Unit>{};
   final _episodes = <String, Episode>{};
@@ -71,6 +75,10 @@ class ContentBundle {
 
   Iterable<Lesson> get lessons => _lessons.values;
   Lesson? lesson(String id) => _lessons[id];
+  Unit? unit(String id) => _units[id];
+  Iterable<Unit> get units => _units.values;
+
+  LearningPath? pathFor(String level) => paths.where((p) => p.level == level).firstOrNull;
   Unit? unitOfLesson(String lessonId) => _unitOfLesson[lessonId];
   Episode? episode(String id) => _episodes[id];
   Story? storyOfEpisode(String episodeId) => _storyOfEpisode[episodeId];
@@ -98,7 +106,15 @@ class ContentBundle {
   }
 
   /// Lessons in curriculum order.
-  List<Lesson> get orderedLessons => [for (final u in path.units) ...u.lessons];
+  List<Lesson> get orderedLessons => [for (final p in paths) for (final u in p.units) ...u.lessons];
+
+  /// The level of the path a lesson belongs to.
+  String levelOfLesson(String lessonId) {
+    for (final p in paths) {
+      if (p.units.any((u) => u.lessons.any((l) => l.id == lessonId))) return p.level;
+    }
+    return 'A1';
+  }
 
   /// Parses raw file contents keyed by file name. Throws
   /// [ContentFormatException] with the failing file and field.
@@ -130,7 +146,7 @@ class ContentBundle {
       grammar: guard('grammar.json', (j) => {
             for (final g in j.objList('concepts').map(GrammarConcept.fromJson)) g.id: g,
           }),
-      path: guard('path_a1.json', LearningPath.fromJson),
+      paths: [for (final f in files.where((f) => f.startsWith('path_'))) guard(f, LearningPath.fromJson)],
       stories: guard('stories.json', (j) => j.objList('stories').map(Story.fromJson).toList(growable: false)),
       readings: guard('reading.json', (j) => j.objList('texts').map(ReadingText.fromJson).toList(growable: false)),
       scenarios: guard('scenarios.json', (j) => j.objList('scenarios').map(Scenario.fromJson).toList(growable: false)),

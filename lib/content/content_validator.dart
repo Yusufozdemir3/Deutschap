@@ -109,7 +109,7 @@ class ContentValidator {
   void _path() {
     final lessonIds = <String>{};
     final unitIds = <String>{};
-    for (final u in bundle.path.units) {
+    for (final u in bundle.paths.expand((p) => p.units)) {
       if (!unitIds.add(u.id)) _fail('unit ${u.id}', 'duplicate id');
       for (final g in u.grammar) {
         if (!bundle.grammar.containsKey(g)) _fail('unit ${u.id}', 'grammar "$g" not found');
@@ -151,7 +151,7 @@ class ContentValidator {
         if (answers.isEmpty) _fail(w, 'cloze without answers');
         if (options.isNotEmpty && !answers.any(options.contains)) _fail(w, 'no answer among options');
       case OrderStep(:final tokens, :final answers):
-        final want = (tokens.map((t) => t.toLowerCase()).toList()..sort()).join('|');
+        final want = (words(tokens.join(' ')).map((t) => t.toLowerCase()).toList()..sort()).join('|');
         for (final a in answers) {
           final got = (words(a).map((t) => t.toLowerCase()).toList()..sort()).join('|');
           if (got != want) _fail(w, 'answer "$a" does not use exactly the tokens');
@@ -160,6 +160,11 @@ class ContentValidator {
         if (answers.isEmpty) _fail(w, 'translate without answers');
       case ListenStep(:final options, :final answers):
         if (options.length < 2 || answers.isEmpty || answers.any((a) => a < 0 || a >= options.length)) _fail(w, 'listen answers out of range');
+      case MatchStep(:final pairs):
+        if (pairs.length < 3) _fail(w, 'match needs at least three pairs');
+        if (pairs.map((x) => x.de).toSet().length != pairs.length || pairs.map((x) => x.tr).toSet().length != pairs.length) {
+          _fail(w, 'match sides must be unique');
+        }
       case WriteStep(:final requirements, :final model):
         if (requirements.isEmpty) _fail(w, 'write needs requirements');
         for (final r in requirements) {
