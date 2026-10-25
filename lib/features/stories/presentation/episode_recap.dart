@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -96,6 +98,29 @@ class _EpisodeRecapState extends ConsumerState<EpisodeRecap> {
                 const SizedBox(height: 12),
                 Pill('Seçimlerin ${acc.firstTry}/${acc.total} tanesinde ilk denemede doğru ifadeyi buldun', icon: Icons.chat_bubble_outline_rounded),
               ],
+              for (final clue in content.clues.where((c) => c.episode == e.number))
+                Padding(
+                  padding: const EdgeInsets.only(top: 14),
+                  child: AppCard(
+                    color: p.accentSoft,
+                    borderColor: p.accent,
+                    onTap: () async {
+                      await _record();
+                      if (context.mounted) unawaited(context.push('/mystery'));
+                    },
+                    child: Row(children: [
+                      Icon(Icons.push_pin_rounded, color: p.danger),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                          Text('Gizem panosuna ipucu eklendi', style: context.text.labelMedium!.copyWith(color: p.accent)),
+                          Text(clue.titleDe, style: context.text.titleSmall!.copyWith(fontFamily: 'Literata')),
+                          Text('Kelimelerini hatırladıkça ipucu çözülür.', style: context.text.bodySmall),
+                        ]),
+                      ),
+                    ]),
+                  ),
+                ),
               const SectionTitle('Önemli kelimeler ve ifadeler'),
               for (final id in e.vocab)
                 if (content.lexicon.byId(id) case final l?)

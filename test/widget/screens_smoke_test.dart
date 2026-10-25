@@ -59,7 +59,7 @@ void main() {
         '/heute', '/lernen', '/lernen?tab=stories', '/lernen?tab=talk', '/lernen?tab=read', '/entdecken', '/wortschatz', '/profil',
         '/lesson/u1l1', '/lesson/u4l2', '/lesson/u12l2', '/practice/akkusativ', '/practice/verbZweit', '/grammar/g_akkusativ', '/story/neu_in_berlin', '/episode/nib_e1_a1',
         '/scenario/termin', '/reader/builtin:r_ein_tag', '/paste', '/review', '/word/$entryId', '/lexeme/gehen',
-        '/collections', '/progress', '/settings', '/settings/notifications', '/does-not-exist',
+        '/kiez', '/mystery', '/milestones', '/collections', '/progress', '/settings', '/settings/notifications', '/does-not-exist',
       ];
       final router = container.read(routerProvider);
       final previous = FlutterError.onError;

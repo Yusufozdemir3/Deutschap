@@ -8,6 +8,7 @@ import '../../../content/models/discover.dart';
 import '../../../core/clock.dart';
 import '../../../ui/widgets.dart';
 import '../../progress/application/progress_providers.dart';
+import '../../world/presentation/world_home_section.dart';
 import '../application/home_providers.dart';
 import '../domain/recommender.dart';
 
@@ -37,6 +38,7 @@ class HomeScreen extends ConsumerWidget {
                   const SizedBox(height: 12),
                   Text('$greeting${name == null ? '' : ', $name'}!', style: context.text.headlineMedium!.copyWith(fontFamily: 'Literata')),
                   Text(_subtitle(now), style: context.text.bodyMedium!.copyWith(color: p.inkMuted)),
+                  const NewMilestoneBanner(),
                   if (cont != null) ...[
                     const SectionTitle('Kaldığın yerden devam et'),
                     AppCard(
@@ -59,6 +61,7 @@ class HomeScreen extends ConsumerWidget {
                     onRetry: () => ref.invalidate(homeDataProvider),
                     builder: (d) => _Recommendations(recs: d.recommendations),
                   ),
+                  const KiezHomeCard(),
                   const _PhraseOfDay(),
                   const _WeekSummary(),
                   const SizedBox(height: 12),

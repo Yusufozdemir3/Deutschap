@@ -23,6 +23,9 @@ import '../features/stories/presentation/story_screen.dart';
 import '../features/vocabulary/presentation/collections_screen.dart';
 import '../features/vocabulary/presentation/library_screen.dart';
 import '../features/vocabulary/presentation/word_detail_screen.dart';
+import '../features/world/presentation/kiez_screen.dart';
+import '../features/world/presentation/milestones_screen.dart';
+import '../features/world/presentation/mystery_screen.dart';
 import 'providers.dart';
 import 'shell.dart';
 
@@ -82,6 +85,9 @@ final routerProvider = Provider<GoRouter>((ref) {
       page('/review', (s) => ReviewScreen(size: int.tryParse(s.uri.queryParameters['n'] ?? '') ?? 10)),
       page('/word/:id', (s) => WordDetailScreen(entryId: s.pathParameters['id']!)),
       page('/lexeme/:id', (s) => LexemeDetailScreen(lexemeId: s.pathParameters['id']!)),
+      page('/kiez', (_) => const KiezScreen()),
+      page('/mystery', (_) => const MysteryScreen()),
+      page('/milestones', (_) => const MilestonesScreen()),
       page('/collections', (_) => const CollectionsScreen()),
       page('/progress', (_) => const ProgressScreen()),
       page('/settings', (_) => const SettingsScreen()),

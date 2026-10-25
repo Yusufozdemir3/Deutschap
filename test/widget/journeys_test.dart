@@ -171,6 +171,31 @@ void main() {
     await shutdown(tester, c, db);
   });
 
+  testWidgets('a completed scenario opens a place on the map and celebrates a milestone once', (tester) async {
+    final (c, db) = await boot(tester);
+    await tester.runAsync(() => c.read(progressRepositoryProvider)
+        .saveConversation(id: 'x', scenarioId: 'cafe', mode: 'guided', completed: true, goalsDone: const [], corrections: const []));
+    c.read(dataRevisionProvider.notifier).state++;
+    await settle(tester);
+    expect(find.text('Yeni kilometre taşı!'), findsOneWidget);
+    expect(find.text('İlk sipariş'), findsWidgets);
+    expect(find.text('1/11 yer'), findsOneWidget);
+
+    unawaited(c.read(routerProvider).push('/kiez'));
+    await settle(tester);
+    expect(find.text('1 / 11 yer açıldı'), findsOneWidget);
+    c.read(routerProvider).pop();
+    await settle(tester);
+
+    unawaited(c.read(routerProvider).push('/milestones'));
+    await settle(tester);
+    expect(find.text('Yeni!'), findsOneWidget);
+    c.read(routerProvider).pop();
+    await settle(tester);
+    expect(find.text('Yeni kilometre taşı!'), findsNothing, reason: 'shown once, then remembered as seen');
+    await shutdown(tester, c, db);
+  });
+
   testWidgets('lesson progress and vocabulary survive a restart (Journey D)', (tester) async {
     var (c, db) = await boot(tester);
     unawaited(c.read(routerProvider).push('/lesson/u1l1'));

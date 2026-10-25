@@ -1,0 +1,24 @@
+{
+  "version": "2026.10.6",
+  "places": [
+    {"id": "wg", "name_de": "Deine WG", "name_tr": "Evin (WG)", "icon": "home", "x": 0.30, "y": 0.42, "about_tr": "Kastanienstraße 12, üçüncü kat. Lina ile paylaştığın ev ve her şeyin başladığı oda.", "unlock": ["episode:1", "lesson:u1l2"], "route": "/story/neu_in_berlin"},
+    {"id": "baeckerei", "name_de": "Bäckerei Weber", "name_tr": "Weber Fırını", "icon": "bakery", "x": 0.42, "y": 0.30, "about_tr": "Köşedeki fırın. Sabah sekizde en taze ekmekler burada.", "unlock": ["episode:2", "scenario:baeckerei", "lesson:u4l1"], "route": "/scenario/baeckerei"},
+    {"id": "cafe", "name_de": "Café Kastanie", "name_tr": "Café Kastanie", "icon": "cafe", "x": 0.62, "y": 0.22, "about_tr": "Yeşil kapılı küçük kafe. Her çarşamba saat üçte pencere kenarında biri oturur.", "unlock": ["episode:4", "scenario:cafe"], "route": "/scenario/cafe"},
+    {"id": "buergeramt", "name_de": "Bürgeramt", "name_tr": "Bürgeramt", "icon": "office", "x": 0.80, "y": 0.40, "about_tr": "İkamet kaydının yapıldığı yer. Randevuyu sabah sekizde aramak gerekiyor.", "unlock": ["episode:3"], "route": "/episode/nib_e3_a1"},
+    {"id": "praxis", "name_de": "Praxis Dr. Brandt", "name_tr": "Dr. Brandt muayenehanesi", "icon": "doctor", "x": 0.72, "y": 0.58, "about_tr": "Mahallenin doktoru. Randevu telefonla alınır.", "unlock": ["scenario:termin", "lesson:u6l2"], "route": "/scenario/termin"},
+    {"id": "supermarkt", "name_de": "Supermarkt", "name_tr": "Süpermarket", "icon": "cart", "x": 0.18, "y": 0.62, "about_tr": "Pazar günleri kapalı! Peynir tezgâhında Herr Kowalski var.", "unlock": ["lesson:u7l2", "scenario:kaesetheke"], "route": "/scenario/kaesetheke"},
+    {"id": "park", "name_de": "Kastanienpark", "name_tr": "Kestane Parkı", "icon": "park", "x": 0.45, "y": 0.66, "about_tr": "Balkondan görünen park. Hafta sonu herkes burada.", "unlock": ["lesson:u8l2"], "route": "/lesson/u8l2"},
+    {"id": "haltestelle", "name_de": "U-Bahn Kastanienplatz", "name_tr": "Kastanienplatz metro durağı", "icon": "train", "x": 0.55, "y": 0.45, "about_tr": "Şehrin geri kalanına açılan kapı. Yol sormayı burada öğrendin.", "unlock": ["lesson:u9l1", "scenario:weg"], "route": "/scenario/weg"},
+    {"id": "kino", "name_de": "Kino Lichtspiel", "name_tr": "Lichtspiel Sineması", "icon": "movie", "x": 0.88, "y": 0.18, "about_tr": "Eski bir mahalle sineması. Hafta sonu ne yaptığını anlatırken buraya gittin.", "unlock": ["lesson:u10l2"], "route": "/lesson/u10l2"},
+    {"id": "buero", "name_de": "Büro", "name_tr": "Ofis", "icon": "work", "x": 0.86, "y": 0.78, "about_tr": "Sara ve iş arkadaşların. Saat beşte: Schönen Feierabend!", "unlock": ["lesson:u12l1"], "route": "/lesson/u12l1"},
+    {"id": "briefkasten", "name_de": "Briefkasten", "name_tr": "Posta kutusu", "icon": "mail", "x": 0.33, "y": 0.84, "about_tr": "Hamburg'a giden mektup buradan yola çıktı.", "unlock": ["episode:5"], "route": "/episode/nib_e5_a1"}
+  ],
+  "clues": [
+    {"id": "c_postkarte", "title_de": "Die Postkarte", "title_tr": "Kartpostal", "episode": 1, "text_tr": "Odanın masasında eski bir kartpostal: \"Sevgili M., her çarşamba saat üçte. Bekliyorum. – F.\"", "quote_de": "Liebe M., jeden Mittwoch um drei. Ich warte. – F.", "lexemes": ["postkarte", "mittwoch", "warten"]},
+    {"id": "c_cafe", "title_de": "Die grüne Tür", "title_tr": "Yeşil kapı", "episode": 2, "text_tr": "Fırının duvarındaki eski fotoğraf: kartpostaldaki yeşil kapılı kafe. Adı Café Kastanie, buraya uzak değil.", "quote_de": "Das Café Kastanie? Das ist nicht weit.", "lexemes": ["cafe", "gruen", "tuer"]},
+    {"id": "c_marlene", "title_de": "M. wie Marlene", "title_tr": "M. = Marlene", "episode": 3, "text_tr": "Eski postacı Herr Albrecht hatırlıyor: M., yıllar önce senin odanda oturan Marlene.", "quote_de": "Sie hat in Ihrem Zimmer gewohnt.", "lexemes": ["wohnen", "zimmer", "brieftraeger"]},
+    {"id": "c_friedrich", "title_de": "F. wie Friedrich", "title_tr": "F. = Friedrich", "episode": 4, "text_tr": "Café Kastanie'de pencere kenarındaki yaşlı adam: Friedrich. Hâlâ her çarşamba saat üçte geliyor.", "quote_de": "Das ist ja meine Schrift! Ich bin Friedrich.", "lexemes": ["kennen", "freund", "immer"]},
+    {"id": "c_hamburg", "title_de": "Nach Hamburg", "title_tr": "Hamburg'a", "episode": 4, "text_tr": "Marlene yıllar önce Hamburg'a taşınmış. Friedrich onun izini kaybetmiş.", "quote_de": "Dann ist sie nach Hamburg gezogen.", "lexemes": ["ziehen", "geschichte"]},
+    {"id": "c_vogt", "title_de": "Buchhandlung Vogt", "title_tr": "Vogt Kitabevi", "episode": 5, "text_tr": "Soyadı Vogt. Hamburg'da bir kitapçının sahibi. Ona bir mektup yazdınız.", "quote_de": "Die Inhaberin heißt Marlene Vogt!", "lexemes": ["nachname", "brief", "inhaberin"]}
+  ]
+}

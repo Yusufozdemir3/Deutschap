@@ -11,6 +11,7 @@ import 'models/lexeme.dart';
 import 'models/reading.dart';
 import 'models/scenario.dart';
 import 'models/story.dart';
+import 'models/world.dart';
 
 /// All curated, read-only educational content shipped with the app.
 /// Learner data never lives here.
@@ -24,6 +25,8 @@ class ContentBundle {
     required this.readings,
     required this.scenarios,
     required this.discover,
+    this.places = const [],
+    this.clues = const [],
   }) {
     for (final u in path.units) {
       for (final l in u.lessons) {
@@ -47,6 +50,7 @@ class ContentBundle {
     'reading.json',
     'scenarios.json',
     'discover.json',
+    'world.json',
   ];
 
   final String version;
@@ -57,6 +61,8 @@ class ContentBundle {
   final List<ReadingText> readings;
   final List<Scenario> scenarios;
   final List<DiscoverCard> discover;
+  final List<Place> places;
+  final List<Clue> clues;
 
   final _lessons = <String, Lesson>{};
   final _unitOfLesson = <String, Unit>{};
@@ -129,6 +135,8 @@ class ContentBundle {
       readings: guard('reading.json', (j) => j.objList('texts').map(ReadingText.fromJson).toList(growable: false)),
       scenarios: guard('scenarios.json', (j) => j.objList('scenarios').map(Scenario.fromJson).toList(growable: false)),
       discover: guard('discover.json', (j) => j.objList('cards').map(DiscoverCard.fromJson).toList(growable: false)),
+      places: guard('world.json', (j) => j.objList('places').map(Place.fromJson).toList(growable: false)),
+      clues: guard('world.json', (j) => j.objList('clues').map(Clue.fromJson).toList(growable: false)),
     );
   }
 

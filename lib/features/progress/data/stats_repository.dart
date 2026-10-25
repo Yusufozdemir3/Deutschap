@@ -1,6 +1,8 @@
 import 'package:sqflite/sqflite.dart';
 
 import '../../../core/clock.dart';
+import '../../vocabulary/domain/vocab_status.dart';
+import '../../world/domain/world_progress.dart';
 
 class LearningStats {
   const LearningStats({
@@ -71,6 +73,33 @@ class StatsRepository {
       episodesCompleted: await _int("SELECT COUNT(*) FROM story_progress WHERE status = 'completed'"),
       scenariosCompleted: await _int("SELECT COUNT(DISTINCT scenario_id) FROM conversation_sessions WHERE status = 'completed'"),
       contextsTotal: await _int('SELECT COUNT(*) FROM vocab_contexts'),
+    );
+  }
+
+  Future<List<String>> _strings(String sql) async => [for (final r in await _db.rawQuery(sql)) r.values.first! as String];
+
+  /// Everything the map, mystery board and milestones need, in one pass.
+  Future<ProgressFacts> loadFacts({required int? Function(String episodeId) episodeNumber}) async {
+    final counts = <VocabStatus, int>{
+      for (final r in await _db.rawQuery('SELECT status, COUNT(*) AS n FROM vocab_entries GROUP BY status'))
+        VocabStatus.parse(r['status']! as String): r['n']! as int,
+    };
+    return ProgressFacts(
+      lessons: {...await _strings("SELECT lesson_id FROM lesson_progress WHERE status = 'completed'")},
+      episodeNumbers: {
+        for (final id in await _strings("SELECT episode_id FROM story_progress WHERE status = 'completed'")) ?episodeNumber(id),
+      },
+      scenarios: {...await _strings("SELECT DISTINCT scenario_id FROM conversation_sessions WHERE status = 'completed'")},
+      readings: {...await _strings("SELECT DISTINCT ref_id FROM activity_log WHERE kind = 'reading' AND ref_id IS NOT NULL")},
+      unaidedRecalls: await _int('SELECT COUNT(*) FROM review_events WHERE assisted = 0 AND grade > 0'),
+      unaidedArticles: await _int("SELECT COUNT(*) FROM review_events WHERE assisted = 0 AND grade > 0 AND card_type = 'article'"),
+      unaidedProductions: await _int("SELECT COUNT(*) FROM review_events WHERE assisted = 0 AND grade > 0 AND card_type = 'production'"),
+      statusCounts: counts,
+      recalledLexemes: {
+        ...await _strings('SELECT DISTINCT e.lexeme_id FROM review_events ev JOIN vocab_entries e ON e.id = ev.entry_id '
+            'WHERE ev.assisted = 0 AND ev.grade > 0 AND e.lexeme_id IS NOT NULL'),
+      },
+      savedLexemes: {...await _strings('SELECT lexeme_id FROM vocab_entries WHERE lexeme_id IS NOT NULL')},
     );
   }
 }

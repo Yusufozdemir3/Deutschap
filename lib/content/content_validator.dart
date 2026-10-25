@@ -5,6 +5,7 @@ import 'content_bundle.dart';
 import 'models/lesson.dart';
 import 'models/lexeme.dart';
 import 'models/story.dart';
+import 'models/world.dart';
 
 /// Automated checks every content change must pass (see
 /// docs/CONTENT_REVIEW.md). They catch structural and many linguistic
@@ -27,6 +28,7 @@ class ContentValidator {
     _scenarios();
     _discover();
     _readings();
+    _world();
     return problems;
   }
 
@@ -312,6 +314,37 @@ class ContentValidator {
       if (!ids.add(r.id)) _fail('reading ${r.id}', 'duplicate id');
       for (final q in r.questions) {
         if (q.answer < 0 || q.answer >= q.options.length) _fail('reading ${r.id}', 'answer out of range');
+      }
+    }
+  }
+
+  void _world() {
+    final episodeNumbers = {for (final s in bundle.stories) ...s.episodeNumbers};
+    bool exists(UnlockRef r) => switch (r.kind) {
+          'lesson' => bundle.lesson(r.id) != null,
+          'episode' => episodeNumbers.contains(int.tryParse(r.id)),
+          'scenario' => bundle.scenario(r.id) != null,
+          'reading' => bundle.reading(r.id) != null,
+          _ => false,
+        };
+    final ids = <String>{};
+    for (final p in bundle.places) {
+      final w = 'place ${p.id}';
+      if (!ids.add(p.id)) _fail(w, 'duplicate id');
+      if (p.x < 0 || p.x > 1 || p.y < 0 || p.y > 1) _fail(w, 'position outside 0–1');
+      if (p.unlock.isEmpty) _fail(w, 'no unlock condition');
+      for (final u in p.unlock) {
+        if (!exists(u)) _fail(w, 'unlock "$u" does not exist');
+      }
+    }
+    final clueIds = <String>{};
+    for (final c in bundle.clues) {
+      final w = 'clue ${c.id}';
+      if (!clueIds.add(c.id)) _fail(w, 'duplicate id');
+      if (!episodeNumbers.contains(c.episode)) _fail(w, 'episode ${c.episode} does not exist');
+      if (c.lexemes.isEmpty) _fail(w, 'needs lexemes');
+      for (final l in c.lexemes) {
+        if (!_lex(l)) _fail(w, 'lexeme "$l" not found');
       }
     }
   }
