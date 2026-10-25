@@ -225,10 +225,13 @@ class ErrorDetectors {
 
   Iterable<LanguageIssue> _nounCapitalisation(String text) sync* {
     final t = tokenize(text).where((x) => x.isWord).toList();
-    for (final tok in t) {
+    final lower = [for (final x in t) x.text.toLowerCase()];
+    for (var i = 0; i < t.length; i++) {
+      final tok = t[i];
       final s = tok.text;
       if (s.isEmpty || s[0] != s[0].toLowerCase() || s[0] == s[0].toUpperCase()) continue;
-      final hits = lexicon.lookupWord(s);
+      // Sentence context lets separable verbs win ("wir laden Sie ein" is not "Laden").
+      final hits = lexicon.lookupWord(s, sentenceWords: lower, wordIndex: i);
       if (hits.confidence != LookupConfidence.exact || hits.isEmpty) continue;
       if (!hits.lexemes.every((l) => l.isNoun)) continue; // "essen" vs "Essen"
       if (hits.lexemes.any((l) => l.forms.contains(s))) continue; // listed lower-case form: "montags"

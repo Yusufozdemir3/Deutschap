@@ -115,6 +115,7 @@ final milestones = <Milestone>[
   Milestone(id: 'a2_done', icon: 'school', titleTr: 'A2 yolu tamam', descriptionTr: 'A2 yolunun 24 dersinin hepsini tamamla.', target: 24, progress: (f) => f.lessons.where((l) => l.startsWith('a2')).length),
   Milestone(id: 'a2_life', icon: 'forum', titleTr: 'Gündelik hayatta', descriptionTr: 'Dört farklı A2 senaryosunu tamamla (doktor, ev, tren, iş görüşmesi …).', target: 4, progress: (f) => f.scenarios.where(_a2Scenarios.contains).length),
   Milestone(id: 'listener_5', icon: 'reading', titleTr: 'Kulak aşinalığı', descriptionTr: 'Beş dinleme metninin sorularını cevapla.', target: 5, progress: (f) => f.listenings.length),
+  Milestone(id: 'b1_start', icon: 'route', titleTr: 'B1 yolunda', descriptionTr: 'B1 yolunun ilk dört dersini tamamla.', target: 4, progress: (f) => f.lessons.where((l) => l.startsWith('b1')).length),
   Milestone(id: 'formal_email', icon: 'mail', titleTr: 'İlk resmî e-posta', descriptionTr: 'İş e-postası dersini tamamla.', target: 1, progress: (f) => _has(f.lessons.contains('u12l2'))),
   Milestone(id: 'recall_100', icon: 'memory', titleTr: '100 kez hatırladım', descriptionTr: 'Tekrarlarda 100 kez ipucu kullanmadan hatırla.', target: 100, progress: (f) => f.unaidedRecalls),
   Milestone(id: 'articles_25', icon: 'article', titleTr: 'Artikel ustası', descriptionTr: 'der/die/das kartlarında ipucusuz 25 doğru cevap ver.', target: 25, progress: (f) => f.unaidedArticles),

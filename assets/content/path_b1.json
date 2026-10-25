@@ -1,0 +1,1141 @@
+{
+  "version": "2026.10.1",
+  "level": "B1",
+  "units": [
+    {
+      "id": "b1u1",
+      "number": 1,
+      "title_de": "Mein Viertel",
+      "title_tr": "Mahallem",
+      "goal_tr": "Bir yeri, kişiyi ya da şeyi Relativsatz ile daha ayrıntılı anlatabilirsin.",
+      "grammar": [
+        "g_relativsatz"
+      ],
+      "lessons": [
+        {
+          "id": "b1u1l1",
+          "title_tr": "Der Laden, der …",
+          "objective_tr": "Nominativ Relativsatz: der/die/das + fiil sonda.",
+          "minutes": 9,
+          "vocab": [
+            "laden",
+            "nachbarschaft",
+            "anwohner",
+            "verkehr",
+            "laerm",
+            "angebot",
+            "gesellschaft"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "laden",
+                "nachbarschaft",
+                "anwohner",
+                "verkehr",
+                "laerm",
+                "angebot"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_relativsatz"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Mahalle tanıtımı",
+              "lines": [
+                {
+                  "speaker": "Lina",
+                  "de": "Das ist der Laden, der bis Mitternacht geöffnet hat.",
+                  "tr": "Burası gece yarısına kadar açık olan dükkân."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Und die Frau, die dort arbeitet, kennt jeden Kunden mit Namen!",
+                  "tr": "Ve orada çalışan kadın her müşteriyi adıyla tanır!"
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Genau. Das ist ein Viertel, das nie schläft.",
+                  "tr": "Aynen. Burası hiç uyumayan bir mahalle."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Manchmal ist es zu laut. Die Anwohner, die hier wohnen, beschweren sich oft.",
+                  "tr": "Bazen çok gürültülü. Burada oturan mahalle sakinleri sık sık şikâyet ediyor."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Das ist der Mann, ___ hier wohnt.",
+              "tr": "İşte burada oturan adam.",
+              "answers": [
+                "der"
+              ],
+              "options": [
+                "der",
+                "die",
+                "das"
+              ],
+              "explain_tr": "Relativ zamiri, öncül ismin (der Mann) cinsini ve hâlini alır: der (eril, Nominativ)."
+            },
+            {
+              "type": "cloze",
+              "de": "Das ist die Frau, ___ im Laden arbeitet.",
+              "tr": "İşte dükkânda çalışan kadın.",
+              "answers": [
+                "die"
+              ],
+              "options": [
+                "die",
+                "der",
+                "das"
+              ],
+              "explain_tr": "die Frau → die."
+            },
+            {
+              "type": "cloze",
+              "de": "Das ist das Café, ___ ich so gern mag.",
+              "tr": "İşte çok sevdiğim kafe.",
+              "answers": [
+                "das"
+              ],
+              "options": [
+                "das",
+                "der",
+                "die"
+              ],
+              "explain_tr": "das Café → das (Akkusativ'de nötr aynı)."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Relativsatz'ta fiil nerede?",
+              "options": [
+                "Sonda",
+                "İkinci sırada",
+                "Başta"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "Relativsatz bir yan cümledir: çekimli fiil sona gider."
+            },
+            {
+              "type": "order",
+              "tr": "Bu, gece yarısına kadar açık olan dükkân.",
+              "tokens": [
+                "Das",
+                "ist",
+                "der",
+                "Laden,",
+                "der",
+                "bis",
+                "Mitternacht",
+                "geöffnet",
+                "hat"
+              ],
+              "answers": [
+                "Das ist der Laden, der bis Mitternacht geöffnet hat"
+              ],
+              "explain_tr": "Relativsatz virgülle ayrılır; fiil (hat) sonda."
+            },
+            {
+              "type": "listen",
+              "de": "Mein Nachbar, der im ersten Stock wohnt, spielt jeden Abend Klavier.",
+              "prompt_tr": "Komşu ne yapıyor?",
+              "options": [
+                "Her akşam piyano çalıyor",
+                "Her akşam müzik dinliyor",
+                "Her akşam şarkı söylüyor"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "der im ersten Stock wohnt = birinci katta oturan."
+            },
+            {
+              "type": "translate",
+              "tr": "Bu, benim sevdiğim kafe.",
+              "answers": [
+                "Das ist das Café, das ich mag.",
+                "Das ist das Café, das ich gern mag.",
+                "Das ist das Café, das ich liebe."
+              ],
+              "hint_tr": "das Café → das",
+              "explain_tr": "Akkusativ'de nötr (das) değişmez."
+            }
+          ]
+        },
+        {
+          "id": "b1u1l2",
+          "title_tr": "Was ich mag, was mir wichtig ist",
+          "objective_tr": "Akkusativ ve Dativ relativ zamirleri; kendi mahallelerini tanıt.",
+          "minutes": 9,
+          "vocab": [
+            "unterschied",
+            "vorschlag",
+            "veranstaltung",
+            "verkehrsmittel",
+            "benutzen",
+            "vergleichen"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "unterschied",
+                "vorschlag",
+                "veranstaltung",
+                "verkehrsmittel",
+                "benutzen",
+                "vergleichen"
+              ]
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "İki mahalle",
+              "lines": [
+                {
+                  "speaker": "Aylin",
+                  "de": "Das ist der Park, den ich jeden Morgen besuche.",
+                  "tr": "Burası her sabah ziyaret ettiğim park."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Und die Bäckerin, der du immer hallo sagst?",
+                  "tr": "Ya her zaman merhaba dediğin fırıncı kadın?"
+                },
+                {
+                  "speaker": "Aylin",
+                  "de": "Die kenne ich seit meinem ersten Tag. Sie ist die Person, der ich am meisten vertraue.",
+                  "tr": "Onu ilk günümden beri tanıyorum. En çok güvendiğim kişi o."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Gibt es hier auch Veranstaltungen, die man besuchen kann?",
+                  "tr": "Burada gidilebilecek etkinlikler de var mı?"
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Das ist der Park, ___ ich jeden Tag besuche.",
+              "tr": "İşte her gün ziyaret ettiğim park.",
+              "answers": [
+                "den"
+              ],
+              "options": [
+                "den",
+                "der",
+                "dem"
+              ],
+              "explain_tr": "Relativsatz içinde park nesne: Akkusativ eril → den."
+            },
+            {
+              "type": "cloze",
+              "de": "Das ist die Frau, ___ ich helfe.",
+              "tr": "İşte yardım ettiğim kadın.",
+              "answers": [
+                "der"
+              ],
+              "options": [
+                "der",
+                "die",
+                "den"
+              ],
+              "explain_tr": "helfen + Dativ; dişil Dativ → der."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "\"Bu, birlikte çalıştığım adam.\"",
+              "options": [
+                "Das ist der Mann, mit dem ich arbeite.",
+                "Das ist der Mann, mit den ich arbeite.",
+                "Das ist der Mann, mit der ich arbeite."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "mit + Dativ; eril → dem."
+            },
+            {
+              "type": "match",
+              "pairs": [
+                {
+                  "de": "der Unterschied",
+                  "tr": "fark"
+                },
+                {
+                  "de": "der Vorschlag",
+                  "tr": "öneri"
+                },
+                {
+                  "de": "die Veranstaltung",
+                  "tr": "etkinlik"
+                },
+                {
+                  "de": "das Verkehrsmittel",
+                  "tr": "ulaşım aracı"
+                },
+                {
+                  "de": "vergleichen",
+                  "tr": "karşılaştırmak"
+                }
+              ]
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Mahalleni ya da en sevdiğin yeri anlat: İki Relativsatz kullan (der/die/das/den/dem …).",
+              "requirements": [
+                {
+                  "label_tr": "Relativsatz (virgülle, ardından der/die/das/den/dem)",
+                  "pattern": ",\\s*(der|die|das|den|dem|denen)\\b"
+                },
+                {
+                  "label_tr": "En az 15 kelime",
+                  "pattern": "(\\w+\\W+){14}\\w+"
+                }
+              ],
+              "model": "Ich wohne in einem Viertel, das sehr lebendig ist. Es gibt einen kleinen Park, den ich jeden Morgen besuche, und eine Bäckerei, die schon um sechs öffnet.",
+              "min_words": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1u2",
+      "number": 2,
+      "title_de": "Regeln im Alltag",
+      "title_tr": "Kurallar ve yasaklar",
+      "goal_tr": "Kuralları ve yasakları Passiv ile anlatabilir, kimin yaptığını belirtmeden konuşabilirsin.",
+      "grammar": [
+        "g_passiv"
+      ],
+      "lessons": [
+        {
+          "id": "b1u2l1",
+          "title_tr": "Hier wird nicht geraucht",
+          "objective_tr": "Passiv Präsens: wird + Partizip II.",
+          "minutes": 9,
+          "vocab": [
+            "regel",
+            "gesetz",
+            "strafe",
+            "verbieten",
+            "erlauben",
+            "verboten",
+            "erlaubt"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "regel",
+                "gesetz",
+                "strafe",
+                "verbieten",
+                "erlauben",
+                "verboten",
+                "erlaubt"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_passiv"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Parkta",
+              "lines": [
+                {
+                  "speaker": "Lina",
+                  "de": "Schau mal, hier steht ein Schild: Hunde sind nicht erlaubt.",
+                  "tr": "Bak, burada bir tabela var: Köpekler yasak."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Echt? Dann ist das hier verboten?",
+                  "tr": "Gerçekten mi? O zaman burada yasak mı?"
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Ja. Im Park wird auch nicht geraucht, und nach zehn Uhr wird kein Alkohol verkauft.",
+                  "tr": "Evet. Parkta sigara da içilmez ve saat ondan sonra alkol satılmaz."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Und was passiert, wenn man das trotzdem macht?",
+                  "tr": "Peki bunu yine de yaparsan ne olur?"
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Dann wird man oft bestraft: Eine Strafe kostet bis zu fünfzig Euro.",
+                  "tr": "O zaman çoğu zaman cezalandırılırsın: Ceza elli euroya kadar çıkıyor."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Hier ___ nicht geraucht.",
+              "tr": "Burada sigara içilmez.",
+              "answers": [
+                "wird"
+              ],
+              "options": [
+                "wird",
+                "werden",
+                "ist"
+              ],
+              "explain_tr": "Passiv: werden + Partizip II. Özne yok (es) → wird."
+            },
+            {
+              "type": "cloze",
+              "de": "Die Briefe ___ jeden Tag gebracht.",
+              "tr": "Mektuplar her gün getiriliyor.",
+              "answers": [
+                "werden"
+              ],
+              "options": [
+                "werden",
+                "wird",
+                "sind"
+              ],
+              "explain_tr": "Özne çoğul (die Briefe) → werden."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Passiv hangisi?",
+              "options": [
+                "Das Auto wird repariert.",
+                "Das Auto hat repariert.",
+                "Das Auto repariert."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "werden + Partizip II."
+            },
+            {
+              "type": "order",
+              "tr": "Burada park etmek yasaktır.",
+              "tokens": [
+                "Hier",
+                "ist",
+                "Parken",
+                "verboten"
+              ],
+              "answers": [
+                "Hier ist Parken verboten",
+                "Parken ist hier verboten"
+              ],
+              "explain_tr": "verboten (yasak) sıfat; Parken isim."
+            },
+            {
+              "type": "listen",
+              "de": "Im Zug wird nicht telefoniert, damit die anderen Fahrgäste ihre Ruhe haben.",
+              "prompt_tr": "Trende ne yapılmaz?",
+              "options": [
+                "Telefonda konuşulmaz",
+                "Yemek yenmez",
+                "Müzik dinlenmez"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "wird nicht telefoniert = telefonda konuşulmaz."
+            },
+            {
+              "type": "translate",
+              "tr": "Burada Almanca konuşulur.",
+              "answers": [
+                "Hier wird Deutsch gesprochen."
+              ],
+              "hint_tr": "sprechen → gesprochen",
+              "explain_tr": "Passiv: wird + Partizip II (gesprochen)."
+            }
+          ]
+        },
+        {
+          "id": "b1u2l2",
+          "title_tr": "Müll und Umwelt",
+          "objective_tr": "Passiv ile süreçleri anlat; çevre kelimeleri.",
+          "minutes": 9,
+          "vocab": [
+            "umwelt",
+            "muell",
+            "schuetzen",
+            "umweltfreundlich",
+            "verbessern",
+            "organisieren"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "umwelt",
+                "muell",
+                "schuetzen",
+                "umweltfreundlich",
+                "verbessern",
+                "organisieren"
+              ]
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Çöp ayrıştırma",
+              "lines": [
+                {
+                  "speaker": "Lina",
+                  "de": "Weißt du, wie der Müll bei uns getrennt wird?",
+                  "tr": "Bizde çöpün nasıl ayrıştırıldığını biliyor musun?"
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Ja. Das Papier wird in die blaue Tonne geworfen und die Flaschen werden zum Container gebracht.",
+                  "tr": "Evet. Kâğıt mavi konteynere atılıyor ve şişeler konteynere götürülüyor."
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Und was passiert mit dem Plastik?",
+                  "tr": "Peki plastiğe ne oluyor?"
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Es wird gesammelt und später recycelt. So wird die Umwelt geschützt.",
+                  "tr": "Toplanıyor ve sonra geri dönüştürülüyor. Böylece çevre korunuyor."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Das Papier ___ recycelt.",
+              "tr": "Kâğıt geri dönüştürülüyor.",
+              "answers": [
+                "wird"
+              ],
+              "options": [
+                "wird",
+                "werden",
+                "wurde"
+              ],
+              "explain_tr": "Özne tekil → wird."
+            },
+            {
+              "type": "cloze",
+              "de": "Die Flaschen ___ zum Container gebracht.",
+              "tr": "Şişeler konteynere götürülüyor.",
+              "answers": [
+                "werden"
+              ],
+              "options": [
+                "werden",
+                "wird",
+                "worden"
+              ],
+              "explain_tr": "Özne çoğul → werden."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Hangisi doğru?",
+              "options": [
+                "Die Umwelt wird geschützt.",
+                "Die Umwelt wird schützen.",
+                "Die Umwelt ist schützt."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "Passiv: wird + Partizip II (geschützt)."
+            },
+            {
+              "type": "match",
+              "pairs": [
+                {
+                  "de": "die Umwelt",
+                  "tr": "çevre"
+                },
+                {
+                  "de": "der Müll",
+                  "tr": "çöp"
+                },
+                {
+                  "de": "schützen",
+                  "tr": "korumak"
+                },
+                {
+                  "de": "verbessern",
+                  "tr": "geliştirmek"
+                },
+                {
+                  "de": "umweltfreundlich",
+                  "tr": "çevre dostu"
+                }
+              ]
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Evinde ya da şehrinde bir süreci Passiv ile anlat (örneğin çöp, posta, ekmek).",
+              "requirements": [
+                {
+                  "label_tr": "Passiv (wird/werden + Partizip II)",
+                  "pattern": "\\b(wird|werden)\\b.*\\b(ge\\w+|\\w+iert)\\b"
+                }
+              ],
+              "model": "Bei uns wird der Müll jeden Mittwoch abgeholt. Das Papier wird getrennt gesammelt.",
+              "min_words": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1u3",
+      "number": 3,
+      "title_de": "Gründe und Ziele",
+      "title_tr": "Sebep, amaç ve zıtlık",
+      "goal_tr": "obwohl, damit, um … zu, während, bevor ve nachdem ile karmaşık cümleler kurabilirsin.",
+      "grammar": [
+        "g_nebensatz2"
+      ],
+      "lessons": [
+        {
+          "id": "b1u3l1",
+          "title_tr": "Obwohl es regnet …",
+          "objective_tr": "obwohl (zıtlık), deshalb ve trotzdem ile cümle bağla.",
+          "minutes": 9,
+          "vocab": [
+            "obwohl",
+            "trotzdem",
+            "deswegen",
+            "entscheidung",
+            "schwierigkeit",
+            "erfolg"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "obwohl",
+                "trotzdem",
+                "deswegen",
+                "entscheidung",
+                "schwierigkeit",
+                "erfolg"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_nebensatz2"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Zor bir karar",
+              "lines": [
+                {
+                  "speaker": "Aylin",
+                  "de": "Obwohl ich viel Arbeit habe, gehe ich heute ins Kino.",
+                  "tr": "Çok işim olmasına rağmen bugün sinemaya gidiyorum."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Wirklich? Du hast doch morgen eine Prüfung.",
+                  "tr": "Gerçekten mi? Yarın sınavın var ya."
+                },
+                {
+                  "speaker": "Aylin",
+                  "de": "Ich weiß. Trotzdem brauche ich mal eine Pause.",
+                  "tr": "Biliyorum. Yine de bir molaya ihtiyacım var."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Dann viel Spaß! Und viel Erfolg morgen!",
+                  "tr": "O zaman iyi eğlenceler! Ve yarın başarılar!"
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "___ es regnet, gehen wir spazieren.",
+              "tr": "Yağmur yağmasına rağmen yürüyüşe çıkıyoruz.",
+              "answers": [
+                "Obwohl"
+              ],
+              "options": [
+                "Obwohl",
+                "Weil",
+                "Damit"
+              ],
+              "explain_tr": "Zıtlık: obwohl (…-e rağmen), yan cümle, fiil sonda."
+            },
+            {
+              "type": "cloze",
+              "de": "Es regnet. ___ gehen wir spazieren.",
+              "tr": "Yağmur yağıyor. Yine de yürüyüşe çıkıyoruz.",
+              "answers": [
+                "Trotzdem"
+              ],
+              "options": [
+                "Trotzdem",
+                "Obwohl",
+                "Weil"
+              ],
+              "explain_tr": "trotzdem ana cümle başlatır: fiil hemen arkasından gelir (gehen wir)."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Doğru cümle hangisi?",
+              "options": [
+                "Obwohl ich müde bin, arbeite ich.",
+                "Obwohl ich bin müde, arbeite ich.",
+                "Obwohl ich müde bin, ich arbeite."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "obwohl-cümlesi başta: fiil sonda; ardından ana cümle fiille başlar (arbeite ich)."
+            },
+            {
+              "type": "order",
+              "tr": "Hasta olmasına rağmen çalışıyor.",
+              "tokens": [
+                "Obwohl",
+                "er",
+                "krank",
+                "ist,",
+                "arbeitet",
+                "er"
+              ],
+              "answers": [
+                "Obwohl er krank ist, arbeitet er"
+              ],
+              "explain_tr": "Yan cümle + virgül + fiil + özne."
+            },
+            {
+              "type": "listen",
+              "de": "Obwohl die Miete hoch ist, möchte er in der Stadt wohnen.",
+              "prompt_tr": "Ne söyleniyor?",
+              "options": [
+                "Kira yüksek olsa da şehirde yaşamak istiyor",
+                "Kira ucuz olduğu için şehirde yaşıyor",
+                "Şehirden taşınmak istiyor"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "obwohl = -e rağmen."
+            },
+            {
+              "type": "translate",
+              "tr": "Yağmur yağmasına rağmen dışarı çıkıyorum.",
+              "answers": [
+                "Obwohl es regnet, gehe ich raus.",
+                "Obwohl es regnet, gehe ich nach draußen.",
+                "Ich gehe raus, obwohl es regnet."
+              ],
+              "hint_tr": "obwohl → fiil sonda"
+            }
+          ]
+        },
+        {
+          "id": "b1u3l2",
+          "title_tr": "Damit und um … zu",
+          "objective_tr": "Amaç bildir: damit ve um … zu; zaman bağlaçları.",
+          "minutes": 9,
+          "vocab": [
+            "damit",
+            "waehrend",
+            "bevor",
+            "nachdem",
+            "ausserdem",
+            "zum_beispiel",
+            "einerseits"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "damit",
+                "waehrend",
+                "bevor",
+                "nachdem",
+                "ausserdem",
+                "zum_beispiel"
+              ]
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Planlar",
+              "lines": [
+                {
+                  "speaker": "Lina",
+                  "de": "Ich lerne jeden Tag Deutsch, um in Deutschland zu arbeiten.",
+                  "tr": "Almanya'da çalışmak için her gün Almanca öğreniyorum."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Und ich spare Geld, damit wir zusammen reisen können.",
+                  "tr": "Ben de birlikte seyahat edebilelim diye para biriktiriyorum."
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Bevor wir fahren, müssen wir aber noch unsere Pässe prüfen.",
+                  "tr": "Ama gitmeden önce pasaportlarımızı kontrol etmemiz gerek."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Stimmt. Und während wir reisen, können wir Deutsch sprechen!",
+                  "tr": "Doğru. Ve seyahat ederken Almanca konuşabiliriz!"
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Ich lerne Deutsch, ___ in Berlin zu arbeiten.",
+              "tr": "Berlin'de çalışmak için Almanca öğreniyorum.",
+              "answers": [
+                "um"
+              ],
+              "options": [
+                "um",
+                "damit",
+                "weil"
+              ],
+              "explain_tr": "Özne aynı ise: um … zu + mastar."
+            },
+            {
+              "type": "cloze",
+              "de": "Ich zeige dir den Weg, ___ du nicht suchen musst.",
+              "tr": "Aramak zorunda kalma diye sana yolu gösteriyorum.",
+              "answers": [
+                "damit"
+              ],
+              "options": [
+                "damit",
+                "um",
+                "obwohl"
+              ],
+              "explain_tr": "Özneler farklı (ich / du) → damit + yan cümle."
+            },
+            {
+              "type": "cloze",
+              "de": "___ ich esse, höre ich Musik.",
+              "tr": "Yemek yerken müzik dinliyorum.",
+              "answers": [
+                "Während"
+              ],
+              "options": [
+                "Während",
+                "Bevor",
+                "Obwohl"
+              ],
+              "explain_tr": "während = -ken (eşzamanlı)."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Hangisi doğru?",
+              "options": [
+                "Bevor ich gehe, rufe ich an.",
+                "Bevor ich gehe, ich rufe an.",
+                "Bevor gehe ich, rufe ich an."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "bevor → fiil sonda; ardından ana cümle fiille başlar."
+            },
+            {
+              "type": "match",
+              "pairs": [
+                {
+                  "de": "obwohl",
+                  "tr": "-e rağmen"
+                },
+                {
+                  "de": "damit",
+                  "tr": "-sin diye"
+                },
+                {
+                  "de": "während",
+                  "tr": "-ken"
+                },
+                {
+                  "de": "bevor",
+                  "tr": "-meden önce"
+                },
+                {
+                  "de": "nachdem",
+                  "tr": "-dikten sonra"
+                }
+              ]
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Hedeflerini anlat: um … zu ve damit ile iki cümle yaz.",
+              "requirements": [
+                {
+                  "label_tr": "um … zu ya da damit",
+                  "pattern": "\\b(um\\b.*\\bzu\\b|damit)\\b"
+                }
+              ],
+              "model": "Ich lerne jeden Tag Deutsch, um in Berlin zu arbeiten. Ich spare Geld, damit ich nächstes Jahr reisen kann.",
+              "min_words": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1u4",
+      "number": 4,
+      "title_de": "Meinung und Diskussion",
+      "title_tr": "Fikir ve tartışma",
+      "goal_tr": "Bir konuda fikir belirtebilir, artıları ve eksileri sıralayabilir ve kararını gerekçelendirebilirsin.",
+      "grammar": [
+        "g_meinung"
+      ],
+      "lessons": [
+        {
+          "id": "b1u4l1",
+          "title_tr": "Einerseits … andererseits",
+          "objective_tr": "Artı ve eksileri dengeli anlat.",
+          "minutes": 9,
+          "vocab": [
+            "einerseits",
+            "meiner_meinung_nach",
+            "zum_beispiel",
+            "ausserdem",
+            "vergleichen",
+            "unterschied"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "einerseits",
+                "meiner_meinung_nach",
+                "zum_beispiel",
+                "ausserdem",
+                "vergleichen"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_meinung"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Şehir mi köy mü?",
+              "lines": [
+                {
+                  "speaker": "Lina",
+                  "de": "Meiner Meinung nach ist das Leben auf dem Land ruhiger.",
+                  "tr": "Bence kırda hayat daha sakin."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Einerseits ja. Andererseits gibt es dort weniger Arbeit und weniger Busse.",
+                  "tr": "Bir yandan evet. Öte yandan orada daha az iş ve daha az otobüs var."
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Das stimmt. Außerdem ist es abends oft sehr still.",
+                  "tr": "Doğru. Ayrıca akşamları çoğu zaman çok sessiz."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "In der Stadt kann man zum Beispiel jeden Tag ins Kino gehen.",
+                  "tr": "Şehirde örneğin her gün sinemaya gidilebilir."
+                }
+              ]
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "\"Bence şehir daha heyecanlı.\"",
+              "options": [
+                "Meiner Meinung nach ist die Stadt spannender.",
+                "Meiner Meinung nach die Stadt ist spannender.",
+                "Ich meine nach ist die Stadt spannender."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "Meiner Meinung nach + fiil hemen: ist die Stadt …"
+            },
+            {
+              "type": "cloze",
+              "de": "___ ist die Stadt laut, andererseits ist sie lebendig.",
+              "tr": "Bir yandan şehir gürültülü, öte yandan canlı.",
+              "answers": [
+                "Einerseits"
+              ],
+              "options": [
+                "Einerseits",
+                "Obwohl",
+                "Außerdem"
+              ],
+              "explain_tr": "einerseits … andererseits = bir yandan … öte yandan."
+            },
+            {
+              "type": "match",
+              "pairs": [
+                {
+                  "de": "meiner Meinung nach",
+                  "tr": "bence"
+                },
+                {
+                  "de": "außerdem",
+                  "tr": "ayrıca"
+                },
+                {
+                  "de": "zum Beispiel",
+                  "tr": "örneğin"
+                },
+                {
+                  "de": "einerseits",
+                  "tr": "bir yandan"
+                },
+                {
+                  "de": "andererseits",
+                  "tr": "öte yandan"
+                }
+              ]
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Bir konuda iki taraflı fikir yaz (şehir/köy, araba/bisiklet …): einerseits … andererseits ve meiner Meinung nach kullan.",
+              "requirements": [
+                {
+                  "label_tr": "einerseits … andererseits",
+                  "pattern": "einerseits.*andererseits"
+                },
+                {
+                  "label_tr": "Meiner Meinung nach ya da Ich finde",
+                  "pattern": "(meiner meinung nach|ich finde|ich glaube)"
+                }
+              ],
+              "model": "Einerseits ist ein Auto bequem, andererseits ist es teuer und schlecht für die Umwelt. Meiner Meinung nach ist das Fahrrad in der Stadt besser.",
+              "min_words": 16
+            }
+          ]
+        },
+        {
+          "id": "b1u4l2",
+          "title_tr": "Ich habe mich entschieden",
+          "objective_tr": "Karar ve duygular: dönüşlü fiiller B1'de.",
+          "minutes": 9,
+          "vocab": [
+            "entscheiden",
+            "sich_kuemmern",
+            "sich_aergern",
+            "sich_erinnern",
+            "beratung",
+            "zuschuss",
+            "rathaus"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "entscheiden",
+                "sich_kuemmern",
+                "sich_aergern",
+                "sich_erinnern",
+                "beratung",
+                "zuschuss",
+                "rathaus"
+              ]
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Belediyede danışmanlık",
+              "lines": [
+                {
+                  "speaker": "Aylin",
+                  "de": "Ich möchte mich über einen Zuschuss für den Sprachkurs informieren.",
+                  "tr": "Dil kursu için destek ödemesi hakkında bilgi almak istiyorum."
+                },
+                {
+                  "speaker": "Beraterin",
+                  "de": "Dafür brauchen Sie einen Antrag. Ich kümmere mich gern darum.",
+                  "tr": "Bunun için bir başvuru gerekiyor. Memnuniyetle ilgilenirim."
+                },
+                {
+                  "speaker": "Aylin",
+                  "de": "Danke! Ich ärgere mich nur über das lange Formular.",
+                  "tr": "Teşekkürler! Ben sadece uzun formüle sinirleniyorum."
+                },
+                {
+                  "speaker": "Beraterin",
+                  "de": "Das kenne ich. Aber Sie haben sich richtig entschieden: Der Kurs lohnt sich.",
+                  "tr": "Bilirim. Ama doğru karar verdiniz: Kurs buna değer."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Ich kümmere ___ um die Anmeldung.",
+              "tr": "Kayıt işiyle ben ilgileniyorum.",
+              "answers": [
+                "mich"
+              ],
+              "options": [
+                "mich",
+                "mir",
+                "sich"
+              ],
+              "explain_tr": "ich → mich: sich kümmern um + Akkusativ."
+            },
+            {
+              "type": "cloze",
+              "de": "Ich habe ___ für den Kurs entschieden.",
+              "tr": "Kurs için karar verdim.",
+              "answers": [
+                "mich"
+              ],
+              "options": [
+                "mich",
+                "mir",
+                "sich"
+              ],
+              "explain_tr": "sich entscheiden für + Akkusativ."
+            },
+            {
+              "type": "cloze",
+              "de": "Er ärgert ___ über den Lärm.",
+              "tr": "Gürültüye sinirleniyor.",
+              "answers": [
+                "sich"
+              ],
+              "options": [
+                "sich",
+                "mich",
+                "ihn"
+              ],
+              "explain_tr": "er → sich."
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Bir karar ver ve açıkla: Bir seçeneği seç (daire, kurs, iş …) ve nedenini yaz (sich entscheiden für, weil/denn).",
+              "requirements": [
+                {
+                  "label_tr": "sich entscheiden für",
+                  "pattern": "(entschieden|entscheide|entscheidet)"
+                },
+                {
+                  "label_tr": "Sebep (weil, denn, deshalb)",
+                  "pattern": "\\b(weil|denn|deshalb|deswegen)\\b"
+                }
+              ],
+              "model": "Ich habe mich für die kleinere Wohnung entschieden, weil sie günstiger ist und näher am Bahnhof liegt.",
+              "min_words": 12
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
