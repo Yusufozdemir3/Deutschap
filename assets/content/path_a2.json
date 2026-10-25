@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.5",
+  "version": "2026.10.6",
   "level": "A2",
   "units": [
     {
@@ -2713,6 +2713,1197 @@
                 }
               ],
               "model": "Ich heiße Lina Berg und ich habe zwei Jahre in einem Café gearbeitet. Ich bin zuverlässig. Ich hätte eine Frage: Könnten Sie mir die Arbeitszeiten sagen?",
+              "min_words": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2u9",
+      "number": 9,
+      "title_de": "Technik im Alltag",
+      "title_tr": "Teknoloji ve medya",
+      "goal_tr": "Cihazlarla ilgili sorunları anlatabilir ve dolaylı sorularla kibarca bilgi isteyebilirsin.",
+      "grammar": [
+        "g_indirekte_frage"
+      ],
+      "lessons": [
+        {
+          "id": "a2u9l1",
+          "title_tr": "Mein Handy ist kaputt",
+          "objective_tr": "Teknik bir sorunu anlat ve yardım iste.",
+          "minutes": 8,
+          "vocab": [
+            "laptop",
+            "nachricht",
+            "passwort",
+            "akku",
+            "app",
+            "bildschirm",
+            "aufladen",
+            "herunterladen",
+            "vergessen",
+            "leer"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "laptop",
+                "bildschirm",
+                "akku",
+                "app",
+                "passwort",
+                "nachricht"
+              ]
+            },
+            {
+              "type": "intro",
+              "lexemes": [
+                "aufladen",
+                "herunterladen",
+                "vergessen",
+                "anmachen",
+                "leer",
+                "kostenlos"
+              ]
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Bir telefon sorunu",
+              "lines": [
+                {
+                  "speaker": "Lina",
+                  "de": "Mein Handy geht nicht mehr an!",
+                  "tr": "Telefonum artık açılmıyor!"
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Vielleicht ist der Akku leer. Hast du es gestern aufgeladen?",
+                  "tr": "Belki şarjı bitmiştir. Dün şarj ettin mi?"
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Nein, das habe ich vergessen.",
+                  "tr": "Hayır, unuttum."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Hier ist mein Ladekabel. Warte zehn Minuten.",
+                  "tr": "İşte şarj kablom. On dakika bekle."
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Super, es geht wieder! Aber jetzt muss ich mein Passwort eingeben …",
+                  "tr": "Süper, yine çalışıyor! Ama şimdi şifremi girmem gerekiyor…"
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Und? Weißt du es noch?",
+                  "tr": "Eee? Hâlâ hatırlıyor musun?"
+                }
+              ]
+            },
+            {
+              "type": "match",
+              "pairs": [
+                {
+                  "de": "der Akku",
+                  "tr": "şarj, batarya"
+                },
+                {
+                  "de": "das Passwort",
+                  "tr": "şifre"
+                },
+                {
+                  "de": "der Bildschirm",
+                  "tr": "ekran"
+                },
+                {
+                  "de": "die Nachricht",
+                  "tr": "mesaj"
+                },
+                {
+                  "de": "die App",
+                  "tr": "uygulama"
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Kann ich hier mein Handy ___?",
+              "tr": "Telefonumu burada şarj edebilir miyim?",
+              "answers": [
+                "aufladen"
+              ],
+              "options": [
+                "aufladen",
+                "lädt auf",
+                "aufgeladen"
+              ],
+              "explain_tr": "Modal fiil (kann) + mastar sonda, bitişik: aufladen."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "\"Şifremi unuttum.\"",
+              "options": [
+                "Ich habe mein Passwort vergessen.",
+                "Ich bin mein Passwort vergessen.",
+                "Ich habe mein Passwort vergesst."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "vergessen → haben + vergessen (Partizip mastarla aynı)."
+            },
+            {
+              "type": "listen",
+              "de": "Die App ist kostenlos. Sie können sie sofort herunterladen.",
+              "prompt_tr": "Uygulama hakkında ne söyleniyor?",
+              "options": [
+                "Ücretsiz ve hemen indirilebiliyor",
+                "Pahalı ama iyi",
+                "Sadece bilgisayarda çalışıyor"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "kostenlos = ücretsiz; herunterladen = indirmek."
+            },
+            {
+              "type": "translate",
+              "tr": "Şarjım neredeyse bitti.",
+              "answers": [
+                "Mein Akku ist fast leer.",
+                "Der Akku ist fast leer."
+              ],
+              "hint_tr": "leer = boş"
+            }
+          ]
+        },
+        {
+          "id": "a2u9l2",
+          "title_tr": "Können Sie mir sagen, …?",
+          "objective_tr": "ob ve soru kelimeleriyle dolaylı soru sor.",
+          "minutes": 8,
+          "vocab": [
+            "ob",
+            "drucker",
+            "funktionieren",
+            "wissen"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "ob",
+                "drucker"
+              ],
+              "note_tr": "Kibar soru: \"Können Sie mir sagen, wo …?\" / \"Wissen Sie, ob …?\" Yan cümlede fiil sona gider."
+            },
+            {
+              "type": "grammar",
+              "concept": "g_indirekte_frage"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Ofiste",
+              "lines": [
+                {
+                  "speaker": "Can",
+                  "de": "Entschuldigung, können Sie mir sagen, wo der Drucker ist?",
+                  "tr": "Pardon, yazıcının nerede olduğunu söyleyebilir misiniz?"
+                },
+                {
+                  "speaker": "Kollegin",
+                  "de": "Im zweiten Stock, neben der Küche. Aber ich weiß nicht, ob er heute funktioniert.",
+                  "tr": "İkinci katta, mutfağın yanında. Ama bugün çalışıp çalışmadığını bilmiyorum."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Wissen Sie, wer ihn reparieren kann?",
+                  "tr": "Onu kimin tamir edebileceğini biliyor musunuz?"
+                },
+                {
+                  "speaker": "Kollegin",
+                  "de": "Fragen Sie Herrn Klein. Er weiß immer, was man machen muss.",
+                  "tr": "Klein Bey'e sorun. Ne yapmak gerektiğini hep bilir."
+                }
+              ]
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Hangisi doğru?",
+              "options": [
+                "Können Sie mir sagen, wo der Bahnhof ist?",
+                "Können Sie mir sagen, wo ist der Bahnhof?",
+                "Können Sie mir sagen, ist wo der Bahnhof?"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "Dolaylı soruda fiil (ist) sona gider."
+            },
+            {
+              "type": "cloze",
+              "de": "Weißt du, ___ der Laden heute offen ist?",
+              "tr": "Dükkânın bugün açık olup olmadığını biliyor musun?",
+              "answers": [
+                "ob"
+              ],
+              "options": [
+                "ob",
+                "wenn",
+                "dass"
+              ],
+              "explain_tr": "Evet/hayır sorusu dolaylı olunca \"ob\"."
+            },
+            {
+              "type": "order",
+              "tr": "Saat kaçta başladığını biliyor musunuz?",
+              "tokens": [
+                "Wissen",
+                "Sie,",
+                "wann",
+                "der",
+                "Kurs",
+                "beginnt?"
+              ],
+              "answers": [
+                "Wissen Sie, wann der Kurs beginnt?"
+              ],
+              "explain_tr": "wann + … + fiil (beginnt) sonda."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Dolaylı soru yap: \"Kommt Lina heute?\" → Ich weiß nicht, …",
+              "options": [
+                "ob Lina heute kommt.",
+                "kommt Lina heute.",
+                "dass kommt Lina heute."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "ob + özne + … + fiil sonda."
+            },
+            {
+              "type": "listen",
+              "de": "Können Sie mir bitte sagen, wann der nächste Bus fährt?",
+              "prompt_tr": "Ne soruyor?",
+              "options": [
+                "Bir sonraki otobüsün ne zaman kalktığını",
+                "Otobüs durağının nerede olduğunu",
+                "Biletin ne kadar olduğunu"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "wann der nächste Bus fährt = bir sonraki otobüs ne zaman kalkıyor."
+            },
+            {
+              "type": "translate",
+              "tr": "Uygulamanın ücretsiz olup olmadığını biliyor musun?",
+              "answers": [
+                "Weißt du, ob die App kostenlos ist?"
+              ],
+              "hint_tr": "Weißt du, ob …",
+              "explain_tr": "ob → fiil (ist) sonda."
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Bir yetkiliye iki kibar dolaylı soru sor (örneğin bir kursa ya da bir dükkâna).",
+              "requirements": [
+                {
+                  "label_tr": "Dolaylı soru başlangıcı (Können Sie mir sagen / Wissen Sie …)",
+                  "pattern": "(koennen sie mir sagen|koennten sie mir sagen|wissen sie|weisst du)"
+                },
+                {
+                  "label_tr": "ob ya da soru kelimesi",
+                  "pattern": "\\b(ob|wann|wo|wie|was|wer|warum|wie viel)\\b"
+                }
+              ],
+              "model": "Können Sie mir sagen, wann der Kurs beginnt? Wissen Sie auch, ob man online bezahlen kann?",
+              "min_words": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2u10",
+      "number": 10,
+      "title_de": "Feste und Einladungen",
+      "title_tr": "Kutlamalar ve davetler",
+      "goal_tr": "Davet edebilir, tebrik edebilir ve seit, ab, bis gibi zaman ifadelerini doğru kullanabilirsin.",
+      "grammar": [
+        "g_zeitangaben"
+      ],
+      "lessons": [
+        {
+          "id": "a2u10l1",
+          "title_tr": "Ich lade dich ein!",
+          "objective_tr": "Bir partiye davet et, daveti kabul et ve tebrik et.",
+          "minutes": 8,
+          "vocab": [
+            "geburtstag",
+            "einladung",
+            "party",
+            "gast",
+            "einladen",
+            "feiern",
+            "gratulieren",
+            "mitbringen",
+            "herzlichen_glueckwunsch"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "geburtstag",
+                "party",
+                "einladung",
+                "einladen",
+                "feiern",
+                "gast"
+              ]
+            },
+            {
+              "type": "intro",
+              "lexemes": [
+                "gratulieren",
+                "herzlichen_glueckwunsch",
+                "mitbringen",
+                "hochzeit"
+              ]
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Bir doğum günü daveti",
+              "lines": [
+                {
+                  "speaker": "Lina",
+                  "de": "Am Samstag habe ich Geburtstag. Ich mache eine kleine Party. Kommst du?",
+                  "tr": "Cumartesi doğum günüm. Küçük bir parti yapıyorum. Gelir misin?"
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Sehr gern! Danke für die Einladung. Soll ich etwas mitbringen?",
+                  "tr": "Memnuniyetle! Davet için teşekkürler. Bir şey getireyim mi?"
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Vielleicht einen Salat? Wir feiern im Garten, wenn das Wetter schön ist.",
+                  "tr": "Belki bir salata? Hava güzel olursa bahçede kutlayacağız."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Klar. Wie viele Gäste kommen denn?",
+                  "tr": "Tabii. Kaç misafir geliyor peki?"
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Ungefähr fünfzehn. Die Party beginnt um acht.",
+                  "tr": "Yaklaşık on beş. Parti saat sekizde başlıyor."
+                }
+              ]
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Doğum gününde ne denir?",
+              "options": [
+                "Herzlichen Glückwunsch zum Geburtstag!",
+                "Gute Besserung zum Geburtstag!",
+                "Viel Glück zum Geburtstag!"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "Gute Besserung hastalara söylenir."
+            },
+            {
+              "type": "cloze",
+              "de": "Ich lade dich zu meiner Party ___.",
+              "tr": "Seni partime davet ediyorum.",
+              "answers": [
+                "ein"
+              ],
+              "options": [
+                "ein",
+                "an",
+                "mit"
+              ],
+              "explain_tr": "einladen ayrılabilir: lade … ein."
+            },
+            {
+              "type": "cloze",
+              "de": "Ich gratuliere ___ zum Geburtstag!",
+              "tr": "Doğum gününü kutlarım!",
+              "answers": [
+                "dir"
+              ],
+              "options": [
+                "dir",
+                "dich",
+                "du"
+              ],
+              "explain_tr": "gratulieren + Dativ: dir."
+            },
+            {
+              "type": "listen",
+              "de": "Vielen Dank für die Einladung! Leider kann ich am Samstag nicht kommen, weil ich arbeiten muss.",
+              "prompt_tr": "Neden gelemiyor?",
+              "options": [
+                "Çalışmak zorunda",
+                "Hasta",
+                "Başka bir partiye gidiyor"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "weil ich arbeiten muss."
+            },
+            {
+              "type": "translate",
+              "tr": "Bir şey getireyim mi?",
+              "answers": [
+                "Soll ich etwas mitbringen?"
+              ],
+              "hint_tr": "sollen + mitbringen"
+            }
+          ]
+        },
+        {
+          "id": "a2u10l2",
+          "title_tr": "Seit wann? Bis wann?",
+          "objective_tr": "seit, vor, ab, bis ve am/im/um ile zamanı söyle.",
+          "minutes": 8,
+          "vocab": [
+            "seit",
+            "bis",
+            "ab",
+            "monat",
+            "juni"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "seit",
+                "ab",
+                "bis",
+                "monat",
+                "juni"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_zeitangaben"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Kursta tanışma",
+              "lines": [
+                {
+                  "speaker": "Lehrerin",
+                  "de": "Seit wann wohnen Sie in Deutschland?",
+                  "tr": "Ne zamandır Almanya'da yaşıyorsunuz?"
+                },
+                {
+                  "speaker": "Aylin",
+                  "de": "Seit drei Monaten. Ich bin im Juli gekommen.",
+                  "tr": "Üç aydır. Temmuzda geldim."
+                },
+                {
+                  "speaker": "Lehrerin",
+                  "de": "Und wie lange bleiben Sie?",
+                  "tr": "Peki ne kadar kalacaksınız?"
+                },
+                {
+                  "speaker": "Aylin",
+                  "de": "Bis zum Ende vom Studium. Ab Oktober arbeite ich auch.",
+                  "tr": "Okulun sonuna kadar. Ekimden itibaren çalışacağım da."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Ich lerne ___ einem Jahr Deutsch.",
+              "tr": "Bir yıldır Almanca öğreniyorum.",
+              "answers": [
+                "seit"
+              ],
+              "options": [
+                "seit",
+                "vor",
+                "ab"
+              ],
+              "explain_tr": "Hâlâ süren durum: seit + Dativ (einem Jahr)."
+            },
+            {
+              "type": "cloze",
+              "de": "Ich bin ___ zwei Jahren nach Berlin gekommen.",
+              "tr": "İki yıl önce Berlin'e geldim.",
+              "answers": [
+                "vor"
+              ],
+              "options": [
+                "vor",
+                "seit",
+                "bis"
+              ],
+              "explain_tr": "Geçmişteki bir an: vor (önce)."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Hangisi doğru?",
+              "options": [
+                "Im Juni",
+                "Am Juni",
+                "Um Juni"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "Aylar ve mevsimler: im. Günler: am. Saatler: um."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "\"Pazartesiden itibaren çalışıyorum.\"",
+              "options": [
+                "Ab Montag arbeite ich.",
+                "Seit Montag arbeite ich morgen.",
+                "Bis Montag arbeite ich ab."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "ab = -den itibaren (gelecek)."
+            },
+            {
+              "type": "match",
+              "pairs": [
+                {
+                  "de": "seit",
+                  "tr": "-den beri"
+                },
+                {
+                  "de": "vor",
+                  "tr": "önce"
+                },
+                {
+                  "de": "ab",
+                  "tr": "-den itibaren"
+                },
+                {
+                  "de": "bis",
+                  "tr": "-e kadar"
+                }
+              ]
+            },
+            {
+              "type": "listen",
+              "de": "Der Supermarkt ist von Montag bis Samstag geöffnet, von acht bis zweiundzwanzig Uhr.",
+              "prompt_tr": "Süpermarket ne zaman açık?",
+              "options": [
+                "Pazartesi–cumartesi, 8–22",
+                "Her gün, 8–20",
+                "Pazartesi–cuma, 9–18"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "von … bis = -den -e kadar."
+            },
+            {
+              "type": "translate",
+              "tr": "İki yıldır Berlin'de oturuyorum.",
+              "answers": [
+                "Ich wohne seit zwei Jahren in Berlin.",
+                "Seit zwei Jahren wohne ich in Berlin."
+              ],
+              "hint_tr": "seit + Dativ, fiil şimdiki zaman",
+              "explain_tr": "Türkçede \"-dır\", Almancada seit + şimdiki zaman. Perfekt değil!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2u11",
+      "number": 11,
+      "title_de": "Wie sieht er aus?",
+      "title_tr": "Tarif etmek",
+      "goal_tr": "İnsanları ve eşyaları sıfatlarla tarif edebilir, kaybolan bir eşyayı anlatabilirsin.",
+      "grammar": [
+        "g_adjektivendung"
+      ],
+      "lessons": [
+        {
+          "id": "a2u11l1",
+          "title_tr": "Groß, mit kurzen Haaren",
+          "objective_tr": "Bir kişinin dış görünüşünü ve karakterini anlat.",
+          "minutes": 8,
+          "vocab": [
+            "haar",
+            "auge",
+            "brille",
+            "aussehen",
+            "schlank",
+            "kurz",
+            "ehrlich"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "haar",
+                "auge",
+                "brille",
+                "aussehen",
+                "schlank",
+                "kurz",
+                "ehrlich"
+              ]
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Yeni iş arkadaşı",
+              "lines": [
+                {
+                  "speaker": "Lina",
+                  "de": "Wie sieht deine neue Kollegin aus?",
+                  "tr": "Yeni iş arkadaşın neye benziyor?"
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Sie ist groß und schlank und hat kurze, rote Haare.",
+                  "tr": "Uzun boylu ve ince, kısa kızıl saçları var."
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Trägt sie eine Brille?",
+                  "tr": "Gözlük takıyor mu?"
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Ja, eine große, schwarze Brille. Und sie ist sehr nett und ehrlich.",
+                  "tr": "Evet, büyük, siyah bir gözlük. Çok hoş ve dürüst biri."
+                }
+              ]
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "\"Mavi gözleri var.\"",
+              "options": [
+                "Er hat blaue Augen.",
+                "Er hat blau Augen.",
+                "Er hat blauen Augen."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "Artikelsiz çoğul, Akkusativ: blaue Augen."
+            },
+            {
+              "type": "cloze",
+              "de": "Sie hat lange, ___ Haare.",
+              "tr": "Uzun, koyu renk saçları var.",
+              "answers": [
+                "dunkle"
+              ],
+              "options": [
+                "dunkle",
+                "dunkel",
+                "dunklen"
+              ],
+              "explain_tr": "Artikelsiz çoğul (Akkusativ): -e: lange, dunkle Haare."
+            },
+            {
+              "type": "match",
+              "pairs": [
+                {
+                  "de": "die Haare",
+                  "tr": "saç"
+                },
+                {
+                  "de": "die Augen",
+                  "tr": "gözler"
+                },
+                {
+                  "de": "die Brille",
+                  "tr": "gözlük"
+                },
+                {
+                  "de": "schlank",
+                  "tr": "ince"
+                },
+                {
+                  "de": "ehrlich",
+                  "tr": "dürüst"
+                }
+              ]
+            },
+            {
+              "type": "listen",
+              "de": "Mein Bruder ist nicht sehr groß. Er hat braune Augen und trägt immer einen alten Pullover.",
+              "prompt_tr": "Erkek kardeşi nasıl biri?",
+              "options": [
+                "Pek uzun değil, kahverengi gözlü",
+                "Çok uzun, mavi gözlü",
+                "Gözlüklü ve kısa saçlı"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "nicht sehr groß, braune Augen."
+            },
+            {
+              "type": "translate",
+              "tr": "Neye benziyor? (o, erkek)",
+              "answers": [
+                "Wie sieht er aus?"
+              ],
+              "hint_tr": "aussehen ayrılabilir: sieht … aus"
+            }
+          ]
+        },
+        {
+          "id": "a2u11l2",
+          "title_tr": "Im Fundbüro",
+          "objective_tr": "Sıfat çekimleriyle kaybettiğin bir eşyayı tarif et.",
+          "minutes": 9,
+          "vocab": [
+            "fundbuero",
+            "geldboerse",
+            "regenschirm",
+            "verlieren",
+            "braun"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "fundbuero",
+                "verlieren",
+                "geldboerse",
+                "regenschirm",
+                "braun"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_adjektivendung"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Kayıp eşya bürosunda",
+              "lines": [
+                {
+                  "speaker": "Mitarbeiter",
+                  "de": "Guten Tag, was haben Sie verloren?",
+                  "tr": "İyi günler, ne kaybettiniz?"
+                },
+                {
+                  "speaker": "Aylin",
+                  "de": "Ich habe gestern im Bus meinen Regenschirm verloren.",
+                  "tr": "Dün otobüste şemsiyemi kaybettim."
+                },
+                {
+                  "speaker": "Mitarbeiter",
+                  "de": "Wie sieht er aus?",
+                  "tr": "Neye benziyor?"
+                },
+                {
+                  "speaker": "Aylin",
+                  "de": "Es ist ein großer, blauer Regenschirm mit einem weißen Griff.",
+                  "tr": "Beyaz saplı, büyük, mavi bir şemsiye."
+                },
+                {
+                  "speaker": "Mitarbeiter",
+                  "de": "Moment … Ist das Ihr Regenschirm?",
+                  "tr": "Bir dakika… Bu sizin şemsiyeniz mi?"
+                },
+                {
+                  "speaker": "Aylin",
+                  "de": "Ja, genau! Vielen Dank!",
+                  "tr": "Evet, aynen! Çok teşekkürler!"
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Das ist ein ___ Regenschirm.",
+              "tr": "Bu büyük bir şemsiye.",
+              "answers": [
+                "großer"
+              ],
+              "options": [
+                "großer",
+                "große",
+                "großes"
+              ],
+              "explain_tr": "ein + eril (der Regenschirm), Nominativ: -er."
+            },
+            {
+              "type": "cloze",
+              "de": "Ich suche eine ___ Tasche.",
+              "tr": "Kahverengi bir çanta arıyorum.",
+              "answers": [
+                "braune"
+              ],
+              "options": [
+                "braune",
+                "brauner",
+                "braunen"
+              ],
+              "explain_tr": "eine + dişil (die Tasche): -e."
+            },
+            {
+              "type": "cloze",
+              "de": "Ich habe ein ___ Handy.",
+              "tr": "Yeni bir telefonum var.",
+              "answers": [
+                "neues"
+              ],
+              "options": [
+                "neues",
+                "neue",
+                "neuer"
+              ],
+              "explain_tr": "ein + nötr (das Handy), Nominativ/Akkusativ: -es."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Akkusativ, eril: \"Kırmızı bir kazak arıyorum.\"",
+              "options": [
+                "Ich suche einen roten Pullover.",
+                "Ich suche einen roter Pullover.",
+                "Ich suche ein roter Pullover."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "einen + eril Akkusativ: -en: einen roten Pullover."
+            },
+            {
+              "type": "order",
+              "tr": "Siyah bir cüzdan kaybettim.",
+              "tokens": [
+                "Ich",
+                "habe",
+                "eine",
+                "schwarze",
+                "Geldbörse",
+                "verloren"
+              ],
+              "answers": [
+                "Ich habe eine schwarze Geldbörse verloren"
+              ],
+              "explain_tr": "eine + dişil: schwarze."
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Kaybettiğin bir eşyayı kayıp eşya bürosuna anlat: Ne, nerede, neye benziyor? (en az iki sıfat)",
+              "requirements": [
+                {
+                  "label_tr": "verloren kullan",
+                  "pattern": "verloren"
+                },
+                {
+                  "label_tr": "ein/eine + sıfat (ein großer, eine braune …)",
+                  "pattern": "\\b(ein|eine|einen|einem|einer)\\s+\\w+(e|er|es|en)\\s+\\w+"
+                }
+              ],
+              "model": "Ich habe gestern im Zug meine Tasche verloren. Es ist eine kleine, braune Tasche mit einem roten Schlüssel.",
+              "min_words": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2u12",
+      "number": 12,
+      "title_de": "Pläne für die Zukunft",
+      "title_tr": "Gelecek planları",
+      "goal_tr": "Planlarını, hedeflerini ve hayallerini werden, wollen ve möchten ile anlatabilirsin.",
+      "grammar": [
+        "g_futur"
+      ],
+      "lessons": [
+        {
+          "id": "a2u12l1",
+          "title_tr": "Was willst du machen?",
+          "objective_tr": "Planlardan ve hedeflerden bahset.",
+          "minutes": 8,
+          "vocab": [
+            "zukunft",
+            "plan",
+            "ziel",
+            "wollen",
+            "planen",
+            "sparen",
+            "naechstes_jahr",
+            "fuehrerschein"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "zukunft",
+                "plan",
+                "ziel",
+                "wollen",
+                "planen"
+              ]
+            },
+            {
+              "type": "intro",
+              "lexemes": [
+                "sparen",
+                "naechstes_jahr",
+                "fuehrerschein",
+                "bald",
+                "bestehen"
+              ]
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Yılbaşı kararları",
+              "lines": [
+                {
+                  "speaker": "Lina",
+                  "de": "Was sind deine Pläne für nächstes Jahr?",
+                  "tr": "Gelecek yıl için planların neler?"
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Ich will den Führerschein machen. Und ich spare für eine Reise nach Japan.",
+                  "tr": "Ehliyet almak istiyorum. Bir de Japonya seyahati için para biriktiriyorum."
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Toll! Mein Ziel ist die B1-Prüfung im Juni.",
+                  "tr": "Harika! Benim hedefim haziranda B1 sınavı."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Du schaffst das! Du lernst ja jeden Tag.",
+                  "tr": "Başarırsın! Her gün çalışıyorsun zaten."
+                }
+              ]
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Dükkânda en kibar hangisi?",
+              "options": [
+                "Ich möchte ein Brot, bitte.",
+                "Ich will ein Brot.",
+                "Ich wollen ein Brot."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "Dükkânda \"Ich will\" sert gelir; \"Ich möchte\" kibardır."
+            },
+            {
+              "type": "cloze",
+              "de": "Nächstes Jahr ___ ich nach Spanien reisen.",
+              "tr": "Seneye İspanya'ya gitmek istiyorum.",
+              "answers": [
+                "will"
+              ],
+              "options": [
+                "will",
+                "wollen",
+                "willst"
+              ],
+              "explain_tr": "ich → will (ich ve er aynı: will)."
+            },
+            {
+              "type": "match",
+              "pairs": [
+                {
+                  "de": "die Zukunft",
+                  "tr": "gelecek"
+                },
+                {
+                  "de": "das Ziel",
+                  "tr": "hedef"
+                },
+                {
+                  "de": "der Plan",
+                  "tr": "plan"
+                },
+                {
+                  "de": "sparen",
+                  "tr": "biriktirmek"
+                },
+                {
+                  "de": "der Führerschein",
+                  "tr": "ehliyet"
+                }
+              ]
+            },
+            {
+              "type": "listen",
+              "de": "Ich spare jeden Monat hundert Euro, weil ich nächstes Jahr ein Auto kaufen will.",
+              "prompt_tr": "Neden para biriktiriyor?",
+              "options": [
+                "Seneye araba almak istediği için",
+                "Ev almak istediği için",
+                "Tatile gideceği için"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "weil ich nächstes Jahr ein Auto kaufen will."
+            },
+            {
+              "type": "translate",
+              "tr": "Hedefim B1 sınavı.",
+              "answers": [
+                "Mein Ziel ist die B1-Prüfung.",
+                "Mein Ziel ist die Prüfung B1."
+              ],
+              "hint_tr": "das Ziel → mein Ziel"
+            }
+          ]
+        },
+        {
+          "id": "a2u12l2",
+          "title_tr": "Ich werde …",
+          "objective_tr": "werden ile gelecek ve tahmin söyle; hayallerini anlat.",
+          "minutes": 8,
+          "vocab": [
+            "werden",
+            "traum",
+            "traeumen",
+            "eigen",
+            "bestehen"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "traum",
+                "traeumen",
+                "eigen",
+                "werden"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_futur"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "On yıl sonra",
+              "lines": [
+                {
+                  "speaker": "Can",
+                  "de": "Wo bist du in zehn Jahren, was glaubst du?",
+                  "tr": "Sence on yıl sonra nerede olacaksın?"
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Ich werde Architektin sein und ein eigenes Büro haben.",
+                  "tr": "Mimar olacağım ve kendi büromu açacağım."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Und ich träume von einem kleinen Café am Meer.",
+                  "tr": "Ben de deniz kenarında küçük bir kafe hayal ediyorum."
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Dann werde ich jeden Sommer bei dir Kaffee trinken!",
+                  "tr": "O zaman her yaz senin oraya gelip kahve içeceğim!"
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Morgen ___ es regnen.",
+              "tr": "Yarın yağmur yağacak.",
+              "answers": [
+                "wird"
+              ],
+              "options": [
+                "wird",
+                "werde",
+                "werden"
+              ],
+              "explain_tr": "es → wird; mastar (regnen) sonda."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Doğru Futur cümlesi hangisi?",
+              "options": [
+                "Ich werde nächstes Jahr in Köln wohnen.",
+                "Ich werde nächstes Jahr in Köln wohne.",
+                "Ich wird nächstes Jahr in Köln wohnen."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "werden çekimli ikinci sırada, asıl fiil mastar hâlinde sonda."
+            },
+            {
+              "type": "order",
+              "tr": "Umarım sınavı geçerim.",
+              "tokens": [
+                "Ich",
+                "hoffe,",
+                "dass",
+                "ich",
+                "die",
+                "Prüfung",
+                "bestehe"
+              ],
+              "answers": [
+                "Ich hoffe, dass ich die Prüfung bestehe"
+              ],
+              "explain_tr": "dass → fiil (bestehe) sonda."
+            },
+            {
+              "type": "listen",
+              "de": "In zehn Jahren werde ich eine eigene Firma haben. Das ist mein großer Traum.",
+              "prompt_tr": "Büyük hayali ne?",
+              "options": [
+                "Kendi firmasının olması",
+                "Dünyayı gezmek",
+                "Bir ev almak"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "eine eigene Firma = kendine ait bir firma."
+            },
+            {
+              "type": "translate",
+              "tr": "Deniz kenarında bir ev hayal ediyorum.",
+              "answers": [
+                "Ich träume von einem Haus am Meer."
+              ],
+              "hint_tr": "träumen von + Dativ"
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Gelecek planlarını yaz: Bir hedef, bir hayal ve bir plan (werden, wollen ya da möchten kullan).",
+              "requirements": [
+                {
+                  "label_tr": "werden / wollen / möchten kullan",
+                  "pattern": "\\b(werde|wirst|wird|werden|will|willst|wollen|moechte|moechten)\\b"
+                },
+                {
+                  "label_tr": "Bir zaman ifadesi (nächstes Jahr, in zehn Jahren, bald …)",
+                  "pattern": "(naechstes jahr|naechste woche|in \\w+ jahren|bald|spaeter|in zukunft)"
+                }
+              ],
+              "model": "Nächstes Jahr will ich die B1-Prüfung machen. In zehn Jahren werde ich in Hamburg wohnen. Mein Traum ist ein eigenes Café.",
               "min_words": 15
             }
           ]
