@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:deutschap/core/db/app_database.dart';
 import 'package:deutschap/features/conversation/domain/language_issue.dart';
+import 'package:deutschap/features/drill/application/drill_words.dart';
+import 'package:deutschap/features/drill/domain/vocab_drill.dart';
 import 'package:deutschap/features/home/domain/recommender.dart';
 import 'package:deutschap/features/profile/data/profile_repository.dart';
 import 'package:deutschap/features/profile/domain/learner_profile.dart';
@@ -257,5 +259,25 @@ void main() {
     final replay = await vocab.recordReview(eventId: 'once', entryId: e.id, type: CardType.recognition, grade: Grade.good, assisted: false);
     expect(replay.duplicate, isTrue);
     expect((await db.db.query('review_events')).length, 1);
+  });
+
+  group('drill statistics', () {
+    test('weak words are those missed at least as often as hit, worst first', () async {
+      final progress = ProgressRepository(db.db, clock: clock.call, ids: ids.call);
+      Future<void> attempt(String lexeme, DrillMode m, bool ok) =>
+          progress.recordAttempt(activityType: 'drill', activityId: 'drill', itemId: drillItemId(lexeme, m), correct: ok, assisted: false);
+      await attempt('termin', DrillMode.article, false);
+      await attempt('termin', DrillMode.meaning, false);
+      await attempt('termin', DrillMode.spell, true);
+      await attempt('gehen', DrillMode.meaning, true);
+      await attempt('gehen', DrillMode.perfekt, true);
+      await attempt('kaffee', DrillMode.article, false);
+      await attempt('kaffee', DrillMode.spell, false);
+      await attempt('kaffee', DrillMode.meaning, false);
+      expect(await weakLexemeIds(progress), ['kaffee', 'termin']);
+      final stats = await progress.itemStats('drill');
+      expect(stats[drillItemId('termin', DrillMode.article)], (right: 0, wrong: 1));
+      expect(await progress.itemStats('listening'), isEmpty);
+    });
   });
 }

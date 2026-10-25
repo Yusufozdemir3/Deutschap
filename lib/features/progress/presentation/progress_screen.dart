@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import '../../../app/providers.dart';
 import '../../../app/theme/app_theme.dart';
 import '../../../ui/widgets.dart';
+import '../../drill/application/drill_words.dart';
+import '../../drill/domain/vocab_drill.dart';
 import '../../vocabulary/domain/vocab_status.dart';
 import '../../practice/domain/practice_generator.dart';
 import '../application/progress_providers.dart';
@@ -18,6 +20,32 @@ final _statusCountsProvider = FutureProvider<Map<VocabStatus, int>>((ref) {
 final _recurringProvider = FutureProvider<Map<String, int>>((ref) {
   ref.watch(dataRevisionProvider);
   return ref.watch(progressRepositoryProvider).recurringIssues();
+});
+
+typedef _SkillStats = ({int right, int total, int words, List<String> weak});
+
+/// Vocabulary drill and listening results from exercise attempts.
+final _drillStatsProvider = FutureProvider<_SkillStats>((ref) async {
+  ref.watch(dataRevisionProvider);
+  final repo = ref.watch(progressRepositoryProvider);
+  final stats = await repo.itemStats('drill');
+  var right = 0, wrong = 0;
+  for (final v in stats.values) {
+    right += v.right;
+    wrong += v.wrong;
+  }
+  return (right: right, total: right + wrong, words: {for (final k in stats.keys) lexemeOfDrillItem(k)}.length, weak: await weakLexemeIds(repo));
+});
+
+final _listeningStatsProvider = FutureProvider<_SkillStats>((ref) async {
+  ref.watch(dataRevisionProvider);
+  final stats = await ref.watch(progressRepositoryProvider).itemStats('listening');
+  var right = 0, wrong = 0;
+  for (final v in stats.values) {
+    right += v.right;
+    wrong += v.wrong;
+  }
+  return (right: right, total: right + wrong, words: stats.length, weak: const <String>[]);
 });
 
 const _ruleInfo = <String, (String, String)>{
@@ -57,6 +85,9 @@ class _Body extends ConsumerWidget {
     final counts = ref.watch(_statusCountsProvider).valueOrNull ?? const {};
     final recurring = ref.watch(_recurringProvider).valueOrNull ?? const {};
     final profile = ref.watch(profileProvider).valueOrNull;
+    final drill = ref.watch(_drillStatsProvider).valueOrNull;
+    final listening = ref.watch(_listeningStatsProvider).valueOrNull;
+    final lexicon = ref.watch(contentProvider).lexicon;
     final totalWords = counts.values.fold<int>(0, (a, b) => a + b);
     final maxWeek = s.weeklyUnaided.fold<int>(1, (a, b) => a > b ? a : b);
 
@@ -146,6 +177,35 @@ class _Body extends ConsumerWidget {
         const SizedBox(width: 10),
         stat('${s.scenariosCompleted}', 'gerçek durum'),
       ]),
+      if ((drill?.total ?? 0) > 0 || (listening?.total ?? 0) > 0) ...[
+        const SectionTitle('Antrenman ve dinleme'),
+        Row(children: [
+          if (drill != null && drill.total > 0)
+            stat('%${(drill.right * 100 / drill.total).round()}', 'kelime antrenmanı doğru', sub: '${drill.words} kelime · ${drill.total} cevap'),
+          if (drill != null && drill.total > 0 && listening != null && listening.total > 0) const SizedBox(width: 10),
+          if (listening != null && listening.total > 0)
+            stat('%${(listening.right * 100 / listening.total).round()}', 'dinleme sorusu doğru', sub: '${listening.total} cevap'),
+        ]),
+        if (drill != null && drill.weak.isNotEmpty) ...[
+          const SizedBox(height: 10),
+          AppCard(
+            onTap: () => context.push('/drill/run?src=weak&mode=mixed&n=10'),
+            child: Row(children: [
+              Expanded(
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text('Zorlandığın kelimeler', style: context.text.titleSmall),
+                  const SizedBox(height: 4),
+                  Text(
+                    [for (final id in drill.weak.take(6)) ?lexicon.byId(id)?.headword].join(' · '),
+                    style: context.text.bodySmall,
+                  ),
+                ]),
+              ),
+              const Icon(Icons.chevron_right_rounded),
+            ]),
+          ),
+        ],
+      ],
       if (recurring.isNotEmpty) ...[
         const SectionTitle('Sık tekrarlanan zorluklar'),
         Text('Konuşmalardaki düzeltmelerden çıkarıldı. Tek bir hatadan genelleme yapmıyoruz; yanlış buluyorsan ayarlardan sıfırlayabilirsin.', style: context.text.bodySmall),
