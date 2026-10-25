@@ -30,6 +30,14 @@ const _questions = [
   _Q('reading', 'Fırın pazar günü ne zaman açık?', ['Bütün gün', 'Sadece sabah', 'Hiç açık değil'], 1, de: 'Am Sonntag ist die Bäckerei nur am Morgen offen.'),
 ];
 
+/// Asked only after a very strong A1 round.
+const _a2Questions = [
+  _Q('grammar', 'Hangisi doğru?', ['Ich habe gestern nach Hamburg gefahren.', 'Ich bin gestern nach Hamburg gefahren.', 'Ich bin gestern nach Hamburg fahren.'], 1),
+  _Q('grammar', 'Boşluğa ne gelir?', ['ich müde bin', 'bin ich müde', 'ich bin müde'], 0, de: 'Ich bleibe zu Hause, weil ___.'),
+  _Q('grammar', 'Boşluğa ne gelir?', ['mich', 'mir', 'ich'], 1, de: 'Kannst du ___ bitte helfen?'),
+  _Q('reading', 'Aylin neden geç kaldı?', ['Otobüs rötar yaptı', 'Uyuyakaldı', 'Hasta oldu'], 0, de: 'Aylin kam zu spät, weil der Bus Verspätung hatte. Deshalb musste sie die nächste Stunde warten.'),
+];
+
 /// A short, optional placement. It produces separate rough estimates per
 /// skill and a suggested starting point, never a single "level".
 class PlacementScreen extends ConsumerStatefulWidget {
@@ -42,20 +50,32 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
   int _i = 0;
   int? _picked;
   final _correct = <String, int>{};
+  var _a2 = false;
+  int _a2Correct = 0;
 
-  bool get _done => _i >= _questions.length;
+  List<_Q> get _all => [..._questions, if (_a2) ..._a2Questions];
+  bool get _done => _i >= _all.length;
 
   void _answer(int i) {
     if (_picked != null) return;
     setState(() {
       _picked = i;
-      if (i == _questions[_i].answer) _correct[_questions[_i].skill] = (_correct[_questions[_i].skill] ?? 0) + 1;
+      final q = _all[_i];
+      if (i == q.answer) {
+        if (_i < _questions.length) {
+          _correct[q.skill] = (_correct[q.skill] ?? 0) + 1;
+        } else {
+          _a2Correct++;
+        }
+      }
     });
     Future.delayed(const Duration(milliseconds: 650), () {
       if (mounted) {
         setState(() {
           _i++;
           _picked = null;
+          // Only a very strong A1 round opens the short A2 round.
+          if (_i == _questions.length && _correct.values.fold<int>(0, (a, b) => a + b) >= 8) _a2 = true;
         });
       }
     });
@@ -65,9 +85,11 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
 
   Future<void> _save({required String route}) async {
     final router = GoRouter.of(context);
+    final a2 = _a2 && _a2Correct >= 3;
     await ref.read(profileProvider.notifier).edit((p) => p.copyWith(
           skills: SkillEstimates(vocabulary: _estimate('vocabulary'), grammar: _estimate('grammar'), reading: _estimate('reading')),
           startedFromZero: false,
+          level: a2 ? 'A2' : null,
         ));
     router.go('/heute');
     if (route != '/heute') unawaited(router.push(route));
@@ -85,14 +107,14 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
   }
 
   Widget _question(BuildContext context) {
-    final q = _questions[_i];
+    final q = _all[_i];
     final p = context.palette;
     return ListView(
       padding: pagePadding,
       children: [
-        LinearProgressIndicator(value: _i / _questions.length),
+        LinearProgressIndicator(value: _i / _all.length),
         const SizedBox(height: 24),
-        Text('${_i + 1} / ${_questions.length}', style: context.text.labelSmall),
+        Text(_i >= _questions.length ? 'A2 sorusu ${_i - _questions.length + 1} / ${_a2Questions.length}' : '${_i + 1} / ${_all.length}', style: context.text.labelSmall),
         const SizedBox(height: 8),
         if (q.de != null) ...[
           AppCard(child: Text(q.de!, style: context.reading)),
@@ -118,6 +140,7 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
   Widget _result(BuildContext context) {
     final total = _correct.values.fold<int>(0, (a, b) => a + b);
     final strong = total >= 7;
+    final a2 = _a2 && _a2Correct >= 3;
     Widget row(String label, String skill) => Padding(
           padding: const EdgeInsets.symmetric(vertical: 6),
           child: Row(children: [
@@ -145,10 +168,12 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
           ]),
         ),
         const SizedBox(height: 20),
-        Text(strong ? 'Önerimiz: temel selamlaşmaları biliyorsun. "Kafede sipariş" ünitesinden başlayabilirsin; istersen önceki dersler hep açık.' : 'Önerimiz: A1 yolunun başından başla. Bildiğin yerleri hızlıca geçersin.',
+        Text(a2 ? 'Önerimiz: A1 temelin sağlam görünüyor. A2 yolundan başlayabilirsin; hikâyeler de A2 sürümüyle açılır. Önceki dersler her zaman açık.' : strong ? 'Önerimiz: temel selamlaşmaları biliyorsun. "Kafede sipariş" ünitesinden başlayabilirsin; istersen önceki dersler hep açık.' : 'Önerimiz: A1 yolunun başından başla. Bildiğin yerleri hızlıca geçersin.',
             style: context.text.bodyLarge),
         const SizedBox(height: 20),
-        FilledButton(onPressed: () => _save(route: strong ? '/lesson/u4l1' : '/lesson/u1l1'), child: Text(strong ? 'Kafede sipariş dersine git' : 'İlk derse başla')),
+        FilledButton(
+            onPressed: () => _save(route: a2 ? '/lesson/a2u1l1' : (strong ? '/lesson/u4l1' : '/lesson/u1l1')),
+            child: Text(a2 ? 'A2 yoluna başla' : (strong ? 'Kafede sipariş dersine git' : 'İlk derse başla'))),
         const SizedBox(height: 8),
         OutlinedButton(onPressed: () => _save(route: '/heute'), child: const Text('Ana sayfaya git')),
       ],
