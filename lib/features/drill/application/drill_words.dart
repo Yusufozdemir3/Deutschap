@@ -100,4 +100,5 @@ const drillTagLabels = {
   'natur': 'Doğa',
   'gefuehle': 'Duygular',
   'medien': 'Medya ve teknoloji',
+  'umwelt': 'Çevre',
 };
