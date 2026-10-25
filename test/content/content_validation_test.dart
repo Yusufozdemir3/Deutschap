@@ -93,6 +93,23 @@ void main() {
     expect(flagged, isEmpty, reason: flagged.join(' | '));
   });
 
+  test('every example sentence of a lexeme actually uses it', () {
+    final missing = <String>[];
+    for (final l in content.lexicon.all) {
+      if (l.examples.isEmpty) continue;
+      final forms = <String>{
+        l.lemma,
+        ...l.forms,
+        if (l.plural != null && l.plural!.startsWith('die ')) l.plural!.substring(4),
+        if (l.verb != null) ...[l.verb!.participle, l.verb!.present3.split(' ').first, ...l.verb!.presentForms.values],
+      }.expand((f) => words(f)).map(fold).toSet();
+      // Compounds ("Orangensaft") and inflected adjectives count for forms of 4+ letters.
+      final used = l.examples.any((e) => words(e.de).map(fold).any((w) => forms.contains(w) || forms.any((f) => f.length >= 4 && w.contains(f))));
+      if (!used) missing.add(l.id);
+    }
+    expect(missing, isEmpty, reason: 'examples that do not contain the word: ${missing.join(', ')}');
+  });
+
   group('scenario hints complete their scenario', () {
     for (final s in content.scenarios) {
       test(s.id, () async {
