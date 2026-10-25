@@ -267,31 +267,33 @@ class _TalkTab extends ConsumerWidget {
             Text('Gerçek hayat simülatörü', style: context.text.headlineSmall),
             const SizedBox(height: 4),
             Text('Bir durumu gerçek hayatta yaşamadan önce prova et. Hatalar sorun değil: önce anlaşılmak, sonra düzeltme.', style: context.text.bodySmall),
-            const SizedBox(height: 12),
-            for (final s in content.scenarios)
-              Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: AppCard(
-                  onTap: () => context.push('/scenario/${s.id}'),
-                  child: Row(children: [
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(color: p.accentSoft, borderRadius: BorderRadius.circular(14)),
-                      child: Icon(Icons.forum_rounded, color: p.accent),
-                    ),
-                    const SizedBox(width: 14),
-                    Expanded(
-                      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                        Text(s.titleTr, style: context.text.titleSmall),
-                        Text(s.titleDe, style: context.text.bodySmall!.copyWith(fontFamily: 'Literata')),
-                        const SizedBox(height: 4),
-                        MetaLine(level: s.level, objective: s.objectiveTr),
-                      ]),
-                    ),
-                    if (done.contains(s.id)) Icon(Icons.check_circle_rounded, color: p.success, semanticLabel: 'tamamlandı'),
-                  ]),
+            for (final level in {for (final s in content.scenarios) s.level}) ...[
+              SectionTitle('$level senaryoları'),
+              for (final s in content.scenarios.where((s) => s.level == level))
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: AppCard(
+                    onTap: () => context.push('/scenario/${s.id}'),
+                    child: Row(children: [
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(color: p.accentSoft, borderRadius: BorderRadius.circular(14)),
+                        child: Icon(Icons.forum_rounded, color: p.accent),
+                      ),
+                      const SizedBox(width: 14),
+                      Expanded(
+                        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                          Text(s.titleTr, style: context.text.titleSmall),
+                          Text(s.titleDe, style: context.text.bodySmall!.copyWith(fontFamily: 'Literata')),
+                          const SizedBox(height: 4),
+                          MetaLine(level: s.level, objective: s.objectiveTr),
+                        ]),
+                      ),
+                      if (done.contains(s.id)) Icon(Icons.check_circle_rounded, color: p.success, semanticLabel: 'tamamlandı'),
+                    ]),
+                  ),
                 ),
-              ),
+            ],
             const SizedBox(height: 8),
             Text('Not: Bu sürümde konuşma ortağı kural tabanlıdır ve çevrimdışı çalışır. Senaryonun hedeflerine uygun cevapları tanır; her cümleyi anlamayabilir.', style: context.text.bodySmall),
           ]),

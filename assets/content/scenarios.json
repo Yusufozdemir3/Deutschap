@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.1",
+  "version": "2026.10.2",
   "scenarios": [
     {
       "id": "kennenlernen",
@@ -648,6 +648,11 @@
           },
           "match": [
             {
+              "pattern": "\\bgeht (es )?(auch )?(am )?(montag|dienstag|mittwoch|donnerstag|freitag)\\b",
+              "de": "Ja, das geht auch, um neun Uhr. Dann trage ich Sie ein.",
+              "tr": "Evet, o da olur, saat dokuzda. O zaman sizi kaydediyorum."
+            },
+            {
               "pattern": "^(?!.*\\b(nicht|leider|kein)\\b).*\\b(ja|passt|gut|okay|ok|geht|einverstanden|perfekt|prima)\\b",
               "de": "Wunderbar. Dann trage ich Sie ein.",
               "tr": "Harika. O zaman sizi kaydediyorum."
@@ -966,6 +971,1519 @@
         "ich_haette_gern",
         "das_wars",
         "kasse"
+      ]
+    },
+    {
+      "id": "arzt",
+      "title_de": "Beim Hausarzt",
+      "title_tr": "Doktorda",
+      "level": "A2",
+      "objective_tr": "Şikâyetini anlat, ne zamandır sürdüğünü söyle ve ilaç ya da rapor hakkında sor.",
+      "setting_tr": "Birkaç gündür kendini iyi hissetmiyorsun. Aile hekiminin muayenehanesindesin; Dr. Neumann seni çağırıyor.",
+      "disclaimer_tr": "Bu bir dil alıştırmasıdır; tıbbi tavsiye değildir. Sağlık sorunlarında bir doktora ya da eczacıya danış.",
+      "partner": "Dr. Neumann",
+      "partner_role_tr": "Aile hekimi",
+      "formal": true,
+      "service": false,
+      "opening": {
+        "de": "Guten Tag, ich bin Dr. Neumann. Was fehlt Ihnen?",
+        "tr": "İyi günler, ben Dr. Neumann. Şikâyetiniz ne?"
+      },
+      "goals": [
+        {
+          "id": "beschwerden",
+          "label_tr": "Şikâyetini söyle (nere ağrıyor, ne var?)",
+          "hints": [
+            {
+              "de": "Ich habe Kopfschmerzen.",
+              "tr": "Başım ağrıyor."
+            },
+            {
+              "de": "Mein Hals tut weh.",
+              "tr": "Boğazım ağrıyor."
+            },
+            {
+              "de": "Ich habe Fieber und Husten.",
+              "tr": "Ateşim ve öksürüğüm var."
+            }
+          ]
+        },
+        {
+          "id": "seit_wann",
+          "label_tr": "Ne zamandır sürdüğünü söyle",
+          "hints": [
+            {
+              "de": "Seit drei Tagen.",
+              "tr": "Üç gündür."
+            },
+            {
+              "de": "Seit gestern.",
+              "tr": "Dünden beri."
+            }
+          ]
+        },
+        {
+          "id": "medikament",
+          "label_tr": "İlaç ya da iş için rapor hakkında sor",
+          "hints": [
+            {
+              "de": "Brauche ich ein Medikament?",
+              "tr": "İlaca ihtiyacım var mı?"
+            },
+            {
+              "de": "Brauche ich eine Krankmeldung für die Arbeit?",
+              "tr": "İş için rapora ihtiyacım var mı?"
+            },
+            {
+              "de": "Wie oft soll ich die Tabletten nehmen?",
+              "tr": "Hapları ne sıklıkla almalıyım?"
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "id": "beschwerden",
+          "goal": "beschwerden",
+          "match": [
+            {
+              "pattern": "(schmerz|tut (mir )?weh|tun (mir )?weh|fieber|husten|erkaelt|krank|schnupfen|uebel|schwindel|nicht gut)",
+              "de": "Oh, das tut mir leid. Seit wann haben Sie das?",
+              "tr": "Ah, geçmiş olsun. Ne zamandır böyle?"
+            }
+          ]
+        },
+        {
+          "id": "seit_wann",
+          "goal": "seit_wann",
+          "requires": [
+            "beschwerden"
+          ],
+          "blocked": {
+            "de": "Erzählen Sie zuerst: Was tut Ihnen weh?",
+            "tr": "Önce anlatın: Neresi ağrıyor?"
+          },
+          "match": [
+            {
+              "pattern": "\\b(seit|gestern|vorgestern|tagen?|wochen?|heute morgen|letzte)\\b",
+              "de": "Ich schaue mal … Das ist eine Erkältung, nichts Schlimmes. Bleiben Sie ein paar Tage zu Hause und trinken Sie viel.",
+              "tr": "Bir bakayım … Bu bir soğuk algınlığı, ciddi bir şey değil. Birkaç gün evde kalın ve bol sıvı için."
+            }
+          ]
+        },
+        {
+          "id": "medikament",
+          "goal": "medikament",
+          "requires": [
+            "seit_wann"
+          ],
+          "blocked": {
+            "de": "Moment, seit wann haben Sie die Beschwerden?",
+            "tr": "Bir dakika, şikâyetleriniz ne zamandır var?"
+          },
+          "match": [
+            {
+              "pattern": "(medikament|tablette|rezept|krankmeldung|krankschreibung|attest|wie oft|arbeit|apotheke|nehmen)",
+              "de": "Ich schreibe Ihnen ein Rezept. Nehmen Sie die Tabletten dreimal täglich nach dem Essen. Hier ist auch Ihre Krankmeldung.",
+              "tr": "Size bir reçete yazıyorum. Hapları günde üç kez yemekten sonra alın. Raporunuz da burada."
+            }
+          ]
+        },
+        {
+          "id": "danke",
+          "match": [
+            {
+              "pattern": "\\b(danke|vielen dank)\\b",
+              "de": "Gern geschehen.",
+              "tr": "Rica ederim."
+            }
+          ]
+        },
+        {
+          "id": "wiederholen",
+          "match": [
+            {
+              "pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen|nicht verstanden)",
+              "de": "Natürlich: Seit wann haben Sie die Schmerzen?",
+              "tr": "Tabii: Ağrılarınız ne zamandır var?"
+            }
+          ]
+        }
+      ],
+      "fallback": [
+        {
+          "de": "Entschuldigung, wie bitte?",
+          "tr": "Pardon, efendim?"
+        },
+        {
+          "de": "Können Sie das anders sagen? Was tut Ihnen weh?",
+          "tr": "Başka türlü söyleyebilir misiniz? Neresi ağrıyor?"
+        }
+      ],
+      "closing": {
+        "de": "Gute Besserung! Wenn es nicht besser wird, kommen Sie bitte wieder.",
+        "tr": "Geçmiş olsun! İyileşmezse lütfen tekrar gelin."
+      },
+      "vocab": [
+        "schmerz",
+        "wehtun",
+        "fieber",
+        "husten",
+        "erkaeltung",
+        "medikament",
+        "krankmeldung",
+        "gute_besserung"
+      ]
+    },
+    {
+      "id": "apotheke",
+      "title_de": "In der Apotheke",
+      "title_tr": "Eczanede",
+      "level": "A2",
+      "objective_tr": "Ne için ilaç istediğini söyle, nasıl kullanılacağını sor ve öde.",
+      "setting_tr": "Başın ağrıyor ve öksürüyorsun. Reçeten yok; eczaneye gidiyorsun.",
+      "disclaimer_tr": "Bu bir dil alıştırmasıdır; tıbbi tavsiye değildir. Sağlık sorunlarında bir doktora ya da eczacıya danış.",
+      "partner": "Herr Becker",
+      "partner_role_tr": "Eczacı",
+      "formal": true,
+      "service": true,
+      "opening": {
+        "de": "Guten Tag! Was kann ich für Sie tun?",
+        "tr": "İyi günler! Sizin için ne yapabilirim?"
+      },
+      "goals": [
+        {
+          "id": "anliegen",
+          "label_tr": "Ne için bir şey istediğini söyle",
+          "hints": [
+            {
+              "de": "Ich brauche etwas gegen Kopfschmerzen.",
+              "tr": "Baş ağrısı için bir şeye ihtiyacım var."
+            },
+            {
+              "de": "Haben Sie etwas gegen Husten?",
+              "tr": "Öksürüğe karşı bir şeyiniz var mı?"
+            }
+          ]
+        },
+        {
+          "id": "dosierung",
+          "label_tr": "Nasıl ve ne sıklıkla kullanılacağını sor",
+          "hints": [
+            {
+              "de": "Wie oft muss ich die Tabletten nehmen?",
+              "tr": "Hapları ne sıklıkla almam gerekiyor?"
+            },
+            {
+              "de": "Wie viele darf ich am Tag nehmen?",
+              "tr": "Günde kaç tane alabilirim?"
+            }
+          ]
+        },
+        {
+          "id": "bezahlen",
+          "label_tr": "Fiyatı sor ve öde",
+          "hints": [
+            {
+              "de": "Was kostet das?",
+              "tr": "Bu ne kadar?"
+            },
+            {
+              "de": "Ich zahle mit Karte.",
+              "tr": "Kartla ödüyorum."
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "id": "anliegen",
+          "goal": "anliegen",
+          "match": [
+            {
+              "pattern": "(gegen|brauche|medikament|tablette|etwas fuer|schmerz|husten|erkaelt|fieber)",
+              "de": "Da kann ich Ihnen diese Tabletten empfehlen. Die bekommen Sie ohne Rezept.",
+              "tr": "Size bu hapları önerebilirim. Reçetesiz alabilirsiniz."
+            }
+          ]
+        },
+        {
+          "id": "dosierung",
+          "goal": "dosierung",
+          "requires": [
+            "anliegen"
+          ],
+          "blocked": {
+            "de": "Wofür brauchen Sie denn etwas?",
+            "tr": "Peki ne için bir şeye ihtiyacınız var?"
+          },
+          "match": [
+            {
+              "pattern": "(wie oft|wie viele|wie lange|wann|nehmen|darf ich|einnehmen|am tag)",
+              "de": "Nehmen Sie eine Tablette, höchstens dreimal am Tag. Ohne Arzt bitte nicht länger als drei Tage.",
+              "tr": "Bir tablet alın, günde en fazla üç kez. Doktora gitmeden üç günden fazla kullanmayın."
+            }
+          ]
+        },
+        {
+          "id": "bezahlen",
+          "goal": "bezahlen",
+          "requires": [
+            "anliegen"
+          ],
+          "blocked": {
+            "de": "Was brauchen Sie denn?",
+            "tr": "Neye ihtiyacınız var?"
+          },
+          "match": [
+            {
+              "pattern": "(kostet|kosten|\\bzahlen|bezahlen|\\bkarte\\b|\\bbar\\b|preis|euro)",
+              "de": "Das macht 6,95 Euro, bitte.",
+              "tr": "6,95 euro tutuyor, lütfen."
+            }
+          ]
+        },
+        {
+          "id": "danke",
+          "match": [
+            {
+              "pattern": "\\b(danke|vielen dank)\\b",
+              "de": "Gern geschehen.",
+              "tr": "Rica ederim."
+            }
+          ]
+        },
+        {
+          "id": "wiederholen",
+          "match": [
+            {
+              "pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen|nicht verstanden)",
+              "de": "Gern noch einmal: eine Tablette, höchstens dreimal am Tag.",
+              "tr": "Tekrar edeyim: bir tablet, günde en fazla üç kez."
+            }
+          ]
+        }
+      ],
+      "fallback": [
+        {
+          "de": "Entschuldigung, das habe ich nicht verstanden.",
+          "tr": "Pardon, anlayamadım."
+        },
+        {
+          "de": "Wofür brauchen Sie das Medikament?",
+          "tr": "İlaca ne için ihtiyacınız var?"
+        }
+      ],
+      "closing": {
+        "de": "Bitte schön. Gute Besserung und einen schönen Tag noch!",
+        "tr": "Buyurun. Geçmiş olsun, iyi günler!"
+      },
+      "vocab": [
+        "apotheke",
+        "tablette",
+        "medikament",
+        "rezept",
+        "muessen",
+        "duerfen",
+        "dreimal",
+        "schmerz"
+      ]
+    },
+    {
+      "id": "wohnung",
+      "title_de": "Die Wohnungsbesichtigung",
+      "title_tr": "Ev bakmak",
+      "level": "A2",
+      "objective_tr": "Kendini tanıt, kirayı ve ne zaman boşalacağını sor, ilgilendiğini söyle.",
+      "setting_tr": "İnternette bir ilan gördün: iki odalı, balkonlu bir daire. Ev sahibi Krüger Hanım kapıyı açıyor.",
+      "disclaimer_tr": "Bu bir dil alıştırmasıdır. Gerçek kiralamada genelde gelir belgesi, kimlik ve SCHUFA belgesi istenir; kuruma ve şehre göre değişir.",
+      "partner": "Frau Krüger",
+      "partner_role_tr": "Ev sahibi",
+      "formal": true,
+      "service": false,
+      "opening": {
+        "de": "Guten Tag! Sie kommen wegen der Wohnung, oder? Kommen Sie rein!",
+        "tr": "İyi günler! Daire için geldiniz, değil mi? Buyurun, girin!"
+      },
+      "goals": [
+        {
+          "id": "vorstellen",
+          "label_tr": "Kendini tanıt",
+          "hints": [
+            {
+              "de": "Guten Tag, mein Name ist …",
+              "tr": "İyi günler, adım …"
+            },
+            {
+              "de": "Ich heiße … und ich suche eine Wohnung.",
+              "tr": "Adım …, bir daire arıyorum."
+            }
+          ]
+        },
+        {
+          "id": "miete",
+          "label_tr": "Kirayı ya da depozitoyu sor",
+          "hints": [
+            {
+              "de": "Wie hoch ist die Miete?",
+              "tr": "Kira ne kadar?"
+            },
+            {
+              "de": "Wie hoch ist die Kaution?",
+              "tr": "Depozito ne kadar?"
+            }
+          ]
+        },
+        {
+          "id": "einzug",
+          "label_tr": "Dairenin ne zaman boş olduğunu sor",
+          "hints": [
+            {
+              "de": "Ab wann ist die Wohnung frei?",
+              "tr": "Daire ne zamandan itibaren boş?"
+            },
+            {
+              "de": "Wann kann ich einziehen?",
+              "tr": "Ne zaman taşınabilirim?"
+            }
+          ]
+        },
+        {
+          "id": "interesse",
+          "label_tr": "İlgilendiğini söyle",
+          "hints": [
+            {
+              "de": "Die Wohnung gefällt mir sehr. Ich habe Interesse.",
+              "tr": "Daireyi çok beğendim. İlgileniyorum."
+            },
+            {
+              "de": "Ich möchte die Wohnung gern mieten.",
+              "tr": "Daireyi kiralamak isterim."
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "id": "vorstellen",
+          "goal": "vorstellen",
+          "match": [
+            {
+              "pattern": "(mein name ist|ich heisse|ich bin (?!neu|hier|muede|interessiert|student|studentin|sehr|auch)[a-z]+)",
+              "de": "Freut mich! Hier ist das Wohnzimmer, und dort sind die Küche und das Bad.",
+              "tr": "Memnun oldum! Burası oturma odası, şurada da mutfak ve banyo var."
+            }
+          ]
+        },
+        {
+          "id": "miete",
+          "goal": "miete",
+          "requires": [
+            "vorstellen"
+          ],
+          "blocked": {
+            "de": "Entschuldigung, wie war Ihr Name?",
+            "tr": "Pardon, adınız neydi?"
+          },
+          "match": [
+            {
+              "pattern": "(miete|kaution|kostet|kosten|nebenkosten|warm|euro|teuer)",
+              "de": "Die Miete ist 750 Euro warm. Die Kaution beträgt zwei Monatsmieten.",
+              "tr": "Kira, ısınma dahil 750 euro. Depozito iki aylık kira."
+            }
+          ]
+        },
+        {
+          "id": "einzug",
+          "goal": "einzug",
+          "requires": [
+            "vorstellen"
+          ],
+          "blocked": {
+            "de": "Entschuldigung, wie war Ihr Name?",
+            "tr": "Pardon, adınız neydi?"
+          },
+          "match": [
+            {
+              "pattern": "(ab wann|wann|frei|einziehen|einzug|umziehen)",
+              "de": "Die Wohnung ist ab dem ersten Dezember frei.",
+              "tr": "Daire bir Aralık'tan itibaren boş."
+            }
+          ]
+        },
+        {
+          "id": "interesse",
+          "goal": "interesse",
+          "requires": [
+            "vorstellen"
+          ],
+          "blocked": {
+            "de": "Entschuldigung, wie war Ihr Name?",
+            "tr": "Pardon, adınız neydi?"
+          },
+          "match": [
+            {
+              "pattern": "(gefaellt|interesse|nehmen|mieten|schoen|toll|super|perfekt)",
+              "de": "Das freut mich! Schicken Sie mir bitte Ihre Unterlagen per E-Mail.",
+              "tr": "Buna sevindim! Belgelerinizi bana e-postayla gönderin lütfen."
+            }
+          ]
+        },
+        {
+          "id": "danke",
+          "match": [
+            {
+              "pattern": "\\b(danke|vielen dank)\\b",
+              "de": "Gern geschehen.",
+              "tr": "Rica ederim."
+            }
+          ]
+        },
+        {
+          "id": "wiederholen",
+          "match": [
+            {
+              "pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen|nicht verstanden)",
+              "de": "Natürlich: 750 Euro warm, frei ab Dezember.",
+              "tr": "Tabii: ısınma dahil 750 euro, Aralık'tan itibaren boş."
+            }
+          ]
+        }
+      ],
+      "fallback": [
+        {
+          "de": "Wie bitte?",
+          "tr": "Efendim?"
+        },
+        {
+          "de": "Haben Sie noch Fragen zur Wohnung?",
+          "tr": "Daireyle ilgili başka sorunuz var mı?"
+        }
+      ],
+      "closing": {
+        "de": "Dann melde ich mich bis Freitag bei Ihnen. Auf Wiedersehen!",
+        "tr": "O zaman cumaya kadar size dönerim. Hoşça kalın!"
+      },
+      "vocab": [
+        "wohnung",
+        "miete",
+        "kaution",
+        "zimmer",
+        "kueche",
+        "bad",
+        "etage",
+        "umziehen"
+      ]
+    },
+    {
+      "id": "bahnhof",
+      "title_de": "Eine Fahrkarte kaufen",
+      "title_tr": "Tren bileti almak",
+      "level": "A2",
+      "objective_tr": "Nereye ve ne zaman gitmek istediğini söyle, peron ya da aktarmayı sor ve bileti öde.",
+      "setting_tr": "Gardaki bilet ofisindesin (Reisezentrum). Hamburg'daki bir arkadaşını ziyaret etmek istiyorsun.",
+      "partner": "Herr Wagner",
+      "partner_role_tr": "Bilet ofisi görevlisi",
+      "formal": true,
+      "service": true,
+      "opening": {
+        "de": "Guten Tag, wohin möchten Sie fahren?",
+        "tr": "İyi günler, nereye gitmek istiyorsunuz?"
+      },
+      "goals": [
+        {
+          "id": "ziel",
+          "label_tr": "Nereye gideceğini söyle",
+          "hints": [
+            {
+              "de": "Eine Fahrkarte nach Hamburg, bitte.",
+              "tr": "Hamburg'a bir bilet lütfen."
+            },
+            {
+              "de": "Ich möchte nach München fahren.",
+              "tr": "Münih'e gitmek istiyorum."
+            }
+          ]
+        },
+        {
+          "id": "zeit",
+          "label_tr": "Ne zaman gitmek istediğini söyle",
+          "hints": [
+            {
+              "de": "Heute Nachmittag, bitte.",
+              "tr": "Bugün öğleden sonra, lütfen."
+            },
+            {
+              "de": "Morgen früh, so um acht Uhr.",
+              "tr": "Yarın sabah, saat sekiz gibi."
+            }
+          ]
+        },
+        {
+          "id": "gleis",
+          "label_tr": "Peronu ya da aktarmayı sor",
+          "hints": [
+            {
+              "de": "Von welchem Gleis fährt der Zug?",
+              "tr": "Tren hangi perondan kalkıyor?"
+            },
+            {
+              "de": "Wie lange muss ich in Hannover warten?",
+              "tr": "Hannover'de ne kadar beklemem gerekiyor?"
+            }
+          ]
+        },
+        {
+          "id": "bezahlen",
+          "label_tr": "Fiyatı sor ve öde",
+          "hints": [
+            {
+              "de": "Was kostet die Fahrkarte?",
+              "tr": "Bilet ne kadar?"
+            },
+            {
+              "de": "Ich zahle mit Karte.",
+              "tr": "Kartla ödüyorum."
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "id": "ziel",
+          "goal": "ziel",
+          "match": [
+            {
+              "pattern": "(\\bnach [a-z]+|fahrkarte|ticket|einfach|hin und zurueck)",
+              "de": "Gern. Wann möchten Sie fahren?",
+              "tr": "Tabii. Ne zaman gitmek istiyorsunuz?"
+            }
+          ]
+        },
+        {
+          "id": "zeit",
+          "goal": "zeit",
+          "requires": [
+            "ziel"
+          ],
+          "blocked": {
+            "de": "Wohin möchten Sie denn fahren?",
+            "tr": "Peki nereye gitmek istiyorsunuz?"
+          },
+          "match": [
+            {
+              "pattern": "\\b(heute|morgen|uhr|nachmittag|vormittag|abend|frueh|montag|dienstag|mittwoch|donnerstag|freitag|samstag|sonntag|jetzt|naechsten?)\\b",
+              "de": "Der nächste passende Zug fährt um 14:12 Uhr. Sie müssen einmal in Hannover umsteigen.",
+              "tr": "Uygun bir sonraki tren 14:12'de kalkıyor. Hannover'de bir kez aktarma yapmanız gerekiyor."
+            }
+          ]
+        },
+        {
+          "id": "gleis",
+          "goal": "gleis",
+          "requires": [
+            "zeit"
+          ],
+          "blocked": {
+            "de": "Wann möchten Sie fahren?",
+            "tr": "Ne zaman gitmek istiyorsunuz?"
+          },
+          "match": [
+            {
+              "pattern": "(gleis|umsteigen|warten|wie lange|ankommen|ankunft|direkt|verspaetung)",
+              "de": "Der Zug fährt von Gleis 9. In Hannover haben Sie zwölf Minuten zum Umsteigen.",
+              "tr": "Tren 9. perondan kalkıyor. Hannover'de aktarma için on iki dakikanız var."
+            }
+          ]
+        },
+        {
+          "id": "bezahlen",
+          "goal": "bezahlen",
+          "requires": [
+            "ziel"
+          ],
+          "blocked": {
+            "de": "Wohin möchten Sie fahren?",
+            "tr": "Nereye gitmek istiyorsunuz?"
+          },
+          "match": [
+            {
+              "pattern": "(kostet|kosten|\\bzahlen|bezahlen|\\bkarte\\b|\\bbar\\b|preis|euro)",
+              "de": "Das macht 89 Euro. Hier ist Ihre Fahrkarte.",
+              "tr": "89 euro tutuyor. İşte biletiniz."
+            }
+          ]
+        },
+        {
+          "id": "danke",
+          "match": [
+            {
+              "pattern": "\\b(danke|vielen dank)\\b",
+              "de": "Gern geschehen.",
+              "tr": "Rica ederim."
+            }
+          ]
+        },
+        {
+          "id": "wiederholen",
+          "match": [
+            {
+              "pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen|nicht verstanden)",
+              "de": "Gern: Abfahrt 14:12 Uhr, Gleis 9, umsteigen in Hannover.",
+              "tr": "Tabii: kalkış 14:12, 9. peron, Hannover'de aktarma."
+            }
+          ]
+        }
+      ],
+      "fallback": [
+        {
+          "de": "Entschuldigung, wie bitte?",
+          "tr": "Pardon, efendim?"
+        },
+        {
+          "de": "Wohin und wann möchten Sie fahren?",
+          "tr": "Nereye ve ne zaman gitmek istiyorsunuz?"
+        }
+      ],
+      "closing": {
+        "de": "Gute Reise!",
+        "tr": "İyi yolculuklar!"
+      },
+      "vocab": [
+        "fahrkarte",
+        "zug",
+        "gleis",
+        "umsteigen",
+        "abfahren",
+        "ankommen",
+        "nach",
+        "verspaetung"
+      ]
+    },
+    {
+      "id": "kleidung",
+      "title_de": "Im Kleidungsgeschäft",
+      "title_tr": "Giyim mağazasında",
+      "level": "A2",
+      "objective_tr": "Ne aradığını ve bedenini söyle, dene ve karar ver.",
+      "setting_tr": "Kış için sıcak bir şeye ihtiyacın var. Bir giyim mağazasındasın; satıcı yanına geliyor.",
+      "partner": "Frau Lange",
+      "partner_role_tr": "Satıcı",
+      "formal": true,
+      "service": true,
+      "opening": {
+        "de": "Hallo! Kann ich Ihnen helfen?",
+        "tr": "Merhaba! Size yardım edebilir miyim?"
+      },
+      "goals": [
+        {
+          "id": "suchen",
+          "label_tr": "Ne aradığını söyle",
+          "hints": [
+            {
+              "de": "Ich suche eine Jacke.",
+              "tr": "Bir mont arıyorum."
+            },
+            {
+              "de": "Ich hätte gern einen Pullover.",
+              "tr": "Bir kazak rica ediyorum."
+            }
+          ]
+        },
+        {
+          "id": "groesse",
+          "label_tr": "Bedenini söyle",
+          "hints": [
+            {
+              "de": "Größe 38, bitte.",
+              "tr": "38 beden, lütfen."
+            },
+            {
+              "de": "Ich brauche Größe M.",
+              "tr": "M bedene ihtiyacım var."
+            }
+          ]
+        },
+        {
+          "id": "anprobieren",
+          "label_tr": "Dene ve nasıl olduğunu söyle",
+          "hints": [
+            {
+              "de": "Kann ich das anprobieren?",
+              "tr": "Bunu deneyebilir miyim?"
+            },
+            {
+              "de": "Die Jacke ist leider zu eng.",
+              "tr": "Mont maalesef dar."
+            }
+          ]
+        },
+        {
+          "id": "entscheidung",
+          "label_tr": "Karar ver",
+          "hints": [
+            {
+              "de": "Gut, ich nehme die Jacke.",
+              "tr": "Tamam, montu alıyorum."
+            },
+            {
+              "de": "Ich nehme sie. Was kostet sie?",
+              "tr": "Alıyorum. Ne kadar?"
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "id": "suchen",
+          "goal": "suchen",
+          "match": [
+            {
+              "pattern": "(jacke|hose|hemd|kleid|schuh|pullover|mantel|rock|bluse|shirt|kleidung)",
+              "de": "Gern. Welche Größe brauchen Sie?",
+              "tr": "Tabii. Kaç beden giyiyorsunuz?"
+            }
+          ]
+        },
+        {
+          "id": "groesse",
+          "goal": "groesse",
+          "requires": [
+            "suchen"
+          ],
+          "blocked": {
+            "de": "Was suchen Sie denn?",
+            "tr": "Ne arıyorsunuz?"
+          },
+          "match": [
+            {
+              "pattern": "(groesse|\\b(xs|s|m|l|xl)\\b|\\b[2-5][0-9]\\b)",
+              "de": "Hier, bitte. Möchten Sie es anprobieren? Die Kabinen sind dort hinten.",
+              "tr": "Buyurun. Denemek ister misiniz? Kabinler şurada arkada."
+            }
+          ]
+        },
+        {
+          "id": "anprobieren",
+          "goal": "anprobieren",
+          "requires": [
+            "groesse"
+          ],
+          "blocked": {
+            "de": "Welche Größe brauchen Sie?",
+            "tr": "Kaç beden?"
+          },
+          "match": [
+            {
+              "pattern": "(anprobieren|probieren|kabine|zu eng|zu gross|zu klein|zu lang|zu kurz|passt|bequem|groessere|kleinere)",
+              "de": "Na, wie passt es? Die Farbe steht Ihnen sehr gut.",
+              "tr": "Eee, nasıl oldu? Renk size çok yakıştı."
+            }
+          ]
+        },
+        {
+          "id": "entscheidung",
+          "goal": "entscheidung",
+          "requires": [
+            "groesse"
+          ],
+          "blocked": {
+            "de": "Welche Größe brauchen Sie denn?",
+            "tr": "Peki kaç beden?"
+          },
+          "match": [
+            {
+              "pattern": "(nehme|kaufe|kostet|zahlen|ueberlege|nicht nehmen|lieber nicht)",
+              "de": "Prima. Die Kasse ist vorne links. Sie kostet 79 Euro.",
+              "tr": "Harika. Kasa önde solda. Fiyatı 79 euro."
+            }
+          ]
+        },
+        {
+          "id": "danke",
+          "match": [
+            {
+              "pattern": "\\b(danke|vielen dank)\\b",
+              "de": "Gern geschehen.",
+              "tr": "Rica ederim."
+            }
+          ]
+        },
+        {
+          "id": "wiederholen",
+          "match": [
+            {
+              "pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen|nicht verstanden)",
+              "de": "Gern: Die Kabinen sind dort hinten.",
+              "tr": "Tabii: Kabinler şurada arkada."
+            }
+          ]
+        }
+      ],
+      "fallback": [
+        {
+          "de": "Wie bitte?",
+          "tr": "Efendim?"
+        },
+        {
+          "de": "Suchen Sie etwas Bestimmtes?",
+          "tr": "Belirli bir şey mi arıyorsunuz?"
+        }
+      ],
+      "closing": {
+        "de": "Vielen Dank und einen schönen Tag!",
+        "tr": "Çok teşekkürler, iyi günler!"
+      },
+      "vocab": [
+        "jacke",
+        "pullover",
+        "groesse",
+        "anprobieren",
+        "umkleidekabine",
+        "eng",
+        "gefallen",
+        "farbe"
+      ]
+    },
+    {
+      "id": "hotel",
+      "title_de": "Im Hotel einchecken",
+      "title_tr": "Otelde giriş yapmak",
+      "level": "A2",
+      "objective_tr": "Rezervasyonunu söyle, adını ver ve bir şey sor (kahvaltı, internet …).",
+      "setting_tr": "Akşam saatlerinde Münih'teki küçük bir otele vardın. Resepsiyonda Roth Bey var.",
+      "partner": "Herr Roth",
+      "partner_role_tr": "Otel resepsiyonu",
+      "formal": true,
+      "service": true,
+      "opening": {
+        "de": "Guten Abend und willkommen im Hotel Lindenhof! Was kann ich für Sie tun?",
+        "tr": "İyi akşamlar, Hotel Lindenhof'a hoş geldiniz! Sizin için ne yapabilirim?"
+      },
+      "goals": [
+        {
+          "id": "reservierung",
+          "label_tr": "Rezervasyonun olduğunu söyle",
+          "hints": [
+            {
+              "de": "Ich habe eine Reservierung.",
+              "tr": "Bir rezervasyonum var."
+            },
+            {
+              "de": "Ich habe ein Zimmer reserviert.",
+              "tr": "Bir oda ayırttım."
+            }
+          ]
+        },
+        {
+          "id": "name",
+          "label_tr": "Adını söyle",
+          "hints": [
+            {
+              "de": "Auf den Namen …",
+              "tr": "… adına."
+            },
+            {
+              "de": "Mein Name ist …",
+              "tr": "Adım …"
+            }
+          ]
+        },
+        {
+          "id": "frage",
+          "label_tr": "Bir şey sor (kahvaltı, internet …)",
+          "hints": [
+            {
+              "de": "Wann gibt es Frühstück?",
+              "tr": "Kahvaltı ne zaman?"
+            },
+            {
+              "de": "Gibt es WLAN im Zimmer?",
+              "tr": "Odada kablosuz internet var mı?"
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "id": "reservierung",
+          "goal": "reservierung",
+          "match": [
+            {
+              "pattern": "(reservierung|reserviert|gebucht|buchung|zimmer)",
+              "de": "Sehr gern. Auf welchen Namen, bitte?",
+              "tr": "Memnuniyetle. Hangi isim adına, lütfen?"
+            }
+          ]
+        },
+        {
+          "id": "name",
+          "goal": "name",
+          "requires": [
+            "reservierung"
+          ],
+          "blocked": {
+            "de": "Haben Sie eine Reservierung?",
+            "tr": "Rezervasyonunuz var mı?"
+          },
+          "match": [
+            {
+              "pattern": "(auf den namen|mein name ist|ich heisse|ich bin (?!neu|muede|hier|da)[a-z]+)",
+              "de": "Ah ja, hier: ein Doppelzimmer für zwei Nächte. Hier ist Ihr Schlüssel, Zimmer 312.",
+              "tr": "Ah evet, burada: iki gece için çift kişilik oda. İşte anahtarınız, oda 312."
+            }
+          ]
+        },
+        {
+          "id": "frage",
+          "goal": "frage",
+          "requires": [
+            "name"
+          ],
+          "blocked": {
+            "de": "Auf welchen Namen haben Sie reserviert?",
+            "tr": "Hangi isim adına ayırttınız?"
+          },
+          "match": [
+            {
+              "pattern": "(fruehstueck|wlan|wifi|internet|parken|aufzug|auschecken|check-out|wann|wo ist|gibt es)",
+              "de": "Frühstück gibt es von 7 bis 10 Uhr im Erdgeschoss. Das WLAN-Passwort steht auf Ihrer Zimmerkarte.",
+              "tr": "Kahvaltı 7 ile 10 arasında zemin katta. Kablosuz internet şifresi oda kartınızda yazıyor."
+            }
+          ]
+        },
+        {
+          "id": "danke",
+          "match": [
+            {
+              "pattern": "\\b(danke|vielen dank)\\b",
+              "de": "Gern geschehen.",
+              "tr": "Rica ederim."
+            }
+          ]
+        },
+        {
+          "id": "wiederholen",
+          "match": [
+            {
+              "pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen|nicht verstanden)",
+              "de": "Natürlich: Zimmer 312, in der dritten Etage.",
+              "tr": "Tabii: oda 312, üçüncü katta."
+            }
+          ]
+        }
+      ],
+      "fallback": [
+        {
+          "de": "Entschuldigung, wie bitte?",
+          "tr": "Pardon, efendim?"
+        },
+        {
+          "de": "Haben Sie bei uns reserviert?",
+          "tr": "Bizde rezervasyonunuz var mı?"
+        }
+      ],
+      "closing": {
+        "de": "Ich wünsche Ihnen einen schönen Aufenthalt!",
+        "tr": "İyi konaklamalar dilerim!"
+      },
+      "vocab": [
+        "hotel",
+        "reservierung",
+        "doppelzimmer",
+        "nacht",
+        "schluessel",
+        "etage"
+      ]
+    },
+    {
+      "id": "verabredung",
+      "title_de": "Sich verabreden",
+      "title_tr": "Arkadaşla buluşma ayarlamak",
+      "level": "A2",
+      "objective_tr": "Bir etkinlik öner, gün ve saat belirle, buluşma yerini kararlaştır.",
+      "setting_tr": "Arkadaşın Jonas sana mesaj atıyor; hafta sonu birlikte bir şey yapmak istiyorsunuz. Samimi konuşuyorsunuz (du).",
+      "partner": "Jonas",
+      "partner_role_tr": "Arkadaş",
+      "formal": false,
+      "service": false,
+      "opening": {
+        "de": "Hey! Na, was machst du am Wochenende?",
+        "tr": "Selam! Eee, hafta sonu ne yapıyorsun?"
+      },
+      "goals": [
+        {
+          "id": "vorschlag",
+          "label_tr": "Bir etkinlik öner",
+          "hints": [
+            {
+              "de": "Hast du Lust auf Kino?",
+              "tr": "Sinemaya gitmeye ne dersin?"
+            },
+            {
+              "de": "Wollen wir schwimmen gehen?",
+              "tr": "Yüzmeye gidelim mi?"
+            }
+          ]
+        },
+        {
+          "id": "zeit",
+          "label_tr": "Gün ve saat belirle",
+          "hints": [
+            {
+              "de": "Am Samstag um drei?",
+              "tr": "Cumartesi saat üçte?"
+            },
+            {
+              "de": "Wie wäre es mit Sonntag um zehn Uhr?",
+              "tr": "Pazar saat ona ne dersin?"
+            }
+          ]
+        },
+        {
+          "id": "ort",
+          "label_tr": "Buluşma yerini belirle",
+          "hints": [
+            {
+              "de": "Wir treffen uns vor dem Kino.",
+              "tr": "Sinemanın önünde buluşalım."
+            },
+            {
+              "de": "Treffen wir uns am Bahnhof?",
+              "tr": "İstasyonda buluşalım mı?"
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "id": "vorschlag",
+          "goal": "vorschlag",
+          "match": [
+            {
+              "pattern": "(lust|wollen wir|gehen wir|kino|konzert|museum|schwimmen|wandern|kaffee|essen gehen|ausstellung|park|tanzen|fussball)",
+              "de": "Gute Idee! Wann denn?",
+              "tr": "İyi fikir! Ne zaman?"
+            }
+          ]
+        },
+        {
+          "id": "zeit",
+          "goal": "zeit",
+          "requires": [
+            "vorschlag"
+          ],
+          "blocked": {
+            "de": "Klar, aber was wollen wir denn machen?",
+            "tr": "Olur, ama ne yapmak istiyoruz?"
+          },
+          "match": [
+            {
+              "pattern": "\\b(montag|dienstag|mittwoch|donnerstag|freitag|samstag|sonntag|morgen|heute|uhr|abends?|nachmittags?|vormittags?)\\b",
+              "de": "Ja, das passt mir. Wo treffen wir uns?",
+              "tr": "Evet, bana uyar. Nerede buluşuyoruz?"
+            }
+          ]
+        },
+        {
+          "id": "ort",
+          "goal": "ort",
+          "requires": [
+            "zeit"
+          ],
+          "blocked": {
+            "de": "Und wann?",
+            "tr": "Peki ne zaman?"
+          },
+          "match": [
+            {
+              "pattern": "(vor dem|vor der|am bahnhof|an der|bei mir|bei dir|im cafe|haltestelle|eingang|am kino|am see|im park)",
+              "de": "Super, dann bis bald! Ich freue mich.",
+              "tr": "Süper, o zaman görüşürüz! Sabırsızlanıyorum."
+            }
+          ]
+        },
+        {
+          "id": "register",
+          "match": [
+            {
+              "pattern": "\\b(sie|ihnen)\\b",
+              "de": "Haha, du kannst „du“ zu mir sagen! Also?",
+              "tr": "Haha, bana \"du\" diyebilirsin! Eee?"
+            }
+          ]
+        },
+        {
+          "id": "wiederholen",
+          "match": [
+            {
+              "pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen|nicht verstanden)",
+              "de": "Ich habe gefragt: Was machst du am Wochenende?",
+              "tr": "Hafta sonu ne yapıyorsun diye sordum."
+            }
+          ]
+        }
+      ],
+      "fallback": [
+        {
+          "de": "Hä? Was meinst du?",
+          "tr": "Ha? Ne demek istiyorsun?"
+        },
+        {
+          "de": "Sorry, das habe ich nicht verstanden. Was wollen wir machen?",
+          "tr": "Pardon, anlamadım. Ne yapalım?"
+        }
+      ],
+      "closing": {
+        "de": "Bis dann! Tschüss!",
+        "tr": "Görüşürüz! Hoşça kal!"
+      },
+      "vocab": [
+        "lust",
+        "treffen",
+        "verabreden",
+        "konzert",
+        "kino",
+        "freuen",
+        "wochenende",
+        "spass"
+      ]
+    },
+    {
+      "id": "vorstellungsgespraech",
+      "title_de": "Das Vorstellungsgespräch",
+      "title_tr": "İş görüşmesi",
+      "level": "A2",
+      "objective_tr": "Kendini tanıt, deneyimini anlat, neden bu işi istediğini söyle ve kibar bir soru sor.",
+      "setting_tr": "Café Kastanie'de yarı zamanlı bir iş için görüşmedesin. Kafe sahibi Albrecht Hanım seninle konuşuyor.",
+      "partner": "Frau Albrecht",
+      "partner_role_tr": "Kafe sahibi",
+      "formal": true,
+      "service": false,
+      "opening": {
+        "de": "Guten Tag! Schön, dass Sie da sind. Erzählen Sie doch mal etwas über sich.",
+        "tr": "İyi günler! Geldiğinize sevindim. Biraz kendinizden bahseder misiniz?"
+      },
+      "goals": [
+        {
+          "id": "vorstellen",
+          "label_tr": "Kendini tanıt",
+          "hints": [
+            {
+              "de": "Ich heiße … und komme aus der Türkei.",
+              "tr": "Adım …, Türkiyeliyim."
+            },
+            {
+              "de": "Mein Name ist … Ich wohne seit einem Jahr in Berlin.",
+              "tr": "Adım … Bir yıldır Berlin'de yaşıyorum."
+            }
+          ]
+        },
+        {
+          "id": "erfahrung",
+          "label_tr": "Deneyimini anlat",
+          "hints": [
+            {
+              "de": "Ich habe zwei Jahre in einem Café gearbeitet.",
+              "tr": "İki yıl bir kafede çalıştım."
+            },
+            {
+              "de": "Ich habe Erfahrung im Verkauf.",
+              "tr": "Satışta deneyimim var."
+            }
+          ]
+        },
+        {
+          "id": "motivation",
+          "label_tr": "Neden bu işi istediğini söyle",
+          "hints": [
+            {
+              "de": "Ich arbeite gern mit Menschen.",
+              "tr": "İnsanlarla çalışmayı severim."
+            },
+            {
+              "de": "Ich finde Ihr Café sehr gemütlich.",
+              "tr": "Kafenizi çok sıcak buluyorum."
+            }
+          ]
+        },
+        {
+          "id": "frage",
+          "label_tr": "Kibar bir soru sor",
+          "hints": [
+            {
+              "de": "Ich hätte eine Frage: Wie sind die Arbeitszeiten?",
+              "tr": "Bir sorum olacaktı: Çalışma saatleri nasıl?"
+            },
+            {
+              "de": "Könnten Sie mir etwas über das Team sagen?",
+              "tr": "Bana ekipten biraz bahseder misiniz?"
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "id": "vorstellen",
+          "goal": "vorstellen",
+          "match": [
+            {
+              "pattern": "(ich heisse|mein name ist|ich komme aus|ich wohne)",
+              "de": "Schön, danke. Welche Erfahrung haben Sie?",
+              "tr": "Güzel, teşekkürler. Ne tür bir deneyiminiz var?"
+            }
+          ]
+        },
+        {
+          "id": "erfahrung",
+          "goal": "erfahrung",
+          "requires": [
+            "vorstellen"
+          ],
+          "blocked": {
+            "de": "Erzählen Sie zuerst etwas über sich.",
+            "tr": "Önce biraz kendinizden bahsedin."
+          },
+          "match": [
+            {
+              "pattern": "(erfahrung|gearbeitet|arbeite|jahre|ausbildung|studiert|kellner|verkauf|praktikum|gelernt)",
+              "de": "Sehr gut. Und warum möchten Sie bei uns arbeiten?",
+              "tr": "Çok iyi. Peki neden bizde çalışmak istiyorsunuz?"
+            }
+          ]
+        },
+        {
+          "id": "motivation",
+          "goal": "motivation",
+          "requires": [
+            "erfahrung"
+          ],
+          "blocked": {
+            "de": "Und welche Erfahrung haben Sie?",
+            "tr": "Peki deneyiminiz ne?"
+          },
+          "match": [
+            {
+              "pattern": "(weil|gern|gefaellt|finde|interessant|gemuetlich|team|kunden|menschen|spass|liebe)",
+              "de": "Das klingt gut. Haben Sie noch Fragen an mich?",
+              "tr": "Kulağa iyi geliyor. Bana sormak istediğiniz bir şey var mı?"
+            }
+          ]
+        },
+        {
+          "id": "frage",
+          "goal": "frage",
+          "requires": [
+            "motivation"
+          ],
+          "blocked": {
+            "de": "Warum möchten Sie denn bei uns arbeiten?",
+            "tr": "Peki neden bizde çalışmak istiyorsunuz?"
+          },
+          "match": [
+            {
+              "pattern": "(haette|frage|arbeitszeit|gehalt|wie viele stunden|koennten sie|koennen sie|urlaub|teilzeit|vollzeit|wann)",
+              "de": "Gute Frage! Sie arbeiten 25 Stunden pro Woche, meistens vormittags. Das Team ist klein und sehr nett.",
+              "tr": "Güzel soru! Haftada 25 saat, çoğunlukla sabahları çalışırsınız. Ekip küçük ve çok cana yakın."
+            }
+          ]
+        },
+        {
+          "id": "danke",
+          "match": [
+            {
+              "pattern": "\\b(danke|vielen dank)\\b",
+              "de": "Gern geschehen.",
+              "tr": "Rica ederim."
+            }
+          ]
+        },
+        {
+          "id": "wiederholen",
+          "match": [
+            {
+              "pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen|nicht verstanden)",
+              "de": "Natürlich. Erzählen Sie mir bitte etwas über Ihre Erfahrung.",
+              "tr": "Tabii. Lütfen bana deneyiminizden bahsedin."
+            }
+          ]
+        }
+      ],
+      "fallback": [
+        {
+          "de": "Entschuldigung, wie bitte?",
+          "tr": "Pardon, efendim?"
+        },
+        {
+          "de": "Können Sie das genauer sagen?",
+          "tr": "Bunu biraz daha açabilir misiniz?"
+        }
+      ],
+      "closing": {
+        "de": "Vielen Dank für das Gespräch. Wir melden uns bis Ende der Woche. Auf Wiedersehen!",
+        "tr": "Görüşme için çok teşekkürler. Hafta sonuna kadar size dönüş yapacağız. Hoşça kalın!"
+      },
+      "vocab": [
+        "vorstellungsgespraech",
+        "erfahrung",
+        "bewerbung",
+        "team",
+        "kunde",
+        "haette",
+        "koennte"
+      ]
+    },
+    {
+      "id": "anmeldung",
+      "title_de": "Beim Bürgeramt: die Anmeldung",
+      "title_tr": "Bürgeramt'ta adres kaydı",
+      "level": "A2",
+      "objective_tr": "Adresini kaydettirmek istediğini söyle, belgelerini ver ve yeni adresini söyle.",
+      "setting_tr": "Yeni bir daireye taşındın ve adresini kaydettirmen gerekiyor. Bürgeramt'ta sıra sana geldi.",
+      "disclaimer_tr": "Bu bir dil alıştırmasıdır. Gerçek işlemler şehre göre değişir; çoğu şehirde önceden online randevu gerekir.",
+      "partner": "Herr Schneider",
+      "partner_role_tr": "Bürgeramt memuru",
+      "formal": true,
+      "service": false,
+      "opening": {
+        "de": "Guten Morgen. Was kann ich für Sie tun?",
+        "tr": "Günaydın. Sizin için ne yapabilirim?"
+      },
+      "goals": [
+        {
+          "id": "anliegen",
+          "label_tr": "Ne için geldiğini söyle",
+          "hints": [
+            {
+              "de": "Ich möchte mich anmelden.",
+              "tr": "Adres kaydı yaptırmak istiyorum."
+            },
+            {
+              "de": "Ich bin umgezogen und möchte meine neue Adresse anmelden.",
+              "tr": "Taşındım, yeni adresimi kaydettirmek istiyorum."
+            }
+          ]
+        },
+        {
+          "id": "dokumente",
+          "label_tr": "Belgelerini ver",
+          "hints": [
+            {
+              "de": "Hier ist mein Pass.",
+              "tr": "İşte pasaportum."
+            },
+            {
+              "de": "Hier sind mein Ausweis und die Wohnungsgeberbestätigung.",
+              "tr": "İşte kimliğim ve ev sahibi belgesi."
+            }
+          ]
+        },
+        {
+          "id": "adresse",
+          "label_tr": "Yeni adresini söyle",
+          "hints": [
+            {
+              "de": "Meine neue Adresse ist Lindenstraße 12.",
+              "tr": "Yeni adresim Lindenstraße 12."
+            },
+            {
+              "de": "Ich wohne jetzt in der Lindenstraße 12.",
+              "tr": "Şimdi Lindenstraße 12'de oturuyorum."
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "id": "anliegen",
+          "goal": "anliegen",
+          "match": [
+            {
+              "pattern": "(anmelden|anmeldung|umgezogen|neue adresse|wohnsitz|ummelden)",
+              "de": "Gut. Haben Sie Ihren Ausweis oder Pass und die Wohnungsgeberbestätigung dabei?",
+              "tr": "Tamam. Kimliğiniz ya da pasaportunuz ve ev sahibi belgeniz yanınızda mı?"
+            }
+          ]
+        },
+        {
+          "id": "dokumente",
+          "goal": "dokumente",
+          "requires": [
+            "anliegen"
+          ],
+          "blocked": {
+            "de": "Worum geht es denn?",
+            "tr": "Ne için gelmiştiniz?"
+          },
+          "match": [
+            {
+              "pattern": "(pass|ausweis|bestaetigung|wohnungsgeber|hier ist|hier sind|dabei|formular)",
+              "de": "Danke schön. Wie ist Ihre neue Adresse?",
+              "tr": "Teşekkürler. Yeni adresiniz nedir?"
+            }
+          ]
+        },
+        {
+          "id": "adresse",
+          "goal": "adresse",
+          "requires": [
+            "dokumente"
+          ],
+          "blocked": {
+            "de": "Haben Sie Ihren Ausweis dabei?",
+            "tr": "Kimliğiniz yanınızda mı?"
+          },
+          "match": [
+            {
+              "pattern": "(strasse|weg\\b|platz|allee|adresse|wohne|[0-9]{5})",
+              "de": "Alles klar. Einen Moment, ich drucke Ihnen die Meldebestätigung aus.",
+              "tr": "Tamamdır. Bir dakika, kayıt belgenizi yazdırıyorum."
+            }
+          ]
+        },
+        {
+          "id": "danke",
+          "match": [
+            {
+              "pattern": "\\b(danke|vielen dank)\\b",
+              "de": "Gern geschehen.",
+              "tr": "Rica ederim."
+            }
+          ]
+        },
+        {
+          "id": "wiederholen",
+          "match": [
+            {
+              "pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen|nicht verstanden)",
+              "de": "Natürlich: Ich brauche Ihren Ausweis und die Wohnungsgeberbestätigung.",
+              "tr": "Tabii: Kimliğinize ve ev sahibi belgesine ihtiyacım var."
+            }
+          ]
+        }
+      ],
+      "fallback": [
+        {
+          "de": "Entschuldigung, das habe ich nicht verstanden.",
+          "tr": "Pardon, anlayamadım."
+        },
+        {
+          "de": "Möchten Sie sich anmelden?",
+          "tr": "Adres kaydı mı yaptırmak istiyorsunuz?"
+        }
+      ],
+      "closing": {
+        "de": "Hier ist Ihre Meldebestätigung. Bitte gut aufbewahren. Auf Wiedersehen!",
+        "tr": "İşte kayıt belgeniz. Lütfen iyi saklayın. Hoşça kalın!"
+      },
+      "vocab": [
+        "anmeldung",
+        "buergeramt",
+        "ausweis",
+        "pass",
+        "adresse",
+        "wohnungsgeberbestaetigung",
+        "umziehen"
       ]
     }
   ]

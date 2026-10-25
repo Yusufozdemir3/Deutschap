@@ -105,6 +105,17 @@ void main() {
         }
         expect(state.isComplete, isTrue);
       });
+      test('${s.id}: every hint reaches its goal', () async {
+        final engine = OfflineScenarioEngine(ErrorDetectors(content.lexicon));
+        var before = engine.start(s, ConversationMode.guided);
+        for (final g in s.goals) {
+          for (final h in g.hints) {
+            final after = await engine.respond(before, h.de.replaceAll('…', 'Deniz'));
+            expect(after.goalsDone, contains(g.id), reason: 'hint "${h.de}" did not reach ${g.id}');
+          }
+          before = await engine.respond(before, g.hints.first.de.replaceAll('…', 'Deniz'));
+        }
+      });
     }
   });
 }
