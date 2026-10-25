@@ -2,7 +2,7 @@
 
 German for Turkish speakers. **Discover** it in connected stories, **keep** every word with the sentence you met it in, **remember** it with honest spaced repetition, and **use** it in realistic conversations.
 
-v0.1 is a local-first A1 foundation: no account, no network, all learner data on the device.
+v0.2 is a local-first A1–A2 foundation: no account, no network, all learner data on the device.
 
 ## Run
 ```bash
@@ -34,7 +34,7 @@ lib/
   features/    onboarding, home, learn, lesson, grammar, stories, conversation,
                reading, discover, vocabulary, review, progress, profile, settings
   ui/          shared widgets, tappable German text
-assets/content/  lexicon, grammar, A1 path, stories, scenarios, reading, discover (JSON)
+assets/content/  lexicon, grammar, A1 and A2 paths, stories, scenarios, reading, listening, discover (JSON)
 docs/          plan, ADRs, data model, review engine, AI design, content schema,
                design system, testing, limitations, release checklist
 test/          content, domain, data, widget/journey tests
