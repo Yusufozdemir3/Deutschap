@@ -80,6 +80,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       page('/lesson/:id', (s) => LessonScreen(lessonId: s.pathParameters['id']!)),
       page('/practice/:topic', (s) => LessonScreen(lessonId: 'practice', practice: PracticeTopic.parse(s.pathParameters['topic']!))),
+      page('/exam/:level', (s) => LessonScreen(lessonId: 'exam', examLevel: s.pathParameters['level']!)),
       page('/drill', (s) => DrillScreen(initialSource: s.uri.queryParameters['src'])),
       page('/drill/run', (s) => LessonScreen(lessonId: 'drill', drill: DrillSpec.fromQuery(s.uri.queryParameters))),
       page('/grammar/:id', (s) => GrammarScreen(conceptId: s.pathParameters['id']!)),

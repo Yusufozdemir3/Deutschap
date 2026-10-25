@@ -87,6 +87,21 @@ class _PathTabState extends ConsumerState<_PathTab> {
             ),
             const SizedBox(height: 8),
             for (final u in path.units) _UnitCard(unit: u, progress: progress, nextId: next?.id),
+            const SectionTitle('Mini sınav'),
+            AppCard(
+              onTap: () => context.push('/exam/${path.level}'),
+              child: Row(children: [
+                Icon(Icons.assignment_turned_in_outlined, color: context.palette.accent),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    Text('${path.level} mini sınav', style: context.text.titleSmall),
+                    Text('Okuma, dinleme, dil bilgisi ve yazma · yaklaşık 15 dakika. Sınav provası; ipucu ve tekrar yok.', style: context.text.bodySmall),
+                  ]),
+                ),
+                const Icon(Icons.chevron_right_rounded),
+              ]),
+            ),
           ]),
         ),
       ],
