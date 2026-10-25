@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.3",
+  "version": "2026.10.4",
   "scenarios": [
     {
       "id": "kennenlernen",
@@ -3391,6 +3391,443 @@
         "euro",
         "internet",
         "monat"
+      ]
+    },
+    {
+      "id": "beschwerde_anruf",
+      "title_de": "Eine Beschwerde am Telefon",
+      "title_tr": "Telefonda şikâyet",
+      "level": "B1",
+      "objective_tr": "Sorunu anlat, çözüm iste (yedek ya da iade) ve sonucu teyit et.",
+      "setting_tr": "Geçen hafta bir su ısıtıcısı sipariş ettin; geldiğinde kapağı kırıktı. Müşteri hizmetlerini arıyorsun.",
+      "partner": "Herr Brandt",
+      "partner_role_tr": "Müşteri hizmetleri",
+      "formal": true,
+      "service": true,
+      "opening": {
+        "de": "Kundenservice, Brandt am Apparat. Wie kann ich Ihnen helfen?",
+        "tr": "Müşteri hizmetleri, ben Brandt. Size nasıl yardımcı olabilirim?"
+      },
+      "goals": [
+        {
+          "id": "problem",
+          "label_tr": "Sorunu anlat",
+          "hints": [
+            {
+              "de": "Ich habe letzte Woche einen Wasserkocher bestellt, aber der Deckel ist kaputt.",
+              "tr": "Geçen hafta bir su ısıtıcısı sipariş ettim ama kapağı kırık."
+            },
+            {
+              "de": "Leider hat das Gerät einen Mangel.",
+              "tr": "Maalesef cihazın bir kusuru var."
+            }
+          ]
+        },
+        {
+          "id": "loesung",
+          "label_tr": "Bir çözüm iste (yedek ya da iade)",
+          "hints": [
+            {
+              "de": "Ich möchte einen Ersatz, bitte.",
+              "tr": "Bir yedek istiyorum, lütfen."
+            },
+            {
+              "de": "Ich bitte um eine Rückerstattung.",
+              "tr": "İade rica ediyorum."
+            }
+          ]
+        },
+        {
+          "id": "bestaetigung",
+          "label_tr": "Süreyi sor ve teşekkür et",
+          "hints": [
+            {
+              "de": "Wie lange dauert das?",
+              "tr": "Ne kadar sürer?"
+            },
+            {
+              "de": "Wann bekomme ich den Ersatz?",
+              "tr": "Yedeği ne zaman alırım?"
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "id": "problem",
+          "goal": "problem",
+          "match": [
+            {
+              "pattern": "(kaputt|defekt|mangel|beschwerde|bestellt|bestellung|problem|funktioniert nicht|gebrochen|beschaedigt)",
+              "de": "Das tut mir sehr leid. Können Sie mir bitte Ihre Bestellnummer sagen? … Danke. Was möchten Sie jetzt: einen Ersatz oder Ihr Geld zurück?",
+              "tr": "Çok üzgünüm. Sipariş numaranızı söyler misiniz lütfen? … Teşekkürler. Şimdi ne istersiniz: yedek mi, yoksa paranızın iadesi mi?"
+            }
+          ]
+        },
+        {
+          "id": "loesung",
+          "goal": "loesung",
+          "requires": [
+            "problem"
+          ],
+          "blocked": {
+            "de": "Entschuldigung, was ist denn genau das Problem?",
+            "tr": "Pardon, sorun tam olarak nedir?"
+          },
+          "match": [
+            {
+              "pattern": "(ersatz|rueckerstattung|erstattung|geld zurueck|umtausch|neues geraet|neu|ruckerstattung|zurueck)",
+              "de": "Gern, das organisieren wir sofort. Wir schicken Ihnen kostenlos einen neuen Wasserkocher. Das alte Gerät müssen Sie nicht zurückschicken.",
+              "tr": "Memnuniyetle, hemen organize ediyoruz. Size ücretsiz yeni bir su ısıtıcısı gönderiyoruz. Eski cihazı geri göndermeniz gerekmiyor."
+            }
+          ]
+        },
+        {
+          "id": "bestaetigung",
+          "goal": "bestaetigung",
+          "requires": [
+            "loesung"
+          ],
+          "blocked": {
+            "de": "Möchten Sie lieber einen Ersatz oder eine Rückerstattung?",
+            "tr": "Yedek mi iade mi tercih edersiniz?"
+          },
+          "match": [
+            {
+              "pattern": "(wie lange|wann|dauert|lieferzeit|lieferung|tage|bekomme)",
+              "de": "Der Ersatz kommt in zwei bis drei Werktagen. Sie bekommen eine E-Mail mit der Sendungsnummer.",
+              "tr": "Yedek iki üç iş günü içinde geliyor. Takip numarasıyla bir e-posta alacaksınız."
+            }
+          ]
+        },
+        {
+          "id": "danke",
+          "match": [
+            {
+              "pattern": "\\b(danke|vielen dank)\\b",
+              "de": "Gern geschehen.",
+              "tr": "Rica ederim."
+            }
+          ]
+        },
+        {
+          "id": "wiederholen",
+          "match": [
+            {
+              "pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen|nicht verstanden)",
+              "de": "Natürlich: Ein Ersatz kommt in zwei bis drei Werktagen.",
+              "tr": "Tabii: Yedek iki üç iş günü içinde geliyor."
+            }
+          ]
+        }
+      ],
+      "fallback": [
+        {
+          "de": "Entschuldigung, das habe ich nicht verstanden.",
+          "tr": "Pardon, anlayamadım."
+        },
+        {
+          "de": "Worum geht es bei Ihrer Beschwerde?",
+          "tr": "Şikâyetiniz neyle ilgili?"
+        }
+      ],
+      "closing": {
+        "de": "Vielen Dank für Ihre Geduld. Ich wünsche Ihnen noch einen schönen Tag!",
+        "tr": "Sabrınız için çok teşekkürler. İyi günler dilerim!"
+      },
+      "vocab": [
+        "beschwerde",
+        "mangel",
+        "lieferung",
+        "ersatz",
+        "rueckerstattung",
+        "garantie",
+        "kundenservice",
+        "unzufrieden"
+      ]
+    },
+    {
+      "id": "laermbeschwerde",
+      "title_de": "Mit dem Nachbarn sprechen",
+      "title_tr": "Komşuyla konuşmak",
+      "level": "B1",
+      "objective_tr": "Gürültüden kibarca şikâyet et, bir çözüm öner ve konuşmayı iyi bitir.",
+      "setting_tr": "Üst katta oturan komşu Bay Lehmann her akşam geç saate kadar müzik dinliyor. Kapısını çalıyorsun.",
+      "partner": "Herr Lehmann",
+      "partner_role_tr": "Üst kat komşusu",
+      "formal": true,
+      "service": false,
+      "opening": {
+        "de": "Guten Abend! Oh, Sie sind es. Kann ich Ihnen helfen?",
+        "tr": "İyi akşamlar! Ah, sizsiniz. Size yardım edebilir miyim?"
+      },
+      "goals": [
+        {
+          "id": "anliegen",
+          "label_tr": "Gürültüyü kibarca belirt",
+          "hints": [
+            {
+              "de": "Entschuldigen Sie die Störung, aber ich ärgere mich über den Lärm am Abend.",
+              "tr": "Rahatsızlık için özür dilerim ama akşamki gürültüye sinirleniyorum."
+            },
+            {
+              "de": "Die Musik ist abends leider sehr laut.",
+              "tr": "Müzik akşamları maalesef çok yüksek."
+            }
+          ]
+        },
+        {
+          "id": "vorschlag",
+          "label_tr": "Bir çözüm öner",
+          "hints": [
+            {
+              "de": "Könnten Sie die Musik nach zehn Uhr leiser machen?",
+              "tr": "Müziği saat ondan sonra kısabilir misiniz?"
+            },
+            {
+              "de": "Es wäre schön, wenn es nach zehn Uhr ruhig wäre.",
+              "tr": "Saat ondan sonra sessiz olsa güzel olurdu."
+            }
+          ]
+        },
+        {
+          "id": "abschluss",
+          "label_tr": "Teşekkür et ve iyi bitir",
+          "hints": [
+            {
+              "de": "Vielen Dank für Ihr Verständnis.",
+              "tr": "Anlayışınız için çok teşekkürler."
+            },
+            {
+              "de": "Danke, das ist sehr nett von Ihnen.",
+              "tr": "Teşekkürler, çok naziksiniz."
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "id": "anliegen",
+          "goal": "anliegen",
+          "match": [
+            {
+              "pattern": "(laut|laerm|musik|stoerung|aerger|beschwer|abends|nachts|schlafen|ruhe)",
+              "de": "Oh, das wusste ich nicht. Ich höre abends gern Musik. War es wirklich so laut?",
+              "tr": "Ah, bunu bilmiyordum. Akşamları müzik dinlemeyi severim. Gerçekten bu kadar yüksek miydi?"
+            }
+          ]
+        },
+        {
+          "id": "vorschlag",
+          "goal": "vorschlag",
+          "requires": [
+            "anliegen"
+          ],
+          "blocked": {
+            "de": "Worum geht es denn genau?",
+            "tr": "Tam olarak ne konuda?"
+          },
+          "match": [
+            {
+              "pattern": "(koennten sie|koennen sie|leiser|nach zehn|ruhig|waere schoen|waere es|kopfhoerer|vorschlag|bitte)",
+              "de": "Verstehe. Das ist ein fairer Vorschlag. Nach zehn Uhr mache ich die Musik leiser, oder ich benutze Kopfhörer.",
+              "tr": "Anlıyorum. Bu adil bir öneri. Saat ondan sonra müziği kısarım ya da kulaklık kullanırım."
+            }
+          ]
+        },
+        {
+          "id": "abschluss",
+          "goal": "abschluss",
+          "requires": [
+            "vorschlag"
+          ],
+          "blocked": {
+            "de": "Und was schlagen Sie vor?",
+            "tr": "Peki siz ne öneriyorsunuz?"
+          },
+          "match": [
+            {
+              "pattern": "(danke|vielen dank|verstaendnis|nett|freundlich|gut so|einverstanden)",
+              "de": "Kein Problem. Es tut mir leid, dass ich Sie gestört habe.",
+              "tr": "Sorun değil. Sizi rahatsız ettiğim için üzgünüm."
+            }
+          ]
+        },
+        {
+          "id": "wiederholen",
+          "match": [
+            {
+              "pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen|nicht verstanden)",
+              "de": "Natürlich: Sie möchten, dass ich nach zehn Uhr leiser bin.",
+              "tr": "Tabii: Saat ondan sonra daha sessiz olmamı istiyorsunuz."
+            }
+          ]
+        }
+      ],
+      "fallback": [
+        {
+          "de": "Wie bitte? Was meinen Sie?",
+          "tr": "Efendim? Ne demek istiyorsunuz?"
+        },
+        {
+          "de": "Ich verstehe nicht ganz, worum es geht.",
+          "tr": "Tam olarak ne olduğunu anlamıyorum."
+        }
+      ],
+      "closing": {
+        "de": "Dann ist alles klar. Einen schönen Abend noch, und danke, dass Sie so freundlich waren!",
+        "tr": "O zaman her şey tamam. İyi akşamlar, bu kadar nazik olduğunuz için teşekkürler!"
+      },
+      "vocab": [
+        "laerm",
+        "anwohner",
+        "nachbarschaft",
+        "sich_aergern",
+        "bitten",
+        "erlauben"
+      ]
+    },
+    {
+      "id": "diskussion",
+      "title_de": "Meinung sagen im Kurs",
+      "title_tr": "Kursta fikir söylemek",
+      "level": "B1",
+      "objective_tr": "Bir konuda fikir bildir, bir gerekçe ver ve karşı fikre kibarca cevap ver.",
+      "setting_tr": "Almanca kursunda öğretmen Hanım Roth şu soruyu soruyor: \"Sollte man im Zentrum mit dem Auto fahren dürfen?\"",
+      "partner": "Frau Roth",
+      "partner_role_tr": "Almanca öğretmeni",
+      "formal": true,
+      "service": false,
+      "opening": {
+        "de": "Wir diskutieren heute: Sollte man im Stadtzentrum mit dem Auto fahren dürfen? Was meinen Sie?",
+        "tr": "Bugün tartışıyoruz: Şehir merkezinde arabayla gitmeye izin verilmeli mi? Siz ne düşünüyorsunuz?"
+      },
+      "goals": [
+        {
+          "id": "meinung",
+          "label_tr": "Fikrini söyle",
+          "hints": [
+            {
+              "de": "Meiner Meinung nach sollte man im Zentrum nicht mit dem Auto fahren.",
+              "tr": "Bence merkezde arabayla gidilmemeli."
+            },
+            {
+              "de": "Ich finde, dass das eine gute Idee ist.",
+              "tr": "Bence bu iyi bir fikir."
+            }
+          ]
+        },
+        {
+          "id": "begruendung",
+          "label_tr": "Gerekçe ver",
+          "hints": [
+            {
+              "de": "Einerseits ist der Verkehr zu laut, andererseits ist die Luft schlecht.",
+              "tr": "Bir yandan trafik çok gürültülü, öte yandan hava kötü."
+            },
+            {
+              "de": "Zum Beispiel haben viele Kinder Probleme mit der Luft.",
+              "tr": "Örneğin birçok çocuğun hava yüzünden sorunu var."
+            }
+          ]
+        },
+        {
+          "id": "antwort",
+          "label_tr": "Karşı fikre cevap ver",
+          "hints": [
+            {
+              "de": "Das verstehe ich, aber trotzdem finde ich es nicht richtig.",
+              "tr": "Bunu anlıyorum ama yine de doğru bulmuyorum."
+            },
+            {
+              "de": "Da haben Sie recht, aber es gibt auch andere Möglichkeiten.",
+              "tr": "Orada haklısınız ama başka olanaklar da var."
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "id": "meinung",
+          "goal": "meinung",
+          "match": [
+            {
+              "pattern": "(meiner meinung|ich finde|ich glaube|ich denke|meine meinung|dafuer|dagegen|gute idee|schlechte idee)",
+              "de": "Danke für Ihre Meinung. Können Sie das bitte begründen?",
+              "tr": "Fikriniz için teşekkürler. Bunu gerekçelendirebilir misiniz lütfen?"
+            }
+          ]
+        },
+        {
+          "id": "begruendung",
+          "goal": "begruendung",
+          "requires": [
+            "meinung"
+          ],
+          "blocked": {
+            "de": "Was ist denn Ihre Meinung?",
+            "tr": "Peki sizin fikriniz nedir?"
+          },
+          "match": [
+            {
+              "pattern": "(einerseits|andererseits|weil|denn|zum beispiel|deshalb|deswegen|luft|laerm|verkehr|umwelt|kinder|gefaehrlich)",
+              "de": "Das ist ein guter Punkt. Aber ein Kollege sagt: Viele Geschäfte brauchen die Kunden mit dem Auto. Was sagen Sie dazu?",
+              "tr": "Bu iyi bir nokta. Ama bir meslektaşım şöyle diyor: Birçok dükkânın arabayla gelen müşterilere ihtiyacı var. Buna ne dersiniz?"
+            }
+          ]
+        },
+        {
+          "id": "antwort",
+          "goal": "antwort",
+          "requires": [
+            "begruendung"
+          ],
+          "blocked": {
+            "de": "Warum denken Sie das?",
+            "tr": "Bunu neden düşünüyorsunuz?"
+          },
+          "match": [
+            {
+              "pattern": "(verstehe|recht|trotzdem|aber|moeglichkeit|lieferung|bus|fahrrad|kompromiss|einverstanden)",
+              "de": "Interessant. Sie haben gut argumentiert und höflich geantwortet.",
+              "tr": "İlginç. İyi argüman getirdiniz ve kibarca cevap verdiniz."
+            }
+          ]
+        },
+        {
+          "id": "wiederholen",
+          "match": [
+            {
+              "pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen|nicht verstanden)",
+              "de": "Natürlich: Sollte man im Zentrum mit dem Auto fahren dürfen?",
+              "tr": "Tabii: Merkezde arabayla gitmeye izin verilmeli mi?"
+            }
+          ]
+        }
+      ],
+      "fallback": [
+        {
+          "de": "Entschuldigung, ich habe das nicht verstanden.",
+          "tr": "Pardon, anlayamadım."
+        },
+        {
+          "de": "Können Sie das bitte anders sagen?",
+          "tr": "Bunu başka türlü söyleyebilir misiniz lütfen?"
+        }
+      ],
+      "closing": {
+        "de": "Vielen Dank für die Diskussion! Das war sehr gut für das Niveau B1.",
+        "tr": "Tartışma için çok teşekkürler! B1 seviyesi için çok iyiydi."
+      },
+      "vocab": [
+        "meiner_meinung_nach",
+        "einerseits",
+        "zum_beispiel",
+        "ausserdem",
+        "trotzdem",
+        "deswegen",
+        "vorteil",
+        "nachteil"
       ]
     }
   ]

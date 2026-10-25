@@ -58,7 +58,7 @@ void main() {
       final routes = [
         '/heute', '/lernen', '/lernen?tab=stories', '/lernen?tab=talk', '/lernen?tab=read', '/entdecken', '/wortschatz', '/profil',
         '/lesson/u1l1', '/lesson/u4l2', '/lesson/u12l2', '/lesson/a2u1l1', '/lesson/a2u5l2', '/lesson/a2u8l2', '/lesson/b1u1l1', '/lesson/b1u3l2', '/lesson/b1u5l1', '/lesson/b1u7l2', '/lesson/b1u8l2', '/grammar/g_relativsatz', '/lesson/a2u11l2', '/lesson/a2u12l2', '/grammar/g_konjunktiv2', '/practice/akkusativ', '/practice/verbZweit', '/grammar/g_akkusativ', '/story/neu_in_berlin', '/episode/nib_e1_a1', '/episode/nib_e8_a2', '/episode/nib_e10_a2', '/mystery', 
-        '/scenario/termin', '/scenario/arzt', '/scenario/restaurant', '/scenario/bank', '/scenario/vorstellungsgespraech', '/reader/builtin:r_ein_tag', '/reader/builtin:r_sterntaler', '/lernen?tab=listen', '/listen/l_arzt_anruf', '/listen/l_bahnhof', '/paste', '/review', '/word/$entryId', '/lexeme/gehen',
+        '/scenario/termin', '/scenario/arzt', '/scenario/restaurant', '/scenario/diskussion', '/scenario/bank', '/scenario/vorstellungsgespraech', '/reader/builtin:r_ein_tag', '/reader/builtin:r_sterntaler', '/lernen?tab=listen', '/listen/l_arzt_anruf', '/listen/l_bahnhof', '/paste', '/review', '/word/$entryId', '/lexeme/gehen',
         '/kiez', '/mystery', '/milestones', '/collections', '/dictionary', '/progress', '/settings', '/settings/notifications', '/drill', '/drill?src=weak', '/drill/run?src=level%3AA1&mode=mixed&n=10', '/drill/run?src=level%3AA1&mode=match&n=10', '/drill/run?src=weak&mode=mixed&n=10', '/does-not-exist',
       ];
       final router = container.read(routerProvider);
