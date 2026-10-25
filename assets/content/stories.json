@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.7",
+  "version": "2026.10.8",
   "stories": [
     {
       "id": "neu_in_berlin",
@@ -57,6 +57,12 @@
           "id": "verkaeuferin",
           "name": "Verkäuferin",
           "role_tr": "Kitapçıdaki genç satıcı",
+          "formal": true
+        },
+        {
+          "id": "frau_albrecht",
+          "name": "Frau Albrecht",
+          "role_tr": "Café Kastanie'nin sahibi, Albrecht Bey'in kızı",
           "formal": true
         }
       ],
@@ -3328,7 +3334,662 @@
               "explain_tr": "älter = daha yaşlı; geworden = olmuş (werden)."
             }
           ],
-          "teaser_tr": "Neu in Berlin'in ilk sezonu bitti. İkinci sezon hazırlanıyor: Lina'nın mezuniyeti ve senin ilk iş görüşmen…"
+          "teaser_tr": "Friedrich ve Marlene yeniden buluştu. Hikâye devam ediyor: Lina'nın mezuniyeti ve senin ilk iş görüşmen (9. ve 10. bölümler)."
+        },
+        {
+          "id": "nib_e9_a2",
+          "number": 9,
+          "level": "A2",
+          "title": "Linas Abschluss",
+          "title_tr": "Lina'nın mezuniyeti",
+          "narrative_tr": "Lina'nın mezuniyet sunumuna git, onu tebrik et ve küçük bir kutlama organize et.",
+          "objective_tr": "Davet etmek ve tebrik etmek, zaman ifadeleri (seit, ab, bis, am, im), sıfat çekimi, Futur.",
+          "minutes": 9,
+          "start": "n1",
+          "scenario": "verabredung",
+          "nodes": [
+            {
+              "id": "n1",
+              "type": "narration",
+              "de": "Es ist Anfang Juli. Lina läuft seit einer Woche nervös durch die Wohnung. Morgen ist ihre Abschlusspräsentation an der Uni.",
+              "tr": "Temmuz başı. Lina bir haftadır telaşla evin içinde dolaşıyor. Yarın üniversitede mezuniyet sunumu var.",
+              "next": "n2"
+            },
+            {
+              "id": "n2",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Ich lerne seit drei Monaten für diesen Tag. Und jetzt habe ich Angst, dass ich alles vergesse.",
+              "tr": "Üç aydır bu gün için çalışıyorum. Şimdi her şeyi unutacağım diye korkuyorum.",
+              "next": "n3",
+              "gloss_tr": "seit drei Monaten: hâlâ süren durum → şimdiki zaman (lerne). \"dass\" yan cümlesi: fiil (vergesse) sonda."
+            },
+            {
+              "id": "n3",
+              "type": "choice",
+              "prompt_tr": "Lina'yı nasıl cesaretlendirirsin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Du schaffst das! Du hast ein ganzes Jahr an dem Projekt gearbeitet.",
+                  "tr": "Başarırsın! Bütün bir yıl bu proje üzerinde çalıştın.",
+                  "verdict": "best",
+                  "feedback_tr": "Perfekt: hast … gearbeitet. an + Dativ: an dem Projekt.",
+                  "next": "n4"
+                },
+                {
+                  "id": "b",
+                  "de": "Ich bin sicher, dass es gut wird.",
+                  "tr": "Eminim iyi geçecek.",
+                  "verdict": "best",
+                  "feedback_tr": "dass → fiil (wird) sonda. Çok doğal bir cesaret verme kalıbı.",
+                  "next": "n4"
+                },
+                {
+                  "id": "c",
+                  "de": "Ich bin sicher, dass es wird gut.",
+                  "tr": "(kelime sırası yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "dass yan cümlesinde çekimli fiil sona gider: \"dass es gut wird\". Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n4",
+              "type": "narration",
+              "de": "Am nächsten Morgen sitzt du im Hörsaal. Lina steht vorn, neben einem großen Modell aus Holz.",
+              "tr": "Ertesi sabah amfide oturuyorsun. Lina önde, tahtadan yapılmış büyük bir maketin yanında duruyor.",
+              "next": "n5"
+            },
+            {
+              "id": "n5",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Mein Projekt ist ein kleines Café mit einem großen, hellen Fenster und einem grünen Garten.",
+              "tr": "Projem, büyük ve aydınlık bir pencereli, yeşil bahçeli küçük bir kafe.",
+              "next": "n6",
+              "gloss_tr": "Sıfat çekimi: einem großen, hellen Fenster (Dativ, nötr: -en); einem grünen Garten (Dativ, eril: -en)."
+            },
+            {
+              "id": "n6",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Es steht in Leipzig, in der Nähe vom Bahnhof. Ich habe die Idee von unserem Café Kastanie.",
+              "tr": "Leipzig'te, istasyonun yakınında duruyor. Fikri bizim Café Kastanie'den aldım.",
+              "next": "n7"
+            },
+            {
+              "id": "n7",
+              "type": "narration",
+              "de": "Nach der Präsentation klatschen alle. Die Professorin sagt: „Das war eine sehr gute Arbeit.“",
+              "tr": "Sunumdan sonra herkes alkışlıyor. Profesör \"Bu çok iyi bir çalışmaydı\" diyor.",
+              "next": "n8"
+            },
+            {
+              "id": "n8",
+              "type": "choice",
+              "prompt_tr": "Lina'ya ne dersin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Herzlichen Glückwunsch, Lina! Ich gratuliere dir zum Abschluss!",
+                  "tr": "Tebrikler Lina! Mezuniyetini kutlarım!",
+                  "verdict": "best",
+                  "feedback_tr": "gratulieren + Dativ: dir; zu + Dativ: zum Abschluss.",
+                  "next": "n9"
+                },
+                {
+                  "id": "b",
+                  "de": "Das war super! Wir müssen das feiern!",
+                  "tr": "Harikaydı! Bunu kutlamamız lazım!",
+                  "verdict": "best",
+                  "feedback_tr": "müssen + mastar sonda: feiern.",
+                  "next": "n9",
+                  "flags": [
+                    "feiern"
+                  ]
+                },
+                {
+                  "id": "c",
+                  "de": "Ich gratuliere dich!",
+                  "tr": "(hâl yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "gratulieren Dativ ister: \"Ich gratuliere dir.\" Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n9",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Danke, danke! Ich bin so erleichtert.",
+              "tr": "Teşekkürler, teşekkürler! Çok rahatladım.",
+              "next": "n10"
+            },
+            {
+              "id": "n10",
+              "type": "branch",
+              "cases": [
+                {
+                  "flag": "feiern",
+                  "next": "n10a"
+                }
+              ],
+              "else": "n11"
+            },
+            {
+              "id": "n10a",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Feiern? Gute Idee! Aber nur klein, mit unseren Freunden.",
+              "tr": "Kutlamak mı? İyi fikir! Ama sadece küçük, arkadaşlarımızla.",
+              "next": "n11"
+            },
+            {
+              "id": "n11",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Wen können wir einladen? Can, Herrn Albrecht, Frau Weber …",
+              "tr": "Kimi davet edebiliriz? Can'ı, Bay Albrecht'i, Weber Hanım'ı…",
+              "next": "n12"
+            },
+            {
+              "id": "n12",
+              "type": "choice",
+              "prompt_tr": "Davetiye mesajını yaz.",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Hallo Can, am Samstag um sieben machen wir bei uns eine Party für Lina. Kommst du? Bring bitte etwas mit!",
+                  "tr": "Merhaba Can, cumartesi saat yedide bizde Lina için bir parti yapıyoruz. Gelir misin? Lütfen bir şey getir!",
+                  "verdict": "best",
+                  "feedback_tr": "am Samstag, um sieben: gün ve saat. Samimi (du) mesaj.",
+                  "next": "n13"
+                },
+                {
+                  "id": "b",
+                  "de": "Lieber Herr Albrecht, wir laden Sie herzlich zu einer kleinen Party ein. Sie ist am Samstag ab sieben Uhr.",
+                  "tr": "Sevgili Albrecht Bey, sizi küçük bir partiye candan davet ediyoruz. Cumartesi saat yediden itibaren.",
+                  "verdict": "best",
+                  "feedback_tr": "Resmî: Sie. einladen ayrılır: laden … ein. ab + saat = -den itibaren.",
+                  "next": "n13"
+                },
+                {
+                  "id": "c",
+                  "de": "Hallo Can, wir machen Party Samstag. Kommen du?",
+                  "tr": "(birkaç hata)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Fiil çekimi: \"Kommst du?\" ve \"am Samstag\". Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n13",
+              "type": "narration",
+              "de": "Am Samstag steht der Tisch voll mit Essen. Frau Weber hat einen großen Schokoladenkuchen gebacken.",
+              "tr": "Cumartesi masa yemeklerle dolu. Weber Hanım büyük bir çikolatalı kek yapmış.",
+              "next": "n14"
+            },
+            {
+              "id": "n14",
+              "type": "line",
+              "speaker": "weber",
+              "de": "Herzlichen Glückwunsch, liebe Lina! Für Sie habe ich den besten Kuchen von ganz Berlin gebacken.",
+              "tr": "Tebrikler sevgili Lina! Sizin için bütün Berlin'in en iyi kekini pişirdim.",
+              "next": "n15",
+              "gloss_tr": "der beste Kuchen: süperlatif (gut → besser → am besten / der beste)."
+            },
+            {
+              "id": "n15",
+              "type": "line",
+              "speaker": "albrecht",
+              "de": "Und was machen Sie jetzt, Fräulein Lina?",
+              "tr": "Peki şimdi ne yapacaksınız Lina Hanım?",
+              "next": "n16"
+            },
+            {
+              "id": "n16",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Ab Oktober werde ich in einem Architekturbüro in Leipzig arbeiten. Aber im September habe ich noch zwei Monate Ferien.",
+              "tr": "Ekimden itibaren Leipzig'te bir mimarlık ofisinde çalışacağım. Ama eylülde hâlâ iki aylık tatilim var.",
+              "next": "n17",
+              "gloss_tr": "werden + mastar = Futur: Ich werde … arbeiten. ab Oktober = ekimden itibaren."
+            },
+            {
+              "id": "n17",
+              "type": "line",
+              "speaker": "can",
+              "de": "Moment – du ziehst weg? Dann suchst du ja einen Nachmieter!",
+              "tr": "Dur bir dakika – taşınıyor musun? O zaman bir halef kiracı arıyorsun demektir!",
+              "next": "n18"
+            },
+            {
+              "id": "n18",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Ja. Und ich glaube, ich weiß schon, wer in mein Zimmer ziehen könnte …",
+              "tr": "Evet. Ve sanırım odama kimin taşınabileceğini biliyorum…",
+              "next": "end"
+            },
+            {
+              "id": "end",
+              "type": "end"
+            }
+          ],
+          "recap_tr": "Lina yılın sonunda mezuniyet sunumunu çok iyi yaptı: Café Kastanie'den ilham alan küçük bir kafe projesi. Hep birlikte kutladınız. Lina ekimden itibaren Leipzig'te bir mimarlık ofisinde çalışacak; odasına kimin taşınabileceği ise büyük soru…",
+          "vocab": [
+            "gratulieren",
+            "feiern",
+            "einladen",
+            "seit",
+            "ab",
+            "projekt"
+          ],
+          "grammar": [
+            {
+              "title_tr": "Tebrik ve davet",
+              "body_tr": "gratulieren + Dativ (zu + Dativ): Ich gratuliere dir zum Abschluss. einladen ayrılabilir: Ich lade dich ein.",
+              "example_de": "Ich gratuliere dir zum Abschluss!",
+              "concept": "g_dativ"
+            },
+            {
+              "title_tr": "Zaman: seit, ab, am, um",
+              "body_tr": "seit + süren durum (şimdiki zaman), ab = -den itibaren, am + gün, um + saat.",
+              "example_de": "Ab Oktober werde ich in Leipzig arbeiten.",
+              "concept": "g_zeitangaben"
+            },
+            {
+              "title_tr": "Sıfat çekimi",
+              "body_tr": "ein großes, helles Fenster · einem großen Garten: sıfat ismin cinsine ve hâline göre ek alır.",
+              "example_de": "Ein kleines Café mit einem großen, hellen Fenster.",
+              "concept": "g_adjektivendung"
+            }
+          ],
+          "quiz": [
+            {
+              "id": "q1",
+              "question_tr": "Lina'nın sunum projesi ne?",
+              "options": [
+                "Küçük bir kafe",
+                "Bir köprü",
+                "Bir okul"
+              ],
+              "answer": 0,
+              "explain_tr": "\"Mein Projekt ist ein kleines Café …\""
+            },
+            {
+              "id": "q2",
+              "question_tr": "Lina ekimden itibaren ne yapacak?",
+              "options": [
+                "Leipzig'te bir mimarlık ofisinde çalışacak",
+                "Berlin'de okuyacak",
+                "Hamburg'a taşınacak"
+              ],
+              "answer": 0,
+              "explain_tr": "\"Ab Oktober werde ich in einem Architekturbüro in Leipzig arbeiten.\""
+            },
+            {
+              "id": "q3",
+              "question_tr": "\"Ich gratuliere dir zum Abschluss\" ne demek?",
+              "options": [
+                "Mezuniyetini kutlarım",
+                "Seni mezuniyete davet ediyorum",
+                "Mezuniyetin için teşekkür ederim"
+              ],
+              "answer": 0,
+              "explain_tr": "gratulieren zu + Dativ = birini bir şey için tebrik etmek."
+            }
+          ],
+          "teaser_tr": "Lina taşınıyor. Odasına kim girecek? Ve bir kafe, yeni bir eleman arıyor…"
+        },
+        {
+          "id": "nib_e10_a2",
+          "number": 10,
+          "level": "A2",
+          "title": "Das Vorstellungsgespräch",
+          "title_tr": "İş görüşmesi",
+          "narrative_tr": "Café Kastanie'deki ilanı gör, başvur ve iş görüşmesine git.",
+          "objective_tr": "Başvuru ve iş görüşmesi: Konjunktiv II (könnten, hätte, würde), dolaylı soru, Perfekt ile deneyim anlatmak.",
+          "minutes": 10,
+          "start": "n1",
+          "scenario": "vorstellungsgespraech",
+          "nodes": [
+            {
+              "id": "n1",
+              "type": "narration",
+              "de": "Der Sommer ist fast vorbei. Du gehst am Café Kastanie vorbei und siehst einen Zettel an der grünen Tür.",
+              "tr": "Yaz neredeyse bitti. Café Kastanie'nin önünden geçiyorsun ve yeşil kapıda bir kâğıt görüyorsun.",
+              "next": "n2"
+            },
+            {
+              "id": "n2",
+              "type": "narration",
+              "de": "Darauf steht: „Wir suchen Verstärkung für unser Team! Teilzeit, 20 Stunden pro Woche. Bitte melden Sie sich bei Frau Albrecht.“",
+              "tr": "Üzerinde şöyle yazıyor: \"Ekibimize destek arıyoruz! Yarı zamanlı, haftada 20 saat. Lütfen Albrecht Hanım'a başvurun.\"",
+              "next": "n3"
+            },
+            {
+              "id": "n3",
+              "type": "line",
+              "speaker": "can",
+              "de": "Na? Hast du den Zettel gelesen? Die Chefin ist Herrn Albrechts Tochter!",
+              "tr": "Eee? Kâğıdı okudun mu? Şef, Albrecht Bey'in kızı!",
+              "next": "n4",
+              "gloss_tr": "die Tochter = kız evlat; Herrn Albrechts Tochter = Albrecht Bey'in kızı."
+            },
+            {
+              "id": "n4",
+              "type": "choice",
+              "prompt_tr": "Can'a ne dersin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Ich möchte mich bewerben. Könntest du ihr meine Bewerbung geben?",
+                  "tr": "Başvurmak istiyorum. Başvurumu ona verebilir misin?",
+                  "verdict": "best",
+                  "feedback_tr": "sich bewerben, Konjunktiv II: Könntest du …? yumuşak bir rica.",
+                  "next": "n5"
+                },
+                {
+                  "id": "b",
+                  "de": "Ich hätte Interesse an der Stelle. Wie läuft das Gespräch ab?",
+                  "tr": "Pozisyonla ilgileniyorum. Görüşme nasıl işliyor?",
+                  "verdict": "best",
+                  "feedback_tr": "Ich hätte Interesse = kibar ilgi bildirme. Dolaylı soru değil, normal soru: Wie läuft … ab?",
+                  "next": "n5"
+                },
+                {
+                  "id": "c",
+                  "de": "Ich will die Stelle haben, sofort!",
+                  "tr": "İşi istiyorum, hemen!",
+                  "verdict": "ok",
+                  "feedback_tr": "Heves güzel ama \"Ich will … sofort\" fazla sert. Kibar: \"Ich würde gern …\".",
+                  "next": "n5",
+                  "flags": [
+                    "direkt"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "n5",
+              "type": "line",
+              "speaker": "can",
+              "de": "Schick ihr eine E-Mail mit Lebenslauf. Aber schreib höflich!",
+              "tr": "Ona özgeçmişinle bir e-posta gönder. Ama kibar yaz!",
+              "next": "n6"
+            },
+            {
+              "id": "n6",
+              "type": "choice",
+              "prompt_tr": "E-postanın ilk cümlesi?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Sehr geehrte Frau Albrecht, ich bewerbe mich um die Stelle im Café Kastanie.",
+                  "tr": "Sayın Albrecht Hanım, Café Kastanie'deki pozisyona başvuruyorum.",
+                  "verdict": "best",
+                  "feedback_tr": "sich bewerben um + Akkusativ. Resmî selamlama.",
+                  "next": "n7"
+                },
+                {
+                  "id": "b",
+                  "de": "Liebe Frau Albrecht, ich habe Ihren Zettel gesehen und möchte mich bewerben.",
+                  "tr": "Sevgili Albrecht Hanım, ilanınızı gördüm ve başvurmak istiyorum.",
+                  "verdict": "ok",
+                  "feedback_tr": "Dil bilgisi doğru ama \"Liebe\" biraz fazla samimi; iş başvurusunda \"Sehr geehrte\" daha güvenli.",
+                  "next": "n7"
+                },
+                {
+                  "id": "c",
+                  "de": "Sehr geehrter Frau Albrecht, ich bewerbe mir um die Stelle.",
+                  "tr": "(iki hata)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Kadına \"geehrte\"; sich bewerben dönüşlüdür: \"ich bewerbe mich\". Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n7",
+              "type": "narration",
+              "de": "Zwei Tage später kommt die Antwort: „Kommen Sie am Donnerstag um zehn Uhr zum Vorstellungsgespräch.“",
+              "tr": "İki gün sonra cevap geliyor: \"Perşembe saat onda iş görüşmesine gelin.\"",
+              "next": "n8"
+            },
+            {
+              "id": "n8",
+              "type": "narration",
+              "de": "Am Donnerstag bist du schon um Viertel vor zehn da. Frau Albrecht, eine freundliche Frau mit grauen Haaren, begrüßt dich.",
+              "tr": "Perşembe günü ona çeyrek kala oradasın. Gri saçlı, güler yüzlü Albrecht Hanım seni karşılıyor.",
+              "next": "n9"
+            },
+            {
+              "id": "n9",
+              "type": "line",
+              "speaker": "frau_albrecht",
+              "de": "Schön, dass Sie da sind! Erzählen Sie mir doch bitte etwas über sich.",
+              "tr": "Geldiğinize sevindim! Lütfen biraz kendinizden bahsedin.",
+              "next": "n10"
+            },
+            {
+              "id": "n10",
+              "type": "choice",
+              "prompt_tr": "Kendini nasıl tanıtırsın?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Ich heiße {name} und wohne seit einem Jahr in Berlin. Ich habe schon in einem Café gearbeitet.",
+                  "tr": "Adım {name}, bir yıldır Berlin'de oturuyorum. Daha önce bir kafede çalışmıştım.",
+                  "verdict": "best",
+                  "feedback_tr": "seit + şimdiki zaman; Perfekt: habe … gearbeitet. Kısa ve net.",
+                  "next": "n11"
+                },
+                {
+                  "id": "b",
+                  "de": "Mein Name ist {name}. Ich bin zuverlässig und arbeite gern im Team.",
+                  "tr": "Adım {name}. Güvenilirim ve ekip içinde çalışmayı severim.",
+                  "verdict": "best",
+                  "feedback_tr": "zuverlässig + im Team: iş görüşmesinde sık duyulan kalıp.",
+                  "next": "n11"
+                },
+                {
+                  "id": "c",
+                  "de": "Ich {name}. Ich Berlin wohne.",
+                  "tr": "(fiil yanlış yerde)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Fiil ikinci sırada: \"Ich heiße {name}. Ich wohne in Berlin.\" Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n11",
+              "type": "line",
+              "speaker": "frau_albrecht",
+              "de": "Und warum möchten Sie bei uns arbeiten?",
+              "tr": "Peki neden bizde çalışmak istiyorsunuz?",
+              "next": "n12"
+            },
+            {
+              "id": "n12",
+              "type": "choice",
+              "prompt_tr": "Cevabın:",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Ich finde, dass Ihr Café sehr gemütlich ist. Außerdem arbeite ich gern mit Menschen.",
+                  "tr": "Bence kafeniz çok sıcak. Ayrıca insanlarla çalışmayı seviyorum.",
+                  "verdict": "best",
+                  "feedback_tr": "Ich finde, dass … fiil sonda. Doğal ve samimi.",
+                  "next": "n13"
+                },
+                {
+                  "id": "b",
+                  "de": "Ich würde gern bei Ihnen arbeiten, weil ich hier schon oft Kaffee getrunken habe und die Atmosphäre kenne.",
+                  "tr": "Sizde çalışmak isterdim, çünkü burada sık sık kahve içtim ve atmosferi tanıyorum.",
+                  "verdict": "best",
+                  "feedback_tr": "würde gern + mastar; weil … habe … getrunken: yan cümlede fiil sonda.",
+                  "next": "n13"
+                },
+                {
+                  "id": "c",
+                  "de": "Weil ich brauche Geld.",
+                  "tr": "(kelime sırası yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "weil ile fiil sona gider ve cümle tek başına durmaz: \"Ich möchte hier arbeiten, weil ich Geld brauche.\" Dürüst ama tam cümle kur. Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n13",
+              "type": "line",
+              "speaker": "frau_albrecht",
+              "de": "Gut. Haben Sie noch Fragen?",
+              "tr": "İyi. Sormak istediğiniz bir şey var mı?",
+              "next": "n14"
+            },
+            {
+              "id": "n14",
+              "type": "choice",
+              "prompt_tr": "Kibarca sor:",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Ja, ich hätte eine Frage: Wie viele Stunden pro Woche würde ich arbeiten?",
+                  "tr": "Evet, bir sorum olacaktı: Haftada kaç saat çalışırdım?",
+                  "verdict": "best",
+                  "feedback_tr": "Ich hätte eine Frage + würde: iki Konjunktiv II kalıbı.",
+                  "next": "n15"
+                },
+                {
+                  "id": "b",
+                  "de": "Könnten Sie mir bitte sagen, ob ich auch am Wochenende arbeiten müsste?",
+                  "tr": "Hafta sonu da çalışmam gerekip gerekmeyeceğini söyleyebilir misiniz lütfen?",
+                  "verdict": "best",
+                  "feedback_tr": "Könnten Sie mir sagen, ob …: dolaylı soru + Konjunktiv II. Mükemmel!",
+                  "next": "n15"
+                },
+                {
+                  "id": "c",
+                  "de": "Könnten Sie mir sagen, ob muss ich am Wochenende arbeiten?",
+                  "tr": "(kelime sırası yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Dolaylı soruda fiil sona gider: \"ob ich am Wochenende arbeiten muss\". Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n15",
+              "type": "line",
+              "speaker": "frau_albrecht",
+              "de": "Zwanzig Stunden, meistens vormittags. Am Wochenende nur jeden zweiten Samstag.",
+              "tr": "Yirmi saat, çoğunlukla öğleden önce. Hafta sonu sadece iki cumartesiden birinde.",
+              "next": "n16"
+            },
+            {
+              "id": "n16",
+              "type": "branch",
+              "cases": [
+                {
+                  "flag": "direkt",
+                  "next": "n16a"
+                }
+              ],
+              "else": "n17"
+            },
+            {
+              "id": "n16a",
+              "type": "line",
+              "speaker": "frau_albrecht",
+              "de": "Und noch ein Tipp: „Ich will“ klingt im Gespräch ein bisschen hart. „Ich würde gern“ klingt viel freundlicher.",
+              "tr": "Bir de ipucu: \"Ich will\" görüşmede biraz sert duyuluyor. \"Ich würde gern\" çok daha dostça.",
+              "next": "n17"
+            },
+            {
+              "id": "n17",
+              "type": "line",
+              "speaker": "frau_albrecht",
+              "de": "Wissen Sie was? Ich habe ein gutes Gefühl. Können Sie nächsten Montag anfangen?",
+              "tr": "Biliyor musunuz? İçimde iyi bir his var. Gelecek pazartesi başlayabilir misiniz?",
+              "next": "n18"
+            },
+            {
+              "id": "n18",
+              "type": "line",
+              "speaker": "can",
+              "de": "(hinter der Theke, leise) Willkommen im Team!",
+              "tr": "(tezgâhın arkasından, fısıltıyla) Ekibe hoş geldin!",
+              "next": "end"
+            },
+            {
+              "id": "end",
+              "type": "end"
+            }
+          ],
+          "recap_tr": "Café Kastanie'de yarı zamanlı bir iş ilanı gördün, kibar bir e-postayla başvurdun ve iş görüşmesine gittin. Albrecht Hanım seni işe aldı: Gelecek pazartesi başlıyorsun. Can seni ekibe karşılıyor!",
+          "vocab": [
+            "bewerben",
+            "stelle",
+            "teilzeit",
+            "vorstellungsgespraech",
+            "zuverlaessig",
+            "team"
+          ],
+          "grammar": [
+            {
+              "title_tr": "Kibar rica ve soru: könnte, hätte, würde",
+              "body_tr": "Konjunktiv II ricayı yumuşatır: Könnten Sie …? Ich hätte eine Frage. Ich würde gern …",
+              "example_de": "Könnten Sie mir bitte sagen, ob ich auch am Wochenende arbeiten müsste?",
+              "concept": "g_konjunktiv2"
+            },
+            {
+              "title_tr": "Dolaylı soru: ob, wie viele …",
+              "body_tr": "Soru başka bir cümlenin içinde olunca çekimli fiil sona gider.",
+              "example_de": "Wissen Sie, ob ich am Wochenende arbeiten muss?",
+              "concept": "g_indirekte_frage"
+            },
+            {
+              "title_tr": "Dönüşlü: sich bewerben",
+              "body_tr": "ich bewerbe mich, du bewirbst dich, er bewirbt sich + um + Akkusativ.",
+              "example_de": "Ich bewerbe mich um die Stelle.",
+              "concept": "g_reflexiv"
+            }
+          ],
+          "quiz": [
+            {
+              "id": "q1",
+              "question_tr": "Ilan nerede asılıydı?",
+              "options": [
+                "Café Kastanie'nin yeşil kapısında",
+                "Fırında",
+                "Üniversitede"
+              ],
+              "answer": 0,
+              "explain_tr": "\"einen Zettel an der grünen Tür\""
+            },
+            {
+              "id": "q2",
+              "question_tr": "Pozisyon kaç saat?",
+              "options": [
+                "Haftada 20 saat",
+                "Haftada 40 saat",
+                "Günde 4 saat"
+              ],
+              "answer": 0,
+              "explain_tr": "\"Teilzeit, 20 Stunden pro Woche\""
+            },
+            {
+              "id": "q3",
+              "question_tr": "Hangisi daha kibar?",
+              "options": [
+                "Ich würde gern bei Ihnen arbeiten.",
+                "Ich will bei Ihnen arbeiten."
+              ],
+              "answer": 0,
+              "explain_tr": "Konjunktiv II (würde gern) isteği yumuşatır."
+            }
+          ],
+          "teaser_tr": "Yeni bir iş, yeni bir oda, yeni bir hayat. İkinci sezonun devamı hazırlanıyor."
         }
       ]
     }

@@ -107,6 +107,7 @@ final milestones = <Milestone>[
   Milestone(id: 'all_scenarios', icon: 'forum', titleTr: 'Gerçek hayata hazır', descriptionTr: 'Altı farklı gerçek hayat senaryosunu tamamla.', target: 6, progress: (f) => f.scenarios.length),
   Milestone(id: 'story_season', icon: 'book', titleTr: 'Kartpostalın peşinde', descriptionTr: '"Neu in Berlin"in beş bölümünü bitir.', target: 5, progress: (f) => f.episodeNumbers.length),
   Milestone(id: 'story_finale', icon: 'mail', titleTr: 'Kırk yıl sonra', descriptionTr: '"Neu in Berlin"in ilk sezonunu (8 bölüm) bitir.', target: 8, progress: (f) => f.episodeNumbers.length),
+  Milestone(id: 'story_all', icon: 'book', titleTr: 'Yeni bir başlangıç', descriptionTr: '"Neu in Berlin"in 10 bölümünü bitir: Lina mezun oluyor, sen iş buluyorsun.', target: 10, progress: (f) => f.episodeNumbers.length),
   Milestone(id: 'detective', icon: 'search', titleTr: 'Dedektif', descriptionTr: 'Gizem panosundaki tüm ipuçlarını kelimeleriyle çöz.', target: 6, progress: (f) => 0), // computed from clues in evaluateMilestones
   Milestone(id: 'path_half', icon: 'route', titleTr: 'Yolun yarısı', descriptionTr: 'A1 yolunda 12 ders tamamla.', target: 12, progress: (f) => f.lessons.where((l) => RegExp(r'^u\d').hasMatch(l)).length),
   Milestone(id: 'path_done', icon: 'school', titleTr: 'A1 yolu tamam', descriptionTr: 'A1 yolunun 24 dersinin hepsini tamamla.', target: 24, progress: (f) => f.lessons.where((l) => RegExp(r'^u\d').hasMatch(l)).length),
