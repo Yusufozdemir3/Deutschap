@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.3",
+  "version": "2026.10.4",
   "texts": [
     {
       "id": "r_mein_zimmer", "title": "Mein Zimmer", "level": "A1", "minutes": 2, "topic_tr": "Ev ve eşyalar", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
@@ -319,6 +319,51 @@
         {"question_tr": "Aylin ne kadar zamandır ev arıyor?", "options": ["İki aydır", "İki haftadır", "İki yıldır"], "answer": 0, "explain_tr": "\"seit zwei Monaten\""},
         {"question_tr": "Daire görmeye kaç kişi gelmiş?", "options": ["Yaklaşık kırk", "Yalnızca beş", "Yirmi"], "answer": 0, "explain_tr": "\"standen schon vierzig Leute vor der Tür\""},
         {"question_tr": "Sonuç ne oldu?", "options": ["Başka biri seçildi", "Aylin daireyi tuttu", "Daire satıldı"], "answer": 0, "explain_tr": "\"Leider haben wir eine andere Person genommen.\""}
+      ]
+    },
+    {
+      "id": "r_fischer_frau", "title": "Der Fischer und seine Frau", "level": "B1", "minutes": 6, "topic_tr": "Masal", "source_tr": "Grimm Kardeşler, Kinder- und Hausmärchen (KHM 19, 1857) · kamu malı. Deutschap'ın sadeleştirilmiş uyarlaması · CC0",
+      "paragraphs": [
+        {"de": "Es war einmal ein Fischer, der mit seiner Frau in einer kleinen, armen Hütte am Meer lebte. Jeden Tag ging er zum Wasser und fischte.", "tr": "Bir zamanlar denizin kıyısında karısıyla küçük, yoksul bir kulübede yaşayan bir balıkçı varmış. Her gün suya gider ve balık tutarmış."},
+        {"de": "Eines Tages hatte er einen großen Butt an der Angel. Der Fisch sprach: „Bitte lass mich leben! Ich bin ein verzauberter Prinz.“ Der Fischer warf ihn zurück ins Wasser, ohne etwas zu verlangen.", "tr": "Bir gün oltasında büyük bir kalkan balığı yakalamış. Balık konuşmuş: \"Lütfen beni yaşat! Ben büyülenmiş bir prensim.\" Balıkçı hiçbir şey istemeden onu suya geri bırakmış."},
+        {"de": "Als seine Frau davon hörte, wurde sie wütend. „Du hast dir nichts gewünscht? Geh zurück und wünsch dir ein schönes Haus!“ Der Fischer ging ans Meer und rief den Fisch. Der Wunsch wurde erfüllt.", "tr": "Karısı bunu duyunca öfkelenmiş. \"Hiçbir şey dilemedin mi? Geri git ve güzel bir ev dile!\" Balıkçı denize gitmiş ve balığı çağırmış. Dilek yerine gelmiş."},
+        {"de": "Aber die Frau war nie zufrieden. Zuerst wollte sie ein Schloss, dann wollte sie Königin sein, später sogar Kaiserin und zuletzt wie Gott. Mit jedem Wunsch wurde das Meer dunkler und der Sturm stärker.", "tr": "Ama kadın hiçbir zaman memnun olmamış. Önce bir saray istemiş, sonra kraliçe olmak, daha sonra hatta imparatoriçe ve en sonunda tanrı gibi olmak istemiş. Her dilekle birlikte deniz daha da kararmış ve fırtına şiddetlenmiş."},
+        {"de": "Beim letzten Wunsch sagte der Fisch nur: „Geh nach Hause. Sie sitzt wieder in ihrer armen Hütte.“ Und so war es. Wer nie genug bekommt, verliert am Ende alles.", "tr": "Son dilekte balık sadece şöyle demiş: \"Eve git. O yine yoksul kulübesinde oturuyor.\" Ve öyle olmuş. Hiçbir zaman yeterince alamayan, sonunda her şeyi kaybeder."}
+      ],
+      "questions": [
+        {"question_tr": "Balıkçı kalkan balığına ne yaptı?", "options": ["Onu suya geri bıraktı", "Evine götürdü", "Karısına verdi"], "answer": 0, "explain_tr": "\"warf ihn zurück ins Wasser\""},
+        {"question_tr": "Kadın neden hep yeni bir şey istedi?", "options": ["Hiç memnun olmadı", "Çok yoksuldu", "Balık zorla verdi"], "answer": 0, "explain_tr": "\"die Frau war nie zufrieden\""},
+        {"question_tr": "Masalın dersi ne?", "options": ["Doymak bilmeyen sonunda her şeyi kaybeder", "Balıklara güvenilmez", "Denizden uzak durulmalı"], "answer": 0, "explain_tr": "\"Wer nie genug bekommt, verliert am Ende alles.\""}
+      ]
+    },
+    {
+      "id": "r_aschenputtel", "title": "Aschenputtel (gekürzt)", "level": "B1", "minutes": 6, "topic_tr": "Masal", "source_tr": "Grimm Kardeşler, Kinder- und Hausmärchen (KHM 21, 1857) · kamu malı. Deutschap'ın sadeleştirilmiş uyarlaması · CC0",
+      "paragraphs": [
+        {"de": "Einem reichen Mann starb die Frau. Er heiratete eine andere Frau, die zwei eigene Töchter hatte. Die Stieftöchter waren schön, aber sie behandelten das Mädchen schlecht und ließen es die ganze Hausarbeit machen.", "tr": "Zengin bir adamın karısı ölmüş. Başka bir kadınla evlenmiş; kadının kendi iki kızı varmış. Üvey kız kardeşler güzelmiş ama kıza kötü davranıyor ve bütün ev işini ona yaptırıyorlarmış."},
+        {"de": "Abends schlief das Mädchen neben dem Herd in der Asche. Deshalb nannten sie es Aschenputtel. Am Grab seiner Mutter pflanzte es einen kleinen Baum, der schnell groß wurde.", "tr": "Akşamları kız ocağın yanında külün içinde uyurmuş. Bu yüzden ona Aschenputtel (Külkedisi) demişler. Annesinin mezarına küçük bir ağaç dikmiş; ağaç hızla büyümüş."},
+        {"de": "Eines Tages lud der König alle jungen Mädchen zu einem Fest ein. Aschenputtel wollte auch gehen, aber die Stiefmutter erlaubte es nicht. Da bat es den Baum um Hilfe, und ein Vogel brachte ihm ein wunderschönes Kleid.", "tr": "Bir gün kral bütün genç kızları bir şenliğe davet etmiş. Aschenputtel de gitmek istemiş ama üvey anne izin vermemiş. Bunun üzerine ağaçtan yardım istemiş ve bir kuş ona harika bir elbise getirmiş."},
+        {"de": "Auf dem Fest tanzte der Königssohn nur mit ihm. Als es spät wurde, lief Aschenputtel nach Hause und verlor dabei einen goldenen Schuh auf der Treppe. Der Prinz nahm den Schuh und sagte: „Ich heirate nur die, der dieser Schuh passt.“", "tr": "Şenlikte prens sadece onunla dans etmiş. Geç olunca Aschenputtel eve koşmuş ve merdivende altın bir ayakkabısını kaybetmiş. Prens ayakkabıyı almış ve \"Ben sadece bu ayakkabının ayağına uyduğu kızla evlenirim\" demiş."},
+        {"de": "Die Stiefschwestern versuchten, den Schuh anzuziehen, aber er war zu klein. Zuletzt probierte ihn Aschenputtel – und er passte. Der Prinz erkannte es sofort und nahm es mit auf sein Schloss.", "tr": "Üvey kız kardeşler ayakkabıyı giymeye çalışmış ama çok küçük gelmiş. En son Aschenputtel denemiş – ve tam olmuş. Prens onu hemen tanımış ve sarayına götürmüş."}
+      ],
+      "questions": [
+        {"question_tr": "Kıza neden Aschenputtel denmiş?", "options": ["Küllerin içinde uyuduğu için", "Kül rengi saçları olduğu için", "Ocakta çalıştığı için"], "answer": 0, "explain_tr": "\"schlief … in der Asche. Deshalb nannten sie es Aschenputtel.\""},
+        {"question_tr": "Prens kiminle evlenmek istedi?", "options": ["Ayakkabının tam uyduğu kızla", "En güzel kızla", "En zengin kızla"], "answer": 0, "explain_tr": "\"Ich heirate nur die, der dieser Schuh passt.\""},
+        {"question_tr": "Aschenputtel'e elbiseyi kim getirdi?", "options": ["Bir kuş", "Üvey anne", "Kral"], "answer": 0, "explain_tr": "\"ein Vogel brachte ihm ein wunderschönes Kleid\""}
+      ]
+    },
+    {
+      "id": "r_fahrrad_stadt", "title": "Die Stadt der Fahrräder", "level": "B1", "minutes": 6, "topic_tr": "Çevre ve ulaşım", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "paragraphs": [
+        {"de": "In vielen deutschen Städten wird das Fahrrad immer wichtiger. Obwohl das Wetter nicht immer gut ist, fahren Tausende Menschen jeden Tag mit dem Rad zur Arbeit.", "tr": "Birçok Alman şehrinde bisiklet giderek daha önemli hâle geliyor. Hava her zaman iyi olmasa da binlerce kişi her gün bisikletle işe gidiyor."},
+        {"de": "Die Gründe sind klar: Das Fahrrad ist billiger als ein Auto, es ist gesund und schützt die Umwelt. Außerdem muss man keinen Parkplatz suchen, was in großen Städten ein echtes Problem ist.", "tr": "Nedenler açık: Bisiklet arabadan ucuz, sağlıklı ve çevreyi koruyor. Ayrıca park yeri aramak gerekmiyor; büyük şehirlerde bu gerçek bir sorun."},
+        {"de": "Damit mehr Menschen aufs Rad umsteigen, werden neue Radwege gebaut. In Kopenhagen, das als Vorbild gilt, gibt es sogar Fahrradstraßen, auf denen Autos nur zu Gast sind.", "tr": "Daha fazla insan bisiklete geçsin diye yeni bisiklet yolları yapılıyor. Örnek gösterilen Kopenhag'da arabaların sadece misafir olduğu bisiklet sokakları bile var."},
+        {"de": "Aber nicht alle sind begeistert. Einerseits freuen sich viele über weniger Lärm und bessere Luft, andererseits beschweren sich manche Geschäfte, dass weniger Kunden mit dem Auto kommen.", "tr": "Ama herkes memnun değil. Bir yandan birçok kişi daha az gürültüye ve daha temiz havaya seviniyor; öte yandan bazı dükkânlar arabayla daha az müşteri gelmesinden şikâyet ediyor."},
+        {"de": "Meiner Meinung nach ist die beste Lösung ein Mix: gute Radwege, ein starker öffentlicher Verkehr und Parkplätze nur dort, wo sie wirklich nötig sind.", "tr": "Bence en iyi çözüm bir karışım: iyi bisiklet yolları, güçlü toplu taşıma ve park yerleri sadece gerçekten gerekli olan yerlerde."}
+      ],
+      "questions": [
+        {"question_tr": "Metne göre bisikletin avantajlarından biri nedir?", "options": ["Park yeri aramak gerekmiyor", "Her havada hızlı", "Yük taşımak için ideal"], "answer": 0, "explain_tr": "\"Außerdem muss man keinen Parkplatz suchen\""},
+        {"question_tr": "Bazı dükkânlar neden şikâyetçi?", "options": ["Arabayla daha az müşteri geliyor", "Bisiklet yolları gürültülü", "Park ücretleri arttı"], "answer": 0, "explain_tr": "\"weniger Kunden mit dem Auto kommen\""},
+        {"question_tr": "Yazarın önerdiği çözüm ne?", "options": ["Bisiklet yolu, toplu taşıma ve gerektiği kadar park yeri karışımı", "Sadece bisiklet", "Arabaları yasaklamak"], "answer": 0, "explain_tr": "\"die beste Lösung ein Mix\""}
       ]
     }
   ]

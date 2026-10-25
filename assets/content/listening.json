@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.2",
+  "version": "2026.10.3",
   "tracks": [
     {
       "id": "l_bahnhof", "title": "Durchsagen am Bahnhof", "level": "A1", "minutes": 2, "topic_tr": "Yolculuk", "kind_tr": "Anons", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
@@ -232,6 +232,40 @@
         {"question_tr": "Hamburg'da ne başlıyor?", "options": ["Bisiklet haftası", "Müzik festivali", "Kitap fuarı"], "answer": 0, "explain_tr": "\"die große Fahrradwoche\""},
         {"question_tr": "Hafta sonu Köln–Düsseldorf arasında ne var?", "options": ["Tren yerine otobüs", "Hiç ulaşım yok", "Ek tren seferleri"], "answer": 0, "explain_tr": "\"keine Züge … Busse als Ersatz\""},
         {"question_tr": "Yarın hava nasıl?", "options": ["Güneşli, 22 dereceye kadar", "Yağmurlu", "Karlı"], "answer": 0, "explain_tr": "\"sonnig, bis zu zweiundzwanzig Grad\""}
+      ]
+    },
+    {
+      "id": "l_radio_diskussion", "title": "Radiodiskussion: Autos in der Stadt", "level": "B1", "minutes": 3, "topic_tr": "Çevre ve ulaşım", "kind_tr": "Radyo tartışması", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "lines": [
+        {"speaker": "Moderatorin", "de": "Heute diskutieren wir die Frage: Sollen Autos aus der Innenstadt verschwinden? Ich begrüße Herrn Weiß vom Verkehrsverband und Frau Demir von einer Bürgerinitiative.", "tr": "Bugün şu soruyu tartışıyoruz: Arabalar şehir merkezinden çıkmalı mı? Ulaşım Birliği'nden Weiß Bey'i ve bir vatandaş girişiminden Demir Hanım'ı selamlıyorum."},
+        {"speaker": "Frau Demir", "de": "Meiner Meinung nach ja. Wir haben zu viel Lärm und schlechte Luft. Außerdem sind die Straßen gefährlich für Kinder.", "tr": "Bence evet. Çok gürültümüz ve kötü havamız var. Ayrıca sokaklar çocuklar için tehlikeli."},
+        {"speaker": "Herr Weiß", "de": "Einerseits verstehe ich das. Andererseits sind viele Menschen auf das Auto angewiesen, zum Beispiel Handwerker oder ältere Leute.", "tr": "Bir yandan bunu anlıyorum. Öte yandan birçok kişi arabaya muhtaç, örneğin esnaf ya da yaşlılar."},
+        {"speaker": "Frau Demir", "de": "Niemand will alle Autos verbieten. Aber wenn der Bus öfter fährt und die Radwege besser sind, brauchen viele gar kein Auto mehr.", "tr": "Kimse bütün arabaları yasaklamak istemiyor. Ama otobüs daha sık gelirse ve bisiklet yolları daha iyi olursa birçok kişinin hiç arabaya ihtiyacı kalmaz."},
+        {"speaker": "Herr Weiß", "de": "Dafür braucht die Stadt aber Geld. Obwohl die Idee gut ist, müssen wir realistisch bleiben.", "tr": "Bunun için şehrin paraya ihtiyacı var ama. Fikir iyi olsa da gerçekçi kalmalıyız."},
+        {"speaker": "Moderatorin", "de": "Vielen Dank für das Gespräch. Wir bleiben beim Thema und hören gleich Ihre Anrufe.", "tr": "Sohbet için çok teşekkürler. Konuda kalıyoruz ve birazdan sizin aramalarınızı dinleyeceğiz."}
+      ],
+      "questions": [
+        {"question_tr": "Demir Hanım'ın temel argümanı nedir?", "options": ["Gürültü, kötü hava ve çocuklar için tehlike", "Arabalar çok pahalı", "Otobüsler çok kalabalık"], "answer": 0, "explain_tr": "\"zu viel Lärm und schlechte Luft … gefährlich für Kinder\""},
+        {"question_tr": "Weiß Bey kimlerin arabaya muhtaç olduğunu söylüyor?", "options": ["Esnaf ve yaşlılar", "Öğrenciler", "Turistler"], "answer": 0, "explain_tr": "\"Handwerker oder ältere Leute\""},
+        {"question_tr": "Weiß Bey'in itirazı ne?", "options": ["Şehrin buna yetecek parası yok", "Hiç sorun yok", "Bisiklet yolları tehlikeli"], "answer": 0, "explain_tr": "\"Dafür braucht die Stadt aber Geld.\""}
+      ]
+    },
+    {
+      "id": "l_ausbildung", "title": "Ein Gespräch über die Ausbildung", "level": "B1", "minutes": 3, "topic_tr": "İş ve eğitim", "kind_tr": "Röportaj", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "lines": [
+        {"speaker": "Reporter", "de": "Lena, du machst eine Ausbildung zur Köchin. Was gefällt dir daran?", "tr": "Lena, aşçılık eğitimi görüyorsun. Bunda neyi seviyorsun?"},
+        {"speaker": "Lena", "de": "Ich arbeite praktisch, und ich lerne jeden Tag etwas Neues. Außerdem verdiene ich schon Geld, obwohl ich noch Schülerin bin.", "tr": "Pratik çalışıyorum ve her gün yeni bir şey öğreniyorum. Ayrıca hâlâ öğrenci olmama rağmen şimdiden para kazanıyorum."},
+        {"speaker": "Reporter", "de": "Wie sieht dein Alltag aus?", "tr": "Günlük hayatın nasıl?"},
+        {"speaker": "Lena", "de": "Drei Tage pro Woche arbeite ich im Restaurant, zwei Tage gehe ich in die Berufsschule. Dort lerne ich zum Beispiel Hygiene und Ernährung.", "tr": "Haftada üç gün restoranda çalışıyorum, iki gün meslek okuluna gidiyorum. Orada örneğin hijyen ve beslenme öğreniyorum."},
+        {"speaker": "Reporter", "de": "Und was war am schwersten?", "tr": "Peki en zor olan neydi?"},
+        {"speaker": "Lena", "de": "Am Anfang war es sehr stressig, weil die Küche laut und schnell ist. Aber nachdem ich mich daran gewöhnt hatte, hat es richtig Spaß gemacht.", "tr": "Başta çok streslidi, çünkü mutfak gürültülü ve hızlı. Ama alıştıktan sonra gerçekten keyif vermeye başladı."},
+        {"speaker": "Reporter", "de": "Was möchtest du nach der Ausbildung machen?", "tr": "Eğitimden sonra ne yapmak istersin?"},
+        {"speaker": "Lena", "de": "Ich würde gern ein Jahr im Ausland arbeiten, damit ich noch mehr lernen kann.", "tr": "Bir yıl yurt dışında çalışmak isterim, daha çok şey öğrenebileyim diye."}
+      ],
+      "questions": [
+        {"question_tr": "Lena haftada kaç gün meslek okuluna gidiyor?", "options": ["İki gün", "Üç gün", "Beş gün"], "answer": 0, "explain_tr": "\"zwei Tage gehe ich in die Berufsschule\""},
+        {"question_tr": "Başta neden zorlandı?", "options": ["Mutfak gürültülü ve hızlı", "Yemek yapmayı bilmiyordu", "İş arkadaşları kötüydü"], "answer": 0, "explain_tr": "\"weil die Küche laut und schnell ist\""},
+        {"question_tr": "Eğitimden sonra ne planlıyor?", "options": ["Bir yıl yurt dışında çalışmak", "Kendi restoranını açmak", "Üniversiteye gitmek"], "answer": 0, "explain_tr": "\"ein Jahr im Ausland arbeiten\""}
       ]
     }
   ]
