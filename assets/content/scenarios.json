@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.2",
+  "version": "2026.10.3",
   "scenarios": [
     {
       "id": "kennenlernen",
@@ -2484,6 +2484,913 @@
         "adresse",
         "wohnungsgeberbestaetigung",
         "umziehen"
+      ]
+    },
+    {
+      "id": "restaurant",
+      "title_de": "Im Restaurant bestellen",
+      "title_tr": "Restoranda sipariş vermek",
+      "level": "A1",
+      "objective_tr": "Masa iste, ne istediğini söyle ve hesabı iste.",
+      "setting_tr": "Akşam yemeği için küçük bir restorana gidiyorsun. Garson Bay Fischer seni karşılıyor.",
+      "partner": "Herr Fischer",
+      "partner_role_tr": "Garson",
+      "formal": true,
+      "service": true,
+      "opening": {
+        "de": "Guten Abend! Haben Sie reserviert?",
+        "tr": "İyi akşamlar! Rezervasyonunuz var mı?"
+      },
+      "goals": [
+        {
+          "id": "tisch",
+          "label_tr": "Bir masa iste",
+          "hints": [
+            {
+              "de": "Einen Tisch für zwei Personen, bitte.",
+              "tr": "İki kişilik bir masa lütfen."
+            },
+            {
+              "de": "Haben Sie einen Tisch für eine Person?",
+              "tr": "Tek kişilik bir masanız var mı?"
+            }
+          ]
+        },
+        {
+          "id": "bestellen",
+          "label_tr": "Yemek ve içecek söyle",
+          "hints": [
+            {
+              "de": "Ich nehme die Suppe und ein Wasser.",
+              "tr": "Çorba ve bir su alıyorum."
+            },
+            {
+              "de": "Ich hätte gern einen Salat und einen Tee.",
+              "tr": "Bir salata ve bir çay rica ediyorum."
+            }
+          ]
+        },
+        {
+          "id": "rechnung",
+          "label_tr": "Hesabı iste",
+          "hints": [
+            {
+              "de": "Die Rechnung, bitte.",
+              "tr": "Hesap lütfen."
+            },
+            {
+              "de": "Ich möchte bezahlen.",
+              "tr": "Ödemek istiyorum."
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "id": "tisch",
+          "goal": "tisch",
+          "match": [
+            {
+              "pattern": "(tisch|platz|person|reserviert|zwei|drei|einen)",
+              "de": "Gern, bitte folgen Sie mir. Hier ist die Karte. Was möchten Sie trinken?",
+              "tr": "Tabii, lütfen beni takip edin. İşte menü. Ne içmek istersiniz?"
+            }
+          ]
+        },
+        {
+          "id": "bestellen",
+          "goal": "bestellen",
+          "requires": [
+            "tisch"
+          ],
+          "blocked": {
+            "de": "Einen Moment, für wie viele Personen?",
+            "tr": "Bir dakika, kaç kişisiniz?"
+          },
+          "match": [
+            {
+              "pattern": "(nehme|hätte|haette|moechte|suppe|salat|wasser|tee|kaffee|bier|saft|pizza|fisch|nudeln|kuchen|bitte ein)",
+              "de": "Sehr gern. Das dauert etwa zehn Minuten. Sonst noch etwas?",
+              "tr": "Memnuniyetle. Yaklaşık on dakika sürer. Başka bir şey?"
+            }
+          ]
+        },
+        {
+          "id": "rechnung",
+          "goal": "rechnung",
+          "requires": [
+            "bestellen"
+          ],
+          "blocked": {
+            "de": "Was möchten Sie denn bestellen?",
+            "tr": "Peki ne sipariş etmek istersiniz?"
+          },
+          "match": [
+            {
+              "pattern": "(rechnung|bezahlen|zahlen|kostet|karte|bar)",
+              "de": "Das macht zusammen 23 Euro 50. Zusammen oder getrennt?",
+              "tr": "Hepsi 23,50 euro tutuyor. Birlikte mi ayrı mı?"
+            }
+          ]
+        },
+        {
+          "id": "danke",
+          "match": [
+            {
+              "pattern": "\\b(danke|vielen dank)\\b",
+              "de": "Gern geschehen.",
+              "tr": "Rica ederim."
+            }
+          ]
+        },
+        {
+          "id": "wiederholen",
+          "match": [
+            {
+              "pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen|nicht verstanden)",
+              "de": "Natürlich: Heute gibt es Suppe, Salat und Fisch.",
+              "tr": "Tabii: Bugün çorba, salata ve balık var."
+            }
+          ]
+        }
+      ],
+      "fallback": [
+        {
+          "de": "Entschuldigung, wie bitte?",
+          "tr": "Pardon, efendim?"
+        },
+        {
+          "de": "Möchten Sie einen Tisch?",
+          "tr": "Bir masa mı istiyorsunuz?"
+        }
+      ],
+      "closing": {
+        "de": "Vielen Dank, einen schönen Abend noch!",
+        "tr": "Çok teşekkürler, iyi akşamlar!"
+      },
+      "vocab": [
+        "rechnung",
+        "zahlen",
+        "bezahlen",
+        "ich_haette_gern",
+        "trinken",
+        "essen",
+        "zusammen",
+        "getrennt"
+      ]
+    },
+    {
+      "id": "busticket",
+      "title_de": "Eine Busfahrkarte kaufen",
+      "title_tr": "Otobüs bileti almak",
+      "level": "A1",
+      "objective_tr": "Şehir içi bilet iste, fiyatı sor ve sonraki durağı öğren.",
+      "setting_tr": "Berlin'de bir durakta otobüs bekliyorsun. Bilet otomatını kullanmayı bilmiyorsun; yanındaki kadına soruyorsun.",
+      "partner": "Frau Neumann",
+      "partner_role_tr": "Durakta bekleyen kadın",
+      "formal": false,
+      "service": false,
+      "opening": {
+        "de": "Hallo! Brauchen Sie Hilfe?",
+        "tr": "Merhaba! Yardıma ihtiyacınız var mı?"
+      },
+      "goals": [
+        {
+          "id": "ticket",
+          "label_tr": "Bilet almak istediğini söyle",
+          "hints": [
+            {
+              "de": "Ich brauche eine Fahrkarte.",
+              "tr": "Bir bilete ihtiyacım var."
+            },
+            {
+              "de": "Wie kaufe ich eine Fahrkarte?",
+              "tr": "Bilet nasıl alınır?"
+            }
+          ]
+        },
+        {
+          "id": "preis",
+          "label_tr": "Fiyatı sor",
+          "hints": [
+            {
+              "de": "Was kostet eine Fahrkarte?",
+              "tr": "Bir bilet ne kadar?"
+            },
+            {
+              "de": "Wie viel kostet das?",
+              "tr": "Bu ne kadar?"
+            }
+          ]
+        },
+        {
+          "id": "halt",
+          "label_tr": "Hangi duraktan ineceğini sor",
+          "hints": [
+            {
+              "de": "Wo muss ich aussteigen?",
+              "tr": "Nerede inmem gerekiyor?"
+            },
+            {
+              "de": "Hält der Bus am Bahnhof?",
+              "tr": "Otobüs istasyonda duruyor mu?"
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "id": "ticket",
+          "goal": "ticket",
+          "match": [
+            {
+              "pattern": "(fahrkarte|ticket|karte|automat|brauche|kaufen)",
+              "de": "Ja, am Automaten. Sie wählen „Einzelfahrt“ und bezahlen mit Karte oder Münzen.",
+              "tr": "Evet, otomattan. \"Tek yolculuk\"u seçip kartla ya da bozuk parayla ödüyorsunuz."
+            }
+          ]
+        },
+        {
+          "id": "preis",
+          "goal": "preis",
+          "requires": [
+            "ticket"
+          ],
+          "blocked": {
+            "de": "Wohin möchten Sie denn fahren?",
+            "tr": "Peki nereye gitmek istiyorsunuz?"
+          },
+          "match": [
+            {
+              "pattern": "(kostet|kosten|preis|euro|teuer|wie viel)",
+              "de": "Eine Einzelfahrt kostet drei Euro. Das Ticket gilt zwei Stunden.",
+              "tr": "Tek yolculuk üç euro. Bilet iki saat geçerli."
+            }
+          ]
+        },
+        {
+          "id": "halt",
+          "goal": "halt",
+          "requires": [
+            "preis"
+          ],
+          "blocked": {
+            "de": "Haben Sie schon die Fahrkarte?",
+            "tr": "Biletiniz var mı?"
+          },
+          "match": [
+            {
+              "pattern": "(aussteigen|halt|haelt|haltestelle|bahnhof|wo muss|welche|naechste)",
+              "de": "Der Bus hält am Bahnhof, das ist die vierte Haltestelle. Ich steige auch dort aus.",
+              "tr": "Otobüs istasyonda duruyor, dördüncü durak. Ben de orada iniyorum."
+            }
+          ]
+        },
+        {
+          "id": "danke",
+          "match": [
+            {
+              "pattern": "\\b(danke|vielen dank)\\b",
+              "de": "Gern geschehen.",
+              "tr": "Rica ederim."
+            }
+          ]
+        },
+        {
+          "id": "wiederholen",
+          "match": [
+            {
+              "pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen|nicht verstanden)",
+              "de": "Gern: Einzelfahrt, drei Euro, vierte Haltestelle.",
+              "tr": "Tabii: tek yolculuk, üç euro, dördüncü durak."
+            }
+          ]
+        }
+      ],
+      "fallback": [
+        {
+          "de": "Wie bitte?",
+          "tr": "Efendim?"
+        },
+        {
+          "de": "Wohin möchten Sie fahren?",
+          "tr": "Nereye gitmek istiyorsunuz?"
+        }
+      ],
+      "closing": {
+        "de": "Da kommt er schon! Gute Fahrt!",
+        "tr": "İşte geliyor! İyi yolculuklar!"
+      },
+      "vocab": [
+        "bus",
+        "haltestelle",
+        "bahnhof",
+        "kosten",
+        "wie_viel_kostet",
+        "euro"
+      ]
+    },
+    {
+      "id": "post",
+      "title_de": "Auf der Post",
+      "title_tr": "Postanede",
+      "level": "A2",
+      "objective_tr": "Bir paket göndermek istediğini söyle, nereye ve ne kadar süreceğini sor.",
+      "setting_tr": "Türkiye'ye bir paket göndermen gerekiyor. Postanede görevli Hanım Kraus seni çağırıyor.",
+      "partner": "Frau Kraus",
+      "partner_role_tr": "Postane görevlisi",
+      "formal": true,
+      "service": true,
+      "opening": {
+        "de": "Guten Tag! Wie kann ich Ihnen helfen?",
+        "tr": "İyi günler! Size nasıl yardımcı olabilirim?"
+      },
+      "goals": [
+        {
+          "id": "paket",
+          "label_tr": "Bir paket göndermek istediğini söyle",
+          "hints": [
+            {
+              "de": "Ich möchte ein Paket in die Türkei schicken.",
+              "tr": "Türkiye'ye bir paket göndermek istiyorum."
+            },
+            {
+              "de": "Ich möchte dieses Paket verschicken.",
+              "tr": "Bu paketi göndermek istiyorum."
+            }
+          ]
+        },
+        {
+          "id": "dauer",
+          "label_tr": "Ne kadar süreceğini sor",
+          "hints": [
+            {
+              "de": "Wie lange dauert das?",
+              "tr": "Ne kadar sürer?"
+            },
+            {
+              "de": "Wann kommt das Paket an?",
+              "tr": "Paket ne zaman varır?"
+            }
+          ]
+        },
+        {
+          "id": "preis",
+          "label_tr": "Fiyatı sor ve öde",
+          "hints": [
+            {
+              "de": "Was kostet das?",
+              "tr": "Ne kadar?"
+            },
+            {
+              "de": "Ich zahle mit Karte.",
+              "tr": "Kartla ödüyorum."
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "id": "paket",
+          "goal": "paket",
+          "match": [
+            {
+              "pattern": "(paket|schicken|verschicken|senden|brief|postkarte)",
+              "de": "Gern. Legen Sie es bitte auf die Waage. Wohin soll es gehen?",
+              "tr": "Tabii. Lütfen teraziye koyun. Nereye gidecek?"
+            }
+          ]
+        },
+        {
+          "id": "dauer",
+          "goal": "dauer",
+          "requires": [
+            "paket"
+          ],
+          "blocked": {
+            "de": "Was möchten Sie denn verschicken?",
+            "tr": "Peki ne göndermek istiyorsunuz?"
+          },
+          "match": [
+            {
+              "pattern": "(dauert|dauer|wie lange|wann|ankommen|ankunft|tage)",
+              "de": "Nach Istanbul dauert es etwa fünf bis sieben Werktage.",
+              "tr": "İstanbul'a yaklaşık beş ila yedi iş günü sürüyor."
+            }
+          ]
+        },
+        {
+          "id": "preis",
+          "goal": "preis",
+          "requires": [
+            "paket"
+          ],
+          "blocked": {
+            "de": "Was möchten Sie denn verschicken?",
+            "tr": "Peki ne göndermek istiyorsunuz?"
+          },
+          "match": [
+            {
+              "pattern": "(kostet|kosten|preis|euro|zahle|bezahle|karte|\\bbar\\b)",
+              "de": "Das macht 24,90 Euro. Möchten Sie eine Sendungsnummer?",
+              "tr": "24,90 euro tutuyor. Takip numarası ister misiniz?"
+            }
+          ]
+        },
+        {
+          "id": "danke",
+          "match": [
+            {
+              "pattern": "\\b(danke|vielen dank)\\b",
+              "de": "Gern geschehen.",
+              "tr": "Rica ederim."
+            }
+          ]
+        },
+        {
+          "id": "wiederholen",
+          "match": [
+            {
+              "pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen|nicht verstanden)",
+              "de": "Natürlich: fünf bis sieben Werktage.",
+              "tr": "Tabii: beş ila yedi iş günü."
+            }
+          ]
+        }
+      ],
+      "fallback": [
+        {
+          "de": "Entschuldigung, wie bitte?",
+          "tr": "Pardon, efendim?"
+        },
+        {
+          "de": "Möchten Sie ein Paket oder einen Brief verschicken?",
+          "tr": "Paket mi mektup mu göndermek istiyorsunuz?"
+        }
+      ],
+      "closing": {
+        "de": "Bitte schön, hier ist Ihre Quittung. Auf Wiedersehen!",
+        "tr": "Buyurun, işte makbuzunuz. Hoşça kalın!"
+      },
+      "vocab": [
+        "brief",
+        "postkarte",
+        "adresse",
+        "kosten",
+        "zahlen"
+      ]
+    },
+    {
+      "id": "bank",
+      "title_de": "Ein Konto eröffnen",
+      "title_tr": "Banka hesabı açmak",
+      "level": "A2",
+      "objective_tr": "Hesap açmak istediğini söyle, belgelerini göster ve kart hakkında sor.",
+      "setting_tr": "Yeni bir hesap açmak için bankaya geldin. Bankacı Bay Köhler seni karşılıyor.",
+      "disclaimer_tr": "Bu bir dil alıştırmasıdır. Gerçek hesap açarken ücretleri ve sözleşme koşullarını dikkatle oku; bankalar arasında fark vardır.",
+      "partner": "Herr Köhler",
+      "partner_role_tr": "Banka çalışanı",
+      "formal": true,
+      "service": false,
+      "opening": {
+        "de": "Guten Tag! Was kann ich für Sie tun?",
+        "tr": "İyi günler! Sizin için ne yapabilirim?"
+      },
+      "goals": [
+        {
+          "id": "konto",
+          "label_tr": "Hesap açmak istediğini söyle",
+          "hints": [
+            {
+              "de": "Ich möchte ein Konto eröffnen.",
+              "tr": "Bir hesap açmak istiyorum."
+            },
+            {
+              "de": "Ich brauche ein Girokonto.",
+              "tr": "Bir vadesiz hesaba ihtiyacım var."
+            }
+          ]
+        },
+        {
+          "id": "dokumente",
+          "label_tr": "Belgelerini ver",
+          "hints": [
+            {
+              "de": "Hier ist mein Pass und die Anmeldebestätigung.",
+              "tr": "İşte pasaportum ve adres kayıt belgem."
+            },
+            {
+              "de": "Ich habe meinen Ausweis dabei.",
+              "tr": "Kimliğim yanımda."
+            }
+          ]
+        },
+        {
+          "id": "karte",
+          "label_tr": "Banka kartı ve ücretler hakkında sor",
+          "hints": [
+            {
+              "de": "Bekomme ich auch eine Karte?",
+              "tr": "Kart da alacak mıyım?"
+            },
+            {
+              "de": "Was kostet das Konto im Monat?",
+              "tr": "Hesabın aylık ücreti ne kadar?"
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "id": "konto",
+          "goal": "konto",
+          "match": [
+            {
+              "pattern": "(konto|girokonto|eroeffnen|bank)",
+              "de": "Sehr gern. Haben Sie Ihren Ausweis oder Pass und eine Anmeldebestätigung dabei?",
+              "tr": "Memnuniyetle. Kimliğiniz ya da pasaportunuz ve adres kayıt belgeniz yanınızda mı?"
+            }
+          ]
+        },
+        {
+          "id": "dokumente",
+          "goal": "dokumente",
+          "requires": [
+            "konto"
+          ],
+          "blocked": {
+            "de": "Wie kann ich Ihnen helfen?",
+            "tr": "Size nasıl yardımcı olabilirim?"
+          },
+          "match": [
+            {
+              "pattern": "(pass|ausweis|anmeldebestaetigung|anmeldung|dabei|hier ist|hier sind)",
+              "de": "Danke. Dann brauche ich nur noch Ihre Unterschrift. Haben Sie noch Fragen?",
+              "tr": "Teşekkürler. O zaman sadece imzanıza ihtiyacım var. Sormak istediğiniz bir şey var mı?"
+            }
+          ]
+        },
+        {
+          "id": "karte",
+          "goal": "karte",
+          "requires": [
+            "dokumente"
+          ],
+          "blocked": {
+            "de": "Haben Sie Ihre Papiere dabei?",
+            "tr": "Belgeleriniz yanınızda mı?"
+          },
+          "match": [
+            {
+              "pattern": "(karte|bekomme|kostet|kosten|gebuehr|monat|app|online|pin)",
+              "de": "Sie bekommen eine Karte in fünf Tagen per Post. Das Konto kostet vier Euro im Monat.",
+              "tr": "Kartınız beş gün içinde postayla gelir. Hesap aylık dört euro."
+            }
+          ]
+        },
+        {
+          "id": "danke",
+          "match": [
+            {
+              "pattern": "\\b(danke|vielen dank)\\b",
+              "de": "Gern geschehen.",
+              "tr": "Rica ederim."
+            }
+          ]
+        },
+        {
+          "id": "wiederholen",
+          "match": [
+            {
+              "pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen|nicht verstanden)",
+              "de": "Natürlich: Sie bekommen die Karte in fünf Tagen.",
+              "tr": "Tabii: Kartınızı beş gün içinde alırsınız."
+            }
+          ]
+        }
+      ],
+      "fallback": [
+        {
+          "de": "Entschuldigung, das habe ich nicht verstanden.",
+          "tr": "Pardon, anlayamadım."
+        },
+        {
+          "de": "Möchten Sie ein Konto eröffnen?",
+          "tr": "Hesap mı açmak istiyorsunuz?"
+        }
+      ],
+      "closing": {
+        "de": "Alles erledigt. Willkommen bei uns! Auf Wiedersehen.",
+        "tr": "Her şey tamam. Bize hoş geldiniz! Hoşça kalın."
+      },
+      "vocab": [
+        "ausweis",
+        "pass",
+        "anmeldung",
+        "kosten",
+        "karte"
+      ]
+    },
+    {
+      "id": "friseur",
+      "title_de": "Beim Friseur",
+      "title_tr": "Kuaförde",
+      "level": "A2",
+      "objective_tr": "Randevunu söyle, nasıl bir saç kesimi istediğini anlat ve ödemeyi yap.",
+      "setting_tr": "Bir kuaförde randevun var. Kuaför Tuna seni karşılıyor ve sana sorular soruyor.",
+      "partner": "Frau Tuna",
+      "partner_role_tr": "Kuaför",
+      "formal": true,
+      "service": true,
+      "opening": {
+        "de": "Hallo, schön, dass Sie da sind! Haben Sie einen Termin?",
+        "tr": "Merhaba, geldiğinize sevindim! Randevunuz var mı?"
+      },
+      "goals": [
+        {
+          "id": "termin",
+          "label_tr": "Randevun olduğunu söyle",
+          "hints": [
+            {
+              "de": "Ja, ich habe einen Termin um elf Uhr.",
+              "tr": "Evet, saat on birde randevum var."
+            },
+            {
+              "de": "Ich habe einen Termin auf den Namen …",
+              "tr": "… adına bir randevum var."
+            }
+          ]
+        },
+        {
+          "id": "wunsch",
+          "label_tr": "Nasıl bir kesim istediğini anlat",
+          "hints": [
+            {
+              "de": "Ich möchte die Haare kürzer, aber nicht zu kurz.",
+              "tr": "Saçımı daha kısa istiyorum ama çok kısa değil."
+            },
+            {
+              "de": "Nur die Spitzen, bitte.",
+              "tr": "Sadece uçlarını lütfen."
+            }
+          ]
+        },
+        {
+          "id": "bezahlen",
+          "label_tr": "Ücreti sor ve öde",
+          "hints": [
+            {
+              "de": "Was kostet das?",
+              "tr": "Ne kadar?"
+            },
+            {
+              "de": "Ich zahle mit Karte.",
+              "tr": "Kartla ödüyorum."
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "id": "termin",
+          "goal": "termin",
+          "match": [
+            {
+              "pattern": "(termin|elf|zehn|zwoelf|uhr|name|namen)",
+              "de": "Sehr gut. Bitte nehmen Sie Platz. Was soll ich heute machen?",
+              "tr": "Çok iyi. Lütfen oturun. Bugün ne yapayım?"
+            }
+          ]
+        },
+        {
+          "id": "wunsch",
+          "goal": "wunsch",
+          "requires": [
+            "termin"
+          ],
+          "blocked": {
+            "de": "Haben Sie einen Termin?",
+            "tr": "Randevunuz var mı?"
+          },
+          "match": [
+            {
+              "pattern": "(haare|kuerzer|kurz|spitzen|schneiden|waschen|foehnen|farbe|pony|nur)",
+              "de": "Verstehe. Zeigen Sie mir bitte mit den Fingern, wie lang es sein soll? So? Dann fange ich an.",
+              "tr": "Anlıyorum. Ne kadar uzunlukta olacağını parmaklarınızla gösterir misiniz? Böyle mi? O zaman başlıyorum."
+            }
+          ]
+        },
+        {
+          "id": "bezahlen",
+          "goal": "bezahlen",
+          "requires": [
+            "wunsch"
+          ],
+          "blocked": {
+            "de": "Was möchten Sie denn machen lassen?",
+            "tr": "Peki ne yaptırmak istiyorsunuz?"
+          },
+          "match": [
+            {
+              "pattern": "(kostet|kosten|preis|euro|zahle|bezahle|karte|\\bbar\\b)",
+              "de": "Das macht 35 Euro. Möchten Sie Trinkgeld geben? Das ist freiwillig.",
+              "tr": "35 euro tutuyor. Bahşiş vermek ister misiniz? Zorunlu değil."
+            }
+          ]
+        },
+        {
+          "id": "danke",
+          "match": [
+            {
+              "pattern": "\\b(danke|vielen dank)\\b",
+              "de": "Gern geschehen.",
+              "tr": "Rica ederim."
+            }
+          ]
+        },
+        {
+          "id": "wiederholen",
+          "match": [
+            {
+              "pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen|nicht verstanden)",
+              "de": "Natürlich: Wie möchten Sie Ihre Haare?",
+              "tr": "Tabii: Saçınızı nasıl istiyorsunuz?"
+            }
+          ]
+        }
+      ],
+      "fallback": [
+        {
+          "de": "Wie bitte?",
+          "tr": "Efendim?"
+        },
+        {
+          "de": "Was soll ich machen?",
+          "tr": "Ne yapayım?"
+        }
+      ],
+      "closing": {
+        "de": "Fertig! Gefällt es Ihnen? Bis zum nächsten Mal!",
+        "tr": "Bitti! Beğendiniz mi? Bir dahaki sefere!"
+      },
+      "vocab": [
+        "haar",
+        "kurz",
+        "termin",
+        "kosten",
+        "zahlen",
+        "gefallen"
+      ]
+    },
+    {
+      "id": "handyvertrag",
+      "title_de": "Einen Handyvertrag abschließen",
+      "title_tr": "Telefon hattı almak",
+      "level": "A2",
+      "objective_tr": "Bir hat istediğini söyle, fiyat ve internet miktarı hakkında sor.",
+      "setting_tr": "Yeni bir Handy-Vertrag almak istiyorsun. Mağazada satıcı Bay Yıldız seninle ilgileniyor.",
+      "disclaimer_tr": "Bu bir dil alıştırmasıdır. Gerçek sözleşmeden önce süre, iptal koşulları ve ek ücretleri mutlaka kontrol et.",
+      "partner": "Herr Yıldız",
+      "partner_role_tr": "Telefon mağazası satıcısı",
+      "formal": true,
+      "service": true,
+      "opening": {
+        "de": "Guten Tag! Wie kann ich Ihnen helfen?",
+        "tr": "İyi günler! Size nasıl yardımcı olabilirim?"
+      },
+      "goals": [
+        {
+          "id": "vertrag",
+          "label_tr": "Bir hat ya da tarife istediğini söyle",
+          "hints": [
+            {
+              "de": "Ich möchte einen Handyvertrag.",
+              "tr": "Bir telefon hattı istiyorum."
+            },
+            {
+              "de": "Ich suche einen günstigen Tarif.",
+              "tr": "Uygun fiyatlı bir tarife arıyorum."
+            }
+          ]
+        },
+        {
+          "id": "preis",
+          "label_tr": "Fiyatı sor",
+          "hints": [
+            {
+              "de": "Was kostet der Tarif im Monat?",
+              "tr": "Tarifenin aylık ücreti ne kadar?"
+            },
+            {
+              "de": "Wie hoch ist die Grundgebühr?",
+              "tr": "Sabit ücret ne kadar?"
+            }
+          ]
+        },
+        {
+          "id": "daten",
+          "label_tr": "İnternet miktarını ve sözleşme süresini sor",
+          "hints": [
+            {
+              "de": "Wie viel Datenvolumen ist dabei?",
+              "tr": "Ne kadar internet dahil?"
+            },
+            {
+              "de": "Wie lange ist die Vertragslaufzeit?",
+              "tr": "Sözleşme süresi ne kadar?"
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "id": "vertrag",
+          "goal": "vertrag",
+          "match": [
+            {
+              "pattern": "(handyvertrag|vertrag|tarif|prepaid|sim|karte|nummer|handy)",
+              "de": "Gern. Brauchen Sie viel Internet, oder telefonieren Sie mehr?",
+              "tr": "Tabii. Çok internete mi ihtiyacınız var, yoksa daha çok mu konuşuyorsunuz?"
+            }
+          ]
+        },
+        {
+          "id": "preis",
+          "goal": "preis",
+          "requires": [
+            "vertrag"
+          ],
+          "blocked": {
+            "de": "Was für einen Tarif suchen Sie?",
+            "tr": "Nasıl bir tarife arıyorsunuz?"
+          },
+          "match": [
+            {
+              "pattern": "(kostet|kosten|preis|euro|grundgebuehr|monat|teuer|guenstig)",
+              "de": "Dieser Tarif kostet 15 Euro im Monat.",
+              "tr": "Bu tarife ayda 15 euro."
+            }
+          ]
+        },
+        {
+          "id": "daten",
+          "goal": "daten",
+          "requires": [
+            "preis"
+          ],
+          "blocked": {
+            "de": "Möchten Sie zuerst den Preis wissen?",
+            "tr": "Önce fiyatı mı öğrenmek istersiniz?"
+          },
+          "match": [
+            {
+              "pattern": "(daten|datenvolumen|gigabyte|\\bgb\\b|internet|laufzeit|vertragslaufzeit|kuendigen|monate)",
+              "de": "Es sind zehn Gigabyte dabei. Die Laufzeit ist vierundzwanzig Monate, aber man kann nach einem Jahr kündigen.",
+              "tr": "On gigabayt dahil. Süre yirmi dört ay ama bir yıl sonra iptal edilebilir."
+            }
+          ]
+        },
+        {
+          "id": "danke",
+          "match": [
+            {
+              "pattern": "\\b(danke|vielen dank)\\b",
+              "de": "Gern geschehen.",
+              "tr": "Rica ederim."
+            }
+          ]
+        },
+        {
+          "id": "wiederholen",
+          "match": [
+            {
+              "pattern": "(wie bitte|noch einmal|nochmal|langsam|wiederholen|nicht verstanden)",
+              "de": "Natürlich: 15 Euro, zehn Gigabyte, vierundzwanzig Monate.",
+              "tr": "Tabii: 15 euro, on gigabayt, yirmi dört ay."
+            }
+          ]
+        }
+      ],
+      "fallback": [
+        {
+          "de": "Entschuldigung, wie bitte?",
+          "tr": "Pardon, efendim?"
+        },
+        {
+          "de": "Möchten Sie einen Vertrag oder eine Prepaid-Karte?",
+          "tr": "Sözleşmeli mi yoksa ön ödemeli kart mı?"
+        }
+      ],
+      "closing": {
+        "de": "Gut, dann bereite ich den Vertrag vor. Bitte unterschreiben Sie hier.",
+        "tr": "İyi, o zaman sözleşmeyi hazırlıyorum. Lütfen buraya imza atın."
+      },
+      "vocab": [
+        "handy",
+        "kosten",
+        "euro",
+        "internet",
+        "monat"
       ]
     }
   ]

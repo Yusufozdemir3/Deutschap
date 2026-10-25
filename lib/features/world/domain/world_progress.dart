@@ -98,7 +98,7 @@ class Milestone {
 
 int _has(bool b) => b ? 1 : 0;
 
-const _a2Scenarios = {'arzt', 'apotheke', 'wohnung', 'bahnhof', 'kleidung', 'hotel', 'verabredung', 'vorstellungsgespraech', 'anmeldung'};
+const _a2Scenarios = {'arzt', 'apotheke', 'wohnung', 'bahnhof', 'kleidung', 'hotel', 'verabredung', 'vorstellungsgespraech', 'anmeldung', 'post', 'bank', 'friseur', 'handyvertrag'};
 
 final milestones = <Milestone>[
   Milestone(id: 'first_lesson', icon: 'flag', titleTr: 'İlk adım', descriptionTr: 'İlk dersini tamamla.', target: 1, progress: (f) => f.lessons.length),
