@@ -183,6 +183,8 @@ class _DrillScreenState extends ConsumerState<DrillScreen> {
         DrillMode.spell => Icons.keyboard_rounded,
         DrillMode.listen => Icons.hearing_rounded,
         DrillMode.context => Icons.short_text_rounded,
+        DrillMode.conjugate => Icons.person_outline_rounded,
+        DrillMode.perfekt => Icons.history_rounded,
         DrillMode.match => Icons.join_inner_rounded,
       };
 }

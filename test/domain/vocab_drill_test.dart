@@ -101,4 +101,14 @@ void main() {
     expect(recs.map((r) => r.route), containsAll(['/drill/run?src=weak&mode=mixed&n=10', '/listen/l_bahnhof']));
     expect(const Recommender().recommend(const LearnerSnapshot(weakWords: 2)).where((r) => r.route.startsWith('/drill')), isEmpty);
   });
+
+  test('verb drills use lexicon forms', () {
+    final gehen = content.lexicon.byId('gehen')!;
+    final p = gen.build([gehen], mode: DrillMode.perfekt, size: 1, seed: 1).steps.single as ChoiceStep;
+    expect(p.options[p.answers.single], 'ist gegangen');
+    expect(p.options.toSet().length, p.options.length);
+    final c = gen.build([content.lexicon.byId('sein')!], mode: DrillMode.conjugate, size: 1, seed: 2).steps.single as ClozeStep;
+    expect(content.lexicon.byId('sein')!.verb!.presentForms.values, contains(c.answers.single));
+    expect(gen.supports(content.lexicon.byId('fahren')!, DrillMode.perfekt), isFalse, reason: 'both auxiliaries are possible');
+  });
 }

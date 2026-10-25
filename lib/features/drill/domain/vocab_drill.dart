@@ -15,6 +15,8 @@ enum DrillMode {
   spell('Yaz', 'Türkçeden Almancasını yaz (isimler artikeliyle)'),
   listen('Dinle', 'Kelimeyi dinle, anlamını seç'),
   context('Cümlede', 'Örnek cümledeki boşluğa doğru biçimi yaz'),
+  conjugate('Fiil çekimi', 'Fiili verilen kişiye göre çek (du fährst, er nimmt …)'),
+  perfekt('Perfekt', 'Fiilin Perfekt biçimini seç (ist gegangen, hat gemacht)'),
   match('Eşleştir', 'Kelimeleri anlamlarıyla eşleştir');
 
   const DrillMode(this.labelTr, this.descriptionTr);
@@ -53,6 +55,13 @@ class VocabDrillGenerator {
   static bool hasArticle(Lexeme l) => l.isNoun && l.article != null && _usable(l);
   static bool hasPlural(Lexeme l) => hasArticle(l) && l.plural != null && l.plural!.startsWith('die ') && !l.plural!.contains('/');
   static bool spellable(Lexeme l) => _usable(l) && l.lemma.length <= 22 && l.pos != PartOfSpeech.number;
+  static bool conjugatable(Lexeme l) => (l.verb?.presentForms.length ?? 0) >= 6;
+
+  /// Verbs where both auxiliaries are correct in common use ("Ich habe das
+  /// Auto gefahren"), so a wrong-auxiliary distractor would not be wrong.
+  static const _bothAux = {'fahren', 'fliegen', 'schwimmen', 'reiten', 'ziehen', 'umziehen', 'stehen', 'liegen', 'sitzen'};
+  static bool hasPerfekt(Lexeme l) =>
+      l.verb != null && l.verb!.participle != '—' && !l.isMultiWord && !_bothAux.contains(l.id) && const {'haben', 'sein'}.contains(l.verb!.auxiliary);
 
   /// Whether [mode] can make an exercise for [l].
   bool supports(Lexeme l, DrillMode mode) => switch (mode) {
@@ -61,6 +70,8 @@ class VocabDrillGenerator {
         DrillMode.plural => hasPlural(l),
         DrillMode.spell => spellable(l),
         DrillMode.context => _usable(l) && contextFor(l) != null,
+        DrillMode.conjugate => conjugatable(l),
+        DrillMode.perfekt => hasPerfekt(l),
       };
 
   /// Builds a drill over [words] (already chosen and ordered by priority:
@@ -108,7 +119,7 @@ class VocabDrillGenerator {
   DrillMode _pickMode(Lexeme l, Random rnd, int i) {
     // Recognition first, production later in the round.
     final early = [DrillMode.meaning, DrillMode.listen, DrillMode.article, DrillMode.reverse];
-    final late = [DrillMode.spell, DrillMode.context, DrillMode.plural, DrillMode.reverse];
+    final late = [DrillMode.spell, DrillMode.context, DrillMode.plural, DrillMode.reverse, DrillMode.conjugate, DrillMode.perfekt];
     final pool = (i < 4 ? early : late).where((m) => supports(l, m)).toList();
     if (pool.isEmpty) return DrillMode.meaning;
     return pool[rnd.nextInt(pool.length)];
@@ -167,10 +178,64 @@ class VocabDrillGenerator {
           answers: [c.$2],
           explainTr: c.$1.replaceFirst('___', c.$2),
         );
+      case DrillMode.conjugate:
+        final forms = l.verb!.presentForms;
+        final keys = forms.keys.toList()..sort();
+        final key = keys[rnd.nextInt(keys.length)];
+        final pronoun = _pronoun(key);
+        return ClozeStep(
+          id,
+          de: '${pronoun[0].toUpperCase()}${pronoun.substring(1)} ___ …',
+          tr: '${l.lemma} (${l.tr}) · ${_pronounTr(key)}',
+          answers: [forms[key]!],
+          explainTr: [
+            for (final k in keys) '${_pronoun(k)} ${forms[k]}',
+          ].join(' · '),
+        );
+      case DrillMode.perfekt:
+        final v = l.verb!;
+        final aux = v.auxiliaryShort;
+        final other = aux == 'ist' ? 'hat' : 'ist';
+        final stem = l.lemma.endsWith('en') ? l.lemma.substring(0, l.lemma.length - 2) : l.lemma.substring(0, l.lemma.length - 1);
+        final correct = '$aux ${v.participle}';
+        final wrong = <String>{
+          '$other ${v.participle}',
+          if ('ge${stem}t' != v.participle) '$aux ge${stem}t',
+          if ('ge${stem}en' != v.participle) '$aux ge${stem}en',
+          '$aux ${l.lemma}',
+        }..remove(correct);
+        final opts = _options(correct, wrong.take(3), rnd);
+        return ChoiceStep(
+          id,
+          promptTr: '"${l.lemma}" (${l.tr}) – Perfekt: er/sie …',
+          options: opts.$1,
+          answers: [opts.$2],
+          explainTr: [
+            'er/sie $correct',
+            v.auxiliary == 'sein'
+                ? 'Yer değiştirme ya da durum değişikliği bildiren fiiller "sein" alır.'
+                : 'Fiillerin çoğu Perfekt\'te "haben" alır.',
+          ].join('\n\n'),
+        );
       case DrillMode.match || DrillMode.mixed:
         return null;
     }
   }
+
+  static String _pronoun(String key) => switch (key) {
+        'er/sie/es' => 'er',
+        'sie/Sie' => 'sie',
+        _ => key,
+      };
+
+  static String _pronounTr(String key) => switch (key) {
+        'ich' => 'ich (ben)',
+        'du' => 'du (sen)',
+        'er/sie/es' => 'er (o, erkek)',
+        'wir' => 'wir (biz)',
+        'ihr' => 'ihr (siz, samimi)',
+        _ => 'sie (onlar)',
+      };
 
   MatchStep? _match(List<Lexeme> words, String id) {
     final seenTr = <String>{};
