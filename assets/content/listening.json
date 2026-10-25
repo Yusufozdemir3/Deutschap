@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.1",
+  "version": "2026.10.2",
   "tracks": [
     {
       "id": "l_bahnhof", "title": "Durchsagen am Bahnhof", "level": "A1", "minutes": 2, "topic_tr": "Yolculuk", "kind_tr": "Anons", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
@@ -159,6 +159,79 @@
       "questions": [
         {"question_tr": "Neden ona Rotkäppchen deniyor?", "options": ["Hep kırmızı bir başlık taktığı için", "Kırmızı elbise giydiği için", "Saçı kırmızı olduğu için"], "answer": 0, "explain_tr": "\"weil es immer eine rote Mütze trug\""},
         {"question_tr": "Onları kim kurtardı?", "options": ["Bir avcı", "Annesi", "Bir komşu"], "answer": 0, "explain_tr": "\"Ein Jäger … rettete Rotkäppchen und die Großmutter.\""}
+      ]
+    },
+    {
+      "id": "l_restaurant", "title": "Im Restaurant", "level": "A2", "minutes": 2, "topic_tr": "Yemek", "kind_tr": "Diyalog", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "lines": [
+        {"speaker": "Kellner", "de": "Guten Abend! Haben Sie reserviert?", "tr": "İyi akşamlar! Rezervasyonunuz var mı?"},
+        {"speaker": "Lina", "de": "Ja, auf den Namen Berg, für zwei Personen.", "tr": "Evet, Berg adına, iki kişilik."},
+        {"speaker": "Kellner", "de": "Bitte sehr, hier ist Ihr Tisch am Fenster. Was möchten Sie trinken?", "tr": "Buyurun, camın yanındaki masanız. Ne içmek istersiniz?"},
+        {"speaker": "Lina", "de": "Ich hätte gern ein Wasser und einen Apfelsaft.", "tr": "Bir su ve bir elma suyu rica ediyorum."},
+        {"speaker": "Kellner", "de": "Gern. Die Tageskarte liegt auf dem Tisch. Heute empfehle ich den Fisch.", "tr": "Tabii. Günün menüsü masanın üstünde. Bugün balığı öneririm."},
+        {"speaker": "Lina", "de": "Dann nehme ich den Fisch mit Kartoffeln. Und du, Can?", "tr": "O zaman ben patatesli balığı alıyorum. Sen ne alıyorsun Can?"},
+        {"speaker": "Can", "de": "Ich nehme die Suppe. Die Rechnung bitte getrennt.", "tr": "Ben çorba alıyorum. Hesabı ayrı lütfen."}
+      ],
+      "questions": [
+        {"question_tr": "Lina ne içiyor?", "options": ["Su ve elma suyu", "Çay ve kahve", "Sadece su"], "answer": 0, "explain_tr": "\"ein Wasser und einen Apfelsaft\""},
+        {"question_tr": "Garson bugün ne öneriyor?", "options": ["Balığı", "Çorbayı", "Tatlıyı"], "answer": 0, "explain_tr": "\"Heute empfehle ich den Fisch.\""},
+        {"question_tr": "Can ne istiyor?", "options": ["Çorba ve ayrı hesap", "Balık ve ortak hesap", "Sadece su"], "answer": 0, "explain_tr": "\"die Suppe … Die Rechnung bitte getrennt.\""}
+      ]
+    },
+    {
+      "id": "l_ansage_u_bahn", "title": "In der U-Bahn", "level": "A2", "minutes": 1, "topic_tr": "Yolculuk", "kind_tr": "Anons", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "lines": [
+        {"speaker": "Ansage", "de": "Nächster Halt: Alexanderplatz. Umsteigemöglichkeit zu den Linien U2 und U8.", "tr": "Sonraki durak: Alexanderplatz. U2 ve U8 hatlarına aktarma mümkün."},
+        {"speaker": "Ansage", "de": "Bitte beachten Sie: Wegen einer Störung hält die U8 heute nicht am Hermannplatz.", "tr": "Lütfen dikkat: Bir arıza nedeniyle U8 bugün Hermannplatz'da durmuyor."},
+        {"speaker": "Ansage", "de": "Bitte steigen Sie nur an den markierten Türen ein und aus. Vielen Dank.", "tr": "Lütfen sadece işaretli kapılardan binip inin. Teşekkürler."}
+      ],
+      "questions": [
+        {"question_tr": "Sonraki durak neresi?", "options": ["Alexanderplatz", "Hermannplatz", "Hauptbahnhof"], "answer": 0, "explain_tr": "\"Nächster Halt: Alexanderplatz.\""},
+        {"question_tr": "U8 ile ilgili ne söyleniyor?", "options": ["Bugün Hermannplatz'da durmuyor", "Bugün çalışmıyor", "Gecikmeli"], "answer": 0, "explain_tr": "\"hält die U8 heute nicht am Hermannplatz\""}
+      ]
+    },
+    {
+      "id": "l_kuendigung", "title": "Anruf wegen der Heizung", "level": "A2", "minutes": 2, "topic_tr": "Ev", "kind_tr": "Telefon görüşmesi", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "lines": [
+        {"speaker": "Mieterin", "de": "Guten Tag, hier ist Aylin Kaya aus der Lindenstraße 12. Die Heizung in meinem Zimmer funktioniert seit gestern nicht.", "tr": "İyi günler, ben Lindenstraße 12'den Aylin Kaya. Odamdaki kalorifer dünden beri çalışmıyor."},
+        {"speaker": "Vermieter", "de": "Oh, das tut mir leid. Haben Sie schon das Ventil kontrolliert?", "tr": "Ah, üzüldüm. Vanayı kontrol ettiniz mi?"},
+        {"speaker": "Mieterin", "de": "Ja, es ist ganz offen, aber das Wasser bleibt kalt.", "tr": "Evet, tamamen açık ama su soğuk kalıyor."},
+        {"speaker": "Vermieter", "de": "Dann schicke ich morgen früh einen Techniker. Sind Sie zu Hause?", "tr": "O zaman yarın sabah bir teknisyen gönderirim. Evde olacak mısınız?"},
+        {"speaker": "Mieterin", "de": "Ab zehn Uhr, ja. Vielen Dank für die schnelle Hilfe!", "tr": "Saat ondan itibaren, evet. Hızlı yardımınız için çok teşekkürler!"}
+      ],
+      "questions": [
+        {"question_tr": "Sorun ne?", "options": ["Kalorifer çalışmıyor", "Su akmıyor", "Elektrik yok"], "answer": 0, "explain_tr": "\"Die Heizung … funktioniert … nicht\""},
+        {"question_tr": "Teknisyen ne zaman gelecek?", "options": ["Yarın sabah", "Bugün akşam", "Gelecek hafta"], "answer": 0, "explain_tr": "\"morgen früh einen Techniker\""}
+      ]
+    },
+    {
+      "id": "l_wanderung", "title": "Eine Wanderung planen", "level": "A2", "minutes": 2, "topic_tr": "Boş zaman", "kind_tr": "Diyalog", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "lines": [
+        {"speaker": "Jonas", "de": "Hast du Lust, am Sonntag wandern zu gehen? Das Wetter soll schön werden.", "tr": "Pazar günü yürüyüşe çıkmaya ne dersin? Havanın güzel olacağı söyleniyor."},
+        {"speaker": "Lina", "de": "Gern! Wohin möchtest du?", "tr": "Memnuniyetle! Nereye gitmek istersin?"},
+        {"speaker": "Jonas", "de": "Vielleicht an den See im Grunewald. Mit der S-Bahn dauert es nur eine halbe Stunde.", "tr": "Belki Grunewald'daki göle. S-Bahn ile sadece yarım saat sürüyor."},
+        {"speaker": "Lina", "de": "Perfekt. Ich bringe Sandwiches mit. Kannst du Getränke mitbringen?", "tr": "Mükemmel. Ben sandviç getiriyorum. Sen içecek getirebilir misin?"},
+        {"speaker": "Jonas", "de": "Klar. Treffen wir uns um neun am Bahnhof Zoo?", "tr": "Tabii. Saat dokuzda Zoo İstasyonu'nda buluşalım mı?"},
+        {"speaker": "Lina", "de": "Ja. Und wenn es regnet, gehen wir einfach ins Museum.", "tr": "Evet. Yağmur yağarsa da müzeye gideriz."}
+      ],
+      "questions": [
+        {"question_tr": "Nereye gitmeyi planlıyorlar?", "options": ["Grunewald'daki göle", "Dağa", "Denize"], "answer": 0, "explain_tr": "\"an den See im Grunewald\""},
+        {"question_tr": "Lina ne getiriyor?", "options": ["Sandviç", "İçecek", "Battaniye"], "answer": 0, "explain_tr": "\"Ich bringe Sandwiches mit.\""},
+        {"question_tr": "Yağmur yağarsa ne yaparlar?", "options": ["Müzeye giderler", "Eve dönerler", "Kafede oturur"], "answer": 0, "explain_tr": "\"gehen wir einfach ins Museum\""}
+      ]
+    },
+    {
+      "id": "l_nachrichten", "title": "Kurznachrichten im Radio", "level": "A2", "minutes": 2, "topic_tr": "Haberler", "kind_tr": "Radyo", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "lines": [
+        {"speaker": "Sprecher", "de": "Es ist zwölf Uhr. Hier sind die Nachrichten.", "tr": "Saat on iki. İşte haberler."},
+        {"speaker": "Sprecher", "de": "In Hamburg beginnt heute die große Fahrradwoche. Eine Woche lang gibt es Konzerte, Touren und Workshops – alles kostenlos.", "tr": "Hamburg'da bugün büyük bisiklet haftası başlıyor. Bir hafta boyunca konserler, turlar ve atölyeler var – hepsi ücretsiz."},
+        {"speaker": "Sprecher", "de": "Die Deutsche Bahn meldet: Wegen Bauarbeiten fahren am Wochenende keine Züge zwischen Köln und Düsseldorf. Es gibt Busse als Ersatz.", "tr": "Deutsche Bahn bildiriyor: İnşaat çalışmaları nedeniyle hafta sonu Köln ile Düsseldorf arasında tren seferi yok. Yerine otobüs var."},
+        {"speaker": "Sprecher", "de": "Und das Wetter: Morgen wird es sonnig, bis zu zweiundzwanzig Grad. Am Abend kommen im Norden Wolken auf.", "tr": "Ve hava durumu: Yarın güneşli, sıcaklık yirmi iki dereceye kadar çıkacak. Akşam kuzeyde bulutlar gelecek."}
+      ],
+      "questions": [
+        {"question_tr": "Hamburg'da ne başlıyor?", "options": ["Bisiklet haftası", "Müzik festivali", "Kitap fuarı"], "answer": 0, "explain_tr": "\"die große Fahrradwoche\""},
+        {"question_tr": "Hafta sonu Köln–Düsseldorf arasında ne var?", "options": ["Tren yerine otobüs", "Hiç ulaşım yok", "Ek tren seferleri"], "answer": 0, "explain_tr": "\"keine Züge … Busse als Ersatz\""},
+        {"question_tr": "Yarın hava nasıl?", "options": ["Güneşli, 22 dereceye kadar", "Yağmurlu", "Karlı"], "answer": 0, "explain_tr": "\"sonnig, bis zu zweiundzwanzig Grad\""}
       ]
     }
   ]

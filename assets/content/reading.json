@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.2",
+  "version": "2026.10.3",
   "texts": [
     {
       "id": "r_mein_zimmer", "title": "Mein Zimmer", "level": "A1", "minutes": 2, "topic_tr": "Ev ve eşyalar", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
@@ -241,6 +241,84 @@
       "questions": [
         {"question_tr": "Eşek neden Bremen'e gitmek istedi?", "options": ["Şehir müzisyeni olmak için", "Ailesini bulmak için", "Yiyecek almak için"], "answer": 0, "explain_tr": "\"dort kann ich Stadtmusikant werden\""},
         {"question_tr": "Hikâyenin sonunda hayvanlar nerede kaldı?", "options": ["Ormandaki evde", "Bremen'de", "Eski evlerinde"], "answer": 0, "explain_tr": "\"Sie blieben im Haus. Nach Bremen kamen sie nie.\""}
+      ]
+    },
+    {
+      "id": "r_froschkoenig", "title": "Der Froschkönig", "level": "A2", "minutes": 5, "topic_tr": "Masal", "source_tr": "Grimm Kardeşler, Kinder- und Hausmärchen (KHM 1, 1857) · kamu malı. Deutschap'ın sadeleştirilmiş uyarlaması · CC0",
+      "paragraphs": [
+        {"de": "Eine junge Prinzessin spielte gern mit einer goldenen Kugel am Brunnen im Wald. Einmal fiel die Kugel ins Wasser, und die Prinzessin fing an zu weinen.", "tr": "Genç bir prenses ormandaki kuyunun yanında altın topuyla oynamayı severdi. Bir keresinde top suya düştü ve prenses ağlamaya başladı."},
+        {"de": "Da hörte sie eine Stimme: „Warum weinst du?“ Es war ein Frosch. „Ich hole deine Kugel“, sagte er, „aber du musst mein Freund sein, und ich darf an deinem Tisch essen.“", "tr": "Derken bir ses duydu: \"Neden ağlıyorsun?\" Bir kurbağaydı. \"Topunu getiririm\" dedi, \"ama benim arkadaşım olmalısın ve senin masanda yemek yememe izin vermelisin.\""},
+        {"de": "Die Prinzessin sagte Ja. Aber als sie die Kugel wieder hatte, lief sie schnell nach Hause. Sie dachte: „Ein Frosch kann nicht mein Freund sein.“", "tr": "Prenses evet dedi. Ama topunu geri alınca hızla eve koştu. \"Bir kurbağa arkadaşım olamaz\" diye düşündü."},
+        {"de": "Am Abend klopfte es an die Tür. Der Frosch war da! Der König fragte: „Was will der Frosch?“ Die Prinzessin erzählte alles. „Du musst dein Wort halten“, sagte der König.", "tr": "Akşam kapı çalındı. Kurbağa gelmişti! Kral sordu: \"Kurbağa ne istiyor?\" Prenses her şeyi anlattı. \"Sözünü tutmalısın\" dedi kral."},
+        {"de": "So aß der Frosch an ihrem Tisch. Später wollte er in ihrem Bett schlafen. Da wurde die Prinzessin sehr böse und warf ihn an die Wand.", "tr": "Böylece kurbağa onun masasında yemek yedi. Sonra onun yatağında uyumak istedi. Prenses çok kızdı ve onu duvara fırlattı."},
+        {"de": "Aber als der Frosch an der Wand lag, war er plötzlich ein schöner junger Prinz. Eine böse Frau hatte ihn früher in einen Frosch verwandelt. Am nächsten Tag fuhren die beiden in sein Königreich.", "tr": "Ama kurbağa duvarın dibine düşünce birden güzel bir genç prense dönüştü. Kötü bir kadın onu eskiden kurbağaya çevirmişti. Ertesi gün ikisi onun krallığına gitti."}
+      ],
+      "questions": [
+        {"question_tr": "Prenses neden ağladı?", "options": ["Altın topu suya düştü", "Kuyuya düştü", "Kurbağa onu korkuttu"], "answer": 0, "explain_tr": "\"fiel die Kugel ins Wasser\""},
+        {"question_tr": "Kral prensese ne söyledi?", "options": ["Sözünü tutmalısın", "Kurbağayı gönder", "Yarın cevap ver"], "answer": 0, "explain_tr": "\"Du musst dein Wort halten.\""},
+        {"question_tr": "Kurbağa nasıl prens oldu?", "options": ["Prenses onu duvara fırlatınca", "Prenses onu öpünce", "Kral büyü yapınca"], "answer": 0, "explain_tr": "\"als der Frosch an der Wand lag, war er plötzlich ein … Prinz\""}
+      ]
+    },
+    {
+      "id": "r_haensel_gretel", "title": "Hänsel und Gretel (kurz)", "level": "A2", "minutes": 5, "topic_tr": "Masal", "source_tr": "Grimm Kardeşler, Kinder- und Hausmärchen (KHM 15, 1857) · kamu malı. Deutschap'ın sadeleştirilmiş uyarlaması · CC0",
+      "paragraphs": [
+        {"de": "Hänsel und Gretel lebten mit ihrem Vater und der Stiefmutter am Rand eines großen Waldes. Sie waren sehr arm und hatten oft Hunger.", "tr": "Hänsel ile Gretel babalarıyla ve üvey anneleriyle büyük bir ormanın kıyısında yaşıyordu. Çok yoksullardı ve sık sık aç kalırlardı."},
+        {"de": "Eines Tages brachte die Stiefmutter die Kinder tief in den Wald. Aber Hänsel hatte kleine Steine in der Tasche und legte sie auf den Weg. So fanden die Kinder nach Hause zurück.", "tr": "Bir gün üvey anne çocukları ormanın derinliklerine götürdü. Ama Hänsel'in cebinde küçük taşlar vardı ve onları yola bıraktı. Böylece çocuklar eve geri döndü."},
+        {"de": "Beim zweiten Mal hatte Hänsel nur Brot. Er warf Brotstücke auf den Weg, aber die Vögel haben sie alle gegessen. Die Kinder waren allein im Wald.", "tr": "İkinci seferde Hänsel'de sadece ekmek vardı. Ekmek parçalarını yola attı ama kuşlar hepsini yedi. Çocuklar ormanda yalnız kaldı."},
+        {"de": "Plötzlich sahen sie ein kleines Haus aus Brot, Kuchen und Zucker. Sie waren so hungrig, dass sie sofort anfingen zu essen.", "tr": "Birden ekmekten, kekten ve şekerden yapılmış küçük bir ev gördüler. O kadar açtılar ki hemen yemeye başladılar."},
+        {"de": "Eine alte Frau kam aus dem Haus. Sie war eine Hexe. Sie sperrte Hänsel in einen Stall und machte Gretel zur Magd.", "tr": "Evden yaşlı bir kadın çıktı. Bir cadıydı. Hänsel'i bir ahıra kilitledi, Gretel'i de hizmetçi yaptı."},
+        {"de": "Die Hexe wollte Hänsel essen. Aber Gretel war klug: Sie schob die Hexe in den Ofen und machte die Tür zu. Dann befreite sie ihren Bruder.", "tr": "Cadı Hänsel'i yemek istiyordu. Ama Gretel akıllıydı: Cadıyı fırına itti ve kapıyı kapattı. Sonra kardeşini kurtardı."},
+        {"de": "Die Kinder nahmen Gold und Edelsteine aus dem Haus und gingen heim. Die Stiefmutter war inzwischen gestorben, und der Vater freute sich sehr.", "tr": "Çocuklar evden altın ve değerli taşlar alıp eve döndü. Üvey anne bu arada ölmüştü, baba da çok sevindi."}
+      ],
+      "questions": [
+        {"question_tr": "Hänsel birinci seferde yolu nasıl işaretledi?", "options": ["Küçük taşlarla", "Ekmek parçalarıyla", "İpliklerle"], "answer": 0, "explain_tr": "\"kleine Steine … auf den Weg\""},
+        {"question_tr": "Ekmek parçalarına ne oldu?", "options": ["Kuşlar yedi", "Yağmur silip götürdü", "Rüzgâr uçurdu"], "answer": 0, "explain_tr": "\"die Vögel haben sie alle gegessen\""},
+        {"question_tr": "Cadıyı kim yendi?", "options": ["Gretel", "Hänsel", "Baba"], "answer": 0, "explain_tr": "\"Gretel war klug: Sie schob die Hexe in den Ofen\""}
+      ]
+    },
+    {
+      "id": "r_wolf_geisslein", "title": "Der Wolf und die sieben Geißlein", "level": "A2", "minutes": 5, "topic_tr": "Masal", "source_tr": "Grimm Kardeşler, Kinder- und Hausmärchen (KHM 5, 1857) · kamu malı. Deutschap'ın sadeleştirilmiş uyarlaması · CC0",
+      "paragraphs": [
+        {"de": "Eine Ziege hatte sieben junge Geißlein. Eines Tages musste sie in den Wald gehen, um Essen zu holen. „Macht niemandem die Tür auf!“, sagte sie. „Der Wolf kommt vielleicht. Ihr erkennt ihn an seiner rauen Stimme.“", "tr": "Bir keçinin yedi oğlağı vardı. Bir gün yiyecek getirmek için ormana gitmesi gerekti. \"Kimseye kapıyı açmayın!\" dedi. \"Belki kurt gelir. Onu kalın sesinden tanırsınız.\""},
+        {"de": "Bald klopfte es. „Macht auf, liebe Kinder, ich bin eure Mutter!“ Aber die Stimme war rau. „Du bist nicht unsere Mutter“, riefen die Geißlein. „Unsere Mutter hat eine feine Stimme!“", "tr": "Kısa süre sonra kapı çalındı. \"Açın sevgili çocuklar, ben annenizim!\" Ama ses kalındı. \"Sen annemiz değilsin\" diye bağırdı oğlaklar. \"Annemizin ince bir sesi var!\""},
+        {"de": "Der Wolf ging zu einem Händler und kaufte Kreide. Er aß sie, und seine Stimme wurde fein. Dann kam er wieder. Aber diesmal sahen die Geißlein seine schwarze Pfote am Fenster. „Du bist nicht unsere Mutter!“", "tr": "Kurt bir tüccara gidip tebeşir aldı. Onu yedi ve sesi incelendi. Sonra tekrar geldi. Ama bu sefer oğlaklar penceredeki siyah patisini gördü. \"Sen annemiz değilsin!\""},
+        {"de": "Der Wolf ließ seine Pfote weiß machen. Beim dritten Mal glaubten die Geißlein ihm und machten die Tür auf. Der Wolf fraß sechs von ihnen. Das siebte Geißlein versteckte sich in der Uhr.", "tr": "Kurt patisini beyaza boyattı. Üçüncüde oğlaklar ona inandı ve kapıyı açtı. Kurt altısını yuttu. Yedinci oğlak saatin içine saklandı."},
+        {"de": "Als die Mutter zurückkam, erzählte das kleine Geißlein alles. Die Ziege fand den Wolf unter einem Baum, schlafend. Sie schnitt seinen Bauch auf, und die sechs Geißlein sprangen gesund heraus.", "tr": "Anne dönünce küçük oğlak her şeyi anlattı. Keçi kurdu bir ağacın altında uyurken buldu. Karnını yardı ve altı oğlak sapasağlam dışarı atladı."},
+        {"de": "Zusammen füllten sie den Bauch mit Steinen. Als der Wolf aufwachte und zum Brunnen ging, fiel er hinein. Und die Ziege tanzte mit ihren sieben Kindern um den Brunnen.", "tr": "Hep birlikte karnını taşlarla doldurdular. Kurt uyanıp kuyuya gidince içine düştü. Keçi de yedi çocuğuyla kuyunun çevresinde dans etti."}
+      ],
+      "questions": [
+        {"question_tr": "Keçi çocuklarına ne dedi?", "options": ["Kimseye kapıyı açmayın", "Ormana gelin", "Kurtla oynayın"], "answer": 0, "explain_tr": "\"Macht niemandem die Tür auf!\""},
+        {"question_tr": "Oğlaklar kurdu nasıl tanıdı?", "options": ["Kalın sesinden ve siyah patisinden", "Kulaklarından", "Kuyruğundan"], "answer": 0, "explain_tr": "\"raue Stimme\", \"schwarze Pfote\""},
+        {"question_tr": "Yedinci oğlak nereye saklandı?", "options": ["Saatin içine", "Yatağın altına", "Sandığın içine"], "answer": 0, "explain_tr": "\"versteckte sich in der Uhr\""}
+      ]
+    },
+    {
+      "id": "r_stadtmaus", "title": "Die Stadtmaus und die Feldmaus", "level": "A2", "minutes": 4, "topic_tr": "Fabl", "source_tr": "Ezop fablı · kamu malı. Deutschap'ın Almanca uyarlaması · CC0",
+      "paragraphs": [
+        {"de": "Eine Feldmaus lebte auf dem Land. Sie hatte ein einfaches Zuhause und aß Körner und Wurzeln. Eines Tages besuchte sie ihre Cousine aus der Stadt.", "tr": "Bir tarla faresi kırda yaşıyordu. Sade bir evi vardı ve tahıl ve kök yerdi. Bir gün şehirdeki kuzenini ziyaret etti."},
+        {"de": "„Komm mit in die Stadt!“, sagte die Stadtmaus. „Dort gibt es Käse, Kuchen und Brot. Du wirst staunen!“ Die Feldmaus ging mit.", "tr": "\"Benimle şehre gel!\" dedi şehir faresi. \"Orada peynir, kek ve ekmek var. Şaşıracaksın!\" Tarla faresi onunla gitti."},
+        {"de": "Im Haus der Stadtmaus stand ein langer Tisch voll mit gutem Essen. Die Feldmaus begann zu essen. Plötzlich ging die Tür auf, und ein großer Hund kam herein.", "tr": "Şehir faresinin evinde güzel yemeklerle dolu uzun bir masa vardı. Tarla faresi yemeye başladı. Birden kapı açıldı ve büyük bir köpek içeri girdi."},
+        {"de": "Die beiden Mäuse rannten schnell in ein kleines Loch. Die Feldmaus zitterte vor Angst. „Das ist nichts für mich“, sagte sie. „Bei dir ist das Essen besser, aber ich habe keine Ruhe.“", "tr": "İki fare hızla küçük bir deliğe koştu. Tarla faresi korkudan titriyordu. \"Bu bana göre değil\" dedi. \"Sende yemek daha iyi ama huzurum yok.\""},
+        {"de": "Sie ging zurück aufs Land. Dort aß sie wieder ihre Körner – und sie schlief ruhig. Die Moral: Ein einfaches Leben ohne Angst ist oft besser als Reichtum mit Sorgen.", "tr": "Kıra geri döndü. Orada yine tahıllarını yedi – ve huzurla uyudu. Ders: Korkusuz sade bir hayat, çoğu zaman tasalarla dolu zenginlikten iyidir."}
+      ],
+      "questions": [
+        {"question_tr": "Tarla faresi şehirde neden korktu?", "options": ["Büyük bir köpek geldi", "Kedi gördü", "Karanlıktan korktu"], "answer": 0, "explain_tr": "\"ein großer Hund kam herein\""},
+        {"question_tr": "Fablın dersi ne?", "options": ["Sade ve korkusuz hayat çoğu zaman daha iyidir", "Şehirde yaşamak daha iyidir", "Köpeklerden kaçmalı"], "answer": 0, "explain_tr": "\"Ein einfaches Leben ohne Angst ist oft besser …\""}
+      ]
+    },
+    {
+      "id": "r_wohnungssuche", "title": "Wohnungssuche in Berlin", "level": "A2", "minutes": 5, "topic_tr": "Ev arama", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "paragraphs": [
+        {"de": "Aylin sucht seit zwei Monaten eine Wohnung in Berlin. Das ist nicht einfach, denn viele Menschen wollen in dieser Stadt wohnen.", "tr": "Aylin iki aydır Berlin'de bir daire arıyor. Bu kolay değil, çünkü birçok kişi bu şehirde yaşamak istiyor."},
+        {"de": "Jeden Abend schaut sie im Internet nach neuen Angeboten. Sie schreibt zehn, manchmal zwanzig E-Mails pro Woche. Meistens bekommt sie keine Antwort.", "tr": "Her akşam internette yeni ilanlara bakıyor. Haftada on, bazen yirmi e-posta yazıyor. Çoğu zaman cevap alamıyor."},
+        {"de": "Endlich hat ein Vermieter geantwortet: „Sie können die Wohnung am Samstag um zehn Uhr besichtigen.“ Als Aylin ankam, standen schon vierzig Leute vor der Tür.", "tr": "Sonunda bir ev sahibi cevap verdi: \"Daireyi cumartesi saat onda görebilirsiniz.\" Aylin vardığında kapının önünde kırk kişi bekliyordu."},
+        {"de": "Die Wohnung war schön, aber auch teuer: 900 Euro warm für zwei Zimmer. Aylin hat ihre Mappe mit Gehaltsnachweis und Kopie vom Ausweis abgegeben.", "tr": "Daire güzeldi ama pahalıydı: iki oda için ısınma dahil 900 euro. Aylin maaş belgesi ve kimlik fotokopisi olan dosyasını bıraktı."},
+        {"de": "Eine Woche später kam eine E-Mail: „Leider haben wir eine andere Person genommen.“ Aylin war traurig, aber sie gibt nicht auf. „Beim nächsten Mal klappt es bestimmt“, sagt sie.", "tr": "Bir hafta sonra bir e-posta geldi: \"Maalesef başka birini seçtik.\" Aylin üzüldü ama pes etmiyor. \"Bir dahaki sefere kesin olur\" diyor."}
+      ],
+      "questions": [
+        {"question_tr": "Aylin ne kadar zamandır ev arıyor?", "options": ["İki aydır", "İki haftadır", "İki yıldır"], "answer": 0, "explain_tr": "\"seit zwei Monaten\""},
+        {"question_tr": "Daire görmeye kaç kişi gelmiş?", "options": ["Yaklaşık kırk", "Yalnızca beş", "Yirmi"], "answer": 0, "explain_tr": "\"standen schon vierzig Leute vor der Tür\""},
+        {"question_tr": "Sonuç ne oldu?", "options": ["Başka biri seçildi", "Aylin daireyi tuttu", "Daire satıldı"], "answer": 0, "explain_tr": "\"Leider haben wir eine andere Person genommen.\""}
       ]
     }
   ]
