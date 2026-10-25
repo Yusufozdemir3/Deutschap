@@ -223,6 +223,7 @@ class ErrorDetectors {
       final hits = lexicon.lookupWord(s);
       if (hits.confidence != LookupConfidence.exact || hits.isEmpty) continue;
       if (!hits.lexemes.every((l) => l.isNoun)) continue; // "essen" vs "Essen"
+      if (hits.lexemes.any((l) => l.forms.contains(s))) continue; // listed lower-case form: "montags"
       final fixed = s[0].toUpperCase() + s.substring(1);
       yield LanguageIssue(
         kind: IssueKind.spelling,
