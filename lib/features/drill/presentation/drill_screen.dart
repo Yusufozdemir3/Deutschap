@@ -68,7 +68,11 @@ class _DrillScreenState extends ConsumerState<DrillScreen> {
         if (drillTagLabels.containsKey(t)) tags[t] = (tags[t] ?? 0) + 1;
       }
     }
-    final levels = {for (final l in content.lexicon.all) l.cefr}.toList()..sort();
+    final perLevel = <String, int>{};
+    for (final l in content.lexicon.all) {
+      perLevel[l.cefr] = (perLevel[l.cefr] ?? 0) + 1;
+    }
+    final levels = [for (final e in perLevel.entries) if (e.value >= 4) e.key]..sort();
 
     Widget sourceTag(String id, String label, {IconData? icon, int? count}) => Tag(
           count == null ? label : '$label ($count)',

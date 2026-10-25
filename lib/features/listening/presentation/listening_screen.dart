@@ -115,7 +115,7 @@ class _ListeningScreenState extends ConsumerState<ListeningScreen> {
     final source = SourceContext(type: SourceType.reading, sourceId: 'listen:${t.id}', title: t.title);
     final allAnswered = _answers.length == t.questions.length;
     return Scaffold(
-      appBar: AppBar(title: Text(t.title, style: context.text.titleMedium!.copyWith(fontFamily: 'Literata'), overflow: TextOverflow.ellipsis)),
+      appBar: AppBar(leading: const BackOrHomeButton(), title: Text(t.title, style: context.text.titleMedium!.copyWith(fontFamily: 'Literata'), overflow: TextOverflow.ellipsis)),
       body: ListView(
         padding: pagePadding,
         children: [
@@ -236,7 +236,7 @@ class _ListeningScreenState extends ConsumerState<ListeningScreen> {
         child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
           Text(q.questionTr, style: context.text.titleSmall),
           const SizedBox(height: 8),
-          for (var i = 0; i < q.options.length; i++)
+          for (final i in optionOrder(q.options.length, '${t.id}#$qi'))
             Padding(
               padding: const EdgeInsets.only(bottom: 6),
               child: AppCard(

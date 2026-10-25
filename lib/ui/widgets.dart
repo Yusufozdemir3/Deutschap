@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -368,4 +370,14 @@ class Tag extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Display order for answer options, stable for a given [key], so the
+/// correct answer is not always in the position it has in the content.
+List<int> optionOrder(int count, String key) {
+  var seed = 0;
+  for (final c in key.codeUnits) {
+    seed = (seed * 31 + c) & 0x7fffffff;
+  }
+  return List.generate(count, (i) => i)..shuffle(Random(seed));
 }

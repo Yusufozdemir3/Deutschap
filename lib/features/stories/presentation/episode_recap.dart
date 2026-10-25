@@ -250,7 +250,7 @@ class _EpisodeRecapState extends ConsumerState<EpisodeRecap> {
         const SizedBox(height: 4),
         Text(q.questionTr, style: context.text.titleSmall),
         const SizedBox(height: 10),
-        for (var i = 0; i < q.options.length; i++)
+        for (final i in optionOrder(q.options.length, '${e.id}#$_q'))
           Padding(
             padding: const EdgeInsets.only(bottom: 6),
             child: AppCard(

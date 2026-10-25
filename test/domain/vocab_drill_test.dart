@@ -1,6 +1,7 @@
 import 'package:deutschap/content/models/lesson.dart';
 import 'package:deutschap/features/drill/domain/vocab_drill.dart';
 import 'package:deutschap/learning/answer_checker.dart';
+import 'package:deutschap/ui/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../helpers/test_content.dart';
@@ -85,5 +86,12 @@ void main() {
     expect(back.source, 'tag:essen');
     expect(back.mode, DrillMode.plural);
     expect(back.size, 20);
+  });
+
+  test('option order is a stable permutation that moves first answers around', () {
+    expect(optionOrder(4, 'x#1'), optionOrder(4, 'x#1'));
+    expect(optionOrder(4, 'x#1').toSet(), {0, 1, 2, 3});
+    final firstPositions = {for (var i = 0; i < 40; i++) optionOrder(3, 'step#$i').indexOf(0)};
+    expect(firstPositions, {0, 1, 2});
   });
 }

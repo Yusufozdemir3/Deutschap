@@ -209,6 +209,7 @@ class ChoiceStepView extends StatefulWidget {
 
 class _ChoiceStepViewState extends State<ChoiceStepView> with _Checkable {
   int? _picked;
+  late final _order = optionOrder(widget.step.options.length, widget.step.id);
   @override
   StepDone get done => widget.done;
   @override
@@ -228,7 +229,7 @@ class _ChoiceStepViewState extends State<ChoiceStepView> with _Checkable {
           Row(children: [Expanded(child: Text(s.de!, style: context.reading)), SpeakButton(s.de!.replaceAll('___', '…'))]),
         ],
         const SizedBox(height: 16),
-        for (var i = 0; i < s.options.length; i++)
+        for (final i in _order)
           Padding(
             padding: const EdgeInsets.only(bottom: 8),
             child: _OptionTile(
@@ -622,6 +623,7 @@ class ListenStepView extends ConsumerStatefulWidget {
 
 class _ListenStepViewState extends ConsumerState<ListenStepView> with _Checkable {
   int? _picked;
+  late final _order = optionOrder(widget.step.options.length, widget.step.id);
   bool _textShown = false;
   bool _noVoice = false;
 
@@ -674,7 +676,7 @@ class _ListenStepViewState extends ConsumerState<ListenStepView> with _Checkable
         const SizedBox(height: 16),
         Text(s.promptTr, style: context.text.titleMedium),
         const SizedBox(height: 10),
-        for (var i = 0; i < s.options.length; i++)
+        for (final i in _order)
           Padding(
             padding: const EdgeInsets.only(bottom: 8),
             child: _OptionTile(
@@ -878,7 +880,7 @@ class _MatchStepViewState extends ConsumerState<MatchStepView> {
         const SizedBox(height: 16),
         Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Expanded(
-            child: Column(children: [
+            child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
               for (final i in _left)
                 tile(s.pairs[i].de,
                     german: true,
@@ -893,7 +895,7 @@ class _MatchStepViewState extends ConsumerState<MatchStepView> {
           ),
           const SizedBox(width: 10),
           Expanded(
-            child: Column(children: [
+            child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
               for (final i in _right)
                 tile(s.pairs[i].tr,
                     done: _matched.contains(i),

@@ -203,7 +203,7 @@ class _ReaderScreenState extends ConsumerState<ReaderScreen> {
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
         Text(q.questionTr, style: context.text.titleSmall),
         const SizedBox(height: 8),
-        for (var i = 0; i < q.options.length; i++)
+        for (final i in optionOrder(q.options.length, '${r.id}#$_q'))
           Padding(
             padding: const EdgeInsets.only(bottom: 6),
             child: AppCard(
