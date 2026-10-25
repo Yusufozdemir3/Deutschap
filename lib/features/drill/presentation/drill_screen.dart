@@ -7,12 +7,19 @@ import '../../../app/theme/app_theme.dart';
 import '../../../content/models/lesson.dart';
 import '../../../content/models/lexeme.dart';
 import '../../../ui/widgets.dart';
+import '../../vocabulary/application/vocab_providers.dart';
+import '../../vocabulary/domain/vocab_entry.dart';
 import '../application/drill_words.dart';
 import '../domain/vocab_drill.dart';
 
 final weakLexemeIdsProvider = FutureProvider<List<String>>((ref) {
   ref.watch(dataRevisionProvider);
   return weakLexemeIds(ref.watch(progressRepositoryProvider));
+});
+
+final _collectionWordsProvider = FutureProvider.family<List<String>, String>((ref, id) {
+  ref.watch(dataRevisionProvider);
+  return ref.watch(vocabRepositoryProvider).collectionLexemeIds(id);
 });
 
 /// Chooses what to practise: a word source, an exercise type and a size.
@@ -40,6 +47,10 @@ class _DrillScreenState extends ConsumerState<DrillScreen> {
     final lex = content.lexicon;
     if (source == 'saved') return saved.map(lex.byId).whereType<Lexeme>().toList();
     if (source == 'weak') return weak.map(lex.byId).whereType<Lexeme>().toList();
+    if (source.startsWith('collection:')) {
+      final ids = ref.watch(_collectionWordsProvider(source.substring('collection:'.length))).valueOrNull ?? const <String>[];
+      return ids.map(lex.byId).whereType<Lexeme>().toList();
+    }
     final i = source.indexOf(':');
     final kind = i < 0 ? source : source.substring(0, i);
     final value = i < 0 ? '' : source.substring(i + 1);
@@ -56,6 +67,7 @@ class _DrillScreenState extends ConsumerState<DrillScreen> {
     final content = ref.watch(contentProvider);
     final saved = ref.watch(savedLexemeIdsProvider).valueOrNull ?? const <String>{};
     final weak = ref.watch(weakLexemeIdsProvider).valueOrNull ?? const <String>[];
+    final collections = ref.watch(collectionsProvider).valueOrNull ?? const <CollectionInfo>[];
     final source = _source ?? (saved.length >= 4 ? 'saved' : 'level:A1');
     final gen = VocabDrillGenerator(content.lexicon);
     final words = _words(source, saved, weak);
@@ -96,6 +108,15 @@ class _DrillScreenState extends ConsumerState<DrillScreen> {
                 sourceTag('weak', 'Zorlandıkların', icon: Icons.priority_high_rounded, count: weak.length),
                 for (final lv in levels) sourceTag('level:$lv', 'Tüm $lv kelimeleri', icon: Icons.school_outlined),
               ]),
+              if (collections.any((c) => c.count > 0)) ...[
+                const SizedBox(height: 12),
+                Text('Koleksiyonların', style: context.text.labelMedium),
+                const SizedBox(height: 6),
+                Wrap(spacing: 8, runSpacing: 8, children: [
+                  for (final c in collections)
+                    if (c.count > 0) sourceTag('collection:${c.id}', c.name, icon: Icons.collections_bookmark_outlined, count: c.count),
+                ]),
+              ],
               const SizedBox(height: 12),
               Text('Konuya göre', style: context.text.labelMedium),
               const SizedBox(height: 6),

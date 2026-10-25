@@ -122,7 +122,7 @@
       ],
       "questions": [
         {"question_tr": "Tilki neden üzümleri yiyemedi?", "options": ["Çok yüksekteydiler", "Çok ekşiydiler", "Bahçe kapalıydı"], "answer": 0, "explain_tr": "\"hoch an einer Mauer\" – yetişemedi."},
-        {"question_tr": "Türkçede bu fablın karşılığı hangi atasözü?", "options": ["Uzanamadığı ciğere mundar der", "Damlaya damlaya göl olur", "Sakla samanı gelir zamanı"], "answer": 0, "explain_tr": "Ulaşamadığı şeyi kötüleyen tilki gibi."}
+        {"question_tr": "Türkçede bu fablın karşılığı hangi atasözü?", "options": ["Tilki ulaşamadığı üzüme koruk dermiş", "Damlaya damlaya göl olur", "Sakla samanı gelir zamanı"], "answer": 0, "explain_tr": "Ulaşamadığı üzüme koruk diyen tilki gibi: elde edemediğin şeyi küçümsersin."}
       ]
     },
     {

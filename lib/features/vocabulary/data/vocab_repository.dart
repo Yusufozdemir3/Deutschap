@@ -349,6 +349,16 @@ class VocabRepository {
     return [for (final row in r) CollectionInfo(id: row['id']! as String, name: row['name']! as String, count: row['n']! as int)];
   }
 
+  /// Lexeme ids of the dictionary entries in a collection.
+  Future<List<String>> collectionLexemeIds(String collectionId) async {
+    final r = await _db.rawQuery(
+      'SELECT e.lexeme_id AS l FROM collection_items ci JOIN vocab_entries e ON e.id = ci.entry_id '
+      'WHERE ci.collection_id = ? AND e.lexeme_id IS NOT NULL',
+      [collectionId],
+    );
+    return [for (final row in r) row['l']! as String];
+  }
+
   Future<String> createCollection(String name) async {
     final id = _ids();
     await _db.insert('collections', {'id': id, 'name': name.trim(), 'created_at': toMillis(_clock())});

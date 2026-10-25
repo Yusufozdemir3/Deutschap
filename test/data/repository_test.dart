@@ -134,6 +134,7 @@ void main() {
       final col = await vocab.createCollection('Kafe');
       await vocab.setInCollection(col, k.id, true);
       expect((await vocab.list(VocabQuery(collectionId: col))).single.id, k.id);
+      expect(await vocab.collectionLexemeIds(col), ['kaffee']);
       expect((await vocab.collections()).single.count, 1);
       await vocab.delete(k.id);
       expect((await vocab.collections()).single.count, 0, reason: 'membership cascades');

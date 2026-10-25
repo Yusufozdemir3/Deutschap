@@ -36,6 +36,9 @@ Future<List<Lexeme>> resolveDrillWords(
   if (src == 'saved') {
     return shuffled((await vocab.savedLexemeIds()).map(lex.byId).whereType<Lexeme>());
   }
+  if (src.startsWith('collection:')) {
+    return shuffled((await vocab.collectionLexemeIds(src.substring('collection:'.length))).map(lex.byId).whereType<Lexeme>());
+  }
   if (src == 'weak') {
     return [for (final id in await weakLexemeIds(progress)) ?lex.byId(id)];
   }
