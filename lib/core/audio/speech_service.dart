@@ -7,8 +7,10 @@ import 'voice_selection.dart';
 /// the device; this is not native-speaker audio and the UI says so.
 abstract interface class SpeechService {
   /// Speaks German text. Returns false when no German voice/engine is
-  /// available, so the UI can show a text-only state.
-  Future<bool> speak(String text, {bool slow = false});
+  /// available, so the UI can show a text-only state. With [wait] the
+  /// future completes when speaking has finished (for playing a sequence);
+  /// [pitch] lets dialogues sound like different speakers.
+  Future<bool> speak(String text, {bool slow = false, bool wait = false, double pitch = 1.0});
   Future<void> stop();
 
   /// German voices on this device, best first (empty if unknown).
@@ -89,14 +91,16 @@ class PlatformSpeechService implements SpeechService {
   }
 
   @override
-  Future<bool> speak(String text, {bool slow = false}) async {
+  Future<bool> speak(String text, {bool slow = false, bool wait = false, double pitch = 1.0}) async {
     final tts = await _engine();
     if (tts == null) return false;
     try {
       // Web speech rates are on a different scale than mobile engines.
       final rate = kIsWeb ? (slow ? 0.6 : 0.95) : (slow ? normalRate * 0.6 : normalRate);
       await tts.setSpeechRate(rate);
+      await tts.setPitch(pitch);
       await tts.stop();
+      await tts.awaitSpeakCompletion(wait);
       await tts.speak(text);
       return true;
     } catch (e) {
@@ -129,7 +133,7 @@ class PlatformSpeechService implements SpeechService {
 class SilentSpeechService implements SpeechService {
   final spoken = <String>[];
   @override
-  Future<bool> speak(String text, {bool slow = false}) async {
+  Future<bool> speak(String text, {bool slow = false, bool wait = false, double pitch = 1.0}) async {
     spoken.add(text);
     return false;
   }

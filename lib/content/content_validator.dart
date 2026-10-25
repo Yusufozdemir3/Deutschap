@@ -321,6 +321,17 @@ class ContentValidator {
         if (q.answer < 0 || q.answer >= q.options.length) _fail('reading ${r.id}', 'answer out of range');
       }
     }
+    final trackIds = <String>{};
+    for (final t in bundle.listening) {
+      final w = 'listening ${t.id}';
+      if (!trackIds.add(t.id)) _fail(w, 'duplicate id');
+      if (t.lines.length < 2) _fail(w, 'needs at least two lines');
+      if (t.questions.isEmpty) _fail(w, 'needs comprehension questions');
+      for (final q in t.questions) {
+        if (q.answer < 0 || q.answer >= q.options.length) _fail(w, 'answer out of range');
+        if (q.options.toSet().length != q.options.length) _fail(w, 'duplicate options');
+      }
+    }
   }
 
   void _world() {

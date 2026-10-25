@@ -78,6 +78,7 @@ void main() {
       for (final g in content.grammar.values) ...g.examples.map((e) => e.de),
       for (final e in content.episodes) ...episodeLines(e).map((l) => fillName(l.de, 'Deniz')),
       for (final r in content.readings) ...r.paragraphs.map((p) => p.de),
+      for (final t in content.listening) ...t.lines.map((l) => l.de),
       for (final c in content.discover) c.bodyDe,
       for (final l in content.lessons)
         for (final s in l.steps)

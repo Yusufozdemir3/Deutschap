@@ -25,6 +25,7 @@ class ContentBundle {
     required this.readings,
     required this.scenarios,
     required this.discover,
+    this.listening = const [],
     this.places = const [],
     this.clues = const [],
   }) {
@@ -50,6 +51,7 @@ class ContentBundle {
     'path_a2.json',
     'stories.json',
     'reading.json',
+    'listening.json',
     'scenarios.json',
     'discover.json',
     'world.json',
@@ -62,6 +64,7 @@ class ContentBundle {
   final List<LearningPath> paths;
   final List<Story> stories;
   final List<ReadingText> readings;
+  final List<ListeningTrack> listening;
   final List<Scenario> scenarios;
   final List<DiscoverCard> discover;
   final List<Place> places;
@@ -94,6 +97,13 @@ class ContentBundle {
   Scenario? scenario(String id) {
     for (final s in scenarios) {
       if (s.id == id) return s;
+    }
+    return null;
+  }
+
+  ListeningTrack? track(String id) {
+    for (final t in listening) {
+      if (t.id == id) return t;
     }
     return null;
   }
@@ -149,6 +159,7 @@ class ContentBundle {
       paths: [for (final f in files.where((f) => f.startsWith('path_'))) guard(f, LearningPath.fromJson)],
       stories: guard('stories.json', (j) => j.objList('stories').map(Story.fromJson).toList(growable: false)),
       readings: guard('reading.json', (j) => j.objList('texts').map(ReadingText.fromJson).toList(growable: false)),
+      listening: guard('listening.json', (j) => j.objList('tracks').map(ListeningTrack.fromJson).toList(growable: false)),
       scenarios: guard('scenarios.json', (j) => j.objList('scenarios').map(Scenario.fromJson).toList(growable: false)),
       discover: guard('discover.json', (j) => j.objList('cards').map(DiscoverCard.fromJson).toList(growable: false)),
       places: guard('world.json', (j) => j.objList('places').map(Place.fromJson).toList(growable: false)),

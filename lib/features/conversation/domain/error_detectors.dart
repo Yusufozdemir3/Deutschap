@@ -68,10 +68,18 @@ class ErrorDetectors {
   Iterable<LanguageIssue> _perfektAuxiliary(String text) sync* {
     final w = words(text);
     final lower = w.map((x) => x.toLowerCase()).toList();
+    // Auxiliary and participle must be in the same sentence.
+    final sentenceEnd = <int>[];
+    var count = 0;
+    for (final m in RegExp(r'[^.!?;]+[.!?;]*').allMatches(text)) {
+      count += words(m.group(0)!).length;
+      sentenceEnd.add(count);
+    }
+    int endOf(int i) => sentenceEnd.firstWhere((e) => e > i, orElse: () => lower.length);
     for (var i = 0; i < lower.length; i++) {
       final sein = _haben[lower[i]];
       if (sein == null) continue;
-      for (var k = i + 1; k < lower.length; k++) {
+      for (var k = i + 1; k < endOf(i) && k < lower.length; k++) {
         final p = lower[k];
         final definite = _seinParticiples.contains(p);
         final motion = _motionParticiples.contains(p);

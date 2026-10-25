@@ -60,7 +60,7 @@ class SectionTitle extends StatelessWidget {
         child: Row(
           children: [
             Expanded(child: Semantics(header: true, child: Text(title, style: context.text.titleMedium))),
-            ?trailing,
+            if (trailing != null) Flexible(child: trailing!),
           ],
         ),
       );

@@ -1,8 +1,8 @@
 {
-  "version": "2026.10.1",
+  "version": "2026.10.2",
   "texts": [
     {
-      "id": "r_mein_zimmer", "title": "Mein Zimmer", "level": "A1", "minutes": 2, "topic_tr": "Ev ve eşyalar",
+      "id": "r_mein_zimmer", "title": "Mein Zimmer", "level": "A1", "minutes": 2, "topic_tr": "Ev ve eşyalar", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
       "paragraphs": [
         {"de": "Ich wohne in einer WG in Berlin. Mein Zimmer ist nicht groß, aber es ist hell.", "tr": "Berlin'de paylaşımlı bir evde oturuyorum. Odam büyük değil ama aydınlık."},
         {"de": "Links ist das Bett. Rechts sind der Tisch und der Stuhl. Auf dem Tisch liegt ein Buch.", "tr": "Solda yatak var. Sağda masa ve sandalye var. Masanın üstünde bir kitap duruyor."},
@@ -15,7 +15,7 @@
       ]
     },
     {
-      "id": "r_ein_tag", "title": "Ein Tag von Lina", "level": "A1", "minutes": 3, "topic_tr": "Günlük rutin",
+      "id": "r_ein_tag", "title": "Ein Tag von Lina", "level": "A1", "minutes": 3, "topic_tr": "Günlük rutin", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
       "paragraphs": [
         {"de": "Lina steht um sieben Uhr auf. Sie trinkt einen Kaffee in der Küche.", "tr": "Lina saat yedide kalkıyor. Mutfakta bir kahve içiyor."},
         {"de": "Um acht Uhr fährt sie mit der U-Bahn zur Uni. Sie studiert Architektur.", "tr": "Saat sekizde metroyla üniversiteye gidiyor. Mimarlık okuyor."},
@@ -28,7 +28,7 @@
       ]
     },
     {
-      "id": "r_sonntag", "title": "Sonntag in Deutschland", "level": "A1", "minutes": 3, "topic_tr": "Kültür",
+      "id": "r_sonntag", "title": "Sonntag in Deutschland", "level": "A1", "minutes": 3, "topic_tr": "Kültür", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
       "paragraphs": [
         {"de": "In Deutschland ist der Sonntag ein ruhiger Tag. Die meisten Geschäfte sind zu.", "tr": "Almanya'da pazar sakin bir gündür. Dükkânların çoğu kapalıdır."},
         {"de": "Aber viele Bäckereien sind am Morgen offen. Dort kaufen die Leute frische Brötchen.", "tr": "Ama birçok fırın sabahları açıktır. İnsanlar orada taze ekmek alır."},
@@ -41,7 +41,7 @@
       ]
     },
     {
-      "id": "r_cafe_kastanie", "title": "Das Café Kastanie", "level": "A1", "minutes": 3, "topic_tr": "Şehir hayatı",
+      "id": "r_cafe_kastanie", "title": "Das Café Kastanie", "level": "A1", "minutes": 3, "topic_tr": "Şehir hayatı", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
       "paragraphs": [
         {"de": "Das Café Kastanie ist klein und alt. Es hat eine grüne Tür und große Fenster.", "tr": "Café Kastanie küçük ve eski. Yeşil bir kapısı ve büyük pencereleri var."},
         {"de": "Can arbeitet hier. Er macht den besten Cappuccino in der Straße – sagt er.", "tr": "Can burada çalışıyor. Sokaktaki en iyi kapuçinoyu o yapıyor – öyle diyor."},
@@ -51,6 +51,196 @@
       "questions": [
         {"question_tr": "Kafenin kapısı ne renk?", "options": ["Kırmızı", "Yeşil", "Mavi"], "answer": 1, "explain_tr": "\"eine grüne Tür\""},
         {"question_tr": "Kafe ne zaman genelde dolu?", "options": ["Sabah erken", "Öğleden sonra", "Gece"], "answer": 1, "explain_tr": "\"Am Nachmittag ist das Café oft voll.\""}
+      ]
+    },
+    {
+      "id": "r_markt", "title": "Auf dem Wochenmarkt", "level": "A1", "minutes": 3, "topic_tr": "Alışveriş", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "paragraphs": [
+        {"de": "Jeden Samstag ist auf dem Marktplatz ein Wochenmarkt. Er beginnt um acht Uhr am Morgen.", "tr": "Her cumartesi pazar meydanında haftalık pazar kurulur. Sabah saat sekizde başlar."},
+        {"de": "Herr Demir verkauft dort Obst und Gemüse. Seine Tomaten sind sehr lecker und nicht teuer.", "tr": "Demir Bey orada meyve ve sebze satıyor. Domatesleri çok lezzetli ve pahalı değil."},
+        {"de": "Frau Schmidt kauft ein Kilo Äpfel und drei Bananen. Sie bezahlt vier Euro fünfzig.", "tr": "Schmidt Hanım bir kilo elma ve üç muz alıyor. Dört euro elli ödüyor."},
+        {"de": "Am Käsestand gibt es frischen Käse aus der Region. Man kann ihn vorher probieren.", "tr": "Peynir tezgâhında yöreden taze peynir var. Önceden tadına bakılabilir."},
+        {"de": "Tipp: Bringen Sie eine Tasche mit! Plastiktüten gibt es auf dem Markt nur selten.", "tr": "İpucu: Yanınızda bir çanta getirin! Pazarda plastik poşet nadiren olur."}
+      ],
+      "questions": [
+        {"question_tr": "Pazar ne zaman başlıyor?", "options": ["Sabah sekizde", "Öğlen on ikide", "Akşam altıda"], "answer": 0, "explain_tr": "\"Er beginnt um acht Uhr am Morgen.\""},
+        {"question_tr": "Schmidt Hanım ne kadar ödüyor?", "options": ["4,50 euro", "5,40 euro", "14,50 euro"], "answer": 0, "explain_tr": "\"vier Euro fünfzig\" = 4,50 €"},
+        {"question_tr": "Neden çanta getirmeli?", "options": ["Pazarda plastik poşet nadiren var", "Pazar çok büyük", "Peynir çok ağır"], "answer": 0, "explain_tr": "\"Plastiktüten gibt es … nur selten.\""}
+      ]
+    },
+    {
+      "id": "r_familie_kaya", "title": "Familie Kaya", "level": "A1", "minutes": 3, "topic_tr": "Aile", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "paragraphs": [
+        {"de": "Das ist Familie Kaya. Sie wohnt seit zehn Jahren in Köln.", "tr": "Bu Kaya ailesi. On yıldır Köln'de oturuyor."},
+        {"de": "Mehmet Kaya ist Busfahrer. Er arbeitet früh am Morgen und kommt am Nachmittag nach Hause.", "tr": "Mehmet Kaya otobüs şoförü. Sabah erkenden çalışıyor ve öğleden sonra eve geliyor."},
+        {"de": "Seine Frau Elif ist Krankenpflegerin im Krankenhaus. Sie arbeitet oft am Wochenende.", "tr": "Karısı Elif hastanede hemşire. Sık sık hafta sonu çalışıyor."},
+        {"de": "Die Kinder heißen Deniz und Selin. Deniz ist zwölf und spielt gern Fußball. Selin ist acht. Sie malt sehr gern.", "tr": "Çocukların adı Deniz ve Selin. Deniz on iki yaşında ve futbol oynamayı seviyor. Selin sekiz yaşında. Resim yapmayı çok seviyor."},
+        {"de": "Am Sonntag frühstückt die ganze Familie zusammen. Dann gibt es Brot, Käse, Oliven und Tee.", "tr": "Pazar günü bütün aile birlikte kahvaltı ediyor. O zaman ekmek, peynir, zeytin ve çay oluyor."}
+      ],
+      "questions": [
+        {"question_tr": "Mehmet Kaya'nın mesleği ne?", "options": ["Otobüs şoförü", "Hemşire", "Öğretmen"], "answer": 0, "explain_tr": "\"Mehmet Kaya ist Busfahrer.\""},
+        {"question_tr": "Selin ne yapmayı seviyor?", "options": ["Resim yapmayı", "Futbol oynamayı", "Yemek yapmayı"], "answer": 0, "explain_tr": "\"Sie malt sehr gern.\""},
+        {"question_tr": "Aile ne zaman birlikte kahvaltı ediyor?", "options": ["Pazar günü", "Her sabah", "Cumartesi akşamı"], "answer": 0, "explain_tr": "\"Am Sonntag frühstückt die ganze Familie zusammen.\""}
+      ]
+    },
+    {
+      "id": "r_bus", "title": "Der Bus kommt nicht", "level": "A1", "minutes": 3, "topic_tr": "Şehir hayatı", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "paragraphs": [
+        {"de": "Es ist Montag, 7:45 Uhr. Can steht an der Haltestelle und wartet auf den Bus.", "tr": "Pazartesi, saat 7:45. Can durakta duruyor ve otobüsü bekliyor."},
+        {"de": "Der Bus kommt normalerweise um 7:50 Uhr. Aber heute kommt er nicht.", "tr": "Otobüs normalde 7:50'de gelir. Ama bugün gelmiyor."},
+        {"de": "Eine Frau sagt: „Heute ist Streik. Es fahren keine Busse und keine U-Bahnen.“", "tr": "Bir kadın diyor ki: \"Bugün grev var. Hiç otobüs ve metro çalışmıyor.\""},
+        {"de": "Can ruft seine Chefin an: „Guten Morgen, Frau Albrecht. Ich komme heute leider später. Es gibt keine Busse.“", "tr": "Can şefini arıyor: \"Günaydın Albrecht Hanım. Bugün maalesef daha geç geleceğim. Otobüs yok.\""},
+        {"de": "Dann nimmt er sein Fahrrad. Um 8:30 Uhr ist er im Büro – müde, aber glücklich.", "tr": "Sonra bisikletini alıyor. 8:30'da ofiste – yorgun ama mutlu."}
+      ],
+      "questions": [
+        {"question_tr": "Otobüs neden gelmiyor?", "options": ["Grev var", "Kar yağıyor", "Yol kapalı"], "answer": 0, "explain_tr": "\"Heute ist Streik.\""},
+        {"question_tr": "Can işe nasıl gidiyor?", "options": ["Bisikletle", "Taksiyle", "Yürüyerek"], "answer": 0, "explain_tr": "\"Dann nimmt er sein Fahrrad.\""}
+      ]
+    },
+    {
+      "id": "r_postkarte", "title": "Eine Postkarte aus Izmir", "level": "A1", "minutes": 3, "topic_tr": "Yazışma", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "paragraphs": [
+        {"de": "Liebe Lina, viele Grüße aus Izmir! Ich bin seit einer Woche bei meiner Familie.", "tr": "Sevgili Lina, İzmir'den çok selamlar! Bir haftadır ailemin yanındayım."},
+        {"de": "Das Wetter ist super: Die Sonne scheint jeden Tag und es ist 28 Grad warm.", "tr": "Hava süper: Her gün güneş parlıyor ve hava 28 derece."},
+        {"de": "Am Morgen gehe ich mit meinem Bruder ans Meer. Am Abend essen wir Fisch am Hafen.", "tr": "Sabahları erkek kardeşimle denize gidiyorum. Akşamları limanda balık yiyoruz."},
+        {"de": "Meine Mutter kocht jeden Tag viel zu viel. Ich glaube, ich esse hier zu viel Baklava!", "tr": "Annem her gün çok fazla yemek yapıyor. Sanırım burada fazla baklava yiyorum!"},
+        {"de": "Am Samstag komme ich zurück nach Berlin. Bis bald! Dein Can", "tr": "Cumartesi Berlin'e dönüyorum. Görüşmek üzere! Senin Can'ın"}
+      ],
+      "questions": [
+        {"question_tr": "Can ne zamandır İzmir'de?", "options": ["Bir haftadır", "Bir aydır", "İki gündür"], "answer": 0, "explain_tr": "\"seit einer Woche\""},
+        {"question_tr": "Akşamları ne yapıyorlar?", "options": ["Limanda balık yiyorlar", "Sinemaya gidiyorlar", "Evde televizyon izliyorlar"], "answer": 0, "explain_tr": "\"Am Abend essen wir Fisch am Hafen.\""},
+        {"question_tr": "Can ne zaman dönüyor?", "options": ["Cumartesi", "Pazar", "Pazartesi"], "answer": 0, "explain_tr": "\"Am Samstag komme ich zurück\""}
+      ]
+    },
+    {
+      "id": "r_fuchs_trauben", "title": "Der Fuchs und die Trauben", "level": "A1", "minutes": 2, "topic_tr": "Fabl", "source_tr": "Ezop fablı · kamu malı. Deutschap'ın Almanca uyarlaması · CC0",
+      "paragraphs": [
+        {"de": "Ein Fuchs hatte großen Hunger. Er kam in einen Garten. Dort hingen schöne, reife Trauben hoch an einer Mauer.", "tr": "Bir tilki çok açmış. Bir bahçeye gelmiş. Orada bir duvarın yükseğinde güzel, olgun üzümler asılıymış."},
+        {"de": "Der Fuchs sprang hoch, aber er kam nicht an die Trauben. Er sprang noch einmal und noch einmal. Es ging nicht.", "tr": "Tilki zıplamış ama üzümlere yetişememiş. Bir daha, bir daha zıplamış. Olmamış."},
+        {"de": "Endlich ging er weg und sagte: „Die Trauben sind mir sowieso zu sauer. Ich mag keine sauren Trauben.“", "tr": "Sonunda gitmiş ve \"Bu üzümler zaten bana fazla ekşi. Ekşi üzüm sevmem\" demiş."},
+        {"de": "Die Moral: Wer etwas nicht bekommen kann, sagt oft, dass er es gar nicht will.", "tr": "Ders: Bir şeyi elde edemeyen, çoğu zaman onu hiç istemediğini söyler."}
+      ],
+      "questions": [
+        {"question_tr": "Tilki neden üzümleri yiyemedi?", "options": ["Çok yüksekteydiler", "Çok ekşiydiler", "Bahçe kapalıydı"], "answer": 0, "explain_tr": "\"hoch an einer Mauer\" – yetişemedi."},
+        {"question_tr": "Türkçede bu fablın karşılığı hangi atasözü?", "options": ["Uzanamadığı ciğere mundar der", "Damlaya damlaya göl olur", "Sakla samanı gelir zamanı"], "answer": 0, "explain_tr": "Ulaşamadığı şeyi kötüleyen tilki gibi."}
+      ]
+    },
+    {
+      "id": "r_umzug_leipzig", "title": "Neuanfang in Leipzig", "level": "A2", "minutes": 4, "topic_tr": "Ev ve taşınma", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "paragraphs": [
+        {"de": "Vor drei Monaten ist Aylin von Ankara nach Leipzig umgezogen. Sie macht dort einen Master in Informatik.", "tr": "Üç ay önce Aylin Ankara'dan Leipzig'e taşındı. Orada bilgisayar biliminde yüksek lisans yapıyor."},
+        {"de": "Am Anfang war alles schwer. Sie hatte keine Wohnung und musste zwei Wochen bei einer Freundin schlafen.", "tr": "Başta her şey zordu. Evi yoktu ve iki hafta bir arkadaşının yanında kalmak zorunda kaldı."},
+        {"de": "Dann hat sie ein Zimmer in einer WG gefunden. Die Miete ist günstiger als in München oder Hamburg, deshalb bleibt am Ende des Monats noch etwas Geld übrig.", "tr": "Sonra paylaşımlı bir evde oda buldu. Kira Münih ya da Hamburg'dakinden daha ucuz, bu yüzden ay sonunda biraz para artıyor."},
+        {"de": "Ihre Mitbewohner kommen aus Spanien und aus Sachsen. Sie kochen oft zusammen und sprechen dabei Deutsch, weil das ihre einzige gemeinsame Sprache ist.", "tr": "Ev arkadaşları İspanya'dan ve Saksonya'dan. Sık sık birlikte yemek yapıyorlar ve bu sırada Almanca konuşuyorlar, çünkü ortak tek dilleri bu."},
+        {"de": "Aylin sagt: „Ich vermisse meine Familie und das Essen. Aber ich finde, dass Leipzig eine tolle Stadt für Studenten ist.“", "tr": "Aylin diyor ki: \"Ailemi ve yemekleri özlüyorum. Ama bence Leipzig öğrenciler için harika bir şehir.\""}
+      ],
+      "questions": [
+        {"question_tr": "Aylin başta neden zorlandı?", "options": ["Kalacak yeri yoktu", "Almanca bilmiyordu", "Üniversite kapalıydı"], "answer": 0, "explain_tr": "\"Sie hatte keine Wohnung …\""},
+        {"question_tr": "Ev arkadaşları neden Almanca konuşuyor?", "options": ["Ortak tek dilleri bu olduğu için", "Almanca kursuna gittikleri için", "Ev sahibi istediği için"], "answer": 0, "explain_tr": "\"weil das ihre einzige gemeinsame Sprache ist\""},
+        {"question_tr": "Aylin Leipzig hakkında ne düşünüyor?", "options": ["Öğrenciler için harika bir şehir", "Çok pahalı bir şehir", "Çok sessiz ve sıkıcı"], "answer": 0, "explain_tr": "\"… dass Leipzig eine tolle Stadt für Studenten ist.\""}
+      ]
+    },
+    {
+      "id": "r_muell", "title": "Mülltrennung – aber richtig!", "level": "A2", "minutes": 4, "topic_tr": "Kültür", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "paragraphs": [
+        {"de": "In Deutschland trennt man den Müll. Das ist für viele Neue am Anfang verwirrend.", "tr": "Almanya'da çöp ayrıştırılır. Bu, yeni gelenlerin çoğu için başta kafa karıştırıcıdır."},
+        {"de": "In die gelbe Tonne oder den gelben Sack kommen Verpackungen aus Plastik und Metall, zum Beispiel Joghurtbecher oder Dosen.", "tr": "Sarı konteynere ya da sarı poşete plastik ve metal ambalajlar girer, örneğin yoğurt kapları ya da teneke kutular."},
+        {"de": "Papier und Karton gehören in die blaue Tonne. Essensreste, Obst und Gemüse kommen in die Biotonne – sie ist meistens braun.", "tr": "Kâğıt ve karton mavi konteynere gider. Yemek artıkları, meyve ve sebze organik atık konteynerine girer – genelde kahverengidir."},
+        {"de": "Glasflaschen bringt man zum Glascontainer. Weißglas, Grünglas und Braunglas sind getrennt. Am Sonntag darf man dort kein Glas einwerfen, weil es zu laut ist.", "tr": "Cam şişeler cam konteynerine götürülür. Beyaz, yeşil ve kahverengi cam ayrıdır. Pazar günü oraya cam atılmaz, çünkü çok gürültülü olur."},
+        {"de": "Alles andere ist Restmüll und kommt in die graue oder schwarze Tonne. Die Regeln sind nicht in jeder Stadt gleich. Wenn Sie unsicher sind, fragen Sie einfach Ihre Nachbarn!", "tr": "Geri kalan her şey evsel atıktır ve gri ya da siyah konteynere gider. Kurallar her şehirde aynı değildir. Emin değilseniz komşularınıza sorun!"}
+      ],
+      "questions": [
+        {"question_tr": "Yoğurt kabı nereye atılır?", "options": ["Sarı konteynere", "Mavi konteynere", "Kahverengi konteynere"], "answer": 0, "explain_tr": "Plastik ambalaj → gelbe Tonne."},
+        {"question_tr": "Pazar günü neden cam atılmaz?", "options": ["Çok gürültülü olduğu için", "Konteynerler boşaltıldığı için", "Cam pahalı olduğu için"], "answer": 0, "explain_tr": "\"weil es zu laut ist\""},
+        {"question_tr": "Kâğıt hangi konteynere gider?", "options": ["Mavi", "Sarı", "Gri"], "answer": 0, "explain_tr": "\"Papier und Karton gehören in die blaue Tonne.\""}
+      ]
+    },
+    {
+      "id": "r_arbeitstag", "title": "Mein erster Arbeitstag", "level": "A2", "minutes": 4, "topic_tr": "İş", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "paragraphs": [
+        {"de": "Gestern war mein erster Tag in der neuen Firma. Ich war sehr nervös und bin schon um sechs Uhr aufgestanden.", "tr": "Dün yeni firmada ilk günümdü. Çok gergindim ve saat altıda kalktım bile."},
+        {"de": "Um neun Uhr hat mich meine Chefin, Frau Hoffmann, abgeholt. Sie hat mir das Büro und die Küche gezeigt.", "tr": "Saat dokuzda şefim Hoffmann Hanım beni karşıladı. Bana ofisi ve mutfağı gösterdi."},
+        {"de": "Meine Kolleginnen und Kollegen waren sehr freundlich. Hier sagen alle „du“, auch die Chefin. Das war für mich neu.", "tr": "İş arkadaşlarım çok nazikti. Burada herkes \"sen\" diyor, şef bile. Bu benim için yeniydi."},
+        {"de": "Am Vormittag musste ich viele Formulare ausfüllen. In der Mittagspause sind wir zusammen in die Kantine gegangen.", "tr": "Öğleden önce birçok form doldurmak zorundaydım. Öğle arasında birlikte kantine gittik."},
+        {"de": "Am Nachmittag hatte ich meine erste Besprechung. Ich habe nicht alles verstanden, aber ein Kollege hat mir danach alles noch einmal erklärt. Um fünf Uhr hatte ich Feierabend – müde, aber glücklich.", "tr": "Öğleden sonra ilk toplantım vardı. Her şeyi anlamadım ama bir iş arkadaşım sonra her şeyi bir daha açıkladı. Saat beşte mesai bitti – yorgun ama mutlu."}
+      ],
+      "questions": [
+        {"question_tr": "Ofiste yeni gelen ne oldu?", "options": ["Herkes birbirine \"du\" diyor", "Herkes çok resmî konuşuyor", "Kimse öğle yemeği yemiyor"], "answer": 0, "explain_tr": "\"Hier sagen alle „du“, auch die Chefin.\""},
+        {"question_tr": "Toplantıdan sonra ne oldu?", "options": ["Bir iş arkadaşı her şeyi yeniden açıkladı", "Şefi kızdı", "Eve erken gitti"], "answer": 0, "explain_tr": "\"… ein Kollege hat mir danach alles noch einmal erklärt.\""}
+      ]
+    },
+    {
+      "id": "r_feste", "title": "Feste im deutschen Jahr", "level": "A2", "minutes": 4, "topic_tr": "Kültür", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "paragraphs": [
+        {"de": "Im Dezember gibt es in fast jeder Stadt einen Weihnachtsmarkt. Dort trinken die Leute Kinderpunsch oder Glühwein und essen gebrannte Mandeln.", "tr": "Aralıkta neredeyse her şehirde bir Noel pazarı olur. İnsanlar orada çocuk punçu ya da sıcak şarap içer ve şekerli kavrulmuş badem yer."},
+        {"de": "Am 31. Dezember feiert man Silvester. Um Mitternacht gibt es überall Feuerwerk, und man sagt: „Frohes neues Jahr!“", "tr": "31 Aralık'ta yılbaşı kutlanır. Gece yarısı her yerde havai fişek olur ve \"Mutlu yıllar!\" denir."},
+        {"de": "Im Februar ist in Köln, Mainz und Düsseldorf Karneval. Viele Menschen tragen bunte Kostüme und feiern auf der Straße.", "tr": "Şubatta Köln, Mainz ve Düsseldorf'ta karnaval olur. Birçok kişi renkli kostümler giyer ve sokakta kutlar."},
+        {"de": "Zu Ostern suchen Kinder bunte Eier im Garten. Und in München gibt es jedes Jahr das Oktoberfest – es beginnt schon im September!", "tr": "Paskalya'da çocuklar bahçede renkli yumurta arar. Münih'te de her yıl Oktoberfest olur – daha eylülde başlar!"},
+        {"de": "Auch Feste aus anderen Ländern gehören heute zu Deutschland. In vielen Städten feiert man zum Beispiel das Zuckerfest mit Familie und Nachbarn.", "tr": "Başka ülkelerin bayramları da bugün Almanya'nın bir parçası. Birçok şehirde örneğin Şeker Bayramı aile ve komşularla kutlanır."}
+      ],
+      "questions": [
+        {"question_tr": "Karnaval nerede kutlanır?", "options": ["Köln, Mainz ve Düsseldorf'ta", "Sadece Berlin'de", "Hamburg'da"], "answer": 0, "explain_tr": "\"in Köln, Mainz und Düsseldorf\""},
+        {"question_tr": "Oktoberfest ne zaman başlar?", "options": ["Eylülde", "Ekim sonunda", "Kasımda"], "answer": 0, "explain_tr": "\"es beginnt schon im September\""}
+      ]
+    },
+    {
+      "id": "r_hamburg", "title": "Ein Wochenende in Hamburg", "level": "A2", "minutes": 4, "topic_tr": "Seyahat", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "paragraphs": [
+        {"de": "Letztes Wochenende sind Lina und Can mit dem Zug nach Hamburg gefahren. Die Fahrt hat zwei Stunden gedauert, weil der Zug Verspätung hatte.", "tr": "Geçen hafta sonu Lina ile Can trenle Hamburg'a gitti. Yolculuk iki saat sürdü, çünkü tren rötar yaptı."},
+        {"de": "Ihr Hotel lag direkt am Hafen. Am Samstagmorgen haben sie eine Hafenrundfahrt gemacht. Es war windig und kalt, aber die Aussicht war wunderschön.", "tr": "Otelleri tam limandaydı. Cumartesi sabahı liman turu yaptılar. Hava rüzgârlı ve soğuktu ama manzara harikaydı."},
+        {"de": "Mittags haben sie ein Fischbrötchen gegessen. Lina fand es lecker, Can mochte lieber die Pommes.", "tr": "Öğlen balık ekmek yediler. Lina lezzetli buldu, Can patates kızartmasını daha çok sevdi."},
+        {"de": "Am Nachmittag hat es geregnet. Deshalb sind sie in ein Museum gegangen und danach in ein gemütliches Café.", "tr": "Öğleden sonra yağmur yağdı. Bu yüzden bir müzeye, sonra da sıcak bir kafeye gittiler."},
+        {"de": "Am Sonntag waren sie müde, aber glücklich. „Nächstes Mal bleiben wir länger“, hat Lina gesagt.", "tr": "Pazar günü yorgun ama mutluydular. \"Bir dahaki sefere daha uzun kalalım\" dedi Lina."}
+      ],
+      "questions": [
+        {"question_tr": "Yolculuk neden iki saat sürdü?", "options": ["Tren rötar yaptı", "Arabayla gittiler", "Yanlış trene bindiler"], "answer": 0, "explain_tr": "\"weil der Zug Verspätung hatte\""},
+        {"question_tr": "Yağmur yağınca ne yaptılar?", "options": ["Müzeye ve kafeye gittiler", "Otelde kaldılar", "Eve döndüler"], "answer": 0, "explain_tr": "\"Deshalb sind sie in ein Museum gegangen …\""}
+      ]
+    },
+    {
+      "id": "r_suesser_brei", "title": "Der süße Brei", "level": "A2", "minutes": 4, "topic_tr": "Masal", "source_tr": "Grimm Kardeşler, Kinder- und Hausmärchen (KHM 103, 1857) · kamu malı. Deutschap'ın sadeleştirilmiş uyarlaması · CC0",
+      "paragraphs": [
+        {"de": "Es war einmal ein armes, liebes Mädchen. Es lebte allein mit seiner Mutter, und sie hatten nichts mehr zu essen.", "tr": "Bir zamanlar yoksul, iyi kalpli bir kız varmış. Annesiyle yalnız yaşıyormuş ve yiyecek hiçbir şeyleri kalmamış."},
+        {"de": "Da ging das Kind in den Wald. Dort traf es eine alte Frau. Sie schenkte ihm einen kleinen Topf.", "tr": "Bunun üzerine çocuk ormana gitmiş. Orada yaşlı bir kadınla karşılaşmış. Kadın ona küçük bir tencere hediye etmiş."},
+        {"de": "„Wenn du sagst: ‚Töpfchen, koch!‘, dann kocht er süßen Brei. Und wenn du sagst: ‚Töpfchen, steh!‘, dann hört er auf.“", "tr": "\"'Tencerecik, pişir!' dersen tatlı lapa pişirir. 'Tencerecik, dur!' dersen de durur.\""},
+        {"de": "Das Mädchen brachte den Topf nach Hause. Nun hatten die beiden immer genug zu essen.", "tr": "Kız tencereyi eve getirmiş. Artık ikisinin her zaman yeterince yiyeceği varmış."},
+        {"de": "Eines Tages war das Mädchen nicht zu Hause. Die Mutter sagte: „Töpfchen, koch!“ – und der Topf kochte. Aber sie wusste das andere Wort nicht mehr.", "tr": "Bir gün kız evde değilmiş. Anne \"Tencerecik, pişir!\" demiş – tencere de pişirmiş. Ama diğer sözü hatırlamıyormuş."},
+        {"de": "Der Brei lief aus der Küche, durch das Haus und auf die Straße. Bald war die ganze Stadt voll Brei!", "tr": "Lapa mutfaktan taşmış, evin içinden geçip sokağa akmış. Kısa sürede bütün kasaba lapayla dolmuş!"},
+        {"de": "Endlich kam das Mädchen nach Hause und rief: „Töpfchen, steh!“ Da hörte der Topf auf. Und wer in die Stadt wollte, musste sich durch den Brei essen.", "tr": "Sonunda kız eve gelmiş ve \"Tencerecik, dur!\" diye bağırmış. Tencere de durmuş. Kasabaya girmek isteyen de lapayı yiyerek yol açmak zorundaymış."}
+      ],
+      "questions": [
+        {"question_tr": "Yaşlı kadın kıza ne verdi?", "options": ["Küçük bir tencere", "Bir somun ekmek", "Altın para"], "answer": 0, "explain_tr": "\"Sie schenkte ihm einen kleinen Topf.\""},
+        {"question_tr": "Anne neden tencereyi durduramadı?", "options": ["Durdurma sözünü bilmiyordu", "Tencere kırıldı", "Kız tencereyi saklamıştı"], "answer": 0, "explain_tr": "\"Aber sie wusste das andere Wort nicht mehr.\""}
+      ]
+    },
+    {
+      "id": "r_sterntaler", "title": "Die Sterntaler", "level": "A2", "minutes": 4, "topic_tr": "Masal", "source_tr": "Grimm Kardeşler, Kinder- und Hausmärchen (KHM 153, 1857) · kamu malı. Deutschap'ın sadeleştirilmiş uyarlaması · CC0",
+      "paragraphs": [
+        {"de": "Es war einmal ein kleines Mädchen. Sein Vater und seine Mutter waren gestorben, und es war sehr arm.", "tr": "Bir zamanlar küçük bir kız varmış. Annesi ve babası ölmüş, kız çok yoksulmuş."},
+        {"de": "Es hatte kein Zimmer mehr und kein Bett, nur die Kleider am Körper und ein Stück Brot in der Hand.", "tr": "Artık ne odası ne yatağı varmış; sadece üzerindeki giysiler ve elinde bir parça ekmek."},
+        {"de": "Es ging hinaus auf das Feld. Da kam ein armer Mann und sagte: „Ach, gib mir etwas zu essen, ich habe so großen Hunger.“ Das Mädchen gab ihm das ganze Stück Brot.", "tr": "Tarlaya çıkmış. Derken yoksul bir adam gelmiş ve \"Ah, bana yiyecek bir şey ver, çok açım\" demiş. Kız ona ekmeğin tamamını vermiş."},
+        {"de": "Dann kam ein Kind und sagte: „Mir ist so kalt am Kopf.“ Da gab das Mädchen ihm seine Mütze. Später gab es einem anderen Kind seine Jacke und dann sein Kleid.", "tr": "Sonra bir çocuk gelmiş ve \"Başım çok üşüyor\" demiş. Kız da ona şapkasını vermiş. Daha sonra başka bir çocuğa ceketini, sonra da elbisesini vermiş."},
+        {"de": "Am Abend kam es in einen Wald. Es war schon dunkel. Ein Kind bat um sein Hemd, und das Mädchen dachte: „Es ist dunkle Nacht, niemand sieht mich.“ Und es gab auch das Hemd weg.", "tr": "Akşam bir ormana varmış. Hava çoktan kararmış. Bir çocuk gömleğini istemiş ve kız \"Karanlık gece, kimse beni görmez\" diye düşünmüş. Gömleğini de vermiş."},
+        {"de": "Da fielen auf einmal die Sterne vom Himmel, und es waren lauter blanke Taler aus Gold. Und das Mädchen hatte ein neues Hemd aus feinem Stoff. Es sammelte das Geld und war reich für sein ganzes Leben.", "tr": "Birden gökten yıldızlar düşmüş; hepsi parlak altın paralarmış. Kızın üzerinde de ince kumaştan yeni bir gömlek varmış. Paraları toplamış ve ömrü boyunca zengin olmuş."}
+      ],
+      "questions": [
+        {"question_tr": "Kız yoksul adama ne verdi?", "options": ["Ekmeğin tamamını", "Şapkasını", "Parasını"], "answer": 0, "explain_tr": "\"Das Mädchen gab ihm das ganze Stück Brot.\""},
+        {"question_tr": "Masalın sonunda ne oldu?", "options": ["Yıldızlar altın paraya dönüştü", "Kız eve döndü", "Kız bir prensle evlendi"], "answer": 0, "explain_tr": "\"… die Sterne … waren lauter blanke Taler aus Gold.\""}
+      ]
+    },
+    {
+      "id": "r_stadtmusikanten", "title": "Die Bremer Stadtmusikanten", "level": "A2", "minutes": 5, "topic_tr": "Masal", "source_tr": "Grimm Kardeşler, Kinder- und Hausmärchen (KHM 27, 1857) · kamu malı. Deutschap'ın sadeleştirilmiş uyarlaması · CC0",
+      "paragraphs": [
+        {"de": "Ein Esel war alt geworden und konnte nicht mehr arbeiten. Sein Herr wollte ihn nicht mehr haben. Da lief der Esel weg. „Ich gehe nach Bremen“, dachte er, „dort kann ich Stadtmusikant werden.“", "tr": "Bir eşek yaşlanmış ve artık çalışamıyormuş. Sahibi onu artık istemiyormuş. Eşek de kaçmış. \"Bremen'e gideyim\" diye düşünmüş, \"orada şehir müzisyeni olabilirim.\""},
+        {"de": "Unterwegs traf er einen alten Hund, eine alte Katze und einen Hahn. Auch sie waren nicht mehr jung, und niemand wollte sie mehr. „Kommt mit nach Bremen!“, sagte der Esel.", "tr": "Yolda yaşlı bir köpek, yaşlı bir kedi ve bir horozla karşılaşmış. Onlar da artık genç değilmiş ve kimse onları istemiyormuş. \"Benimle Bremen'e gelin!\" demiş eşek."},
+        {"de": "Bremen war weit. Am Abend kamen die vier Tiere in einen Wald. Dort sahen sie ein Licht. Es war ein Haus, und darin saßen Räuber am Tisch und aßen.", "tr": "Bremen uzakmış. Akşam dört hayvan bir ormana varmış. Orada bir ışık görmüşler. Bir evmiş; içinde haydutlar masada oturmuş yemek yiyormuş."},
+        {"de": "Die Tiere hatten großen Hunger. Der Hund sprang auf den Esel, die Katze auf den Hund, und der Hahn flog auf die Katze. Dann machten sie zusammen Musik: Der Esel schrie, der Hund bellte, die Katze miaute und der Hahn krähte.", "tr": "Hayvanlar çok açmış. Köpek eşeğin, kedi köpeğin sırtına çıkmış, horoz da kedinin üstüne uçmuş. Sonra hep birlikte müzik yapmışlar: Eşek anırmış, köpek havlamış, kedi miyavlamış, horoz ötmüş."},
+        {"de": "Die Räuber bekamen große Angst und liefen in den Wald. Die Tiere aßen und schliefen dann im Haus.", "tr": "Haydutlar çok korkmuş ve ormana kaçmış. Hayvanlar yemiş, sonra da evde uyumuşlar."},
+        {"de": "In der Nacht kam ein Räuber zurück. Aber die Katze kratzte ihn, der Hund biss ihn, der Esel trat ihn und der Hahn schrie laut. Der Räuber lief weg und kam nie wieder. Und die vier Musikanten? Sie blieben im Haus. Nach Bremen kamen sie nie.", "tr": "Gece bir haydut geri gelmiş. Ama kedi onu tırmalamış, köpek ısırmış, eşek tekmelemiş, horoz da yüksek sesle bağırmış. Haydut kaçmış ve bir daha hiç gelmemiş. Ya dört müzisyen? Evde kalmışlar. Bremen'e hiç varmamışlar."}
+      ],
+      "questions": [
+        {"question_tr": "Eşek neden Bremen'e gitmek istedi?", "options": ["Şehir müzisyeni olmak için", "Ailesini bulmak için", "Yiyecek almak için"], "answer": 0, "explain_tr": "\"dort kann ich Stadtmusikant werden\""},
+        {"question_tr": "Hikâyenin sonunda hayvanlar nerede kaldı?", "options": ["Ormandaki evde", "Bremen'de", "Eski evlerinde"], "answer": 0, "explain_tr": "\"Sie blieben im Haus. Nach Bremen kamen sie nie.\""}
       ]
     }
   ]

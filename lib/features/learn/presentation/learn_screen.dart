@@ -14,7 +14,8 @@ enum LearnTab {
   path('Yol'),
   stories('Hikâyeler'),
   talk('Konuşma'),
-  read('Okuma');
+  read('Okuma'),
+  listen('Dinleme');
 
   const LearnTab(this.label);
   final String label;
@@ -39,7 +40,7 @@ class LearnScreen extends StatelessWidget {
               tabs: [for (final t in LearnTab.values) Tab(text: t.label)],
             ),
           ),
-          body: const TabBarView(children: [_PathTab(), _StoriesTab(), _TalkTab(), _ReadTab()]),
+          body: const TabBarView(children: [_PathTab(), _StoriesTab(), _TalkTab(), _ReadTab(), _ListenTab()]),
         ),
       );
 }
@@ -320,22 +321,26 @@ class _ReadTab extends ConsumerWidget {
             const SizedBox(height: 4),
             Text('Her kelimeye dokun: anlamını gör, cümlesiyle birlikte kaydet. Kaldığın yer saklanır.', style: context.text.bodySmall),
             const SizedBox(height: 12),
-            for (final r in content.readings)
-              Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: AppCard(
-                  onTap: () => context.push('/reader/builtin:${r.id}'),
-                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                    Text(r.title, style: context.text.titleMedium!.copyWith(fontFamily: 'Literata')),
-                    const SizedBox(height: 4),
-                    MetaLine(level: r.level, minutes: r.minutes, objective: r.topicTr),
-                    if ((positions[r.id] ?? 0) > 0) ...[
-                      const SizedBox(height: 6),
-                      Text('Kaldığın yer: ${positions[r.id]! + 1}. paragraf', style: context.text.labelSmall),
-                    ],
-                  ]),
+            for (final level in {for (final r in content.readings) r.level}.toList()..sort()) ...[
+              SectionTitle('$level metinleri'),
+              for (final r in content.readings.where((r) => r.level == level))
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: AppCard(
+                    onTap: () => context.push('/reader/builtin:${r.id}'),
+                    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      Text(r.title, style: context.text.titleMedium!.copyWith(fontFamily: 'Literata')),
+                      const SizedBox(height: 4),
+                      MetaLine(level: r.level, minutes: r.minutes, objective: r.topicTr),
+                      if ((positions[r.id] ?? 0) > 0) ...[
+                        const SizedBox(height: 6),
+                        Text('Kaldığın yer: ${positions[r.id]! + 1}. paragraf', style: context.text.labelSmall),
+                      ],
+                    ]),
+                  ),
                 ),
-              ),
+            ],
+            Text('Metinlerin hepsi telifsizdir: Deutschap için yazılmış özgün metinler ya da kamu malı masal ve fablların sadeleştirilmiş uyarlamaları. Kaynak her metnin sonunda yazar.', style: context.text.bodySmall),
             SectionTitle('Kendi metinlerin', trailing: TextButton.icon(onPressed: () => context.push('/paste'), icon: const Icon(Icons.add_rounded), label: const Text('Metin ekle'))),
             AsyncView<List<ReadingDoc>>(
               value: pasted,
@@ -363,6 +368,56 @@ class _ReadTab extends ConsumerWidget {
                         ),
                     ]),
             ),
+          ]),
+        ),
+      ],
+    );
+  }
+}
+
+class _ListenTab extends ConsumerWidget {
+  const _ListenTab();
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final content = ref.watch(contentProvider);
+    final p = context.palette;
+    final levels = {for (final t in content.listening) t.level}.toList()..sort();
+    return ListView(
+      padding: pagePadding,
+      children: [
+        PageWidth(
+          child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+            const SizedBox(height: 8),
+            Text('Dinleme', style: context.text.headlineSmall),
+            const SizedBox(height: 4),
+            Text('Anonslar, diyaloglar, sesli mesajlar ve kısa anlatımlar. Önce metne bakmadan dinle, soruları cevapla, sonra metni aç ve dikte dene.', style: context.text.bodySmall),
+            for (final level in levels) ...[
+              SectionTitle('$level dinlemeleri'),
+              for (final t in content.listening.where((t) => t.level == level))
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: AppCard(
+                    onTap: () => context.push('/listen/${t.id}'),
+                    child: Row(children: [
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(color: p.accentSoft, borderRadius: BorderRadius.circular(14)),
+                        child: Icon(Icons.headphones_rounded, color: p.accent),
+                      ),
+                      const SizedBox(width: 14),
+                      Expanded(
+                        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                          Text(t.title, style: context.text.titleSmall!.copyWith(fontFamily: 'Literata')),
+                          const SizedBox(height: 4),
+                          MetaLine(level: t.level, minutes: t.minutes, objective: '${t.kindTr} · ${t.topicTr}'),
+                        ]),
+                      ),
+                    ]),
+                  ),
+                ),
+            ],
+            const SizedBox(height: 8),
+            Text('Ses, cihazın metin okuma motoruyla üretilir. Ayarlar → Ses bölümünden en iyi Almanca sesi seçebilirsin.', style: context.text.bodySmall),
           ]),
         ),
       ],

@@ -1,0 +1,165 @@
+{
+  "version": "2026.10.1",
+  "tracks": [
+    {
+      "id": "l_bahnhof", "title": "Durchsagen am Bahnhof", "level": "A1", "minutes": 2, "topic_tr": "Yolculuk", "kind_tr": "Anons", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "lines": [
+        {"speaker": "Sprecher", "de": "Achtung an Gleis drei.", "tr": "Üçüncü perona dikkat."},
+        {"speaker": "Sprecher", "de": "Der Zug nach Potsdam hat heute zehn Minuten Verspätung.", "tr": "Potsdam treni bugün on dakika rötarlı."},
+        {"speaker": "Sprecher", "de": "Achtung an Gleis fünf.", "tr": "Beşinci perona dikkat."},
+        {"speaker": "Sprecher", "de": "Der Zug nach Leipzig fährt heute von Gleis sieben.", "tr": "Leipzig treni bugün yedinci perondan kalkıyor."},
+        {"speaker": "Sprecher", "de": "Wir bitten um Entschuldigung.", "tr": "Özür dileriz."}
+      ],
+      "questions": [
+        {"question_tr": "Potsdam treniyle ilgili ne söyleniyor?", "options": ["On dakika rötarlı", "İptal edildi", "Başka perondan kalkıyor"], "answer": 0, "explain_tr": "\"zehn Minuten Verspätung\""},
+        {"question_tr": "Leipzig treni hangi perondan kalkıyor?", "options": ["Yedi", "Beş", "Üç"], "answer": 0, "explain_tr": "\"von Gleis sieben\""}
+      ]
+    },
+    {
+      "id": "l_baeckerei", "title": "Beim Bäcker", "level": "A1", "minutes": 2, "topic_tr": "Alışveriş", "kind_tr": "Diyalog", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "lines": [
+        {"speaker": "Verkäuferin", "de": "Guten Morgen! Was darf es sein?", "tr": "Günaydın! Ne arzu edersiniz?"},
+        {"speaker": "Kunde", "de": "Guten Morgen. Ich hätte gern vier Brötchen und ein Brot.", "tr": "Günaydın. Dört küçük ekmek ve bir ekmek rica ediyorum."},
+        {"speaker": "Verkäuferin", "de": "Gern. Sonst noch etwas?", "tr": "Tabii. Başka bir şey?"},
+        {"speaker": "Kunde", "de": "Ja, zwei Stück Apfelkuchen, bitte.", "tr": "Evet, iki dilim elmalı kek, lütfen."},
+        {"speaker": "Verkäuferin", "de": "Das macht zusammen neun Euro achtzig.", "tr": "Hepsi dokuz euro seksen ediyor."},
+        {"speaker": "Kunde", "de": "Hier sind zehn Euro. Stimmt so.", "tr": "Buyurun on euro. Üstü kalsın."}
+      ],
+      "questions": [
+        {"question_tr": "Kaç Brötchen alıyor?", "options": ["Dört", "İki", "On"], "answer": 0, "explain_tr": "\"vier Brötchen\""},
+        {"question_tr": "Toplam ne kadar?", "options": ["9,80 €", "10,00 €", "8,90 €"], "answer": 0, "explain_tr": "\"neun Euro achtzig\""},
+        {"question_tr": "\"Stimmt so\" ne demek?", "options": ["Üstü kalsın", "Fiş istemiyorum", "Fiyat doğru değil"], "answer": 0, "explain_tr": "Bahşiş bırakırken söylenir."}
+      ]
+    },
+    {
+      "id": "l_mailbox", "title": "Eine Nachricht auf der Mailbox", "level": "A1", "minutes": 1, "topic_tr": "Arkadaşlar", "kind_tr": "Sesli mesaj", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "lines": [
+        {"speaker": "Lina", "de": "Hallo Can, hier ist Lina.", "tr": "Merhaba Can, ben Lina."},
+        {"speaker": "Lina", "de": "Ich bin heute leider krank und kann nicht ins Kino kommen.", "tr": "Bugün maalesef hastayım ve sinemaya gelemiyorum."},
+        {"speaker": "Lina", "de": "Können wir am Freitag gehen? Am Freitag habe ich Zeit.", "tr": "Cuma gidebilir miyiz? Cuma vaktim var."},
+        {"speaker": "Lina", "de": "Ruf mich bitte zurück. Tschüss!", "tr": "Beni geri ara lütfen. Hoşça kal!"}
+      ],
+      "questions": [
+        {"question_tr": "Lina neden sinemaya gelemiyor?", "options": ["Hasta", "Çalışıyor", "Parası yok"], "answer": 0, "explain_tr": "\"Ich bin heute leider krank\""},
+        {"question_tr": "Lina ne zaman vakti olduğunu söylüyor?", "options": ["Cuma", "Cumartesi", "Bugün akşam"], "answer": 0, "explain_tr": "\"Am Freitag habe ich Zeit.\""}
+      ]
+    },
+    {
+      "id": "l_jonas", "title": "Hallo, ich bin Jonas", "level": "A1", "minutes": 2, "topic_tr": "Tanışma", "kind_tr": "Kendini tanıtma", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "lines": [
+        {"speaker": "Jonas", "de": "Hallo! Ich heiße Jonas und ich bin dreiundzwanzig Jahre alt.", "tr": "Merhaba! Adım Jonas, yirmi üç yaşındayım."},
+        {"speaker": "Jonas", "de": "Ich komme aus Hamburg, aber jetzt wohne ich in Berlin.", "tr": "Hamburgluyum ama şimdi Berlin'de oturuyorum."},
+        {"speaker": "Jonas", "de": "Ich studiere Musik und arbeite am Wochenende in einem Café.", "tr": "Müzik okuyorum ve hafta sonları bir kafede çalışıyorum."},
+        {"speaker": "Jonas", "de": "In meiner Freizeit spiele ich Gitarre und koche gern.", "tr": "Boş zamanlarımda gitar çalıyorum ve yemek yapmayı seviyorum."},
+        {"speaker": "Jonas", "de": "Ich spreche Deutsch, Englisch und ein bisschen Türkisch.", "tr": "Almanca, İngilizce ve biraz Türkçe konuşuyorum."}
+      ],
+      "questions": [
+        {"question_tr": "Jonas nereli?", "options": ["Hamburg", "Berlin", "Münih"], "answer": 0, "explain_tr": "\"Ich komme aus Hamburg\""},
+        {"question_tr": "Hafta sonları ne yapıyor?", "options": ["Bir kafede çalışıyor", "Ders çalışıyor", "Spor yapıyor"], "answer": 0, "explain_tr": "\"arbeite am Wochenende in einem Café\""}
+      ]
+    },
+    {
+      "id": "l_wetter", "title": "Der Wetterbericht", "level": "A2", "minutes": 2, "topic_tr": "Hava durumu", "kind_tr": "Radyo", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "lines": [
+        {"speaker": "Sprecherin", "de": "Und jetzt das Wetter für morgen, Dienstag.", "tr": "Ve şimdi yarın, salı için hava durumu."},
+        {"speaker": "Sprecherin", "de": "Im Norden regnet es den ganzen Tag. Es wird nur zwölf Grad warm.", "tr": "Kuzeyde bütün gün yağmur yağacak. Hava sadece on iki derece olacak."},
+        {"speaker": "Sprecherin", "de": "Im Süden scheint die Sonne. Dort wird es bis zu zwanzig Grad warm.", "tr": "Güneyde güneş açacak. Orada sıcaklık yirmi dereceye kadar çıkacak."},
+        {"speaker": "Sprecherin", "de": "Am Abend kommt im Westen starker Wind.", "tr": "Akşam batıda kuvvetli rüzgâr bekleniyor."}
+      ],
+      "questions": [
+        {"question_tr": "Kuzeyde hava nasıl olacak?", "options": ["Yağmurlu", "Güneşli", "Karlı"], "answer": 0, "explain_tr": "\"Im Norden regnet es den ganzen Tag.\""},
+        {"question_tr": "Güneyde kaç derece olacak?", "options": ["20", "12", "2"], "answer": 0, "explain_tr": "\"bis zu zwanzig Grad\""}
+      ]
+    },
+    {
+      "id": "l_arzt_anruf", "title": "Anruf in der Arztpraxis", "level": "A2", "minutes": 2, "topic_tr": "Sağlık", "kind_tr": "Telefon görüşmesi", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "lines": [
+        {"speaker": "Praxis", "de": "Praxis Dr. Neumann, guten Tag.", "tr": "Dr. Neumann muayenehanesi, iyi günler."},
+        {"speaker": "Aylin", "de": "Guten Tag, hier ist Aylin Kaya. Ich habe seit gestern starke Halsschmerzen und Fieber.", "tr": "İyi günler, ben Aylin Kaya. Dünden beri şiddetli boğaz ağrım ve ateşim var."},
+        {"speaker": "Praxis", "de": "Oh, das tut mir leid. Können Sie heute um elf Uhr kommen?", "tr": "Ah, geçmiş olsun. Bugün saat on birde gelebilir misiniz?"},
+        {"speaker": "Aylin", "de": "Um elf muss ich leider arbeiten. Geht es auch am Nachmittag?", "tr": "On birde maalesef çalışmam gerekiyor. Öğleden sonra da olur mu?"},
+        {"speaker": "Praxis", "de": "Ja, um halb vier ist noch ein Termin frei.", "tr": "Evet, üç buçukta hâlâ boş bir randevu var."},
+        {"speaker": "Aylin", "de": "Perfekt, das passt. Vielen Dank!", "tr": "Mükemmel, uyar. Çok teşekkürler!"},
+        {"speaker": "Praxis", "de": "Bitte bringen Sie Ihre Versichertenkarte mit.", "tr": "Lütfen sigorta kartınızı getirin."}
+      ],
+      "questions": [
+        {"question_tr": "Aylin'in şikâyeti ne?", "options": ["Boğaz ağrısı ve ateş", "Sırt ağrısı", "Diş ağrısı"], "answer": 0, "explain_tr": "\"starke Halsschmerzen und Fieber\""},
+        {"question_tr": "Randevu saat kaçta?", "options": ["15:30", "11:00", "16:30"], "answer": 0, "explain_tr": "\"halb vier\" = 3:30 (öğleden sonra 15:30). Dikkat: halb vier = dörde yarım kala."},
+        {"question_tr": "Ne getirmesi gerekiyor?", "options": ["Sigorta kartını", "Reçeteyi", "Pasaportunu"], "answer": 0, "explain_tr": "\"Versichertenkarte\""}
+      ]
+    },
+    {
+      "id": "l_wg_regeln", "title": "Die WG-Regeln", "level": "A2", "minutes": 2, "topic_tr": "Ev hayatı", "kind_tr": "Açıklama", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "lines": [
+        {"speaker": "Marie", "de": "Willkommen in unserer WG! Ich erkläre dir kurz die wichtigsten Regeln.", "tr": "Ortak evimize hoş geldin! Sana en önemli kuralları kısaca anlatayım."},
+        {"speaker": "Marie", "de": "Wir haben einen Putzplan. Jede Woche putzt eine andere Person das Bad und die Küche.", "tr": "Bir temizlik planımız var. Her hafta banyoyu ve mutfağı başka biri temizliyor."},
+        {"speaker": "Marie", "de": "Den Müll bringen wir meistens am Mittwoch zusammen runter.", "tr": "Çöpü genelde çarşamba günü birlikte aşağı indiriyoruz."},
+        {"speaker": "Marie", "de": "Nach zehn Uhr abends sind wir bitte leise, weil Jonas früh aufstehen muss.", "tr": "Akşam ondan sonra lütfen sessiz oluyoruz, çünkü Jonas erken kalkmak zorunda."},
+        {"speaker": "Marie", "de": "Und wenn du Besuch hast, sag uns bitte vorher Bescheid. Sonst ist alles ganz entspannt!", "tr": "Misafirin olursa da lütfen önceden haber ver. Onun dışında her şey çok rahat!"}
+      ],
+      "questions": [
+        {"question_tr": "Banyoyu kim temizliyor?", "options": ["Her hafta başka biri", "Hep Marie", "Bir temizlikçi"], "answer": 0, "explain_tr": "\"Jede Woche putzt eine andere Person …\""},
+        {"question_tr": "Saat 22'den sonra neden sessiz olmalı?", "options": ["Jonas erken kalkmak zorunda", "Komşular şikâyet ediyor", "Ev sahibi istiyor"], "answer": 0, "explain_tr": "\"weil Jonas früh aufstehen muss\""}
+      ]
+    },
+    {
+      "id": "l_kaufhaus", "title": "Durchsage im Kaufhaus", "level": "A2", "minutes": 1, "topic_tr": "Alışveriş", "kind_tr": "Anons", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "lines": [
+        {"speaker": "Sprecherin", "de": "Liebe Kundinnen und Kunden, nur noch heute: Alle Winterjacken sind dreißig Prozent günstiger!", "tr": "Sevgili müşterilerimiz, sadece bugün: Bütün kışlık montlar yüzde otuz daha ucuz!"},
+        {"speaker": "Sprecherin", "de": "Sie finden sie im zweiten Stock, neben den Schuhen.", "tr": "Onları ikinci katta, ayakkabıların yanında bulabilirsiniz."},
+        {"speaker": "Sprecherin", "de": "Bitte beachten Sie: Unser Kaufhaus schließt heute schon um achtzehn Uhr.", "tr": "Lütfen dikkat: Mağazamız bugün saat on sekizde kapanıyor."},
+        {"speaker": "Sprecherin", "de": "Wir wünschen Ihnen einen schönen Einkauf.", "tr": "İyi alışverişler dileriz."}
+      ],
+      "questions": [
+        {"question_tr": "Ne indirimli?", "options": ["Kışlık montlar, %30", "Ayakkabılar, %20", "Her şey, %50"], "answer": 0, "explain_tr": "\"Alle Winterjacken sind dreißig Prozent günstiger\""},
+        {"question_tr": "Mağaza bugün kaçta kapanıyor?", "options": ["18:00", "20:00", "16:00"], "answer": 0, "explain_tr": "\"um achtzehn Uhr\""}
+      ]
+    },
+    {
+      "id": "l_interview", "title": "Ein kurzes Interview", "level": "A2", "minutes": 3, "topic_tr": "Almanya'da hayat", "kind_tr": "Röportaj", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "lines": [
+        {"speaker": "Reporterin", "de": "Herr Öztürk, Sie sind vor fünf Jahren nach Deutschland gekommen. Was war am Anfang am schwersten?", "tr": "Öztürk Bey, beş yıl önce Almanya'ya geldiniz. Başta en zor olan neydi?"},
+        {"speaker": "Herr Öztürk", "de": "Die Sprache! Ich konnte nur „Hallo“ und „Danke“ sagen.", "tr": "Dil! Sadece \"merhaba\" ve \"teşekkürler\" diyebiliyordum."},
+        {"speaker": "Reporterin", "de": "Und wie haben Sie Deutsch gelernt?", "tr": "Peki Almancayı nasıl öğrendiniz?"},
+        {"speaker": "Herr Öztürk", "de": "Ich habe einen Abendkurs gemacht. Aber am meisten habe ich bei der Arbeit gelernt, weil meine Kollegen viel mit mir gesprochen haben.", "tr": "Bir akşam kursuna gittim. Ama en çok işte öğrendim, çünkü iş arkadaşlarım benimle çok konuştu."},
+        {"speaker": "Reporterin", "de": "Was ist Ihr Tipp für neue Leute?", "tr": "Yeni gelenlere tavsiyeniz ne?"},
+        {"speaker": "Herr Öztürk", "de": "Haben Sie keine Angst vor Fehlern. Sprechen Sie einfach, jeden Tag ein bisschen.", "tr": "Hata yapmaktan korkmayın. Sadece konuşun, her gün biraz."}
+      ],
+      "questions": [
+        {"question_tr": "Başta en zor olan neydi?", "options": ["Dil", "İş bulmak", "Hava"], "answer": 0, "explain_tr": "\"Die Sprache!\""},
+        {"question_tr": "En çok nerede öğrendi?", "options": ["İşte", "Akşam kursunda", "İnternetten"], "answer": 0, "explain_tr": "\"am meisten habe ich bei der Arbeit gelernt\""},
+        {"question_tr": "Tavsiyesi ne?", "options": ["Hatadan korkmadan her gün konuşmak", "Önce bütün grameri bitirmek", "Sadece film izlemek"], "answer": 0, "explain_tr": "\"Haben Sie keine Angst vor Fehlern.\""}
+      ]
+    },
+    {
+      "id": "l_podcast", "title": "Podcast: Wohnungssuche", "level": "A2", "minutes": 3, "topic_tr": "Ev arama", "kind_tr": "Podcast", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "lines": [
+        {"speaker": "Moderatorin", "de": "Hallo und willkommen zu unserem Podcast „Neu in Deutschland“!", "tr": "Merhaba, \"Almanya'da Yeni\" podcast'imize hoş geldiniz!"},
+        {"speaker": "Moderatorin", "de": "Heute sprechen wir über ein wichtiges Thema: die Wohnungssuche in großen Städten.", "tr": "Bugün önemli bir konuyu konuşuyoruz: büyük şehirlerde ev arama."},
+        {"speaker": "Moderatorin", "de": "In Berlin, München oder Hamburg ist es oft schwer, eine Wohnung zu finden. Manchmal gibt es für eine Wohnung hundert Bewerber.", "tr": "Berlin, Münih ya da Hamburg'da ev bulmak çoğu zaman zordur. Bazen bir daireye yüz başvuru olur."},
+        {"speaker": "Moderatorin", "de": "Mein Tipp: Bereiten Sie eine Mappe vor, mit einer Kopie vom Ausweis, einem Gehaltsnachweis und einem kurzen Text über sich.", "tr": "Tavsiyem: Kimlik fotokopisi, maaş belgesi ve kendiniz hakkında kısa bir metin içeren bir dosya hazırlayın."},
+        {"speaker": "Moderatorin", "de": "Und haben Sie Geduld! Viele Menschen wohnen am Anfang in einer WG.", "tr": "Ve sabırlı olun! Birçok kişi başta paylaşımlı bir evde oturur."}
+      ],
+      "questions": [
+        {"question_tr": "Podcast'in konusu ne?", "options": ["Büyük şehirlerde ev arama", "İş arama", "Almanca öğrenme"], "answer": 0, "explain_tr": "\"die Wohnungssuche in großen Städten\""},
+        {"question_tr": "Tavsiye ne?", "options": ["Belgelerle bir dosya hazırlamak", "Sadece WG'lere bakmak", "Ev sahibini her gün aramak"], "answer": 0, "explain_tr": "\"Bereiten Sie eine Mappe vor …\""}
+      ]
+    },
+    {
+      "id": "l_rotkaeppchen", "title": "Rotkäppchen (kurz erzählt)", "level": "A2", "minutes": 3, "topic_tr": "Masal", "kind_tr": "Masal anlatımı", "source_tr": "Grimm Kardeşler, Kinder- und Hausmärchen (KHM 26, 1857) · kamu malı. Deutschap'ın sadeleştirilmiş uyarlaması · CC0",
+      "lines": [
+        {"speaker": "Erzähler", "de": "Es war einmal ein kleines Mädchen. Alle nannten es Rotkäppchen, weil es immer eine rote Mütze trug.", "tr": "Bir zamanlar küçük bir kız varmış. Herkes ona Kırmızı Başlıklı Kız dermiş, çünkü hep kırmızı bir başlık takarmış."},
+        {"speaker": "Erzähler", "de": "Eines Tages sagte die Mutter: „Bring der Großmutter diesen Kuchen. Sie ist krank.“", "tr": "Bir gün annesi demiş ki: \"Bu keki büyükanneye götür. Hasta.\""},
+        {"speaker": "Erzähler", "de": "Die Großmutter wohnte im Wald. Dort traf Rotkäppchen einen Wolf. „Wohin gehst du?“, fragte der Wolf.", "tr": "Büyükanne ormanda yaşıyormuş. Kırmızı Başlıklı Kız orada bir kurtla karşılaşmış. \"Nereye gidiyorsun?\" diye sormuş kurt."},
+        {"speaker": "Erzähler", "de": "Rotkäppchen erzählte ihm alles. Der Wolf lief schnell zum Haus der Großmutter und fraß sie.", "tr": "Kırmızı Başlıklı Kız ona her şeyi anlatmış. Kurt hızla büyükannenin evine koşmuş ve onu yutmuş."},
+        {"speaker": "Erzähler", "de": "Dann legte er sich in ihr Bett. Rotkäppchen kam und fragte: „Großmutter, warum hast du so große Ohren?“", "tr": "Sonra onun yatağına yatmış. Kırmızı Başlıklı Kız gelmiş ve sormuş: \"Büyükanne, kulakların neden bu kadar büyük?\""},
+        {"speaker": "Erzähler", "de": "„Damit ich dich besser hören kann!“ – „Und warum hast du so einen großen Mund?“ – „Damit ich dich besser fressen kann!“", "tr": "\"Seni daha iyi duyabilmek için!\" – \"Peki ağzın neden bu kadar büyük?\" – \"Seni daha iyi yiyebilmek için!\""},
+        {"speaker": "Erzähler", "de": "Ein Jäger hörte den Lärm und kam ins Haus. Er rettete Rotkäppchen und die Großmutter. Und der Wolf kam nie wieder.", "tr": "Bir avcı gürültüyü duymuş ve eve girmiş. Kırmızı Başlıklı Kız'ı ve büyükanneyi kurtarmış. Kurt da bir daha hiç gelmemiş."}
+      ],
+      "questions": [
+        {"question_tr": "Neden ona Rotkäppchen deniyor?", "options": ["Hep kırmızı bir başlık taktığı için", "Kırmızı elbise giydiği için", "Saçı kırmızı olduğu için"], "answer": 0, "explain_tr": "\"weil es immer eine rote Mütze trug\""},
+        {"question_tr": "Onları kim kurtardı?", "options": ["Bir avcı", "Annesi", "Bir komşu"], "answer": 0, "explain_tr": "\"Ein Jäger … rettete Rotkäppchen und die Großmutter.\""}
+      ]
+    }
+  ]
+}

@@ -96,6 +96,7 @@ class _Recommendations extends StatelessWidget {
         ActivityKind.reading => Icons.article_rounded,
         ActivityKind.discover => Icons.explore_rounded,
         ActivityKind.practice => Icons.fitness_center_rounded,
+        ActivityKind.listening => Icons.headphones_rounded,
       };
 
   @override

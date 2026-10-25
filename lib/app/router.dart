@@ -9,6 +9,7 @@ import '../features/drill/presentation/drill_screen.dart';
 import '../features/grammar/presentation/grammar_screen.dart';
 import '../features/home/presentation/home_screen.dart';
 import '../features/learn/presentation/learn_screen.dart';
+import '../features/listening/presentation/listening_screen.dart';
 import '../features/lesson/presentation/lesson_screen.dart';
 import '../features/onboarding/presentation/onboarding_screen.dart';
 import '../features/onboarding/presentation/placement_screen.dart';
@@ -85,6 +86,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       page('/episode/:id', (s) => EpisodeScreen(episodeId: s.pathParameters['id']!)),
       page('/scenario/:id', (s) => ScenarioScreen(scenarioId: s.pathParameters['id']!, focusEntries: s.uri.queryParameters['focus'])),
       page('/reader/:id', (s) => ReaderScreen(docId: s.pathParameters['id']!)),
+      page('/listen/:id', (s) => ListeningScreen(trackId: s.pathParameters['id']!)),
       page('/paste', (_) => const PasteTextScreen()),
       page('/review', (s) => ReviewScreen(size: int.tryParse(s.uri.queryParameters['n'] ?? '') ?? 10)),
       page('/word/:id', (s) => WordDetailScreen(entryId: s.pathParameters['id']!)),

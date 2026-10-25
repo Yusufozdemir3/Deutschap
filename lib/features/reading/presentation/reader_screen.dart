@@ -181,6 +181,10 @@ class _ReaderScreenState extends ConsumerState<ReaderScreen> {
                   const SizedBox(height: 8),
                   FilledButton(onPressed: _finished ? null : _finish, child: Text(_finished ? 'Okundu olarak işaretlendi' : 'Okumayı bitirdim')),
                 ],
+                if (_builtin?.sourceTr != null) ...[
+                  const SizedBox(height: 16),
+                  Text('Kaynak: ${_builtin!.sourceTr}', style: context.text.labelSmall!.copyWith(color: p.inkMuted)),
+                ],
               ]),
             ),
           ],

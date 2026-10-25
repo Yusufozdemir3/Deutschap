@@ -1,5 +1,5 @@
 /// Kinds of activity the home screen can recommend.
-enum ActivityKind { review, lesson, story, scenario, reading, discover, practice }
+enum ActivityKind { review, lesson, story, scenario, reading, discover, practice, listening }
 
 class Recommendation {
   const Recommendation({
