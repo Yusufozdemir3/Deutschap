@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../app/providers.dart';
 import '../../../app/theme/app_theme.dart';
 import '../../../content/models/lesson.dart';
+import '../../../core/audio/speech_service.dart';
 import '../../../learning/answer_checker.dart';
 import '../../../learning/text/tokenizer.dart';
 import '../../../ui/german_text.dart';
@@ -127,17 +128,69 @@ class GrammarStepView extends ConsumerWidget {
 
 // ------------------------------------------------------------- dialogue
 
-class DialogueStepView extends StatefulWidget {
+class DialogueStepView extends ConsumerStatefulWidget {
   const DialogueStepView({super.key, required this.step, required this.lesson, required this.done});
   final DialogueStep step;
   final Lesson lesson;
   final StepDone done;
   @override
-  State<DialogueStepView> createState() => _DialogueStepViewState();
+  ConsumerState<DialogueStepView> createState() => _DialogueStepViewState();
 }
 
-class _DialogueStepViewState extends State<DialogueStepView> {
+class _DialogueStepViewState extends ConsumerState<DialogueStepView> {
+  static const _pitches = [1.0, 0.8, 1.2, 0.9];
   bool _showTr = false;
+  bool _playing = false;
+  int? _current;
+  int _token = 0;
+  late final SpeechService _speech;
+
+  @override
+  void initState() {
+    super.initState();
+    _speech = ref.read(speechServiceProvider);
+  }
+
+  @override
+  void dispose() {
+    _token++;
+    _speech.stop();
+    super.dispose();
+  }
+
+  /// Plays the whole dialogue, one pitch per speaker.
+  Future<void> _playAll() async {
+    final lines = widget.step.lines;
+    final speakers = {for (final l in lines) l.speaker}.toList();
+    final token = ++_token;
+    setState(() => _playing = true);
+    for (var i = 0; i < lines.length; i++) {
+      if (!mounted || token != _token) return;
+      setState(() => _current = i);
+      final ok = await _speech.speak(lines[i].de, wait: true, pitch: _pitches[speakers.indexOf(lines[i].speaker) % _pitches.length]);
+      if (!ok) {
+        if (mounted) showToast(context, 'Bu cihazda Almanca ses bulunamadı. Metin her zaman görünür kalır.');
+        break;
+      }
+      await Future<void>.delayed(const Duration(milliseconds: 300));
+    }
+    if (mounted && token == _token) {
+      setState(() {
+        _playing = false;
+        _current = null;
+      });
+    }
+  }
+
+  void _stop() {
+    _token++;
+    _speech.stop();
+    setState(() {
+      _playing = false;
+      _current = null;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final p = context.palette;
@@ -153,8 +206,17 @@ class _DialogueStepViewState extends State<DialogueStepView> {
           ),
         ]),
         Text('Kelimelere dokunarak anlamlarını görebilirsin.', style: context.text.bodySmall),
+        const SizedBox(height: 8),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: OutlinedButton.icon(
+            onPressed: _playing ? _stop : _playAll,
+            icon: Icon(_playing ? Icons.stop_rounded : Icons.play_arrow_rounded),
+            label: Text(_playing ? 'Durdur' : 'Hepsini dinle'),
+          ),
+        ),
         const SizedBox(height: 12),
-        for (final line in widget.step.lines)
+        for (final (index, line) in widget.step.lines.indexed)
           Padding(
             padding: const EdgeInsets.only(bottom: 10),
             child: Align(
@@ -164,8 +226,8 @@ class _DialogueStepViewState extends State<DialogueStepView> {
                 child: Container(
                   padding: const EdgeInsets.fromLTRB(14, 10, 6, 10),
                   decoration: BoxDecoration(
-                    color: line.speaker == 'Du' ? p.accentSoft : p.surface,
-                    border: Border.all(color: p.line),
+                    color: _current == index ? p.accentSoft : (line.speaker == 'Du' ? p.accentSoft : p.surface),
+                    border: Border.all(color: _current == index ? p.accent : p.line),
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
