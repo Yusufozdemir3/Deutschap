@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.1",
+  "version": "2026.10.2",
   "level": "B1",
   "units": [
     {
@@ -1132,6 +1132,1032 @@
               ],
               "model": "Ich habe mich für die kleinere Wohnung entschieden, weil sie günstiger ist und näher am Bahnhof liegt.",
               "min_words": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1u5",
+      "number": 5,
+      "title_de": "Wenn ich Zeit hätte …",
+      "title_tr": "İrreal dilekler",
+      "goal_tr": "Gerçek olmayan durumları ve dilekleri Konjunktiv II ile anlatabilirsin.",
+      "grammar": [
+        "g_irreal"
+      ],
+      "lessons": [
+        {
+          "id": "b1u5l1",
+          "title_tr": "Wenn ich Millionär wäre",
+          "objective_tr": "wenn + Konjunktiv II ile hayalleri anlat.",
+          "minutes": 9,
+          "vocab": [
+            "wunsch",
+            "gedanke",
+            "moeglichkeit",
+            "gewinn",
+            "gluecklich_n",
+            "hoffentlich"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "wunsch",
+                "gedanke",
+                "moeglichkeit",
+                "gewinn",
+                "gluecklich_n",
+                "hoffentlich"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_irreal"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Piyangoyu kazansan",
+              "lines": [
+                {
+                  "speaker": "Lina",
+                  "de": "Was würdest du machen, wenn du im Lotto gewinnen würdest?",
+                  "tr": "Piyangoyu kazansan ne yapardın?"
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Wenn ich viel Geld hätte, würde ich ein Café am Meer eröffnen.",
+                  "tr": "Çok param olsaydı deniz kenarında bir kafe açardım."
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Und ich würde ein Jahr lang reisen. Wenn ich mehr Zeit hätte, könnte ich jedes Land der Welt sehen.",
+                  "tr": "Ben de bir yıl seyahat ederdim. Daha çok zamanım olsaydı dünyanın her ülkesini görebilirdim."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Aber wenn alle das machen würden, wäre es überall sehr voll!",
+                  "tr": "Ama herkes bunu yapsaydı her yer çok kalabalık olurdu!"
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Wenn ich Zeit ___, würde ich mehr lesen.",
+              "tr": "Vaktim olsaydı daha çok okurdum.",
+              "answers": [
+                "hätte"
+              ],
+              "options": [
+                "hätte",
+                "hatte",
+                "habe"
+              ],
+              "explain_tr": "Irreal: haben → hätte."
+            },
+            {
+              "type": "cloze",
+              "de": "Wenn ich du ___, würde ich das machen.",
+              "tr": "Senin yerinde olsam bunu yapardım.",
+              "answers": [
+                "wäre"
+              ],
+              "options": [
+                "wäre",
+                "war",
+                "bin"
+              ],
+              "explain_tr": "sein → wäre."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Hangisi irreal bir dilek?",
+              "options": [
+                "Wenn ich reich wäre, würde ich reisen.",
+                "Wenn ich reich bin, reise ich.",
+                "Wenn ich reich war, reiste ich."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "wäre + würde: gerçek olmayan durum."
+            },
+            {
+              "type": "order",
+              "tr": "Çok param olsaydı dünyayı gezerdim.",
+              "tokens": [
+                "Wenn",
+                "ich",
+                "viel",
+                "Geld",
+                "hätte,",
+                "würde",
+                "ich",
+                "reisen"
+              ],
+              "answers": [
+                "Wenn ich viel Geld hätte, würde ich reisen"
+              ],
+              "explain_tr": "Yan cümle (… hätte) + virgül + würde ich + mastar."
+            },
+            {
+              "type": "listen",
+              "de": "Wenn ich mehr Zeit hätte, würde ich jeden Tag Sport machen.",
+              "prompt_tr": "Ne söylüyor?",
+              "options": [
+                "Zamanı olsaydı her gün spor yapardı",
+                "Her gün spor yapıyor",
+                "Zamanı yok, spor yapmıyor"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "hätte … würde = irreal dilek: şu an zamanı yok."
+            },
+            {
+              "type": "translate",
+              "tr": "Senin yerinde olsam ona yazardım.",
+              "answers": [
+                "Wenn ich du wäre, würde ich ihm schreiben.",
+                "An deiner Stelle würde ich ihm schreiben.",
+                "Wenn ich du wäre, würde ich ihr schreiben."
+              ],
+              "hint_tr": "wäre + würde"
+            }
+          ]
+        },
+        {
+          "id": "b1u5l2",
+          "title_tr": "Ich würde gern …",
+          "objective_tr": "Rica, tavsiye ve nasihat: könnte, sollte, würde.",
+          "minutes": 8,
+          "vocab": [
+            "thema",
+            "vortrag",
+            "teilnahme",
+            "sonst",
+            "falls"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "thema",
+                "vortrag",
+                "teilnahme",
+                "sonst",
+                "falls"
+              ]
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Tavsiye",
+              "lines": [
+                {
+                  "speaker": "Aylin",
+                  "de": "Ich habe morgen einen Vortrag und bin so nervös.",
+                  "tr": "Yarın bir sunumum var ve çok gerginim."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Du solltest heute früh schlafen gehen. Sonst bist du morgen müde.",
+                  "tr": "Bugün erken yatmalısın. Yoksa yarın yorgun olursun."
+                },
+                {
+                  "speaker": "Aylin",
+                  "de": "Und was könnte ich noch tun?",
+                  "tr": "Başka ne yapabilirim?"
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Du könntest den Vortrag einmal laut üben. Falls du Hilfe brauchst, höre ich zu.",
+                  "tr": "Sunumu bir kez yüksek sesle prova edebilirsin. Yardıma ihtiyacın olursa dinlerim."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Du ___ mehr Wasser trinken.",
+              "tr": "Daha çok su içmelisin.",
+              "answers": [
+                "solltest"
+              ],
+              "options": [
+                "solltest",
+                "sollst",
+                "sollte"
+              ],
+              "explain_tr": "Tavsiye: sollen → solltest (du)."
+            },
+            {
+              "type": "cloze",
+              "de": "Beeil dich, ___ verpasst du den Zug.",
+              "tr": "Acele et, yoksa treni kaçırırsın.",
+              "answers": [
+                "sonst"
+              ],
+              "options": [
+                "sonst",
+                "falls",
+                "weil"
+              ],
+              "explain_tr": "sonst = yoksa (ana cümle gibi, fiil hemen arkadan)."
+            },
+            {
+              "type": "cloze",
+              "de": "___ du Hilfe brauchst, ruf mich an.",
+              "tr": "Yardıma ihtiyacın olursa beni ara.",
+              "answers": [
+                "Falls"
+              ],
+              "options": [
+                "Falls",
+                "Obwohl",
+                "Damit"
+              ],
+              "explain_tr": "falls = olması durumunda; yan cümle, fiil sonda."
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Bir arkadaşa tavsiye ver: sollte/könnte + sonst ya da falls kullan.",
+              "requirements": [
+                {
+                  "label_tr": "sollte / könnte",
+                  "pattern": "\\b(solltest|sollten|sollte|koenntest|koennten|koennte)\\b"
+                },
+                {
+                  "label_tr": "sonst ya da falls",
+                  "pattern": "\\b(sonst|falls)\\b"
+                }
+              ],
+              "model": "Du solltest früh schlafen gehen, sonst bist du morgen müde. Falls du nervös bist, könntest du kurz spazieren gehen.",
+              "min_words": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1u6",
+      "number": 6,
+      "title_de": "Verben mit Präpositionen",
+      "title_tr": "Edatlı fiiller",
+      "goal_tr": "warten auf, sich freuen über, nachdenken über gibi sabit edatlı fiilleri doğru kullanabilirsin.",
+      "grammar": [
+        "g_verb_praep"
+      ],
+      "lessons": [
+        {
+          "id": "b1u6l1",
+          "title_tr": "Worauf wartest du?",
+          "objective_tr": "Edatlı fiiller ve soru kelimeleri: worauf, woran, wofür.",
+          "minutes": 9,
+          "vocab": [
+            "diskutieren",
+            "nachdenken",
+            "teilnehmen",
+            "bitten",
+            "beschweren"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "diskutieren",
+                "nachdenken",
+                "teilnehmen",
+                "bitten",
+                "beschweren"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_verb_praep"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Toplantıdan sonra",
+              "lines": [
+                {
+                  "speaker": "Can",
+                  "de": "Worüber habt ihr gestern diskutiert?",
+                  "tr": "Dün neyi tartıştınız?"
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Über den neuen Radweg. Ich habe auch an der Sitzung teilgenommen.",
+                  "tr": "Yeni bisiklet yolunu. Ben de toplantıya katıldım."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Und worauf warten alle jetzt?",
+                  "tr": "Peki şimdi herkes neyi bekliyor?"
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Auf die Entscheidung vom Rathaus. Wir haben um eine schnelle Antwort gebeten.",
+                  "tr": "Belediyenin kararını. Hızlı bir cevap rica ettik."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Ich warte ___ den Bus.",
+              "tr": "Otobüsü bekliyorum.",
+              "answers": [
+                "auf"
+              ],
+              "options": [
+                "auf",
+                "für",
+                "an"
+              ],
+              "explain_tr": "warten auf + Akkusativ."
+            },
+            {
+              "type": "cloze",
+              "de": "Wir sprechen ___ das Thema.",
+              "tr": "Konu hakkında konuşuyoruz.",
+              "answers": [
+                "über"
+              ],
+              "options": [
+                "über",
+                "von",
+                "auf"
+              ],
+              "explain_tr": "sprechen über + Akkusativ."
+            },
+            {
+              "type": "cloze",
+              "de": "Ich interessiere mich ___ Kunst.",
+              "tr": "Sanatla ilgileniyorum.",
+              "answers": [
+                "für"
+              ],
+              "options": [
+                "für",
+                "an",
+                "auf"
+              ],
+              "explain_tr": "sich interessieren für + Akkusativ."
+            },
+            {
+              "type": "cloze",
+              "de": "Ich freue mich ___ das Wochenende.",
+              "tr": "Hafta sonunu dört gözle bekliyorum.",
+              "answers": [
+                "auf"
+              ],
+              "options": [
+                "auf",
+                "über",
+                "für"
+              ],
+              "explain_tr": "sich freuen auf (gelecek) vs. sich freuen über (olmuş bir şey)."
+            },
+            {
+              "type": "match",
+              "pairs": [
+                {
+                  "de": "warten auf",
+                  "tr": "beklemek"
+                },
+                {
+                  "de": "sich interessieren für",
+                  "tr": "ilgilenmek"
+                },
+                {
+                  "de": "nachdenken über",
+                  "tr": "üzerine düşünmek"
+                },
+                {
+                  "de": "teilnehmen an",
+                  "tr": "katılmak"
+                },
+                {
+                  "de": "bitten um",
+                  "tr": "rica etmek"
+                }
+              ]
+            },
+            {
+              "type": "translate",
+              "tr": "Cevabı bekliyorum.",
+              "answers": [
+                "Ich warte auf die Antwort.",
+                "Ich warte auf eine Antwort."
+              ],
+              "hint_tr": "warten auf + Akkusativ"
+            }
+          ]
+        },
+        {
+          "id": "b1u6l2",
+          "title_tr": "Worüber ärgerst du dich?",
+          "objective_tr": "Dolaylı soru ve da-bileşikleri: darauf, darüber.",
+          "minutes": 9,
+          "vocab": [
+            "sich_aergern",
+            "sich_erinnern",
+            "sich_kuemmern"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "sich_aergern",
+                "sich_erinnern",
+                "sich_kuemmern"
+              ]
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Komşuluk",
+              "lines": [
+                {
+                  "speaker": "Aylin",
+                  "de": "Ich ärgere mich über den Lärm. Hast du dich auch darüber geärgert?",
+                  "tr": "Gürültüye sinirleniyorum. Sen de buna sinirlendin mi?"
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Ja, aber ich habe mich noch nicht darum gekümmert.",
+                  "tr": "Evet ama henüz bununla ilgilenmedim."
+                },
+                {
+                  "speaker": "Aylin",
+                  "de": "Ich erinnere mich an die Hausordnung. Darin steht: Nach zehn Uhr ist Ruhe.",
+                  "tr": "Apartman yönetmeliğini hatırlıyorum. İçinde şöyle yazıyor: Saat ondan sonra sessizlik."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Dann sprechen wir morgen mit dem Nachbarn darüber.",
+                  "tr": "O zaman yarın komşuyla bu konuda konuşuruz."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Ich kümmere mich ___ die Anmeldung.",
+              "tr": "Kayıt işiyle ilgileniyorum.",
+              "answers": [
+                "um"
+              ],
+              "options": [
+                "um",
+                "für",
+                "auf"
+              ],
+              "explain_tr": "sich kümmern um + Akkusativ."
+            },
+            {
+              "type": "cloze",
+              "de": "Er ärgert sich ___ den Lärm.",
+              "tr": "Gürültüye sinirleniyor.",
+              "answers": [
+                "über"
+              ],
+              "options": [
+                "über",
+                "an",
+                "von"
+              ],
+              "explain_tr": "sich ärgern über + Akkusativ."
+            },
+            {
+              "type": "cloze",
+              "de": "Ich erinnere mich ___ meinen ersten Tag.",
+              "tr": "İlk günümü hatırlıyorum.",
+              "answers": [
+                "an"
+              ],
+              "options": [
+                "an",
+                "auf",
+                "über"
+              ],
+              "explain_tr": "sich erinnern an + Akkusativ."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "\"Bunun hakkında konuşalım\" (konu: gürültü).",
+              "options": [
+                "Lass uns darüber sprechen.",
+                "Lass uns davon sprechen über.",
+                "Lass uns über sprechen."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "da(r) + edat: darüber = bunun hakkında."
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Bir şeyden şikâyetçisin ya da bir şeyi bekliyorsun: edatlı iki fiil kullan (sich ärgern über, warten auf, sich freuen auf …).",
+              "requirements": [
+                {
+                  "label_tr": "Edatlı fiil (ärgern über / warten auf / freuen auf / interessieren für …)",
+                  "pattern": "(aerger\\w* mich|warte\\w* auf|freue\\w* mich|interessiere\\w* mich|kuemmere\\w* mich|denke\\w* an|erinnere\\w* mich)"
+                }
+              ],
+              "model": "Ich ärgere mich über den Lärm im Haus. Ich freue mich auf das Wochenende, weil ich dann endlich schlafen kann.",
+              "min_words": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1u7",
+      "number": 7,
+      "title_de": "Eine Beschwerde schreiben",
+      "title_tr": "Şikâyet mektubu",
+      "goal_tr": "Resmî bir şikâyet ya da talep e-postası yazabilir, wegen ve trotz gibi Genitiv edatlarını kullanabilirsin.",
+      "grammar": [
+        "g_genitiv"
+      ],
+      "lessons": [
+        {
+          "id": "b1u7l1",
+          "title_tr": "Sehr geehrte Damen und Herren",
+          "objective_tr": "Şikâyet e-postasının yapısı ve kalıpları.",
+          "minutes": 9,
+          "vocab": [
+            "beschwerde",
+            "mangel",
+            "lieferung",
+            "ersatz",
+            "rueckerstattung",
+            "garantie",
+            "kundenservice",
+            "sehr_geehrte_damen",
+            "mit_freundlichen",
+            "im_voraus",
+            "unzufrieden",
+            "zufrieden"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "beschwerde",
+                "mangel",
+                "lieferung",
+                "ersatz",
+                "rueckerstattung",
+                "garantie",
+                "kundenservice"
+              ]
+            },
+            {
+              "type": "intro",
+              "lexemes": [
+                "sehr_geehrte_damen",
+                "mit_freundlichen",
+                "im_voraus",
+                "unzufrieden",
+                "zufrieden"
+              ]
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Bir e-posta taslağı",
+              "lines": [
+                {
+                  "speaker": "Can",
+                  "de": "Sehr geehrte Damen und Herren, ich habe am 5. Mai eine Waschmaschine bei Ihnen bestellt.",
+                  "tr": "Sayın yetkililer, 5 Mayıs'ta sizden bir çamaşır makinesi sipariş ettim."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Leider kam die Lieferung zehn Tage zu spät, und das Gerät hat einen Mangel: Die Tür schließt nicht richtig.",
+                  "tr": "Ne yazık ki teslimat on gün geç geldi ve cihazın bir kusuru var: Kapı düzgün kapanmıyor."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Ich bitte Sie um einen Ersatz oder um eine Rückerstattung des Preises. Vielen Dank im Voraus.",
+                  "tr": "Sizden bir yedek ya da fiyatın iadesini rica ediyorum. Şimdiden teşekkürler."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Mit freundlichen Grüßen, Can Yılmaz",
+                  "tr": "Saygılarımla, Can Yılmaz"
+                }
+              ]
+            },
+            {
+              "type": "match",
+              "pairs": [
+                {
+                  "de": "die Beschwerde",
+                  "tr": "şikâyet"
+                },
+                {
+                  "de": "der Mangel",
+                  "tr": "kusur"
+                },
+                {
+                  "de": "die Lieferung",
+                  "tr": "teslimat"
+                },
+                {
+                  "de": "der Ersatz",
+                  "tr": "yedek"
+                },
+                {
+                  "de": "die Rückerstattung",
+                  "tr": "iade"
+                }
+              ]
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Bir şikâyet e-postasının doğru kapanışı hangisi?",
+              "options": [
+                "Mit freundlichen Grüßen",
+                "Tschüss und bis bald",
+                "Liebe Grüße an alle"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "Resmî yazışmada \"Mit freundlichen Grüßen\"."
+            },
+            {
+              "type": "cloze",
+              "de": "Ich bin mit dem Service ___.",
+              "tr": "Hizmetten memnun değilim.",
+              "answers": [
+                "unzufrieden"
+              ],
+              "options": [
+                "unzufrieden",
+                "zufrieden",
+                "freundlich"
+              ],
+              "explain_tr": "un- olumsuzluk ön eki: unzufrieden = memnun değil."
+            },
+            {
+              "type": "cloze",
+              "de": "Ich ___ Sie um eine schnelle Antwort.",
+              "tr": "Sizden hızlı bir cevap rica ediyorum.",
+              "answers": [
+                "bitte"
+              ],
+              "options": [
+                "bitte",
+                "bittet",
+                "gebeten"
+              ],
+              "explain_tr": "bitten um + Akkusativ; ich → bitte."
+            },
+            {
+              "type": "translate",
+              "tr": "Sizden bir iade rica ediyorum.",
+              "answers": [
+                "Ich bitte Sie um eine Rückerstattung.",
+                "Ich bitte Sie um eine Rückerstattung des Preises."
+              ],
+              "hint_tr": "bitten um + Akkusativ"
+            }
+          ]
+        },
+        {
+          "id": "b1u7l2",
+          "title_tr": "Wegen des Regens",
+          "objective_tr": "Genitiv: des Mannes, der Frau; wegen ve trotz.",
+          "minutes": 9,
+          "vocab": [
+            "wegen",
+            "trotz",
+            "beantragen",
+            "erhalten"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "wegen",
+                "trotz",
+                "beantragen",
+                "erhalten"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_genitiv"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Gecikme",
+              "lines": [
+                {
+                  "speaker": "Aylin",
+                  "de": "Wegen des Streiks kam der Zug zu spät.",
+                  "tr": "Grev yüzünden tren geç geldi."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Trotz des Wetters bin ich zu Fuß gegangen.",
+                  "tr": "Havaya rağmen yürüyerek gittim."
+                },
+                {
+                  "speaker": "Aylin",
+                  "de": "Das Auto meines Bruders ist kaputt. Wegen der Reparatur braucht er einen Ersatz.",
+                  "tr": "Erkek kardeşimin arabası bozuk. Tamir yüzünden bir yedek araca ihtiyacı var."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Ich beantrage morgen die Karte der Stadt, damit ich überall hinfahren kann.",
+                  "tr": "Yarın şehrin kartına başvuracağım, her yere gidebileyim diye."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Das ist das Auto ___ Mannes.",
+              "tr": "Bu adamın arabası.",
+              "answers": [
+                "des"
+              ],
+              "options": [
+                "des",
+                "der",
+                "dem"
+              ],
+              "explain_tr": "Genitiv, eril/nötr: des + isim + -(e)s: des Mannes."
+            },
+            {
+              "type": "cloze",
+              "de": "Das ist das Haus ___ Frau.",
+              "tr": "Bu kadının evi.",
+              "answers": [
+                "der"
+              ],
+              "options": [
+                "der",
+                "des",
+                "die"
+              ],
+              "explain_tr": "Genitiv, dişil: der Frau."
+            },
+            {
+              "type": "cloze",
+              "de": "___ des Regens bleiben wir zu Hause.",
+              "tr": "Yağmur yüzünden evde kalıyoruz.",
+              "answers": [
+                "Wegen"
+              ],
+              "options": [
+                "Wegen",
+                "Trotz",
+                "Obwohl"
+              ],
+              "explain_tr": "wegen + Genitiv = -den dolayı."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Hangisi doğru?",
+              "options": [
+                "Trotz des Wetters gehen wir raus.",
+                "Trotz dem Wetter gehen wir raus.",
+                "Trotz das Wetter gehen wir raus."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "trotz + Genitiv: des Wetters."
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Genitiv kullan: Birinin eşyasını anlat (das Auto meines Bruders, die Tasche der Freundin …) ve wegen ya da trotz ile bir cümle yaz.",
+              "requirements": [
+                {
+                  "label_tr": "Genitiv (des / der + isim)",
+                  "pattern": "\\b(des|der|meines|meiner|seines|ihrer|unseres)\\s+\\w+"
+                },
+                {
+                  "label_tr": "wegen ya da trotz",
+                  "pattern": "\\b(wegen|trotz)\\b"
+                }
+              ],
+              "model": "Das ist die Tasche meiner Freundin. Wegen des Regens bleiben wir heute zu Hause.",
+              "min_words": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1u8",
+      "number": 8,
+      "title_de": "Wie war das damals?",
+      "title_tr": "Anlatmak",
+      "goal_tr": "Geçmişi sıralı anlatabilir, nachdem, als ve Plusquamperfekt ile olayların sırasını belirtebilirsin.",
+      "grammar": [
+        "g_plusquam"
+      ],
+      "lessons": [
+        {
+          "id": "b1u8l1",
+          "title_tr": "Nachdem ich gegessen hatte",
+          "objective_tr": "Plusquamperfekt: hatte/war + Partizip II.",
+          "minutes": 9,
+          "vocab": [
+            "nachdem",
+            "bevor",
+            "waehrend"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "nachdem",
+                "bevor",
+                "waehrend"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_plusquam"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Bir gün",
+              "lines": [
+                {
+                  "speaker": "Can",
+                  "de": "Gestern bin ich ins Kino gegangen, nachdem ich gegessen hatte.",
+                  "tr": "Dün yemek yedikten sonra sinemaya gittim."
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Und bevor du gegangen bist, hast du angerufen?",
+                  "tr": "Ve gitmeden önce aradın mı?"
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Nein. Aber als ich ankam, war der Film schon gestartet.",
+                  "tr": "Hayır. Ama vardığımda film çoktan başlamıştı."
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Schade! Während du im Kino warst, habe ich übrigens gekocht.",
+                  "tr": "Yazık! Bu arada sen sinemadayken ben yemek yaptım."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Nachdem ich gegessen ___, bin ich gegangen.",
+              "tr": "Yemek yedikten sonra gittim.",
+              "answers": [
+                "hatte"
+              ],
+              "options": [
+                "hatte",
+                "habe",
+                "war"
+              ],
+              "explain_tr": "Plusquamperfekt: hatte + Partizip II (daha önce olan olay)."
+            },
+            {
+              "type": "cloze",
+              "de": "Als ich ankam, ___ der Zug schon abgefahren.",
+              "tr": "Vardığımda tren çoktan kalkmıştı.",
+              "answers": [
+                "war"
+              ],
+              "options": [
+                "war",
+                "hatte",
+                "ist"
+              ],
+              "explain_tr": "abfahren → sein: war abgefahren."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Hangi sıra doğru?",
+              "options": [
+                "Nachdem er gegangen war, habe ich gekocht.",
+                "Nachdem er ging, habe ich gekocht war.",
+                "Nachdem er ist gegangen, habe ich gekocht."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "nachdem + Plusquamperfekt, ana cümle Perfekt."
+            },
+            {
+              "type": "order",
+              "tr": "Yemek yedikten sonra sinemaya gittim.",
+              "tokens": [
+                "Nachdem",
+                "ich",
+                "gegessen",
+                "hatte,",
+                "bin",
+                "ich",
+                "ins",
+                "Kino",
+                "gegangen"
+              ],
+              "answers": [
+                "Nachdem ich gegessen hatte, bin ich ins Kino gegangen"
+              ],
+              "explain_tr": "Yan cümle (… hatte) + bin ich … gegangen."
+            },
+            {
+              "type": "listen",
+              "de": "Als wir am Bahnhof ankamen, war der Zug schon abgefahren.",
+              "prompt_tr": "Ne oldu?",
+              "options": [
+                "Tren çoktan kalkmıştı",
+                "Tren henüz gelmemişti",
+                "Tren rötarlıydı"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "war schon abgefahren = çoktan kalkmıştı."
+            },
+            {
+              "type": "translate",
+              "tr": "Eve geldikten sonra yemek yaptım.",
+              "answers": [
+                "Nachdem ich nach Hause gekommen war, habe ich gekocht.",
+                "Nachdem ich nach Hause gekommen war, kochte ich."
+              ],
+              "hint_tr": "kommen → war gekommen"
+            }
+          ]
+        },
+        {
+          "id": "b1u8l2",
+          "title_tr": "Eine Geschichte erzählen",
+          "objective_tr": "Bir olayı sıralı anlat: zuerst, dann, danach, am Ende.",
+          "minutes": 9,
+          "vocab": [
+            "sich_erinnern",
+            "beschweren",
+            "entscheiden"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "sich_erinnern",
+                "entscheiden"
+              ]
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "İlk gün",
+              "lines": [
+                {
+                  "speaker": "Lina",
+                  "de": "Erzähl mal von deinem ersten Tag in Berlin!",
+                  "tr": "Berlin'deki ilk gününü anlat bakalım!"
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Zuerst habe ich meinen Koffer verloren. Dann bin ich zwei Stunden durch die Stadt gelaufen.",
+                  "tr": "Önce bavulumu kaybettim. Sonra iki saat şehirde dolaştım."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Danach habe ich ein kleines Café gefunden. Am Ende habe ich dort meinen ersten Freund getroffen.",
+                  "tr": "Ardından küçük bir kafe buldum. Sonunda orada ilk arkadaşımla tanıştım."
+                },
+                {
+                  "speaker": "Lina",
+                  "de": "Und wer war das?",
+                  "tr": "Kimdi o?"
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Du! Du hast mir den Weg zur Wohnung gezeigt.",
+                  "tr": "Sendin! Bana daireye giden yolu gösterdin."
+                }
+              ]
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Bir anını sırayla anlat: zuerst, dann, danach, am Ende kullan (Perfekt ya da Präteritum).",
+              "requirements": [
+                {
+                  "label_tr": "zuerst / dann / danach / am Ende",
+                  "pattern": "\\b(zuerst|dann|danach|am ende|schliesslich|zuletzt)\\b"
+                },
+                {
+                  "label_tr": "Geçmiş zaman (Perfekt ya da Präteritum)",
+                  "pattern": "\\b(habe|hat|haben|bin|ist|sind|war|waren|hatte)\\b"
+                }
+              ],
+              "model": "Zuerst bin ich zum Bahnhof gegangen. Dann habe ich ein Ticket gekauft. Danach war ich im Zug eingeschlafen. Am Ende bin ich pünktlich angekommen.",
+              "min_words": 20
             }
           ]
         }
