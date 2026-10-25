@@ -35,7 +35,7 @@ void main() {
 
   test('milestones track real progress with targets from content', () {
     final f = ProgressFacts(
-      lessons: {for (var i = 0; i < 12; i++) 'l$i'},
+      lessons: {for (var i = 1; i <= 12; i++) 'u${i}l1', 'a2u1l1'},
       scenarios: const {'baeckerei'},
       unaidedRecalls: 40,
       statusCounts: const {VocabStatus.familiar: 20, VocabStatus.temporarilyMastered: 6},
@@ -44,6 +44,7 @@ void main() {
     expect(byId['first_order']!.earned, isTrue);
     expect(byId['path_half']!.earned, isTrue);
     expect(byId['path_done']!.earned, isFalse);
+    expect(byId['a2_half']!.current, 1, reason: 'A2 lessons count only toward A2 milestones');
     expect(byId['recall_100']!.current, 40);
     expect(byId['familiar_25']!.earned, isTrue, reason: '20 familiar + 6 mastered = 26 at familiar or better');
     expect(byId['mastered_10']!.current, 6);
@@ -57,6 +58,7 @@ void main() {
       episodeNumbers: {for (final s in content.stories) ...s.episodeNumbers},
       scenarios: {for (final s in content.scenarios) s.id},
       readings: {for (final r in content.readings) r.id},
+      listenings: {for (final t in content.listening) t.id},
       unaidedRecalls: 1000,
       unaidedArticles: 100,
       unaidedProductions: 100,

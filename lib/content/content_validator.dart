@@ -341,6 +341,7 @@ class ContentValidator {
           'episode' => episodeNumbers.contains(int.tryParse(r.id)),
           'scenario' => bundle.scenario(r.id) != null,
           'reading' => bundle.reading(r.id) != null,
+          'listening' => bundle.track(r.id) != null,
           _ => false,
         };
     final ids = <String>{};

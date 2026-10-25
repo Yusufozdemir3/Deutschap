@@ -246,7 +246,7 @@ class _StoriesTab extends ConsumerWidget {
             ),
           ),
         const SizedBox(height: 16),
-        PageWidth(child: Text('Yeni bölümler ve seriler hazırlanıyor. Her bölüm A1 dil desteğiyle yazıldı; ileride aynı hikâyelerin A2–B1 sürümleri gelecek.', style: context.text.bodySmall)),
+        PageWidth(child: Text('1–5. bölümler A1, 6–8. bölümler A2 düzeyinde. Seviyeni ayarlardan değiştirirsen, varsa bölümün sana uygun sürümü açılır. İkinci sezon hazırlanıyor.', style: context.text.bodySmall)),
       ],
     );
   }

@@ -68,6 +68,7 @@ String describeUnlock(ContentBundle content, UnlockRef r) => switch (r.kind) {
         }(),
       'scenario' => 'Konuşma: ${content.scenario(r.id)?.titleTr ?? r.id}',
       'reading' => 'Okuma: ${content.reading(r.id)?.title ?? r.id}',
+      'listening' => 'Dinleme: ${content.track(r.id)?.title ?? r.id}',
       _ => r.toString(),
     };
 
@@ -80,6 +81,7 @@ String routeForUnlock(ContentBundle content, UnlockRef r) => switch (r.kind) {
         }(),
       'scenario' => '/scenario/${r.id}',
       'reading' => '/reader/builtin:${r.id}',
+      'listening' => '/listen/${r.id}',
       _ => '/heute',
     };
 

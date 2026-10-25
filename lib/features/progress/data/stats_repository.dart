@@ -91,6 +91,7 @@ class StatsRepository {
       },
       scenarios: {...await _strings("SELECT DISTINCT scenario_id FROM conversation_sessions WHERE status = 'completed'")},
       readings: {...await _strings("SELECT DISTINCT ref_id FROM activity_log WHERE kind = 'reading' AND ref_id IS NOT NULL")},
+      listenings: {...await _strings("SELECT DISTINCT ref_id FROM activity_log WHERE kind = 'listening' AND ref_id IS NOT NULL")},
       unaidedRecalls: await _int('SELECT COUNT(*) FROM review_events WHERE assisted = 0 AND grade > 0'),
       unaidedArticles: await _int("SELECT COUNT(*) FROM review_events WHERE assisted = 0 AND grade > 0 AND card_type = 'article'"),
       unaidedProductions: await _int("SELECT COUNT(*) FROM review_events WHERE assisted = 0 AND grade > 0 AND card_type = 'production'"),

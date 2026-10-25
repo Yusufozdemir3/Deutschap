@@ -9,6 +9,7 @@ class ProgressFacts {
     this.episodeNumbers = const {},
     this.scenarios = const {},
     this.readings = const {},
+    this.listenings = const {},
     this.unaidedRecalls = 0,
     this.unaidedArticles = 0,
     this.unaidedProductions = 0,
@@ -23,6 +24,7 @@ class ProgressFacts {
   final Set<int> episodeNumbers;
   final Set<String> scenarios;
   final Set<String> readings;
+  final Set<String> listenings;
   final int unaidedRecalls;
   final int unaidedArticles;
   final int unaidedProductions;
@@ -48,6 +50,7 @@ class ProgressFacts {
         'episode' => episodeNumbers.contains(int.tryParse(r.id)),
         'scenario' => scenarios.contains(r.id),
         'reading' => readings.contains(r.id),
+        'listening' => listenings.contains(r.id),
         _ => false,
       };
 }
@@ -95,15 +98,22 @@ class Milestone {
 
 int _has(bool b) => b ? 1 : 0;
 
+const _a2Scenarios = {'arzt', 'apotheke', 'wohnung', 'bahnhof', 'kleidung', 'hotel', 'verabredung', 'vorstellungsgespraech', 'anmeldung'};
+
 final milestones = <Milestone>[
   Milestone(id: 'first_lesson', icon: 'flag', titleTr: 'İlk adım', descriptionTr: 'İlk dersini tamamla.', target: 1, progress: (f) => f.lessons.length),
   Milestone(id: 'first_order', icon: 'cafe', titleTr: 'İlk sipariş', descriptionTr: 'Fırında ya da kafede bir konuşmayı baştan sona Almanca tamamla.', target: 1, progress: (f) => _has(f.scenarios.contains('cafe') || f.scenarios.contains('baeckerei'))),
   Milestone(id: 'phone_call', icon: 'phone', titleTr: 'Telefonda randevu', descriptionTr: 'Telefonla randevu alma senaryosunu tamamla.', target: 1, progress: (f) => _has(f.scenarios.contains('termin'))),
-  Milestone(id: 'all_scenarios', icon: 'forum', titleTr: 'Gerçek hayata hazır', descriptionTr: 'Altı gerçek hayat senaryosunun hepsini tamamla.', target: 6, progress: (f) => f.scenarios.length),
+  Milestone(id: 'all_scenarios', icon: 'forum', titleTr: 'Gerçek hayata hazır', descriptionTr: 'Altı farklı gerçek hayat senaryosunu tamamla.', target: 6, progress: (f) => f.scenarios.length),
   Milestone(id: 'story_season', icon: 'book', titleTr: 'Kartpostalın peşinde', descriptionTr: '"Neu in Berlin"in beş bölümünü bitir.', target: 5, progress: (f) => f.episodeNumbers.length),
+  Milestone(id: 'story_finale', icon: 'mail', titleTr: 'Kırk yıl sonra', descriptionTr: '"Neu in Berlin"in ilk sezonunu (8 bölüm) bitir.', target: 8, progress: (f) => f.episodeNumbers.length),
   Milestone(id: 'detective', icon: 'search', titleTr: 'Dedektif', descriptionTr: 'Gizem panosundaki tüm ipuçlarını kelimeleriyle çöz.', target: 6, progress: (f) => 0), // computed from clues in evaluateMilestones
-  Milestone(id: 'path_half', icon: 'route', titleTr: 'Yolun yarısı', descriptionTr: 'A1 yolunda 12 ders tamamla.', target: 12, progress: (f) => f.lessons.where((l) => !l.startsWith('practice')).length),
-  Milestone(id: 'path_done', icon: 'school', titleTr: 'A1 yolu tamam', descriptionTr: 'A1 yolunun 24 dersinin hepsini tamamla.', target: 24, progress: (f) => f.lessons.where((l) => !l.startsWith('practice')).length),
+  Milestone(id: 'path_half', icon: 'route', titleTr: 'Yolun yarısı', descriptionTr: 'A1 yolunda 12 ders tamamla.', target: 12, progress: (f) => f.lessons.where((l) => RegExp(r'^u\d').hasMatch(l)).length),
+  Milestone(id: 'path_done', icon: 'school', titleTr: 'A1 yolu tamam', descriptionTr: 'A1 yolunun 24 dersinin hepsini tamamla.', target: 24, progress: (f) => f.lessons.where((l) => RegExp(r'^u\d').hasMatch(l)).length),
+  Milestone(id: 'a2_half', icon: 'route', titleTr: 'A2 yolunda', descriptionTr: 'A2 yolunda 8 ders tamamla.', target: 8, progress: (f) => f.lessons.where((l) => l.startsWith('a2')).length),
+  Milestone(id: 'a2_done', icon: 'school', titleTr: 'A2 yolu tamam', descriptionTr: 'A2 yolunun 16 dersinin hepsini tamamla.', target: 16, progress: (f) => f.lessons.where((l) => l.startsWith('a2')).length),
+  Milestone(id: 'a2_life', icon: 'forum', titleTr: 'Gündelik hayatta', descriptionTr: 'Dört farklı A2 senaryosunu tamamla (doktor, ev, tren, iş görüşmesi …).', target: 4, progress: (f) => f.scenarios.where(_a2Scenarios.contains).length),
+  Milestone(id: 'listener_5', icon: 'reading', titleTr: 'Kulak aşinalığı', descriptionTr: 'Beş dinleme metninin sorularını cevapla.', target: 5, progress: (f) => f.listenings.length),
   Milestone(id: 'formal_email', icon: 'mail', titleTr: 'İlk resmî e-posta', descriptionTr: 'İş e-postası dersini tamamla.', target: 1, progress: (f) => _has(f.lessons.contains('u12l2'))),
   Milestone(id: 'recall_100', icon: 'memory', titleTr: '100 kez hatırladım', descriptionTr: 'Tekrarlarda 100 kez ipucu kullanmadan hatırla.', target: 100, progress: (f) => f.unaidedRecalls),
   Milestone(id: 'articles_25', icon: 'article', titleTr: 'Artikel ustası', descriptionTr: 'der/die/das kartlarında ipucusuz 25 doğru cevap ver.', target: 25, progress: (f) => f.unaidedArticles),

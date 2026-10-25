@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.5",
+  "version": "2026.10.7",
   "stories": [
     {
       "id": "neu_in_berlin",
@@ -39,6 +39,24 @@
           "id": "friedrich",
           "name": "Friedrich",
           "role_tr": "Pencere kenarındaki yaşlı adam",
+          "formal": true
+        },
+        {
+          "id": "marlene",
+          "name": "Marlene Vogt",
+          "role_tr": "Hamburg'daki kitapçının sahibi",
+          "formal": true
+        },
+        {
+          "id": "bahn",
+          "name": "Bahn-Mitarbeiterin",
+          "role_tr": "Gardaki bilet gişesi görevlisi",
+          "formal": true
+        },
+        {
+          "id": "verkaeuferin",
+          "name": "Verkäuferin",
+          "role_tr": "Kitapçıdaki genç satıcı",
           "formal": true
         }
       ],
@@ -2269,7 +2287,1048 @@
               "explain_tr": "Glück = şans, mutluluk."
             }
           ],
-          "teaser_tr": "Bir hafta sonra posta kutusunda Hamburg damgalı bir zarf… Yeni bölümler hazırlanıyor."
+          "teaser_tr": "Bir hafta sonra posta kutusunda Hamburg damgalı bir zarf… (6. bölüm A2 düzeyinde devam ediyor.)"
+        },
+        {
+          "id": "nib_e6_a2",
+          "number": 6,
+          "level": "A2",
+          "title": "Post aus Hamburg",
+          "title_tr": "Hamburg'dan mektup",
+          "narrative_tr": "Marlene'nin cevabını oku, Friedrich'e haberi ver ve bir karar verin.",
+          "objective_tr": "Präteritum (war, hatte, musste) ile geçmişi anlamak; dass ve weil ile haber vermek ve sebep söylemek.",
+          "minutes": 9,
+          "start": "n1",
+          "scenario": "verabredung",
+          "nodes": [
+            {
+              "id": "n1",
+              "type": "narration",
+              "de": "Eine Woche später. Herr Albrecht klopft an deine Tür. In der Hand hat er einen Brief.",
+              "tr": "Bir hafta sonra. Bay Albrecht kapını çalıyor. Elinde bir mektup var.",
+              "next": "n2"
+            },
+            {
+              "id": "n2",
+              "type": "line",
+              "speaker": "albrecht",
+              "de": "Post aus Hamburg! Ich habe ihn sofort erkannt. Die Schrift ist noch genauso schön wie früher.",
+              "tr": "Hamburg'dan posta! Hemen tanıdım. Yazısı eskisi kadar güzel.",
+              "next": "n3",
+              "gloss_tr": "\"genauso … wie früher\" = eskisi kadar. Karşılaştırma: so/genauso + sıfat + wie."
+            },
+            {
+              "id": "n3",
+              "type": "narration",
+              "de": "Du rufst Lina. Ihr setzt euch in die Küche und öffnet den Brief.",
+              "tr": "Lina'yı çağırıyorsun. Mutfağa oturup mektubu açıyorsunuz.",
+              "next": "n4"
+            },
+            {
+              "id": "n4",
+              "type": "line",
+              "speaker": "marlene",
+              "de": "Liebe Lina, liebe(r) {name}, vielen Dank für Ihren Brief. Ich musste ihn dreimal lesen.",
+              "tr": "Sevgili Lina, sevgili {name}, mektubunuz için çok teşekkürler. Onu üç kez okumak zorunda kaldım.",
+              "next": "n5",
+              "gloss_tr": "\"musste\" = müssen'in Präteritum'u: zorunda kaldım."
+            },
+            {
+              "id": "n5",
+              "type": "line",
+              "speaker": "marlene",
+              "de": "Damals war ich jung und hatte wenig Geld. Meine Mutter war krank, deshalb musste ich schnell nach Hamburg.",
+              "tr": "O zamanlar gençtim ve az param vardı. Annem hastaydı, bu yüzden hemen Hamburg'a gitmek zorunda kaldım.",
+              "next": "n6",
+              "gloss_tr": "war, hatte, musste: sein, haben ve müssen'in Präteritum hâlleri. Konuşmada da çok kullanılır."
+            },
+            {
+              "id": "n6",
+              "type": "line",
+              "speaker": "marlene",
+              "de": "Ich konnte mich nicht von Friedrich verabschieden. Später habe ich ihm geschrieben, aber er hatte schon eine neue Adresse.",
+              "tr": "Friedrich'le vedalaşamadım. Sonra ona yazdım ama onun adresi çoktan değişmişti.",
+              "next": "n7"
+            },
+            {
+              "id": "n7",
+              "type": "choice",
+              "prompt_tr": "Marlene neden Friedrich'le vedalaşamamış? Lina'ya açıkla.",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Weil ihre Mutter krank war und sie schnell nach Hamburg musste.",
+                  "tr": "Çünkü annesi hastaydı ve hemen Hamburg'a gitmek zorundaydı.",
+                  "verdict": "best",
+                  "feedback_tr": "Doğru ve dil bilgisi de doğru: weil → çekimli fiil sonda (war, musste).",
+                  "next": "n8"
+                },
+                {
+                  "id": "b",
+                  "de": "Weil ihre Mutter war krank.",
+                  "tr": "(kelime sırası yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "weil yan cümle başlatır: çekimli fiil sona gider → \"weil ihre Mutter krank war\". Tekrar dene."
+                },
+                {
+                  "id": "c",
+                  "de": "Denn sie hatte keine Lust.",
+                  "tr": "Çünkü canı istemedi.",
+                  "verdict": "wrong",
+                  "feedback_tr": "Cümle doğru kurulmuş (denn + normal sıra), ama mektupta böyle yazmıyor. Annesi hastaymış. Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n8",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Hör mal, hier steht noch etwas: „Ist Friedrich gesund? Bitte grüßen Sie ihn von mir.“",
+              "tr": "Dinle, burada bir şey daha yazıyor: \"Friedrich sağlıklı mı? Lütfen ona benden selam söyleyin.\"",
+              "next": "n9"
+            },
+            {
+              "id": "n9",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Heute ist Mittwoch! Friedrich ist um drei im Café. Gehen wir hin?",
+              "tr": "Bugün çarşamba! Friedrich saat üçte kafede. Gidelim mi?",
+              "next": "n10"
+            },
+            {
+              "id": "n10",
+              "type": "choice",
+              "prompt_tr": "Ne cevap verirsin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Ja, sofort! Er muss das wissen.",
+                  "tr": "Evet, hemen! Bunu bilmesi lazım.",
+                  "verdict": "best",
+                  "feedback_tr": "müssen + mastar sonda: Er muss das wissen.",
+                  "next": "n11"
+                },
+                {
+                  "id": "b",
+                  "de": "Ja, aber vorher kaufen wir Blumen für ihn.",
+                  "tr": "Evet ama önce ona çiçek alalım.",
+                  "verdict": "best",
+                  "feedback_tr": "Güzel fikir. \"vorher\" başta → fiil (kaufen) ikinci sırada.",
+                  "next": "n10b",
+                  "flags": [
+                    "blumen"
+                  ]
+                },
+                {
+                  "id": "c",
+                  "de": "Ja, wir müssen sofort gehen hin.",
+                  "tr": "(kelime sırası yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Ayrılabilen \"hingehen\" modal fiille bitişik ve sonda kalır: \"Wir müssen sofort hingehen.\" Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n10b",
+              "type": "narration",
+              "de": "Bei Frau Weber gibt es auch Blumen. Du kaufst einen kleinen Strauß.",
+              "tr": "Weber Hanım'ın fırınında çiçek de var. Küçük bir buket alıyorsun.",
+              "next": "n11"
+            },
+            {
+              "id": "n11",
+              "type": "narration",
+              "de": "Um drei Uhr sitzt Friedrich am Fenster im Café Kastanie, wie jeden Mittwoch.",
+              "tr": "Saat üçte Friedrich her çarşamba olduğu gibi Café Kastanie'de pencere kenarında oturuyor.",
+              "next": "n12"
+            },
+            {
+              "id": "n12",
+              "type": "branch",
+              "cases": [
+                {
+                  "flag": "blumen",
+                  "next": "n12a"
+                }
+              ],
+              "else": "n13"
+            },
+            {
+              "id": "n12a",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Blumen? Für mich? Na, das ist aber eine Überraschung!",
+              "tr": "Çiçek mi? Bana mı? Bu ne sürpriz!",
+              "next": "n13"
+            },
+            {
+              "id": "n13",
+              "type": "choice",
+              "prompt_tr": "Friedrich'e haberi nasıl verirsin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Herr Friedrich, wir haben eine Nachricht von Marlene. Sie hat uns geschrieben.",
+                  "tr": "Friedrich Bey, Marlene'den bir haberimiz var. Bize yazdı.",
+                  "verdict": "best",
+                  "feedback_tr": "Nazik ve açık. \"Sie hat uns geschrieben\" – Perfekt, haben + Partizip sonda.",
+                  "next": "n14"
+                },
+                {
+                  "id": "b",
+                  "de": "Wir wissen, dass Marlene in Hamburg wohnt.",
+                  "tr": "Marlene'nin Hamburg'da oturduğunu biliyoruz.",
+                  "verdict": "best",
+                  "feedback_tr": "dass → fiil (wohnt) sonda. Doğru!",
+                  "next": "n14"
+                },
+                {
+                  "id": "c",
+                  "de": "Wir wissen, dass Marlene wohnt in Hamburg.",
+                  "tr": "(kelime sırası yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "dass yan cümlesinde çekimli fiil sona gider: \"dass Marlene in Hamburg wohnt\". Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n14",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Marlene … Sie lebt? Und sie erinnert sich an mich?",
+              "tr": "Marlene… Yaşıyor mu? Ve beni hatırlıyor mu?",
+              "next": "n15",
+              "gloss_tr": "sich erinnern an + Akkusativ = birini/bir şeyi hatırlamak."
+            },
+            {
+              "id": "n15",
+              "type": "narration",
+              "de": "Lina gibt ihm den Brief. Friedrich liest lange. Dann nimmt er seine Brille ab.",
+              "tr": "Lina mektubu ona veriyor. Friedrich uzun süre okuyor. Sonra gözlüğünü çıkarıyor.",
+              "next": "n16"
+            },
+            {
+              "id": "n16",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Ich möchte sie sehen. Aber allein kann ich nicht mehr so weit fahren. Mein Rücken tut oft weh.",
+              "tr": "Onu görmek istiyorum. Ama artık o kadar uzağa tek başıma gidemem. Sırtım sık sık ağrıyor.",
+              "next": "n17"
+            },
+            {
+              "id": "n17",
+              "type": "choice",
+              "prompt_tr": "Ne önerirsin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Wir könnten zusammen nach Hamburg fahren!",
+                  "tr": "Birlikte Hamburg'a gidebiliriz!",
+                  "verdict": "best",
+                  "feedback_tr": "Konjunktiv II \"könnten\" öneriyi kibar ve yumuşak yapar.",
+                  "next": "n18"
+                },
+                {
+                  "id": "b",
+                  "de": "Wenn Sie möchten, fahren wir mit Ihnen nach Hamburg.",
+                  "tr": "İsterseniz sizinle Hamburg'a gideriz.",
+                  "verdict": "best",
+                  "feedback_tr": "wenn-yan cümlesi başta → ana cümle fiille başlar (fahren wir). Çok iyi!",
+                  "next": "n18"
+                },
+                {
+                  "id": "c",
+                  "de": "Wenn Sie möchten, wir fahren mit Ihnen nach Hamburg.",
+                  "tr": "(kelime sırası yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Yan cümle başta olunca ana cümle fiille başlar: \"…, fahren wir mit Ihnen nach Hamburg.\" Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n18",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Das würden Sie für einen alten Mann tun? Dann fahren wir nächsten Samstag!",
+              "tr": "Bunu yaşlı bir adam için yapar mısınız? O zaman gelecek cumartesi gidiyoruz!",
+              "next": "n19"
+            },
+            {
+              "id": "n19",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Ich schreibe Marlene heute noch eine E-Mail. Oh, ich freue mich so!",
+              "tr": "Marlene'ye hemen bugün bir e-posta yazıyorum. Ah, çok heyecanlıyım!",
+              "next": "end"
+            },
+            {
+              "id": "end",
+              "type": "end"
+            }
+          ],
+          "recap_tr": "Marlene cevap yazdı: Annesi hasta olduğu için yıllar önce aniden Hamburg'a gitmek zorunda kalmış ve Friedrich'le vedalaşamamış. Çarşamba günü Friedrich'e haberi verdiniz. Gelecek cumartesi üçünüz birlikte Hamburg'a gidiyorsunuz.",
+          "vocab": [
+            "brief",
+            "frueher",
+            "damals",
+            "krank",
+            "deshalb",
+            "muessen",
+            "weil",
+            "dass",
+            "ruecken",
+            "wehtun",
+            "freuen"
+          ],
+          "grammar": [
+            {
+              "title_tr": "Präteritum: war, hatte, musste",
+              "body_tr": "Mektup ve anlatılarda sein, haben ve modal fiiller genelde Präteritum'da kullanılır.",
+              "example_de": "Damals war ich jung und hatte wenig Geld.",
+              "concept": "g_praeteritum"
+            },
+            {
+              "title_tr": "weil / dass: fiil sonda",
+              "body_tr": "weil ve dass yan cümle başlatır; çekimli fiil en sona gider.",
+              "example_de": "Wir wissen, dass Marlene in Hamburg wohnt.",
+              "concept": "g_nebensatz"
+            },
+            {
+              "title_tr": "Kibar öneri: könnten",
+              "body_tr": "\"Wir könnten …\" bir öneriyi yumuşak yapar.",
+              "example_de": "Wir könnten zusammen nach Hamburg fahren!",
+              "concept": "g_konjunktiv2"
+            }
+          ],
+          "quiz": [
+            {
+              "id": "q1",
+              "question_tr": "Marlene neden Hamburg'a gitmek zorunda kalmış?",
+              "options": [
+                "Annesi hastaydı",
+                "Hamburg'da iş bulmuştu",
+                "Friedrich'le kavga etmişti"
+              ],
+              "answer": 0,
+              "explain_tr": "\"Meine Mutter war krank, deshalb musste ich schnell nach Hamburg.\""
+            },
+            {
+              "id": "q2",
+              "question_tr": "Friedrich neden Hamburg'a tek başına gidemiyor?",
+              "options": [
+                "Sırtı sık sık ağrıyor",
+                "Parası yok",
+                "Trenden korkuyor"
+              ],
+              "answer": 0,
+              "explain_tr": "\"Mein Rücken tut oft weh.\""
+            },
+            {
+              "id": "q3",
+              "question_tr": "\"Ich musste ihn dreimal lesen\" ne demek?",
+              "options": [
+                "Onu üç kez okumak zorunda kaldım",
+                "Onu üç kez okumalıyım",
+                "Onu üç gün okudum"
+              ],
+              "answer": 0,
+              "explain_tr": "musste = müssen'in Präteritum'u."
+            }
+          ],
+          "teaser_tr": "Cumartesi sabahı, Hauptbahnhof. Tren saat 9:12'de kalkıyor… ya da kalkmıyor mu?"
+        },
+        {
+          "id": "nib_e7_a2",
+          "number": 7,
+          "level": "A2",
+          "title": "Die Reise nach Hamburg",
+          "title_tr": "Hamburg yolculuğu",
+          "narrative_tr": "Bilet al, rötar ve aktarmayla başa çık; trende Friedrich'in hikâyesini dinle.",
+          "objective_tr": "Garda bilet almak, ayrılabilen fiiller (abfahren, ankommen, umsteigen), Dativ (mit dem Zug, bei ihr), Präteritum ile anlatı.",
+          "minutes": 10,
+          "start": "n1",
+          "scenario": "bahnhof",
+          "nodes": [
+            {
+              "id": "n1",
+              "type": "narration",
+              "de": "Samstag, 8:30 Uhr. Am Hauptbahnhof ist es laut und voll. Friedrich trägt einen Hut und einen alten Koffer.",
+              "tr": "Cumartesi, saat 8:30. Ana istasyon gürültülü ve kalabalık. Friedrich şapka takmış, elinde eski bir bavul var.",
+              "next": "n2"
+            },
+            {
+              "id": "n2",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Wir haben noch keine Fahrkarten. Kannst du sie am Schalter kaufen? Ich helfe Friedrich mit dem Koffer.",
+              "tr": "Henüz biletimiz yok. Gişeden alabilir misin? Ben Friedrich'e bavulda yardım ediyorum.",
+              "next": "n3",
+              "gloss_tr": "helfen + Dativ: Ich helfe Friedrich / ihm."
+            },
+            {
+              "id": "n3",
+              "type": "line",
+              "speaker": "bahn",
+              "de": "Guten Morgen! Wohin möchten Sie fahren?",
+              "tr": "Günaydın! Nereye gitmek istiyorsunuz?",
+              "next": "n4"
+            },
+            {
+              "id": "n4",
+              "type": "choice",
+              "prompt_tr": "Bileti iste.",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Drei Fahrkarten nach Hamburg, bitte. Hin und zurück.",
+                  "tr": "Hamburg'a üç bilet lütfen. Gidiş-dönüş.",
+                  "verdict": "best",
+                  "feedback_tr": "Kısa ve tam: kaç bilet, nereye, gidiş-dönüş.",
+                  "next": "n5"
+                },
+                {
+                  "id": "b",
+                  "de": "Ich hätte gern drei Fahrkarten nach Hamburg.",
+                  "tr": "Hamburg'a üç bilet rica ediyorum.",
+                  "verdict": "best",
+                  "feedback_tr": "Çok kibar: \"Ich hätte gern …\".",
+                  "next": "n5"
+                },
+                {
+                  "id": "c",
+                  "de": "Drei Fahrkarten zu Hamburg, bitte.",
+                  "tr": "(edat yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Şehirlere \"nach\" ile gidilir: nach Hamburg. Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n5",
+              "type": "line",
+              "speaker": "bahn",
+              "de": "Gern. Der Zug um 9:12 Uhr fährt heute leider nicht. Sie können um 9:40 Uhr fahren, aber dann müssen Sie in Hannover umsteigen.",
+              "tr": "Tabii. 9:12 treni bugün maalesef çalışmıyor. 9:40'ta gidebilirsiniz ama o zaman Hannover'de aktarma yapmanız gerekiyor.",
+              "next": "n6",
+              "gloss_tr": "umsteigen ayrılabilir; modal fiille sonda bitişik kalır: Sie müssen umsteigen."
+            },
+            {
+              "id": "n6",
+              "type": "choice",
+              "prompt_tr": "Ne sorarsın?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Wann kommen wir in Hamburg an?",
+                  "tr": "Hamburg'a ne zaman varıyoruz?",
+                  "verdict": "best",
+                  "feedback_tr": "ankommen ayrılabilir: kommen … an.",
+                  "next": "n7"
+                },
+                {
+                  "id": "b",
+                  "de": "Von welchem Gleis fährt der Zug ab?",
+                  "tr": "Tren hangi perondan kalkıyor?",
+                  "verdict": "best",
+                  "feedback_tr": "von + Dativ: von welchem Gleis. abfahren → fährt … ab.",
+                  "next": "n7b"
+                },
+                {
+                  "id": "c",
+                  "de": "Wann ankommen wir in Hamburg?",
+                  "tr": "(fiil yanlış yerde)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Ayrılabilen fiilin ön eki sona gider: \"Wann kommen wir in Hamburg an?\" Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n7",
+              "type": "line",
+              "speaker": "bahn",
+              "de": "Um 12:05 Uhr. Der Zug fährt von Gleis 11 ab. Gute Reise!",
+              "tr": "12:05'te. Tren 11. perondan kalkıyor. İyi yolculuklar!",
+              "next": "n8"
+            },
+            {
+              "id": "n7b",
+              "type": "line",
+              "speaker": "bahn",
+              "de": "Von Gleis 11. Sie sind um 12:05 Uhr in Hamburg. Gute Reise!",
+              "tr": "11. perondan. 12:05'te Hamburg'dasınız. İyi yolculuklar!",
+              "next": "n8"
+            },
+            {
+              "id": "n8",
+              "type": "narration",
+              "de": "Im Zug findet ihr drei Plätze am Fenster. Friedrich schaut lange hinaus.",
+              "tr": "Trende pencere kenarında üç yer buluyorsunuz. Friedrich uzun süre dışarı bakıyor.",
+              "next": "n9"
+            },
+            {
+              "id": "n9",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Herr Friedrich, wie haben Sie Marlene eigentlich kennengelernt?",
+              "tr": "Friedrich Bey, Marlene'yle aslında nasıl tanıştınız?",
+              "next": "n10"
+            },
+            {
+              "id": "n10",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Das war 1984. Ich war Student und hatte nie Geld. Marlene arbeitete in einer kleinen Buchhandlung.",
+              "tr": "1984'tü. Öğrenciydim ve hiç param yoktu. Marlene küçük bir kitapçıda çalışıyordu.",
+              "next": "n11",
+              "gloss_tr": "\"arbeitete\" = arbeiten'in Präteritum'u. Anlatılarda Perfekt yerine sık kullanılır."
+            },
+            {
+              "id": "n11",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Jeden Tag ging ich in den Laden und las ein bisschen. Ich konnte die Bücher ja nicht kaufen!",
+              "tr": "Her gün dükkâna gidip biraz okurdum. Kitapları satın alamıyordum ki!",
+              "next": "n12",
+              "gloss_tr": "ging (gehen), las (lesen), konnte (können): düzensiz Präteritum biçimleri. Şimdilik tanıman yeterli."
+            },
+            {
+              "id": "n12",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Eines Tages sagte sie: „Sie dürfen das Buch mitnehmen. Aber Sie müssen es mir am Mittwoch zurückbringen.“",
+              "tr": "Bir gün dedi ki: \"Kitabı götürebilirsiniz. Ama çarşamba bana geri getirmeniz gerekiyor.\"",
+              "next": "n13"
+            },
+            {
+              "id": "n13",
+              "type": "choice",
+              "prompt_tr": "Lina gülümsüyor ve sana bakıyor. Ne dersin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Und deshalb treffen Sie sich jeden Mittwoch!",
+                  "tr": "Ve bu yüzden her çarşamba buluşuyorsunuz!",
+                  "verdict": "best",
+                  "feedback_tr": "deshalb + fiil (treffen) + özne. Dönüşlü: sich treffen.",
+                  "next": "n14"
+                },
+                {
+                  "id": "b",
+                  "de": "Ah, deshalb war der Mittwoch so wichtig!",
+                  "tr": "Ah, çarşamba bu yüzden bu kadar önemliydi!",
+                  "verdict": "best",
+                  "feedback_tr": "deshalb'dan sonra fiil (war) gelir. Güzel!",
+                  "next": "n14"
+                },
+                {
+                  "id": "c",
+                  "de": "Und deshalb Sie treffen sich jeden Mittwoch!",
+                  "tr": "(kelime sırası yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "deshalb ilk yeri doldurur, fiil hemen arkasından gelir: \"deshalb treffen Sie sich …\". Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n14",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Genau. Vierzig Jahre lang … Nun ja, ohne sie.",
+              "tr": "Aynen. Kırk yıl boyunca… Eh, o olmadan.",
+              "next": "n15"
+            },
+            {
+              "id": "n15",
+              "type": "narration",
+              "de": "In Hannover hat der Zug zehn Minuten Verspätung. Auf dem Bahnsteig ist es kalt.",
+              "tr": "Hannover'de trenin on dakika rötarı var. Peronda hava soğuk.",
+              "next": "n16"
+            },
+            {
+              "id": "n16",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Ich bin müde. Und wenn wir den Anschluss nicht bekommen?",
+              "tr": "Yoruldum. Ya aktarma trenine yetişemezsek?",
+              "next": "n17",
+              "gloss_tr": "der Anschluss = aktarma bağlantısı (bir sonraki tren)."
+            },
+            {
+              "id": "n17",
+              "type": "choice",
+              "prompt_tr": "Friedrich'i nasıl rahatlatırsın?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Keine Sorge, der Anschlusszug wartet. Ich habe gerade gefragt.",
+                  "tr": "Merak etmeyin, aktarma treni bekliyor. Az önce sordum.",
+                  "verdict": "best",
+                  "feedback_tr": "\"Ich habe gefragt\" – Perfekt. Sakin ve yardımcı.",
+                  "next": "n18"
+                },
+                {
+                  "id": "b",
+                  "de": "Setzen Sie sich bitte. Ich hole Ihnen einen Tee.",
+                  "tr": "Lütfen oturun. Size bir çay getireyim.",
+                  "verdict": "best",
+                  "feedback_tr": "Ihnen (resmî, Dativ) = size. Çok nazik!",
+                  "next": "n18",
+                  "flags": [
+                    "tee"
+                  ]
+                },
+                {
+                  "id": "c",
+                  "de": "Setzen Sie bitte. Ich hole Sie einen Tee.",
+                  "tr": "(iki hata)",
+                  "verdict": "wrong",
+                  "feedback_tr": "\"sich setzen\" dönüşlüdür: Setzen Sie sich. Kime? → Dativ: Ihnen. Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n18",
+              "type": "branch",
+              "cases": [
+                {
+                  "flag": "tee",
+                  "next": "n18a"
+                }
+              ],
+              "else": "n19"
+            },
+            {
+              "id": "n18a",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Danke, das tut gut. Sie sind sehr freundlich.",
+              "tr": "Teşekkürler, iyi geldi. Çok naziksiniz.",
+              "next": "n19"
+            },
+            {
+              "id": "n19",
+              "type": "narration",
+              "de": "Um 12:20 Uhr kommt ihr in Hamburg an. Es regnet ein bisschen, aber Friedrich lächelt.",
+              "tr": "12:20'de Hamburg'a varıyorsunuz. Biraz yağmur yağıyor ama Friedrich gülümsüyor.",
+              "next": "n20"
+            },
+            {
+              "id": "n20",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Die Buchhandlung ist nicht weit vom Bahnhof. Marlene wartet um eins auf uns.",
+              "tr": "Kitapçı istasyondan uzak değil. Marlene saat birde bizi bekliyor.",
+              "next": "n21"
+            },
+            {
+              "id": "n21",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Um eins … Ich bin nervöser als bei meiner ersten Prüfung!",
+              "tr": "Saat birde… İlk sınavımdakinden daha heyecanlıyım!",
+              "next": "end",
+              "gloss_tr": "Komparativ + als: nervöser als = -den daha gergin."
+            },
+            {
+              "id": "end",
+              "type": "end"
+            }
+          ],
+          "recap_tr": "Garda üç bilet aldın; tren değişti ve Hannover'de aktarma yaptınız. Trende Friedrich, Marlene'yle 1984'te bir kitapçıda tanıştığını anlattı: Kitapları alamadığı için Marlene ona kitap ödünç veriyor, o da her çarşamba geri getiriyormuş. Hamburg'a vardınız; Marlene saat birde bekliyor.",
+          "vocab": [
+            "fahrkarte",
+            "gleis",
+            "umsteigen",
+            "abfahren",
+            "ankommen",
+            "verspaetung",
+            "koffer",
+            "nach",
+            "deshalb",
+            "treffen"
+          ],
+          "grammar": [
+            {
+              "title_tr": "Ayrılabilen fiiller yolculukta",
+              "body_tr": "abfahren, ankommen, umsteigen: ön ek sona gider; modal fiille mastar bitişik kalır.",
+              "example_de": "Wann kommen wir in Hamburg an?",
+              "concept": "g_trennbar"
+            },
+            {
+              "title_tr": "Dativ: von, mit, helfen",
+              "body_tr": "von welchem Gleis, mit dem Koffer, ich helfe ihm: bunlar hep Dativ.",
+              "example_de": "Ich helfe Friedrich mit dem Koffer.",
+              "concept": "g_dativ"
+            },
+            {
+              "title_tr": "Präteritum ile anlatı",
+              "body_tr": "Hikâye anlatırken arbeitete, ging, las, konnte gibi biçimler kullanılır. Şimdilik tanıman yeterli.",
+              "example_de": "Marlene arbeitete in einer kleinen Buchhandlung.",
+              "concept": "g_praeteritum"
+            }
+          ],
+          "quiz": [
+            {
+              "id": "q1",
+              "question_tr": "Neden Hannover'de aktarma yapmaları gerekti?",
+              "options": [
+                "9:12 treni çalışmıyordu",
+                "Biletleri ucuzdu",
+                "Friedrich Hannover'i görmek istedi"
+              ],
+              "answer": 0,
+              "explain_tr": "\"Der Zug um 9:12 Uhr fährt heute leider nicht.\""
+            },
+            {
+              "id": "q2",
+              "question_tr": "Friedrich ve Marlene nerede tanışmış?",
+              "options": [
+                "Bir kitapçıda",
+                "Bir kafede",
+                "Üniversitede"
+              ],
+              "answer": 0,
+              "explain_tr": "\"Marlene arbeitete in einer kleinen Buchhandlung.\""
+            },
+            {
+              "id": "q3",
+              "question_tr": "Çarşamba neden önemliydi?",
+              "options": [
+                "Friedrich ödünç kitabı çarşamba geri getiriyordu",
+                "Kitapçı sadece çarşamba açıktı",
+                "Marlene'nin doğum günüydü"
+              ],
+              "answer": 0,
+              "explain_tr": "\"Sie müssen es mir am Mittwoch zurückbringen.\""
+            }
+          ],
+          "teaser_tr": "Saat bir. Kitapçının kapısındaki zil çalıyor…"
+        },
+        {
+          "id": "nib_e8_a2",
+          "number": 8,
+          "level": "A2",
+          "title": "Die Buchhandlung",
+          "title_tr": "Kitapçı",
+          "narrative_tr": "Vogt Kitabevi'nde Marlene ile tanış, Friedrich'e yardım et ve hikâyenin sonunu yaşa.",
+          "objective_tr": "Kibar konuşma (könnten, hätte, würde), karşılaştırma (älter, genauso … wie), dönüşlü fiiller (sich freuen, sich erinnern).",
+          "minutes": 9,
+          "start": "n1",
+          "scenario": "vorstellungsgespraech",
+          "nodes": [
+            {
+              "id": "n1",
+              "type": "narration",
+              "de": "Die Buchhandlung Vogt ist klein und gemütlich. Überall stehen Bücher, bis unter die Decke.",
+              "tr": "Vogt Kitabevi küçük ve sıcak. Her yerde tavana kadar kitaplar var.",
+              "next": "n2"
+            },
+            {
+              "id": "n2",
+              "type": "narration",
+              "de": "Eine junge Verkäuferin kommt zu euch. Marlene ist nicht zu sehen.",
+              "tr": "Genç bir satıcı yanınıza geliyor. Marlene görünürde yok.",
+              "next": "n3"
+            },
+            {
+              "id": "n3",
+              "type": "choice",
+              "prompt_tr": "Satıcıya ne dersin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Guten Tag! Könnten Sie bitte Frau Vogt sagen, dass wir da sind?",
+                  "tr": "İyi günler! Lütfen Vogt Hanım'a geldiğimizi söyleyebilir misiniz?",
+                  "verdict": "best",
+                  "feedback_tr": "Konjunktiv II (könnten) + dass-yan cümlesi (fiil sonda). Mükemmel!",
+                  "next": "n4"
+                },
+                {
+                  "id": "b",
+                  "de": "Guten Tag, wir haben um eins einen Termin bei Frau Vogt.",
+                  "tr": "İyi günler, saat birde Vogt Hanım'la randevumuz var.",
+                  "verdict": "best",
+                  "feedback_tr": "bei + Dativ: bei Frau Vogt. Açık ve kibar.",
+                  "next": "n4"
+                },
+                {
+                  "id": "c",
+                  "de": "Hallo, wo ist Marlene? Wir wollen sie sehen.",
+                  "tr": "Merhaba, Marlene nerede? Onu görmek istiyoruz.",
+                  "verdict": "ok",
+                  "feedback_tr": "Anlaşılır ama biraz sert. Tanımadığın birine \"Könnten Sie …?\" ya da \"Ich hätte gern …\" daha kibardır.",
+                  "next": "n4",
+                  "flags": [
+                    "direkt"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "n4",
+              "type": "line",
+              "speaker": "verkaeuferin",
+              "de": "Einen Moment, bitte. Sie ist oben im Büro. Ich rufe sie.",
+              "tr": "Bir dakika lütfen. Yukarıda, ofiste. Onu çağırıyorum.",
+              "next": "n5"
+            },
+            {
+              "id": "n5",
+              "type": "narration",
+              "de": "Dann hört ihr Schritte auf der Treppe. Eine Frau mit grauen Haaren und einem roten Schal kommt herunter. Sie bleibt stehen.",
+              "tr": "Sonra merdivende ayak sesleri duyuyorsunuz. Gri saçlı, kırmızı atkılı bir kadın aşağı iniyor. Durup kalıyor.",
+              "next": "n6"
+            },
+            {
+              "id": "n6",
+              "type": "line",
+              "speaker": "marlene",
+              "de": "Friedrich?",
+              "tr": "Friedrich?",
+              "next": "n7"
+            },
+            {
+              "id": "n7",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Marlene. Du bist ein bisschen älter geworden – aber deine Augen sind noch genauso wie damals.",
+              "tr": "Marlene. Biraz yaşlanmışsın – ama gözlerin hâlâ o zamanki gibi.",
+              "next": "n8",
+              "gloss_tr": "älter = alt'ın Komparativ'i. \"genauso wie\" = tıpkı … gibi."
+            },
+            {
+              "id": "n8",
+              "type": "line",
+              "speaker": "marlene",
+              "de": "Und du bist immer noch ein Charmeur.",
+              "tr": "Sen de hâlâ çapkınsın.",
+              "next": "n9"
+            },
+            {
+              "id": "n9",
+              "type": "narration",
+              "de": "Alle lachen. Marlene umarmt Friedrich lange. Dann dreht sie sich zu dir um.",
+              "tr": "Herkes gülüyor. Marlene Friedrich'e uzun uzun sarılıyor. Sonra sana dönüyor.",
+              "next": "n10"
+            },
+            {
+              "id": "n10",
+              "type": "line",
+              "speaker": "marlene",
+              "de": "Und Sie sind sicher {name}. Ich danke Ihnen so sehr. Ohne Sie wäre das nie passiert.",
+              "tr": "Siz de herhalde {name}'siniz. Size çok teşekkür ederim. Siz olmasaydınız bu hiç olmazdı.",
+              "next": "n11",
+              "gloss_tr": "danken + Dativ: Ich danke Ihnen. \"wäre … passiert\" = olmazdı (Konjunktiv II, şimdilik kalıp olarak öğren)."
+            },
+            {
+              "id": "n11",
+              "type": "choice",
+              "prompt_tr": "Ne cevap verirsin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Gern geschehen! Wir freuen uns sehr für Sie beide.",
+                  "tr": "Rica ederiz! İkiniz adına çok seviniyoruz.",
+                  "verdict": "best",
+                  "feedback_tr": "sich freuen für = birinin adına sevinmek. wir → uns.",
+                  "next": "n12"
+                },
+                {
+                  "id": "b",
+                  "de": "Das war doch Ihre Postkarte! Wir haben sie nur gefunden.",
+                  "tr": "Ama sizin kartpostalınızdı! Biz sadece bulduk.",
+                  "verdict": "best",
+                  "feedback_tr": "Alçakgönüllü ve doğru: Perfekt (haben … gefunden).",
+                  "next": "n12"
+                },
+                {
+                  "id": "c",
+                  "de": "Gern geschehen! Wir freuen sich sehr.",
+                  "tr": "(dönüşlü zamir yanlış)",
+                  "verdict": "wrong",
+                  "feedback_tr": "wir → uns: \"Wir freuen uns.\" Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n12",
+              "type": "line",
+              "speaker": "marlene",
+              "de": "Ich habe noch etwas für Sie. Moment …",
+              "tr": "Sizin için bir şeyim daha var. Bir dakika…",
+              "next": "n13"
+            },
+            {
+              "id": "n13",
+              "type": "narration",
+              "de": "Sie holt ein altes Buch aus dem Regal. Auf der ersten Seite steht: „Bitte am Mittwoch zurückbringen.“",
+              "tr": "Raftan eski bir kitap alıyor. İlk sayfada şöyle yazıyor: \"Lütfen çarşamba geri getirin.\"",
+              "next": "n14"
+            },
+            {
+              "id": "n14",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Das ist das Buch von damals! Das habe ich dir nie zurückgebracht …",
+              "tr": "Bu o zamanki kitap! Onu sana hiç geri getirmemiştim…",
+              "next": "n15"
+            },
+            {
+              "id": "n15",
+              "type": "line",
+              "speaker": "marlene",
+              "de": "Ja. Ich habe vierzig Jahre gewartet. Jetzt musst du es endlich lesen!",
+              "tr": "Evet. Kırk yıl bekledim. Artık sonunda okumak zorundasın!",
+              "next": "n16"
+            },
+            {
+              "id": "n16",
+              "type": "branch",
+              "cases": [
+                {
+                  "flag": "direkt",
+                  "next": "n16a"
+                }
+              ],
+              "else": "n17"
+            },
+            {
+              "id": "n16a",
+              "type": "line",
+              "speaker": "lina",
+              "de": "(leise) Siehst du? Ein bisschen höflicher, und alle sind glücklich.",
+              "tr": "(fısıldayarak) Gördün mü? Biraz daha kibar ol, herkes mutlu olsun.",
+              "next": "n17",
+              "gloss_tr": "höflicher = höflich'in Komparativ'i: daha kibar."
+            },
+            {
+              "id": "n17",
+              "type": "choice",
+              "prompt_tr": "Marlene sizi yemeğe davet ediyor: \"Darf ich Sie zum Essen einladen?\" Ne dersin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Sehr gern, vielen Dank für die Einladung!",
+                  "tr": "Memnuniyetle, davetiniz için çok teşekkürler!",
+                  "verdict": "best",
+                  "feedback_tr": "Kibar kabul: \"Sehr gern\" + teşekkür.",
+                  "next": "n18"
+                },
+                {
+                  "id": "b",
+                  "de": "Das ist sehr nett, aber wir möchten Sie nicht stören.",
+                  "tr": "Çok naziksiniz ama sizi rahatsız etmek istemeyiz.",
+                  "verdict": "ok",
+                  "feedback_tr": "Kibar ama Marlene ısrar ediyor: \"Sie stören doch nicht!\"",
+                  "next": "n18"
+                },
+                {
+                  "id": "c",
+                  "de": "Ja, ich hätte gern Hunger.",
+                  "tr": "(anlamsız)",
+                  "verdict": "wrong",
+                  "feedback_tr": "\"Ich hätte gern …\" bir şey isterken kullanılır (Ich hätte gern einen Kaffee). Açlık için: \"Ich habe Hunger.\" Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n18",
+              "type": "narration",
+              "de": "Am Abend sitzt ihr zu viert in einem kleinen Restaurant am Hafen. Friedrich und Marlene erzählen und erzählen.",
+              "tr": "Akşam dördünüz limandaki küçük bir restoranda oturuyorsunuz. Friedrich ile Marlene durmadan anlatıyor.",
+              "next": "n19"
+            },
+            {
+              "id": "n19",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Weißt du was, {name}? Das war die schönste Reise meines Lebens.",
+              "tr": "Biliyor musun {name}? Bu hayatımın en güzel yolculuğuydu.",
+              "next": "n20",
+              "gloss_tr": "die schönste = en güzel (süperlatif, isimden önce)."
+            },
+            {
+              "id": "n20",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Und nächsten Mittwoch um drei? Da trinken wir zusammen Kaffee – in Hamburg!",
+              "tr": "Peki gelecek çarşamba saat üçte? Birlikte kahve içeceğiz – Hamburg'da!",
+              "next": "end"
+            },
+            {
+              "id": "end",
+              "type": "end"
+            }
+          ],
+          "recap_tr": "Vogt Kitabevi'nde Marlene ile Friedrich kırk yıl sonra yeniden buluştu. Marlene sana teşekkür etti ve Friedrich'in hiç geri getirmediği kitabı gösterdi. Akşam hep birlikte limanda yemek yediniz. Neu in Berlin'in ilk sezonu burada bitiyor.",
+          "vocab": [
+            "koennte",
+            "dass",
+            "bei",
+            "alt",
+            "danken",
+            "freuen",
+            "regal",
+            "buch",
+            "mittwoch",
+            "warten"
+          ],
+          "grammar": [
+            {
+              "title_tr": "Kibar rica: Könnten Sie …?",
+              "body_tr": "Tanımadığın birinden bir şey isterken Konjunktiv II kullan.",
+              "example_de": "Könnten Sie bitte Frau Vogt sagen, dass wir da sind?",
+              "concept": "g_konjunktiv2"
+            },
+            {
+              "title_tr": "Karşılaştırma: älter, genauso wie",
+              "body_tr": "Komparativ: alt → älter. Eşitlik: genauso … wie.",
+              "example_de": "Deine Augen sind noch genauso wie damals.",
+              "concept": "g_komparativ"
+            },
+            {
+              "title_tr": "Dönüşlü fiiller",
+              "body_tr": "sich freuen, sich erinnern, sich treffen: zamir kişiye göre değişir (mich, uns, sich).",
+              "example_de": "Wir freuen uns sehr für Sie beide.",
+              "concept": "g_reflexiv"
+            }
+          ],
+          "quiz": [
+            {
+              "id": "q1",
+              "question_tr": "Marlene ilk göründüğünde nerdeydi?",
+              "options": [
+                "Yukarıda, ofiste",
+                "Kasada",
+                "Dükkânın önünde"
+              ],
+              "answer": 0,
+              "explain_tr": "\"Sie ist oben im Büro.\""
+            },
+            {
+              "id": "q2",
+              "question_tr": "Marlene raftan ne alıyor?",
+              "options": [
+                "Friedrich'in geri getirmediği eski kitabı",
+                "Bir kartpostalı",
+                "Eski bir fotoğrafı"
+              ],
+              "answer": 0,
+              "explain_tr": "\"Das ist das Buch von damals!\""
+            },
+            {
+              "id": "q3",
+              "question_tr": "\"Du bist ein bisschen älter geworden\" ne demek?",
+              "options": [
+                "Biraz yaşlanmışsın",
+                "Biraz yorulmuşsun",
+                "Biraz değişmemişsin"
+              ],
+              "answer": 0,
+              "explain_tr": "älter = daha yaşlı; geworden = olmuş (werden)."
+            }
+          ],
+          "teaser_tr": "Neu in Berlin'in ilk sezonu bitti. İkinci sezon hazırlanıyor: Lina'nın mezuniyeti ve senin ilk iş görüşmen…"
         }
       ]
     }

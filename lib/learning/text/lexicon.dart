@@ -61,7 +61,7 @@ class Lexicon {
     final key = surface.toLowerCase();
     final exact = _byForm[key];
     if (exact != null && exact.isNotEmpty) {
-      return LookupResult(_rankSeparable(exact, sentenceWords, wordIndex), LookupConfidence.exact);
+      return LookupResult(_rankSeparable(exact, sentenceWords, wordIndex, key), LookupConfidence.exact);
     }
     for (final e in _endings) {
       if (key.length > e.length + 2 && key.endsWith(e)) {
@@ -73,14 +73,17 @@ class Lexicon {
     return const LookupResult([], LookupConfidence.exact);
   }
 
-  List<Lexeme> _rankSeparable(List<Lexeme> candidates, List<String> sentence, int wordIndex) {
+  List<Lexeme> _rankSeparable(List<Lexeme> candidates, List<String> sentence, int wordIndex, String surface) {
     if (candidates.length < 2 && candidates.every((c) => c.verb?.separablePrefix == null)) {
       return candidates;
     }
     bool prefixFollows(Lexeme l) {
-      final prefix = l.verb?.separablePrefix;
-      if (prefix == null || wordIndex < 0) return false;
-      return sentence.skip(wordIndex + 1).contains(prefix.toLowerCase());
+      final prefix = l.verb?.separablePrefix?.toLowerCase();
+      if (prefix == null) return false;
+      // Infinitive and participle carry the prefix: "umsteigen", "umgestiegen".
+      if (surface.startsWith(prefix)) return true;
+      if (wordIndex < 0) return false;
+      return sentence.skip(wordIndex + 1).contains(prefix);
     }
 
     // A separable verb's stem form ("stehe") only means "aufstehen" when

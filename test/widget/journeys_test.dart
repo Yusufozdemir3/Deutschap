@@ -179,11 +179,11 @@ void main() {
     await settle(tester);
     expect(find.text('Yeni kilometre taşı!'), findsOneWidget);
     expect(find.text('İlk sipariş'), findsWidgets);
-    expect(find.text('1/11 yer'), findsOneWidget);
+    expect(find.text('1/14 yer'), findsOneWidget);
 
     unawaited(c.read(routerProvider).push('/kiez'));
     await settle(tester);
-    expect(find.text('1 / 11 yer açıldı'), findsOneWidget);
+    expect(find.text('1 / 14 yer açıldı'), findsOneWidget);
     c.read(routerProvider).pop();
     await settle(tester);
 
