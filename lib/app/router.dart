@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../features/articles/presentation/article_game_screen.dart';
 import '../features/conversation/presentation/scenario_screen.dart';
 import '../features/discover/presentation/discover_screen.dart';
 import '../features/drill/domain/vocab_drill.dart';
@@ -81,6 +82,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       page('/lesson/:id', (s) => LessonScreen(lessonId: s.pathParameters['id']!)),
       page('/practice/:topic', (s) => LessonScreen(lessonId: 'practice', practice: PracticeTopic.parse(s.pathParameters['topic']!))),
+      page('/articles', (_) => const ArticleGameScreen()),
       page('/mistakes', (_) => const MistakesScreen()),
       page('/mistakes/review', (_) => const LessonScreen(lessonId: 'mistakes', mistakes: true)),
       page('/exam/:level', (s) => LessonScreen(lessonId: 'exam', examLevel: s.pathParameters['level']!)),

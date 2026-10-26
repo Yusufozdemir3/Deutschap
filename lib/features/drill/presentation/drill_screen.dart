@@ -102,6 +102,21 @@ class _DrillScreenState extends ConsumerState<DrillScreen> {
             child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
               Text('Kısa, odaklı turlar: tanıma, dinleme, yazma ve cümlede kullanma. '
                   'Yanlış yaptığın kelimeler "Zorlandıkların" listesinde toplanır.', style: context.text.bodySmall),
+              const SizedBox(height: 10),
+              AppCard(
+                onTap: () => context.push('/articles'),
+                child: Row(children: [
+                  Icon(Icons.label_important_outline_rounded, color: p.accent),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      Text('Artikel ipuçları oyunu', style: context.text.titleSmall),
+                      Text('-ung, -heit, -chen … eklerden der/die/das tahmin et; istisnaları gör.', style: context.text.bodySmall),
+                    ]),
+                  ),
+                  const Icon(Icons.chevron_right_rounded),
+                ]),
+              ),
               const SectionTitle('Hangi kelimeler?'),
               Wrap(spacing: 8, runSpacing: 8, children: [
                 sourceTag('saved', 'Kaydettiklerim', icon: Icons.bookmark_rounded, count: saved.length),
