@@ -134,6 +134,7 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
             CardType.recognition => _recognition(context, item),
             CardType.production => _production(context, item),
             CardType.article => _articleCard(context, item),
+            CardType.cloze => _clozeCard(context, item),
           },
         ),
       ),
@@ -285,6 +286,75 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
                 Expanded(
                   child: FilledButton(
                     onPressed: _input.text.trim().isEmpty ? null : () => setState(() => _check = checkAnswer(_input.text, accepted)),
+                    child: const Text('Kontrol et'),
+                  ),
+                ),
+              ]),
+            ]),
+    );
+  }
+
+  Widget _clozeCard(BuildContext context, DueItem item) {
+    final e = item.entry;
+    final checked = _check != null;
+    return _frame(
+      context,
+      label: 'CÜMLEYİ TAMAMLA',
+      body: [
+        Text(checked ? e.headword : blankTarget(e.headword, e.lemma), style: context.reading.copyWith(fontSize: 22), textAlign: TextAlign.center),
+        if (e.meaningTr.isNotEmpty) ...[
+          const SizedBox(height: 8),
+          Text(e.meaningTr, style: context.text.bodyMedium!.copyWith(color: context.palette.inkMuted), textAlign: TextAlign.center),
+        ],
+        const SizedBox(height: 20),
+        TextField(
+          controller: _input,
+          enabled: !checked,
+          autocorrect: false,
+          enableSuggestions: false,
+          textAlign: TextAlign.center,
+          style: context.reading.copyWith(fontSize: 22),
+          decoration: const InputDecoration(hintText: 'Eksik kelime'),
+          onChanged: (_) => setState(() {}),
+          onSubmitted: (_) => _input.text.trim().isEmpty ? null : setState(() => _check = checkAnswer(_input.text, [e.lemma])),
+        ),
+        if (_hint && !checked) Padding(padding: const EdgeInsets.only(top: 8), child: Text('İlk harf: ${e.lemma.substring(0, 1)}…', textAlign: TextAlign.center)),
+        if (checked) ...[
+          const SizedBox(height: 16),
+          FeedbackPanel(
+            positive: _check!.verdict.isAccepted,
+            neutral: _check!.verdict == AnswerVerdict.nearMiss,
+            title: _check!.verdict.isAccepted ? 'Doğru!' : 'Doğrusu: ${e.lemma}',
+            body: _check!.noteTr,
+            extra: Align(alignment: Alignment.centerLeft, child: SpeakButton(e.headword)),
+          ),
+        ],
+      ],
+      actions: checked
+          ? SizedBox(
+              width: double.infinity,
+              child: FilledButton(
+                onPressed: () => _grade(switch (_check!.verdict) {
+                  AnswerVerdict.correct || AnswerVerdict.correctWithNote => Grade.good,
+                  AnswerVerdict.nearMiss => Grade.hard,
+                  AnswerVerdict.wrong => Grade.again,
+                }),
+                child: const Text('Devam'),
+              ),
+            )
+          : Column(mainAxisSize: MainAxisSize.min, children: [
+              if (!_hint) TextButton.icon(onPressed: () => setState(() => _hint = true), icon: const Icon(Icons.lightbulb_outline_rounded), label: const Text('İpucu')),
+              Row(children: [
+                Expanded(
+                  child: OutlinedButton(
+                    onPressed: () => setState(() => _check = const AnswerCheck(AnswerVerdict.wrong, '')),
+                    child: const Text('Bilmiyorum'),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: FilledButton(
+                    onPressed: _input.text.trim().isEmpty ? null : () => setState(() => _check = checkAnswer(_input.text, [e.lemma])),
                     child: const Text('Kontrol et'),
                   ),
                 ),

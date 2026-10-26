@@ -36,6 +36,11 @@ class _ListeningScreenState extends ConsumerState<ListeningScreen> {
   final _answers = <int, int>{};
   bool _logged = false;
 
+  /// Shadowing: line being practised and whether it is the learner's turn.
+  int? _shadowLine;
+  bool _shadowRepeat = false;
+  Duration _shadowPause = Duration.zero;
+
   ListeningTrack? get _track => ref.read(contentProvider).track(widget.trackId);
 
   /// Kept so playback can be stopped in [dispose], when ref is gone.
@@ -71,6 +76,40 @@ class _ListeningScreenState extends ConsumerState<ListeningScreen> {
       await Future<void>.delayed(const Duration(milliseconds: 350));
     }
     if (mounted && token == _playToken) setState(() => _playing = false);
+  }
+
+  /// Plays each line, then leaves a pause about as long as the line for
+  /// the learner to repeat it aloud.
+  Future<void> _shadow(ListeningTrack t) async {
+    final token = ++_playToken;
+    setState(() => _playing = false);
+    for (var i = 0; i < t.lines.length; i++) {
+      if (!mounted || token != _playToken) return;
+      setState(() {
+        _shadowLine = i;
+        _shadowRepeat = false;
+      });
+      final ok = await _speech.speak(t.lines[i].de, slow: true, wait: true, pitch: _pitchFor(t, t.lines[i].speaker));
+      if (!ok) {
+        if (mounted) setState(() => _noVoice = _transcript = true);
+        break;
+      }
+      if (!mounted || token != _playToken) return;
+      final words = t.lines[i].de.split(RegExp(r'\s+')).length;
+      final pause = Duration(milliseconds: 1200 + words * 600);
+      setState(() {
+        _shadowRepeat = true;
+        _shadowPause = pause;
+      });
+      await Future<void>.delayed(pause);
+    }
+    if (mounted && token == _playToken) setState(() => _shadowLine = null);
+  }
+
+  void _stopShadow() {
+    _playToken++;
+    _speech.stop();
+    setState(() => _shadowLine = null);
   }
 
   void _stop() {
@@ -213,6 +252,34 @@ class _ListeningScreenState extends ConsumerState<ListeningScreen> {
                 for (final i in t.dictationLines())
                   _Dictation(key: ValueKey('${t.id}#d$i'), line: t.lines[i], pitch: _pitchFor(t, t.lines[i].speaker), slow: _slow, trackId: t.id, index: i),
               ],
+              const SectionTitle('5. Gölgeleme (isteğe bağlı)'),
+              Text('Her cümle yavaşça okunur, ardından senin sesli tekrar etmen için bir duraklama gelir. Mikrofon gerekmez; '
+                  'amaç ritmi ve vurguyu taklit etmek.', style: context.text.bodySmall),
+              const SizedBox(height: 8),
+              if (_shadowLine == null)
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: OutlinedButton.icon(onPressed: () => _shadow(t), icon: const Icon(Icons.record_voice_over_outlined), label: const Text('Gölgelemeye başla')),
+                )
+              else
+                AppCard(
+                  color: _shadowRepeat ? p.successSoft : p.accentSoft,
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+                    Text('${_shadowLine! + 1} / ${t.lines.length} · ${_shadowRepeat ? 'Şimdi sen tekrar et' : 'Dinle'}', style: context.text.labelMedium),
+                    const SizedBox(height: 6),
+                    Text(t.lines[_shadowLine!].de, style: context.reading.copyWith(fontSize: 20)),
+                    const SizedBox(height: 8),
+                    if (_shadowRepeat)
+                      TweenAnimationBuilder<double>(
+                        key: ValueKey('shadow$_shadowLine'),
+                        tween: Tween(begin: 1, end: 0),
+                        duration: _shadowPause,
+                        builder: (_, v, _) => LinearProgressIndicator(value: v),
+                      ),
+                    const SizedBox(height: 8),
+                    Align(alignment: Alignment.centerRight, child: TextButton(onPressed: _stopShadow, child: const Text('Durdur'))),
+                  ]),
+                ),
               if (t.sourceTr != null) ...[
                 const SizedBox(height: 16),
                 Text('Kaynak: ${t.sourceTr}', style: context.text.labelSmall!.copyWith(color: p.inkMuted)),

@@ -97,6 +97,24 @@ class _WordSheet extends ConsumerWidget {
         ],
         const SizedBox(height: 4),
         _SentenceBox(sentence: tap.sentence, sentenceTr: sentenceTr, lineOnly: lineOnly),
+        const SizedBox(height: 8),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: OutlinedButton.icon(
+            onPressed: () async {
+              final (_, existed) = await ref.read(vocabRepositoryProvider).saveSentence(
+                    sentence: tap.sentence,
+                    target: tap.surface,
+                    sentenceTr: lineOnly ? null : sentenceTr,
+                    context: ctx,
+                  );
+              ref.bumpData();
+              if (context.mounted) showToast(context, existed ? 'Bu cümle zaten kayıtlı' : 'Cümle kaydedildi: tekrarda "${tap.surface}" boşluk olarak sorulacak');
+            },
+            icon: const Icon(Icons.format_quote_rounded),
+            label: Text('Cümleyi kaydet ("${tap.surface}" boşluk olur)'),
+          ),
+        ),
       ],
     );
   }

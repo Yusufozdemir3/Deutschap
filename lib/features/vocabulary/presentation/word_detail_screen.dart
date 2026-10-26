@@ -94,7 +94,7 @@ class _Body extends ConsumerWidget {
                 const SizedBox(height: 8),
                 for (final c in d.cards)
                   Text(
-                    '${switch (c.type) { CardType.recognition => 'Tanıma', CardType.production => 'Üretme (yazarak)', CardType.article => 'Artikel' }}: sıradaki tekrar ${_due(c.state, now)}${c.state.lapses > 0 ? ' · ${c.state.lapses} kez unutuldu' : ''}',
+                    '${switch (c.type) { CardType.recognition => 'Tanıma', CardType.production => 'Üretme (yazarak)', CardType.article => 'Artikel', CardType.cloze => 'Cümlede boşluk' }}: sıradaki tekrar ${_due(c.state, now)}${c.state.lapses > 0 ? ' · ${c.state.lapses} kez unutuldu' : ''}',
                     style: context.text.bodySmall,
                   ),
                 if (!d.cards.any((c) => c.type == CardType.production) && !e.paused)

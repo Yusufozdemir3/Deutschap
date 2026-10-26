@@ -23,7 +23,10 @@ enum CardType {
   production,
 
   /// Noun → der/die/das (auto-graded).
-  article;
+  article,
+
+  /// Saved sentence with one word blanked → type the word (auto-graded).
+  cloze;
 
   static CardType parse(String s) => CardType.values.byName(s);
 }

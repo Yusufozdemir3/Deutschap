@@ -281,4 +281,18 @@ void main() {
       expect(await progress.itemStats('listening'), isEmpty);
     });
   });
+
+  group('sentence mining', () {
+    test('a saved sentence gets one cloze card and is not duplicated', () async {
+      final (e, existed) = await vocab.saveSentence(sentence: 'Ich brauche einen Termin.', target: 'Termin', sentenceTr: 'Bir randevuya ihtiyacım var.');
+      expect(existed, isFalse);
+      expect(e.kind, 'sentence');
+      expect(e.lemma, 'Termin');
+      expect((await vocab.cards(e.id)).map((c) => c.type), [CardType.cloze]);
+      final (_, again) = await vocab.saveSentence(sentence: 'Ich brauche einen Termin.', target: 'brauche');
+      expect(again, isTrue);
+      expect(blankTarget(e.headword, e.lemma), 'Ich brauche einen _____.');
+      expect(blankTarget('Termin ist morgen. Der Termin!', 'termin'), '_____ ist morgen. Der Termin!');
+    });
+  });
 }

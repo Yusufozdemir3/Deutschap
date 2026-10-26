@@ -90,6 +90,13 @@ class ReviewCard {
 }
 
 /// A card scheduled for review, with what the UI needs to show it.
+/// [sentence] with the first whole-word occurrence of [target] replaced by
+/// a gap (sentence cards). Returns the sentence unchanged if not found.
+String blankTarget(String sentence, String target) {
+  final m = RegExp(r'(?<![\p{L}])' + RegExp.escape(target) + r'(?![\p{L}])', caseSensitive: false, unicode: true).firstMatch(sentence);
+  return m == null ? sentence : sentence.replaceRange(m.start, m.end, '_____');
+}
+
 class DueItem {
   const DueItem({required this.entry, required this.card, this.context});
   final VocabEntry entry;

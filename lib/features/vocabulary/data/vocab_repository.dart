@@ -70,6 +70,33 @@ class VocabRepository {
     });
   }
 
+  /// Saves a whole sentence ("sentence mining"). The entry's headword is
+  /// the sentence, its lemma the word that is blanked in the cloze card.
+  /// Saving the same sentence again returns the existing entry.
+  Future<(VocabEntry, bool existed)> saveSentence({required String sentence, required String target, String? sentenceTr, SourceContext? context}) async {
+    final text = sentence.trim();
+    final existing = await _db.query('vocab_entries', where: 'kind = ? AND headword = ?', whereArgs: ['sentence', text], limit: 1);
+    if (existing.isNotEmpty) return (_entry(existing.first), true);
+    final now = _clock();
+    final id = _ids();
+    await _db.transaction((txn) async {
+      await txn.insert('vocab_entries', {
+        'id': id,
+        'lexeme_id': null,
+        'headword': text,
+        'lemma': target.trim(),
+        'kind': 'sentence',
+        'meaning_tr': (sentenceTr ?? '').trim(),
+        'status': VocabStatus.newlyEncountered.key,
+        'created_at': toMillis(now),
+        'updated_at': toMillis(now),
+      });
+      await _insertCard(txn, id, CardType.cloze, now);
+      if (context != null) await _insertContext(txn, id, context, now);
+    });
+    return ((await entry(id))!, false);
+  }
+
   Future<VocabEntry> saveManual({
     required String headword,
     required String meaningTr,

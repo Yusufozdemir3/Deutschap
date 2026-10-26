@@ -112,7 +112,7 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(children: [
-                  for (final k in const [(null, 'Hepsi'), ('noun', 'İsimler'), ('verb', 'Fiiller'), ('expression', 'İfadeler')])
+                  for (final k in const [(null, 'Hepsi'), ('noun', 'İsimler'), ('verb', 'Fiiller'), ('expression', 'İfadeler'), ('sentence', 'Cümleler')])
                     Padding(
                       padding: const EdgeInsets.only(right: 6),
                       child: ChoiceChip(
