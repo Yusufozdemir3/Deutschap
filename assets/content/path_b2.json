@@ -1,0 +1,1178 @@
+{
+  "version": "2026.10.1",
+  "level": "B2",
+  "units": [
+    {
+      "id": "b2u1",
+      "number": 1,
+      "title_de": "Nachrichten und Berichte",
+      "title_tr": "Haberler ve raporlar",
+      "goal_tr": "Başkalarının sözlerini Konjunktiv I ile tarafsızca aktarabilirsin.",
+      "grammar": [
+        "g_konjunktiv1"
+      ],
+      "lessons": [
+        {
+          "id": "b2u1l1",
+          "title_tr": "Er sagt, er sei krank",
+          "objective_tr": "Konjunktiv I: sei, habe; haberlerde aktarılan söz.",
+          "minutes": 10,
+          "vocab": [
+            "bericht",
+            "behaupten",
+            "aussage",
+            "behauptung",
+            "angeblich",
+            "betonen"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "bericht",
+                "behaupten",
+                "aussage",
+                "behauptung",
+                "angeblich",
+                "betonen"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_konjunktiv1"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Radyoda haberler",
+              "lines": [
+                {
+                  "speaker": "Sprecherin",
+                  "de": "Guten Abend. Die Bürgermeisterin hat heute erklärt, die neue Straßenbahnlinie sei ein großer Erfolg.",
+                  "tr": "İyi akşamlar. Belediye başkanı bugün yeni tramvay hattının büyük bir başarı olduğunu açıkladı."
+                },
+                {
+                  "speaker": "Sprecherin",
+                  "de": "Laut einem Bericht der Verkehrsbetriebe fahren täglich zwanzigtausend Menschen mit der Linie.",
+                  "tr": "Ulaşım işletmesinin bir raporuna göre hatla her gün yirmi bin kişi yolculuk ediyor."
+                },
+                {
+                  "speaker": "Sprecherin",
+                  "de": "Kritiker behaupten dagegen, die Bahn habe viel mehr gekostet als geplant.",
+                  "tr": "Eleştirmenler ise tramvayın planlanandan çok daha pahalıya mal olduğunu iddia ediyor."
+                },
+                {
+                  "speaker": "Aylin",
+                  "de": "Hast du das gehört? Angeblich ist das Projekt doppelt so teuer geworden.",
+                  "tr": "Duydun mu? Güya proje iki kat pahalıya çıkmış."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Das ist erst mal nur eine Behauptung. Die Bürgermeisterin betont ja, alles laufe nach Plan.",
+                  "tr": "Bu şimdilik sadece bir iddia. Belediye başkanı her şeyin plana göre gittiğini vurguluyor."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Der Minister sagt, er ___ keine Zeit für ein Interview.",
+              "tr": "Bakan röportaj için zamanı olmadığını söylüyor.",
+              "answers": [
+                "habe"
+              ],
+              "options": [
+                "habe",
+                "haben",
+                "hast"
+              ],
+              "explain_tr": "haben fiilinin Konjunktiv I'i 3. tekilde \"habe\". (Günlük konuşmada \"hat\" da duyulur.)"
+            },
+            {
+              "type": "cloze",
+              "de": "Die Zeugin erklärte, sie ___ den Mann nie gesehen.",
+              "tr": "Tanık adamı hiç görmediğini açıkladı.",
+              "answers": [
+                "habe"
+              ],
+              "options": [
+                "habe",
+                "sei",
+                "hätten"
+              ],
+              "explain_tr": "Aktarılan geçmiş: habe + Partizip II (gesehen). sehen haben alır."
+            },
+            {
+              "type": "cloze",
+              "de": "Laut Polizei ___ niemand verletzt worden.",
+              "tr": "Polise göre kimse yaralanmamış.",
+              "answers": [
+                "sei"
+              ],
+              "options": [
+                "sei",
+                "habe",
+                "seien"
+              ],
+              "explain_tr": "Passiv'in geçmişi sein ile kurulur: sei … verletzt worden. niemand tekil → sei."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Hangisi Konjunktiv I ile dolaylı anlatım?",
+              "options": [
+                "Er sagt, er sei krank.",
+                "Er sagt: »Ich bin krank.«",
+                "Er ist krank, sagt er."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "sei = Konjunktiv I: söz başkasına ait ve tarafsız aktarılıyor."
+            },
+            {
+              "type": "order",
+              "tr": "Sözcü firmanın iflas etmediğini söyledi.",
+              "tokens": [
+                "Der",
+                "Sprecher",
+                "sagte",
+                "die",
+                "Firma",
+                "sei",
+                "nicht",
+                "insolvent"
+              ],
+              "answers": [
+                "Der Sprecher sagte die Firma sei nicht insolvent"
+              ],
+              "explain_tr": "Aktarılan cümlede dass yoksa fiil (sei) ikinci konumda kalır."
+            },
+            {
+              "type": "listen",
+              "de": "Laut einer neuen Studie schlafen Jugendliche heute eine Stunde weniger als vor zwanzig Jahren. Die Forscher betonen, das habe vor allem mit dem Handy zu tun.",
+              "prompt_tr": "Araştırmacılara göre bunun asıl nedeni ne?",
+              "options": [
+                "Cep telefonu",
+                "Okul saatleri",
+                "Spor eksikliği"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "\"das habe vor allem mit dem Handy zu tun\""
+            },
+            {
+              "type": "translate",
+              "tr": "Hasta olduğunu söylüyor. (Konjunktiv I)",
+              "answers": [
+                "Er sagt, er sei krank.",
+                "Sie sagt, sie sei krank."
+              ],
+              "hint_tr": "sein → sei",
+              "explain_tr": "Aktarılan söz: er/sie sei."
+            }
+          ]
+        },
+        {
+          "id": "b2u1l2",
+          "title_tr": "Laut Bericht …",
+          "objective_tr": "Aktarılan soru ve rica: ob, soru kelimesi, sollen.",
+          "minutes": 9,
+          "vocab": [
+            "quelle",
+            "berichten",
+            "umstritten",
+            "ueberzeugen"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "quelle",
+                "berichten",
+                "umstritten",
+                "ueberzeugen"
+              ]
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Kafede, telefondan sonra",
+              "lines": [
+                {
+                  "speaker": "Frau Albrecht",
+                  "de": "Was hat der Vermieter am Telefon gesagt?",
+                  "tr": "Ev sahibi telefonda ne dedi?"
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Er hat gefragt, ob wir den Vertrag verlängern wollten und wann wir Zeit für ein Gespräch hätten.",
+                  "tr": "Sözleşmeyi uzatmak isteyip istemediğimizi ve görüşme için ne zaman vaktimiz olduğunu sordu."
+                },
+                {
+                  "speaker": "Frau Albrecht",
+                  "de": "Und die Miete?",
+                  "tr": "Ya kira?"
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Er sagt, die Miete solle um zehn Prozent steigen. Wir sollten ihm bis Freitag antworten.",
+                  "tr": "Kiranın yüzde on artacağını söylüyor. Ona cumaya kadar cevap vermemizi istedi."
+                },
+                {
+                  "speaker": "Frau Albrecht",
+                  "de": "Zehn Prozent? Davon muss er mich erst noch überzeugen.",
+                  "tr": "Yüzde on mu? Önce beni buna ikna etmesi lazım."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Sie fragt, ___ der Zug pünktlich ist.",
+              "tr": "Trenin zamanında olup olmadığını soruyor.",
+              "answers": [
+                "ob"
+              ],
+              "options": [
+                "ob",
+                "wenn",
+                "dass"
+              ],
+              "explain_tr": "Evet/hayır sorusu aktarılırken \"ob\" kullanılır."
+            },
+            {
+              "type": "cloze",
+              "de": "Der Arzt sagt, mein Vater ___ weniger Zucker essen.",
+              "tr": "Doktor babamın daha az şeker yemesi gerektiğini söylüyor.",
+              "answers": [
+                "solle"
+              ],
+              "options": [
+                "solle",
+                "sollen",
+                "sollst"
+              ],
+              "explain_tr": "Aktarılan rica ya da emir: sollen'in Konjunktiv I'i (er solle)."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "\"Kommen Sie morgen!\" cümlesinin dolaylı anlatımı hangisi?",
+              "options": [
+                "Sie sagt, ich solle morgen kommen.",
+                "Sie sagt, ich komme morgen.",
+                "Sie sagt, komm morgen."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "Emir kipi dolaylı anlatımda sollen ile aktarılır."
+            },
+            {
+              "type": "match",
+              "pairs": [
+                {
+                  "de": "laut dem Bericht",
+                  "tr": "rapora göre"
+                },
+                {
+                  "de": "die Quelle",
+                  "tr": "kaynak"
+                },
+                {
+                  "de": "berichten über",
+                  "tr": "… hakkında haber vermek"
+                },
+                {
+                  "de": "umstritten",
+                  "tr": "tartışmalı"
+                },
+                {
+                  "de": "überzeugen",
+                  "tr": "ikna etmek"
+                }
+              ]
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Bir arkadaşının ya da haberlerin anlattığı bir şeyi aktar: Bir aktarma fiili ve Konjunktiv I kullan (sei, habe, solle, könne …).",
+              "requirements": [
+                {
+                  "label_tr": "Konjunktiv I (sei, habe, solle, könne, müsse, werde …)",
+                  "pattern": "\\b(sei|seien|habe|solle|koenne|muesse|werde|wolle|duerfe)\\b"
+                },
+                {
+                  "label_tr": "Aktarma fiili (sagen, erklären, berichten, behaupten …)",
+                  "pattern": "\\b(sagt|sagte|erklaert|erklaerte|berichtet|berichtete|behauptet|behauptete|betont|betonte|meint|meinte)\\b"
+                },
+                {
+                  "label_tr": "En az 20 kelime",
+                  "pattern": "(\\w+\\W+){19}\\w+"
+                }
+              ],
+              "model": "Meine Kollegin hat erzählt, dass in unserer Firma bald neue Leute eingestellt werden. Der Chef habe gesagt, das Team sei zu klein. Außerdem erklärte er, jeder solle seine Wünsche bis Montag schicken.",
+              "min_words": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2u2",
+      "number": 2,
+      "title_de": "Wissenschaft und Technik",
+      "title_tr": "Bilim ve teknoloji",
+      "goal_tr": "Süreçleri ve zorunlulukları Modalverb'li Passiv ve Passiv yerine geçen yapılarla anlatabilirsin.",
+      "grammar": [
+        "g_passiv_modal"
+      ],
+      "lessons": [
+        {
+          "id": "b2u2l1",
+          "title_tr": "Das muss geprüft werden",
+          "objective_tr": "Modalverb + Partizip II + werden.",
+          "minutes": 10,
+          "vocab": [
+            "studie",
+            "forschung",
+            "untersuchen",
+            "verfahren",
+            "entwickeln"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "studie",
+                "forschung",
+                "untersuchen",
+                "verfahren",
+                "entwickeln"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_passiv_modal"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Laboratuvarda",
+              "lines": [
+                {
+                  "speaker": "Dr. Keller",
+                  "de": "Die Ergebnisse der Studie müssen noch einmal geprüft werden, bevor sie veröffentlicht werden können.",
+                  "tr": "Çalışmanın sonuçları yayımlanmadan önce bir kez daha kontrol edilmeli."
+                },
+                {
+                  "speaker": "Aylin",
+                  "de": "Warum? Die Forschung hat doch zwei Jahre gedauert.",
+                  "tr": "Neden? Araştırma iki yıl sürdü ama."
+                },
+                {
+                  "speaker": "Dr. Keller",
+                  "de": "Gerade deshalb. Jede Zahl muss von einer zweiten Person kontrolliert werden.",
+                  "tr": "Tam da bu yüzden. Her sayı ikinci bir kişi tarafından kontrol edilmeli."
+                },
+                {
+                  "speaker": "Aylin",
+                  "de": "Und das neue Verfahren, das Sie entwickelt haben? Kann es schon im Krankenhaus eingesetzt werden?",
+                  "tr": "Peki geliştirdiğiniz yeni yöntem? Hastanede kullanılabilir mi artık?"
+                },
+                {
+                  "speaker": "Dr. Keller",
+                  "de": "Noch nicht. Es muss erst an mehr Patienten untersucht werden.",
+                  "tr": "Henüz değil. Önce daha fazla hasta üzerinde incelenmesi gerekiyor."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Die Heizung muss repariert ___.",
+              "tr": "Kalorifer tamir edilmeli.",
+              "answers": [
+                "werden"
+              ],
+              "options": [
+                "werden",
+                "wird",
+                "worden"
+              ],
+              "explain_tr": "Modalverb + Partizip II + werden (mastar, sonda)."
+            },
+            {
+              "type": "cloze",
+              "de": "Der Vertrag kann online ___ werden.",
+              "tr": "Sözleşme internetten imzalanabilir.",
+              "answers": [
+                "unterschrieben"
+              ],
+              "options": [
+                "unterschrieben",
+                "unterschreiben",
+                "unterschreibt"
+              ],
+              "explain_tr": "Passiv'de asıl fiil Partizip II olur: unterschrieben."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Hangisi doğru?",
+              "options": [
+                "Das Problem muss gelöst werden.",
+                "Das Problem muss gelöst wird.",
+                "Das Problem muss werden gelöst."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "Önce Partizip II (gelöst), en sonda werden."
+            },
+            {
+              "type": "order",
+              "tr": "Bu formun bugün gönderilmesi gerekiyor.",
+              "tokens": [
+                "Das",
+                "Formular",
+                "muss",
+                "heute",
+                "geschickt",
+                "werden"
+              ],
+              "answers": [
+                "Das Formular muss heute geschickt werden",
+                "Heute muss das Formular geschickt werden"
+              ],
+              "explain_tr": "muss ikinci konumda, geschickt werden en sonda."
+            },
+            {
+              "type": "listen",
+              "de": "Bevor ein neues Medikament verkauft werden darf, muss es in mehreren Studien getestet werden.",
+              "prompt_tr": "İlaç satılmadan önce ne olmalı?",
+              "options": [
+                "Birkaç çalışmada test edilmeli",
+                "Doktorlar tarafından tavsiye edilmeli",
+                "Ucuzlatılmalı"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "\"muss es in mehreren Studien getestet werden\""
+            },
+            {
+              "type": "translate",
+              "tr": "Bu sorun çözülebilir. (können + Passiv)",
+              "answers": [
+                "Dieses Problem kann gelöst werden.",
+                "Das Problem kann gelöst werden."
+              ],
+              "hint_tr": "lösen → gelöst",
+              "explain_tr": "kann + Partizip II + werden."
+            }
+          ]
+        },
+        {
+          "id": "b2u2l2",
+          "title_tr": "Das lässt sich machen",
+          "objective_tr": "Passiv yerine: sich lassen, sein + zu, -bar.",
+          "minutes": 9,
+          "vocab": [
+            "ermoeglichen",
+            "verhindern",
+            "wirksam",
+            "entwicklung"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "ermoeglichen",
+                "verhindern",
+                "wirksam",
+                "entwicklung"
+              ]
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Toplantıda",
+              "lines": [
+                {
+                  "speaker": "Herr Brandt",
+                  "de": "Die neue Software lässt sich leider nicht auf allen Computern installieren.",
+                  "tr": "Yeni yazılım maalesef her bilgisayara kurulamıyor."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Das ist kein großes Problem. Die alten Geräte sind sowieso bis Ende des Jahres zu ersetzen.",
+                  "tr": "Bu büyük bir sorun değil. Eski cihazların zaten yıl sonuna kadar değiştirilmesi gerekiyor."
+                },
+                {
+                  "speaker": "Herr Brandt",
+                  "de": "Stimmt. Und die Entwicklung der App? Ist sie bis März machbar?",
+                  "tr": "Doğru. Peki uygulamanın geliştirilmesi? Marta kadar yapılabilir mi?"
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Wenn wir zwei Leute mehr bekommen, lässt sich das machen. Zwei neue Kollegen würden uns das ermöglichen.",
+                  "tr": "İki kişi daha alırsak bu yapılabilir. İki yeni çalışma arkadaşı bunu mümkün kılardı."
+                },
+                {
+                  "speaker": "Herr Brandt",
+                  "de": "Gut. So verhindern wir auch, dass das Team zu viele Überstunden macht.",
+                  "tr": "İyi. Böylece ekibin çok fazla fazla mesai yapmasını da önlemiş oluruz."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Das Fenster lässt ___ nicht öffnen.",
+              "tr": "Pencere açılmıyor.",
+              "answers": [
+                "sich"
+              ],
+              "options": [
+                "sich",
+                "es",
+                "man"
+              ],
+              "explain_tr": "sich lassen + mastar = -ılabilir / -ılamaz."
+            },
+            {
+              "type": "cloze",
+              "de": "Die Rechnung ist bis Freitag zu ___.",
+              "tr": "Faturanın cumaya kadar ödenmesi gerekiyor.",
+              "answers": [
+                "bezahlen"
+              ],
+              "options": [
+                "bezahlen",
+                "bezahlt",
+                "bezahlte"
+              ],
+              "explain_tr": "sein + zu + mastar: yapılmalı."
+            },
+            {
+              "type": "match",
+              "pairs": [
+                {
+                  "de": "machbar",
+                  "tr": "yapılabilir"
+                },
+                {
+                  "de": "lösbar",
+                  "tr": "çözülebilir"
+                },
+                {
+                  "de": "lesbar",
+                  "tr": "okunabilir"
+                },
+                {
+                  "de": "essbar",
+                  "tr": "yenilebilir"
+                },
+                {
+                  "de": "trinkbar",
+                  "tr": "içilebilir"
+                }
+              ]
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "\"Das Problem lässt sich lösen\" ne demek?",
+              "options": [
+                "Sorun çözülebilir.",
+                "Sorun çözülmeli.",
+                "Sorunu çözmesine izin ver."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "sich lassen + mastar = -ılabilir."
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Evinde ya da işyerinde değişmesi gereken bir şeyi anlat. Modalverb'li Passiv kullan (muss … werden, kann … werden).",
+              "requirements": [
+                {
+                  "label_tr": "Modalverb + … werden",
+                  "pattern": "\\b(muss|muessen|kann|koennen|sollte|sollten|darf|duerfen)\\b.*\\bwerden\\b"
+                },
+                {
+                  "label_tr": "En az 15 kelime",
+                  "pattern": "(\\w+\\W+){14}\\w+"
+                }
+              ],
+              "model": "In unserer Küche muss dringend etwas geändert werden. Der alte Herd lässt sich kaum noch einschalten, und das Fenster kann nicht richtig geschlossen werden.",
+              "min_words": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2u3",
+      "number": 3,
+      "title_de": "Arbeitswelt im Wandel",
+      "title_tr": "Değişen iş dünyası",
+      "goal_tr": "Resmî ve yazılı dilde Nominalstil ve Partizip sıfatlarını anlayıp kullanabilirsin.",
+      "grammar": [
+        "g_nominalisierung",
+        "g_partizip_attribut"
+      ],
+      "lessons": [
+        {
+          "id": "b2u3l1",
+          "title_tr": "Bei der Planung",
+          "objective_tr": "Nominalstil: bei/nach/vor/zur + isim.",
+          "minutes": 10,
+          "vocab": [
+            "arbeitnehmer",
+            "arbeitgeber",
+            "voraussetzung",
+            "massnahme",
+            "digitalisierung",
+            "beruecksichtigen"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "arbeitnehmer",
+                "arbeitgeber",
+                "voraussetzung",
+                "massnahme",
+                "digitalisierung",
+                "beruecksichtigen"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_nominalisierung"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "İnsan kaynakları toplantısı",
+              "lines": [
+                {
+                  "speaker": "Frau Kaya",
+                  "de": "Nach der Einführung der neuen Arbeitszeiten haben sich viele Arbeitnehmer beschwert.",
+                  "tr": "Yeni çalışma saatlerinin getirilmesinden sonra birçok çalışan şikâyet etti."
+                },
+                {
+                  "speaker": "Herr Brandt",
+                  "de": "Das wundert mich nicht. Bei der Planung wurden ihre Wünsche kaum berücksichtigt.",
+                  "tr": "Buna şaşırmadım. Planlama sırasında onların istekleri pek dikkate alınmadı."
+                },
+                {
+                  "speaker": "Frau Kaya",
+                  "de": "Zur Verbesserung der Situation schlage ich eine Umfrage vor.",
+                  "tr": "Durumu iyileştirmek için bir anket öneriyorum."
+                },
+                {
+                  "speaker": "Herr Brandt",
+                  "de": "Gute Idee. Vor der Entscheidung sollten wir aber auch mit dem Betriebsrat sprechen.",
+                  "tr": "İyi fikir. Ama karar vermeden önce çalışan temsilcileriyle de konuşmalıyız."
+                },
+                {
+                  "speaker": "Frau Kaya",
+                  "de": "Einverstanden. Die Digitalisierung ist eine Chance, aber nur, wenn die Maßnahmen für Arbeitgeber und Arbeitnehmer passen. Das ist die wichtigste Voraussetzung.",
+                  "tr": "Katılıyorum. Dijitalleşme bir fırsat, ama ancak önlemler hem işverene hem çalışana uyarsa. En önemli ön koşul bu."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "___ der Ankunft melden Sie sich bitte an der Rezeption.",
+              "tr": "Vardığınızda lütfen resepsiyona başvurun.",
+              "answers": [
+                "Bei"
+              ],
+              "options": [
+                "Bei",
+                "Nach",
+                "Zur"
+              ],
+              "explain_tr": "wenn/als → bei + Dativ: bei der Ankunft."
+            },
+            {
+              "type": "cloze",
+              "de": "Wir treffen uns ___ der Arbeit im Café.",
+              "tr": "İşten sonra kafede buluşuyoruz.",
+              "answers": [
+                "nach"
+              ],
+              "options": [
+                "nach",
+                "bei",
+                "zur"
+              ],
+              "explain_tr": "nachdem → nach + Dativ: nach der Arbeit."
+            },
+            {
+              "type": "cloze",
+              "de": "Die Firma investiert ___ Verbesserung der Qualität.",
+              "tr": "Firma kaliteyi iyileştirmek için yatırım yapıyor.",
+              "answers": [
+                "zur"
+              ],
+              "options": [
+                "zur",
+                "zum",
+                "bei"
+              ],
+              "explain_tr": "um … zu → zu + Dativ; die Verbesserung → zur."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "\"Bevor wir entscheiden, …\" cümlesinin Nominalstil'i?",
+              "options": [
+                "Vor der Entscheidung …",
+                "Nach der Entscheidung …",
+                "Bei dem Entscheiden …"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "bevor → vor + Dativ; entscheiden → die Entscheidung."
+            },
+            {
+              "type": "order",
+              "tr": "Planlama sırasında maliyetler dikkate alınmalı.",
+              "tokens": [
+                "Bei",
+                "der",
+                "Planung",
+                "müssen",
+                "die",
+                "Kosten",
+                "berücksichtigt",
+                "werden"
+              ],
+              "answers": [
+                "Bei der Planung müssen die Kosten berücksichtigt werden"
+              ],
+              "explain_tr": "Bei der Planung birinci konum; müssen ikinci; berücksichtigt werden sonda."
+            },
+            {
+              "type": "listen",
+              "de": "Wegen der großen Nachfrage verlängern wir unser Angebot bis Ende des Monats.",
+              "prompt_tr": "Kampanya neden uzatılıyor?",
+              "options": [
+                "Talep çok yüksek olduğu için",
+                "Ürünler satılmadığı için",
+                "Mağaza kapandığı için"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "\"Wegen der großen Nachfrage\""
+            },
+            {
+              "type": "translate",
+              "tr": "Yemekten sonra yürüyüşe çıkıyoruz. (nach + isim)",
+              "answers": [
+                "Nach dem Essen gehen wir spazieren.",
+                "Nach dem Essen machen wir einen Spaziergang."
+              ],
+              "hint_tr": "das Essen",
+              "explain_tr": "nach + Dativ: nach dem Essen; ardından fiil (gehen)."
+            }
+          ]
+        },
+        {
+          "id": "b2u3l2",
+          "title_tr": "Das gestern verschickte Angebot",
+          "objective_tr": "Partizip I ve II sıfat olarak: die steigenden Preise, das reparierte Auto.",
+          "minutes": 9,
+          "vocab": [
+            "fachkraft",
+            "herausforderung",
+            "auswirkung",
+            "erheblich"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "fachkraft",
+                "herausforderung",
+                "auswirkung",
+                "erheblich"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_partizip_attribut"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Bir makale hakkında",
+              "lines": [
+                {
+                  "speaker": "Aylin",
+                  "de": "Hast du den Artikel über die fehlenden Fachkräfte gelesen?",
+                  "tr": "Eksik kalifiye elemanlar hakkındaki makaleyi okudun mu?"
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Ja. Die steigende Zahl offener Stellen ist eine echte Herausforderung.",
+                  "tr": "Evet. Açık pozisyonların artan sayısı gerçek bir zorluk."
+                },
+                {
+                  "speaker": "Aylin",
+                  "de": "In meinem Krankenhaus arbeiten viele im Ausland angeworbene Pflegekräfte.",
+                  "tr": "Benim hastanemde yurt dışından işe alınmış birçok bakım personeli çalışıyor."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Und die Auswirkungen sind erheblich: Ohne sie müssten ganze Stationen geschlossen werden.",
+                  "tr": "Etkileri de çok büyük: Onlar olmasa bütün servisler kapatılmak zorunda kalırdı."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Die ___ Preise machen vielen Familien Sorgen.",
+              "tr": "Artan fiyatlar birçok aileyi endişelendiriyor.",
+              "answers": [
+                "steigenden"
+              ],
+              "options": [
+                "steigenden",
+                "steigende",
+                "gestiegen"
+              ],
+              "explain_tr": "Partizip I sıfat gibi çekimlenir: die + çoğul → steigenden."
+            },
+            {
+              "type": "cloze",
+              "de": "Das ___ Auto fährt wieder.",
+              "tr": "Tamir edilmiş araba yeniden çalışıyor.",
+              "answers": [
+                "reparierte"
+              ],
+              "options": [
+                "reparierte",
+                "reparierende",
+                "reparieren"
+              ],
+              "explain_tr": "Partizip II = …-ılmış: das reparierte Auto."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "\"das gestern verschickte Angebot\" ne demek?",
+              "options": [
+                "dün gönderilen teklif",
+                "dün gönderecek teklif",
+                "teklifi dün gönder"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "verschickt = gönderilmiş (Partizip II); ayrıntı (gestern) isimden önce."
+            },
+            {
+              "type": "match",
+              "pairs": [
+                {
+                  "de": "die steigenden Preise",
+                  "tr": "artan fiyatlar"
+                },
+                {
+                  "de": "das lachende Kind",
+                  "tr": "gülen çocuk"
+                },
+                {
+                  "de": "der geschriebene Brief",
+                  "tr": "yazılmış mektup"
+                },
+                {
+                  "de": "die fehlenden Fachkräfte",
+                  "tr": "eksik kalifiye elemanlar"
+                },
+                {
+                  "de": "die gestohlene Tasche",
+                  "tr": "çalınan çanta"
+                }
+              ]
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Şehrinde ya da mahallende gördüğün bir değişikliği anlat. En az bir Partizip sıfatı kullan (die steigenden Mieten, das neu gebaute Haus …).",
+              "requirements": [
+                {
+                  "label_tr": "Partizip sıfat + isim (…enden / ge…te …)",
+                  "pattern": "\\b(\\w+end(e|en|er|es)|ge\\w+(te|ten|ter|tes|ene|enen|ener|enes))\\s+[a-z]"
+                },
+                {
+                  "label_tr": "En az 15 kelime",
+                  "pattern": "(\\w+\\W+){14}\\w+"
+                }
+              ],
+              "model": "In meinem Viertel gibt es viele neu gebaute Häuser. Die steigenden Mieten sind aber für viele Familien eine große Herausforderung, und manche ziehen deshalb weg.",
+              "min_words": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2u4",
+      "number": 4,
+      "title_de": "Diskutieren und argumentieren",
+      "title_tr": "Tartışmak ve savunmak",
+      "goal_tr": "İki parçalı bağlaçlarla düşünceleri karşılaştırabilir ve güçlü argümanlar kurabilirsin.",
+      "grammar": [
+        "g_konnektoren2"
+      ],
+      "lessons": [
+        {
+          "id": "b2u4l1",
+          "title_tr": "Je mehr, desto besser",
+          "objective_tr": "je … desto + karşılaştırma.",
+          "minutes": 9,
+          "vocab": [
+            "je_desto",
+            "nachhaltig",
+            "beeinflussen"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "je_desto",
+                "nachhaltig",
+                "beeinflussen"
+              ]
+            },
+            {
+              "type": "grammar",
+              "concept": "g_konnektoren2"
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Podcast: Moda ve çevre",
+              "lines": [
+                {
+                  "speaker": "Moderatorin",
+                  "de": "Je billiger die Kleidung ist, desto öfter kaufen wir neue. Ist das ein Problem?",
+                  "tr": "Giysiler ne kadar ucuzsa o kadar sık yenisini alıyoruz. Bu bir sorun mu?"
+                },
+                {
+                  "speaker": "Experte",
+                  "de": "Ja. Je mehr wir kaufen, desto mehr Müll entsteht.",
+                  "tr": "Evet. Ne kadar çok alırsak o kadar çok çöp oluşuyor."
+                },
+                {
+                  "speaker": "Moderatorin",
+                  "de": "Was können wir tun, um nachhaltiger zu leben?",
+                  "tr": "Daha sürdürülebilir yaşamak için ne yapabiliriz?"
+                },
+                {
+                  "speaker": "Experte",
+                  "de": "Weniger, aber besser kaufen. Und je früher Kinder das lernen, desto stärker beeinflusst es ihr Leben.",
+                  "tr": "Daha az ama daha iyi almak. Çocuklar bunu ne kadar erken öğrenirse hayatlarını o kadar güçlü etkiler."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Je länger ich in Berlin wohne, ___ besser gefällt mir die Stadt.",
+              "tr": "Berlin'de ne kadar uzun yaşarsam şehir o kadar çok hoşuma gidiyor.",
+              "answers": [
+                "desto"
+              ],
+              "options": [
+                "desto",
+                "je",
+                "als"
+              ],
+              "explain_tr": "je … desto: ikinci parça desto."
+            },
+            {
+              "type": "cloze",
+              "de": "Je mehr du übst, desto ___ sprichst du.",
+              "tr": "Ne kadar çok pratik yaparsan o kadar akıcı konuşursun.",
+              "answers": [
+                "flüssiger"
+              ],
+              "options": [
+                "flüssiger",
+                "flüssig",
+                "am flüssigsten"
+              ],
+              "explain_tr": "desto + karşılaştırma (Komparativ): flüssiger."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "Hangisi doğru?",
+              "options": [
+                "Je mehr ich lerne, desto mehr verstehe ich.",
+                "Je mehr ich lerne, desto ich verstehe mehr.",
+                "Je mehr lerne ich, desto mehr verstehe ich."
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "je-cümlesinde fiil sonda; desto + karşılaştırmadan hemen sonra fiil gelir."
+            },
+            {
+              "type": "order",
+              "tr": "Ne kadar erken olursa o kadar iyi.",
+              "tokens": [
+                "Je",
+                "früher",
+                "desto",
+                "besser"
+              ],
+              "answers": [
+                "Je früher desto besser"
+              ],
+              "explain_tr": "Kısa kalıp: Je früher, desto besser."
+            },
+            {
+              "type": "listen",
+              "de": "Je mehr Menschen mit dem Fahrrad fahren, desto sauberer wird die Luft in der Stadt.",
+              "prompt_tr": "Daha çok kişi bisiklete binerse ne olur?",
+              "options": [
+                "Şehrin havası temizlenir",
+                "Trafik artar",
+                "Otobüsler ucuzlar"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "\"desto sauberer wird die Luft\""
+            },
+            {
+              "type": "translate",
+              "tr": "Ne kadar çok okursan o kadar çok kelime öğrenirsin.",
+              "answers": [
+                "Je mehr du liest, desto mehr Wörter lernst du."
+              ],
+              "hint_tr": "je … desto",
+              "explain_tr": "je + fiil sonda (liest); desto mehr Wörter + fiil (lernst)."
+            }
+          ]
+        },
+        {
+          "id": "b2u4l2",
+          "title_tr": "Nicht nur …, sondern auch",
+          "objective_tr": "sowohl … als auch, weder … noch, nicht nur … sondern auch, entweder … oder.",
+          "minutes": 9,
+          "vocab": [
+            "sowohl_als_auch",
+            "weder_noch",
+            "nicht_nur_sondern"
+          ],
+          "steps": [
+            {
+              "type": "intro",
+              "lexemes": [
+                "sowohl_als_auch",
+                "weder_noch",
+                "nicht_nur_sondern"
+              ]
+            },
+            {
+              "type": "dialogue",
+              "title_tr": "Kafede plan toplantısı",
+              "lines": [
+                {
+                  "speaker": "Frau Albrecht",
+                  "de": "Wir haben zwei Möglichkeiten: Entweder wir erhöhen die Preise, oder wir öffnen auch sonntags.",
+                  "tr": "İki seçeneğimiz var: Ya fiyatları artıracağız ya da pazar günleri de açacağız."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Ich bin weder für das eine noch für das andere. Beides finde ich schwierig.",
+                  "tr": "Ne birinden ne de ötekinden yanayım. İkisini de zor buluyorum."
+                },
+                {
+                  "speaker": "Aylin",
+                  "de": "Ihr könntet sowohl einen Mittagstisch als auch Kochkurse anbieten.",
+                  "tr": "Hem öğle yemeği hem de yemek kursları sunabilirsiniz."
+                },
+                {
+                  "speaker": "Frau Albrecht",
+                  "de": "Das würde nicht nur mehr Geld bringen, sondern auch neue Gäste.",
+                  "tr": "Bu sadece daha fazla para getirmekle kalmaz, yeni misafirler de getirirdi."
+                },
+                {
+                  "speaker": "Can",
+                  "de": "Und es passt zum Café. Das überzeugt mich.",
+                  "tr": "Ve kafeye uyuyor. Bu beni ikna ediyor."
+                }
+              ]
+            },
+            {
+              "type": "cloze",
+              "de": "Ich trinke ___ Kaffee noch Tee.",
+              "tr": "Ne kahve ne de çay içiyorum.",
+              "answers": [
+                "weder"
+              ],
+              "options": [
+                "weder",
+                "sowohl",
+                "entweder"
+              ],
+              "explain_tr": "weder … noch = ne … ne de."
+            },
+            {
+              "type": "cloze",
+              "de": "Sie spricht sowohl Deutsch ___ auch Türkisch.",
+              "tr": "Hem Almanca hem de Türkçe konuşuyor.",
+              "answers": [
+                "als"
+              ],
+              "options": [
+                "als",
+                "wie",
+                "und"
+              ],
+              "explain_tr": "sowohl … als auch = hem … hem de."
+            },
+            {
+              "type": "cloze",
+              "de": "Das Hotel ist nicht nur günstig, ___ auch sehr schön.",
+              "tr": "Otel sadece ucuz değil, aynı zamanda çok güzel.",
+              "answers": [
+                "sondern"
+              ],
+              "options": [
+                "sondern",
+                "aber",
+                "oder"
+              ],
+              "explain_tr": "nicht nur …, sondern auch."
+            },
+            {
+              "type": "choice",
+              "prompt_tr": "\"Ya bugün ya da yarın\" Almancada nasıl söylenir?",
+              "options": [
+                "entweder heute oder morgen",
+                "weder heute noch morgen",
+                "sowohl heute als auch morgen"
+              ],
+              "answers": [
+                0
+              ],
+              "explain_tr": "entweder … oder = ya … ya da."
+            },
+            {
+              "type": "write",
+              "prompt_tr": "Bir konuda (şehirde araba, evden çalışma, sosyal medya …) fikrini yaz. İki parçalı bağlaçlar kullan.",
+              "requirements": [
+                {
+                  "label_tr": "İki parçalı bağlaç (je … desto, sowohl … als auch, weder … noch, nicht nur … sondern auch, entweder … oder)",
+                  "pattern": "\\b(desto|sowohl|weder|sondern auch|entweder)\\b"
+                },
+                {
+                  "label_tr": "En az 25 kelime",
+                  "pattern": "(\\w+\\W+){24}\\w+"
+                }
+              ],
+              "model": "Soziale Medien haben nicht nur Nachteile, sondern auch Vorteile. Man kann sowohl mit alten Freunden in Kontakt bleiben als auch Neues lernen. Aber je mehr Zeit man online verbringt, desto weniger Zeit bleibt für echte Treffen.",
+              "min_words": 25
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

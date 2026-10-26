@@ -267,6 +267,37 @@
         {"question_tr": "Başta neden zorlandı?", "options": ["Mutfak gürültülü ve hızlı", "Yemek yapmayı bilmiyordu", "İş arkadaşları kötüydü"], "answer": 0, "explain_tr": "\"weil die Küche laut und schnell ist\""},
         {"question_tr": "Eğitimden sonra ne planlıyor?", "options": ["Bir yıl yurt dışında çalışmak", "Kendi restoranını açmak", "Üniversiteye gitmek"], "answer": 0, "explain_tr": "\"ein Jahr im Ausland arbeiten\""}
       ]
+    },
+    {
+      "id": "l_nachrichten_b2", "title": "Kurznachrichten am Abend", "level": "B2", "minutes": 3, "topic_tr": "Haberler", "kind_tr": "Haber bülteni", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "lines": [
+        {"speaker": "Sprecher", "de": "Guten Abend, hier sind die Nachrichten.", "tr": "İyi akşamlar, haberler."},
+        {"speaker": "Sprecher", "de": "Die Bundesregierung will bis zum Jahr 2030 zehntausend neue Ladestationen für Elektroautos bauen lassen.", "tr": "Federal hükümet 2030'a kadar elektrikli arabalar için on bin yeni şarj istasyonu kurdurmak istiyor."},
+        {"speaker": "Sprecher", "de": "Die Verkehrsministerin sagte, der Ausbau sei eine Voraussetzung dafür, dass mehr Menschen auf ein Elektroauto umsteigen.", "tr": "Ulaştırma bakanı, bu genişlemenin daha fazla insanın elektrikli arabaya geçmesi için ön koşul olduğunu söyledi."},
+        {"speaker": "Sprecher", "de": "Umweltverbände begrüßten den Plan, kritisierten aber, er komme zu spät.", "tr": "Çevre dernekleri planı memnuniyetle karşıladı, ancak çok geç geldiğini eleştirdi."},
+        {"speaker": "Sprecher", "de": "Und nun zum Wetter: Morgen wird es sowohl im Norden als auch im Süden sonnig, bei Temperaturen bis zu vierundzwanzig Grad.", "tr": "Ve şimdi hava durumu: Yarın hem kuzeyde hem güneyde hava güneşli, sıcaklık yirmi dört dereceye kadar."}
+      ],
+      "questions": [
+        {"question_tr": "Hükümet ne planlıyor?", "options": ["Yeni şarj istasyonları kurdurmak", "Elektrikli arabaları yasaklamak", "Benzini ucuzlatmak"], "answer": 0, "explain_tr": "\"zehntausend neue Ladestationen … bauen lassen\""},
+        {"question_tr": "Çevre dernekleri neyi eleştiriyor?", "options": ["Planın çok geç gelmesini", "Planın çok pahalı olmasını", "Planın hiç olmamasını"], "answer": 0, "explain_tr": "\"er komme zu spät\""},
+        {"question_tr": "Yarın hava nasıl?", "options": ["Her yerde güneşli", "Kuzeyde yağmurlu", "Güneyde karlı"], "answer": 0, "explain_tr": "\"sowohl im Norden als auch im Süden sonnig\""}
+      ]
+    },
+    {
+      "id": "l_interview_auto_b2", "title": "Interview: Leben ohne Auto", "level": "B2", "minutes": 4, "topic_tr": "Şehir ve ulaşım", "kind_tr": "Röportaj", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "lines": [
+        {"speaker": "Reporterin", "de": "Frau Demir, Sie haben vor zwei Jahren Ihr Auto verkauft. Warum?", "tr": "Demir Hanım, iki yıl önce arabanızı sattınız. Neden?"},
+        {"speaker": "Frau Demir", "de": "Ehrlich gesagt aus Geldgründen. Je teurer das Benzin wurde, desto seltener bin ich gefahren, und am Ende stand das Auto fast nur noch vor der Tür.", "tr": "Açıkçası para yüzünden. Benzin ne kadar pahalandıysa o kadar az kullandım ve sonunda araba neredeyse sadece kapının önünde duruyordu."},
+        {"speaker": "Reporterin", "de": "Und vermissen Sie es nicht?", "tr": "Peki onu özlemiyor musunuz?"},
+        {"speaker": "Frau Demir", "de": "Manchmal schon, zum Beispiel beim Großeinkauf. Aber dafür gibt es Carsharing, das sich mit einer App ganz einfach buchen lässt.", "tr": "Bazen evet, mesela büyük alışverişte. Ama bunun için bir uygulamayla çok kolay kiralanabilen araç paylaşımı var."},
+        {"speaker": "Reporterin", "de": "Würden Sie das anderen empfehlen?", "tr": "Bunu başkalarına tavsiye eder misiniz?"},
+        {"speaker": "Frau Demir", "de": "In der Stadt auf jeden Fall. Auf dem Land ist man ohne Auto allerdings weder flexibel noch unabhängig.", "tr": "Şehirde kesinlikle. Ama kırsalda arabasız insan ne esnek ne de bağımsız olabiliyor."}
+      ],
+      "questions": [
+        {"question_tr": "Demir Hanım arabasını neden sattı?", "options": ["Para yüzünden", "Kaza yaptığı için", "Taşındığı için"], "answer": 0, "explain_tr": "\"aus Geldgründen\""},
+        {"question_tr": "Ne zaman arabayı özlüyor?", "options": ["Büyük alışverişte", "Tatilde", "İşe giderken"], "answer": 0, "explain_tr": "\"zum Beispiel beim Großeinkauf\""},
+        {"question_tr": "Kırsal hakkında ne düşünüyor?", "options": ["Arabasız esnek ve bağımsız olunamaz", "Kırsalda araba gereksiz", "Kırsalda araç paylaşımı çok iyi"], "answer": 0, "explain_tr": "\"weder flexibel noch unabhängig\""}
+      ]
     }
   ]
 }

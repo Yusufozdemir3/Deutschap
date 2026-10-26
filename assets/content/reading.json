@@ -449,6 +449,34 @@
         {"question_tr": "Yazar otopark yerine ne istiyor?", "options": ["Ağaçlar, banklar ve oyun parkı", "Daha büyük bir otopark", "Yeni dükkânlar"], "answer": 0, "explain_tr": "\"Bäume, Bänke und einen kleinen Spielplatz\""},
         {"question_tr": "Yazar neden daha fazla gölge istiyor?", "options": ["Son yılların sıcak yazları yüzünden", "Dükkânlar istediği için", "Yağmurdan korunmak için"], "answer": 0, "explain_tr": "\"Wegen der heißen Sommer der letzten Jahre\""}
       ]
+    },
+    {
+      "id": "r_wohnungsmarkt", "title": "Der angespannte Wohnungsmarkt", "level": "B2", "minutes": 7, "topic_tr": "Toplum ve ekonomi", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "paragraphs": [
+        {"de": "In deutschen Großstädten ist die Suche nach einer bezahlbaren Wohnung für viele Menschen zu einer echten Herausforderung geworden. Laut einer aktuellen Studie sind die Mieten in Berlin, München und Hamburg in den letzten zehn Jahren um mehr als fünfzig Prozent gestiegen.", "tr": "Alman büyükşehirlerinde uygun fiyatlı bir daire aramak birçok kişi için gerçek bir zorluğa dönüştü. Güncel bir çalışmaya göre Berlin, Münih ve Hamburg'da kiralar son on yılda yüzde elliden fazla arttı."},
+        {"de": "Die Ursachen sind umstritten. Vermieterverbände behaupten, es werde schlicht zu wenig gebaut. Mieterinitiativen betonen dagegen, viele Wohnungen stünden aus Spekulationsgründen leer oder würden als Ferienwohnungen vermietet.", "tr": "Nedenler tartışmalı. Ev sahibi dernekleri düpedüz çok az bina yapıldığını iddia ediyor. Kiracı girişimleri ise birçok dairenin spekülasyon nedeniyle boş durduğunu ya da tatil evi olarak kiralandığını vurguluyor."},
+        {"de": "Zur Lösung des Problems hat die Politik verschiedene Maßnahmen beschlossen, etwa die sogenannte Mietpreisbremse. Ob sie wirksam ist, lässt sich bisher nur schwer sagen: Kritiker weisen darauf hin, dass sie in vielen Fällen nicht eingehalten werde.", "tr": "Sorunu çözmek için siyasetçiler kira freni denen düzenleme gibi çeşitli önlemler aldı. Bunun etkili olup olmadığını söylemek şimdilik zor: Eleştirmenler, kuralın birçok durumda uygulanmadığına dikkat çekiyor."},
+        {"de": "Fest steht: Je länger die Wohnungsknappheit andauert, desto stärker beeinflusst sie das Leben in den Städten. Junge Familien ziehen ins Umland, und Unternehmen finden für ihre Fachkräfte keine Wohnungen.", "tr": "Kesin olan şu: Konut sıkıntısı ne kadar uzun sürerse şehirlerdeki hayatı o kadar güçlü etkiliyor. Genç aileler çevre bölgelere taşınıyor, şirketler de kalifiye elemanları için daire bulamıyor."}
+      ],
+      "questions": [
+        {"question_tr": "Çalışmaya göre kiralar on yılda ne kadar arttı?", "options": ["Yüzde elliden fazla", "Yüzde on", "İki katından fazla"], "answer": 0, "explain_tr": "\"um mehr als fünfzig Prozent gestiegen\""},
+        {"question_tr": "Kiracı girişimlerine göre sorunun bir nedeni ne?", "options": ["Bazı daireler boş tutuluyor ya da tatil evi olarak kiralanıyor", "Çok fazla bina yapılıyor", "Kiralar çok düşük"], "answer": 0, "explain_tr": "\"viele Wohnungen stünden … leer oder würden als Ferienwohnungen vermietet\""},
+        {"question_tr": "Kira freni hakkında ne söyleniyor?", "options": ["Etkili olup olmadığı henüz belli değil", "Sorunu tamamen çözdü", "Kaldırıldı"], "answer": 0, "explain_tr": "\"Ob sie wirksam ist, lässt sich bisher nur schwer sagen\""}
+      ]
+    },
+    {
+      "id": "r_ki_arbeit", "title": "Künstliche Intelligenz am Arbeitsplatz", "level": "B2", "minutes": 7, "topic_tr": "Teknoloji ve iş", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "paragraphs": [
+        {"de": "Kaum ein Thema wird derzeit so intensiv diskutiert wie der Einsatz künstlicher Intelligenz in der Arbeitswelt. Programme, die Texte schreiben, Bilder erzeugen oder Daten auswerten, sind inzwischen sowohl in großen Konzernen als auch in kleinen Betrieben zu finden.", "tr": "Şu sıralar iş dünyasında yapay zekâ kullanımı kadar yoğun tartışılan pek az konu var. Metin yazan, görüntü üreten ya da veri analiz eden programlar artık hem büyük şirketlerde hem de küçük işletmelerde bulunuyor."},
+        {"de": "Befürworter betonen, KI könne Arbeitnehmer von langweiligen Routineaufgaben entlasten. Dadurch bleibe mehr Zeit für kreative und soziale Tätigkeiten, die sich nicht automatisieren lassen.", "tr": "Savunucular yapay zekânın çalışanları sıkıcı rutin işlerden kurtarabileceğini vurguluyor. Böylece otomatikleştirilemeyen yaratıcı ve sosyal işlere daha çok zaman kalacakmış."},
+        {"de": "Gewerkschaften warnen hingegen vor den Auswirkungen auf den Arbeitsmarkt. Besonders gefährdet seien Berufe, in denen hauptsächlich standardisierte Texte bearbeitet werden, etwa in der Verwaltung oder im Kundenservice.", "tr": "Sendikalar ise iş piyasasına etkileri konusunda uyarıyor. Özellikle idari işler ya da müşteri hizmetleri gibi çoğunlukla standart metinlerin işlendiği meslekler risk altındaymış."},
+        {"de": "In einem Punkt sind sich viele Experten einig: Entscheidend sei nicht die Technik selbst, sondern der Umgang mit ihr. Voraussetzung für einen erfolgreichen Einsatz sei die Weiterbildung der Beschäftigten – und zwar nicht erst, wenn die neuen Systeme bereits eingeführt worden sind.", "tr": "Birçok uzman bir noktada hemfikir: Belirleyici olan tekniğin kendisi değil, onunla nasıl başa çıkıldığıymış. Başarılı kullanımın ön koşulu çalışanların eğitimiymiş; hem de yeni sistemler kurulduktan sonra değil."}
+      ],
+      "questions": [
+        {"question_tr": "Yapay zekâ programları nerelerde kullanılıyor?", "options": ["Hem büyük şirketlerde hem küçük işletmelerde", "Sadece büyük şirketlerde", "Sadece üniversitelerde"], "answer": 0, "explain_tr": "\"sowohl in großen Konzernen als auch in kleinen Betrieben\""},
+        {"question_tr": "Sendikalara göre hangi meslekler özellikle risk altında?", "options": ["Çoğunlukla standart metinlerin işlendiği meslekler", "Sanatçılar", "Zanaatkârlar"], "answer": 0, "explain_tr": "\"Berufe, in denen hauptsächlich standardisierte Texte bearbeitet werden\""},
+        {"question_tr": "Uzmanlara göre başarılı kullanımın ön koşulu ne?", "options": ["Çalışanların eğitimi", "Daha çok bilgisayar", "Daha az çalışan"], "answer": 0, "explain_tr": "\"Voraussetzung … sei die Weiterbildung der Beschäftigten\""}
+      ]
     }
   ]
 }

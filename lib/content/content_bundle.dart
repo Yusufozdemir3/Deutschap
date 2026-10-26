@@ -56,6 +56,7 @@ class ContentBundle {
     'path_a1.json',
     'path_a2.json',
     'path_b1.json',
+    'path_b2.json',
     'stories.json',
     'reading.json',
     'listening.json',

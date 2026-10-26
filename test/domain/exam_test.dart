@@ -9,10 +9,10 @@ void main() {
   final builder = ExamBuilder(content);
 
   test('every level with a path has enough material for an exam', () {
-    expect(builder.levels, containsAll(['A1', 'A2', 'B1']));
+    expect(builder.levels, containsAll(['A1', 'A2', 'B1', 'B2']));
   });
 
-  for (final level in ['A1', 'A2', 'B1']) {
+  for (final level in ['A1', 'A2', 'B1', 'B2']) {
     test('$level exam covers all four skills with valid items', () {
       final lesson = builder.build(level, seed: 7);
       final sections = {for (final s in lesson.steps) ExamBuilder.sectionOf(s.id)};

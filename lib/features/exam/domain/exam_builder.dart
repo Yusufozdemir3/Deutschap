@@ -14,11 +14,12 @@ enum ExamSection {
   final String labelTr;
 }
 
-/// Lesson ids belong to a level by their prefix: u1l1 → A1, a2u1l1 → A2.
+/// Lesson ids belong to a level by their prefix: u1l1 → A1, a2u1l1 → A2, b1…, b2….
 bool lessonIsLevel(String lessonId, String level) => switch (level) {
       'A1' => RegExp(r'^u\d').hasMatch(lessonId),
       'A2' => lessonId.startsWith('a2'),
       'B1' => lessonId.startsWith('b1'),
+      'B2' => lessonId.startsWith('b2'),
       _ => false,
     };
 
