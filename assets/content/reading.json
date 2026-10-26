@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.4",
+  "version": "2026.10.5",
   "texts": [
     {
       "id": "r_mein_zimmer", "title": "Mein Zimmer", "level": "A1", "minutes": 2, "topic_tr": "Ev ve eşyalar", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
@@ -364,6 +364,90 @@
         {"question_tr": "Metne göre bisikletin avantajlarından biri nedir?", "options": ["Park yeri aramak gerekmiyor", "Her havada hızlı", "Yük taşımak için ideal"], "answer": 0, "explain_tr": "\"Außerdem muss man keinen Parkplatz suchen\""},
         {"question_tr": "Bazı dükkânlar neden şikâyetçi?", "options": ["Arabayla daha az müşteri geliyor", "Bisiklet yolları gürültülü", "Park ücretleri arttı"], "answer": 0, "explain_tr": "\"weniger Kunden mit dem Auto kommen\""},
         {"question_tr": "Yazarın önerdiği çözüm ne?", "options": ["Bisiklet yolu, toplu taşıma ve gerektiği kadar park yeri karışımı", "Sadece bisiklet", "Arabaları yasaklamak"], "answer": 0, "explain_tr": "\"die beste Lösung ein Mix\""}
+      ]
+    },
+    {
+      "id": "r_flohmarkt", "title": "Auf dem Flohmarkt", "level": "A2", "minutes": 4, "topic_tr": "Alışveriş", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "paragraphs": [
+        {"de": "Jeden Sonntag gibt es im Mauerpark einen großen Flohmarkt. Dort verkaufen Leute alte Möbel, Kleidung, Bücher und Schallplatten.", "tr": "Her pazar Mauerpark'ta büyük bir bit pazarı kuruluyor. İnsanlar orada eski mobilya, giysi, kitap ve plak satıyor."},
+        {"de": "Letzten Sonntag bin ich mit meiner Freundin Elif dorthin gegangen. Ich wollte eine Lampe für mein Zimmer kaufen, weil es abends zu dunkel ist.", "tr": "Geçen pazar arkadaşım Elif'le oraya gittim. Odam akşamları çok karanlık olduğu için bir lamba almak istiyordum."},
+        {"de": "An einem Stand habe ich eine schöne gelbe Lampe gesehen. Der Verkäufer wollte dreißig Euro, aber das war mir zu teuer. Ich habe gefragt: »Geht es auch für zwanzig?«", "tr": "Bir tezgâhta güzel, sarı bir lamba gördüm. Satıcı otuz euro istedi ama bu bana çok pahalı geldi. \"Yirmiye olur mu?\" diye sordum."},
+        {"de": "Am Ende haben wir uns auf fünfundzwanzig Euro geeinigt. Elif hat ein altes Kochbuch für zwei Euro gekauft. Auf dem Flohmarkt darf man handeln – im Supermarkt nicht!", "tr": "Sonunda yirmi beş euroda anlaştık. Elif iki euroya eski bir yemek kitabı aldı. Bit pazarında pazarlık yapılabilir, süpermarkette yapılamaz!"}
+      ],
+      "questions": [
+        {"question_tr": "Anlatıcı neden lamba almak istiyor?", "options": ["Odası akşamları çok karanlık", "Eski lambası kırıldı", "Elif'e hediye etmek istiyor"], "answer": 0, "explain_tr": "\"weil es abends zu dunkel ist\""},
+        {"question_tr": "Lamba sonunda kaça satıldı?", "options": ["25 euro", "30 euro", "20 euro"], "answer": 0, "explain_tr": "\"auf fünfundzwanzig Euro geeinigt\""},
+        {"question_tr": "Metne göre pazarlık nerede yapılabilir?", "options": ["Bit pazarında", "Süpermarkette", "Her yerde"], "answer": 0, "explain_tr": "\"Auf dem Flohmarkt darf man handeln – im Supermarkt nicht!\""}
+      ]
+    },
+    {
+      "id": "r_hausarzt", "title": "Beim Hausarzt", "level": "A2", "minutes": 4, "topic_tr": "Sağlık", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "paragraphs": [
+        {"de": "Seit drei Tagen habe ich Halsschmerzen und Fieber. Heute Morgen habe ich in der Praxis von Dr. Hoffmann angerufen und einen Termin bekommen.", "tr": "Üç gündür boğazım ağrıyor ve ateşim var. Bu sabah Dr. Hoffmann'ın muayenehanesini aradım ve randevu aldım."},
+        {"de": "Im Wartezimmer saßen schon sechs Leute. Ich musste fast eine Stunde warten. Zum Glück hatte ich ein Buch dabei.", "tr": "Bekleme odasında altı kişi oturuyordu bile. Neredeyse bir saat beklemek zorunda kaldım. Neyse ki yanımda bir kitap vardı."},
+        {"de": "Die Ärztin hat meinen Hals untersucht und gesagt: »Das ist eine Erkältung, nichts Schlimmes. Sie sollten viel Tee trinken und zwei Tage im Bett bleiben.«", "tr": "Doktor boğazımı muayene etti ve şöyle dedi: \"Bu bir soğuk algınlığı, kötü bir şey değil. Bol çay içmeli ve iki gün yatakta kalmalısınız.\""},
+        {"de": "Weil ich nicht arbeiten kann, hat sie mir eine Krankschreibung gegeben. Die schicke ich heute noch an meine Firma. In Deutschland braucht man sie oft schon ab dem dritten Tag.", "tr": "Çalışamadığım için bana bir hastalık raporu verdi. Onu bugün şirketime gönderiyorum. Almanya'da rapor çoğu zaman üçüncü günden itibaren gerekiyor."}
+      ],
+      "questions": [
+        {"question_tr": "Anlatıcının şikâyeti ne?", "options": ["Boğaz ağrısı ve ateş", "Sırt ağrısı", "Diş ağrısı"], "answer": 0, "explain_tr": "\"Halsschmerzen und Fieber\""},
+        {"question_tr": "Doktor ne öneriyor?", "options": ["Bol çay ve iki gün yatak istirahati", "Hemen hastaneye gitmek", "Spor yapmak"], "answer": 0, "explain_tr": "\"viel Tee trinken und zwei Tage im Bett bleiben\""},
+        {"question_tr": "Krankschreibung nedir?", "options": ["Hastalık raporu", "Reçete", "Randevu kâğıdı"], "answer": 0, "explain_tr": "Çalışamadığını gösteren belge; işverene gönderilir."}
+      ]
+    },
+    {
+      "id": "r_kochkurs", "title": "Der Kochkurs", "level": "A2", "minutes": 4, "topic_tr": "Yemek ve hobiler", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "paragraphs": [
+        {"de": "Im Winter habe ich einen Kochkurs an der Volkshochschule gemacht. Der Kurs war jeden Donnerstag von sechs bis neun Uhr abends und hat nur vierzig Euro gekostet.", "tr": "Kışın halk eğitim merkezinde bir yemek kursuna katıldım. Kurs her perşembe akşam altıdan dokuza kadardı ve sadece kırk euroydu."},
+        {"de": "Wir waren zwölf Leute aus acht Ländern. Jede Woche hat eine Person ein Gericht aus ihrer Heimat vorgestellt. Ich habe Linsensuppe gekocht, wie meine Oma sie macht.", "tr": "Sekiz ülkeden on iki kişiydik. Her hafta bir kişi kendi memleketinden bir yemek tanıttı. Ben anneannemin yaptığı gibi mercimek çorbası pişirdim."},
+        {"de": "Die anderen fanden die Suppe sehr lecker. Unser Kursleiter Thomas hat gesagt, dass er das Rezept jetzt auch zu Hause kochen will.", "tr": "Diğerleri çorbayı çok lezzetli buldu. Kurs öğretmenimiz Thomas, tarifi artık evde de pişirmek istediğini söyledi."},
+        {"de": "Das Beste am Kurs war aber nicht das Essen, sondern die Gespräche. Beim Kochen spricht man ganz natürlich Deutsch, und man lernt Wörter, die in keinem Lehrbuch stehen.", "tr": "Ama kursun en güzel yanı yemek değil, sohbetlerdi. Yemek yaparken insan çok doğal bir şekilde Almanca konuşuyor ve hiçbir ders kitabında olmayan kelimeler öğreniyor."}
+      ],
+      "questions": [
+        {"question_tr": "Kurs ne kadar tuttu?", "options": ["40 euro", "12 euro", "80 euro"], "answer": 0, "explain_tr": "\"hat nur vierzig Euro gekostet\""},
+        {"question_tr": "Anlatıcı ne pişirdi?", "options": ["Mercimek çorbası", "Mantı", "Pasta"], "answer": 0, "explain_tr": "\"Ich habe Linsensuppe gekocht\""},
+        {"question_tr": "Anlatıcıya göre kursun en güzel yanı neydi?", "options": ["Sohbetler", "Yemekler", "Fiyatı"], "answer": 0, "explain_tr": "\"nicht das Essen, sondern die Gespräche\""}
+      ]
+    },
+    {
+      "id": "r_ehrenamt", "title": "Ehrenamt im Viertel", "level": "B1", "minutes": 6, "topic_tr": "Toplum", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "paragraphs": [
+        {"de": "Fast jeder dritte Mensch in Deutschland engagiert sich ehrenamtlich, also ohne Geld dafür zu bekommen. Manche trainieren eine Kinderfußballmannschaft, andere lesen alten Menschen vor oder helfen bei der Tafel, wo Lebensmittel an Bedürftige verteilt werden.", "tr": "Almanya'da neredeyse her üç kişiden biri gönüllü çalışıyor, yani karşılığında para almadan. Kimisi çocuk futbol takımı çalıştırıyor, kimisi yaşlılara kitap okuyor ya da ihtiyaç sahiplerine gıda dağıtılan Tafel'de yardım ediyor."},
+        {"de": "Selin ist vor zwei Jahren aus Ankara nach Dortmund gezogen. Am Anfang kannte sie niemanden. Eine Nachbarin hat ihr dann von einem Sprachcafé erzählt, das jeden Mittwoch in der Bibliothek stattfindet.", "tr": "Selin iki yıl önce Ankara'dan Dortmund'a taşındı. Başta kimseyi tanımıyordu. Sonra bir komşusu ona her çarşamba kütüphanede yapılan bir dil kafesinden bahsetti."},
+        {"de": "Zuerst ist Selin hingegangen, um selbst Deutsch zu üben. Inzwischen organisiert sie das Café mit: Sie hilft neuen Teilnehmern, die gerade erst angekommen sind, und übersetzt manchmal ins Türkische.", "tr": "Selin önce kendisi Almanca pratik yapmak için gitti. Artık kafenin düzenlenmesine yardım ediyor: Yeni gelmiş katılımcılara destek oluyor ve bazen Türkçeye çeviri yapıyor."},
+        {"de": "»Obwohl ich nichts dafür bekomme, bekomme ich viel zurück«, sagt sie. »Ich habe Freunde gefunden, und mein Deutsch ist viel besser geworden.« Außerdem steht das Ehrenamt jetzt in ihrem Lebenslauf, was bei Bewerbungen oft positiv gesehen wird.", "tr": "\"Karşılığında hiçbir şey almasam da çok şey kazanıyorum\" diyor. \"Arkadaşlar edindim ve Almancam çok daha iyi oldu.\" Ayrıca gönüllü çalışma artık özgeçmişinde yer alıyor; bu, iş başvurularında çoğu zaman olumlu karşılanıyor."}
+      ],
+      "questions": [
+        {"question_tr": "Selin dil kafesini nasıl öğrendi?", "options": ["Bir komşusu anlattı", "İnternette okudu", "İşyerinde duydu"], "answer": 0, "explain_tr": "\"Eine Nachbarin hat ihr dann von einem Sprachcafé erzählt\""},
+        {"question_tr": "Selin bugün kafede ne yapıyor?", "options": ["Düzenlemeye yardım ediyor ve yenilere destek oluyor", "Sadece Almanca pratik yapıyor", "Kahve satıyor"], "answer": 0, "explain_tr": "\"Inzwischen organisiert sie das Café mit\""},
+        {"question_tr": "\"Ehrenamt\" ne demek?", "options": ["Para almadan yapılan gönüllü çalışma", "Yarı zamanlı iş", "Resmî görev"], "answer": 0, "explain_tr": "\"ohne Geld dafür zu bekommen\""}
+      ]
+    },
+    {
+      "id": "r_homeoffice", "title": "Homeoffice: Fluch oder Segen?", "level": "B1", "minutes": 6, "topic_tr": "İş hayatı", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "paragraphs": [
+        {"de": "Seit einigen Jahren arbeiten viele Angestellte in Deutschland teilweise von zu Hause. Was früher die Ausnahme war, ist für viele Büros heute normal: zwei oder drei Tage im Homeoffice, der Rest im Büro.", "tr": "Birkaç yıldır Almanya'da birçok çalışan kısmen evden çalışıyor. Eskiden istisna olan şey bugün birçok ofis için normal: iki ya da üç gün evden, geri kalanı ofiste."},
+        {"de": "Die Vorteile liegen auf der Hand: Man spart den Weg zur Arbeit, kann sich die Zeit freier einteilen und wird seltener gestört. Besonders Eltern schätzen, dass sie ihre Kinder mittags selbst von der Schule abholen können.", "tr": "Avantajları açık: İşe gidiş yolundan tasarruf ediliyor, zaman daha serbestçe planlanabiliyor ve insan daha az rahatsız ediliyor. Özellikle ebeveynler çocuklarını öğlen okuldan kendilerinin alabilmesini önemsiyor."},
+        {"de": "Andererseits fühlen sich manche Menschen zu Hause einsam. Ihnen fehlen die kurzen Gespräche in der Kaffeeküche, in denen oft wichtige Informationen ausgetauscht werden. Außerdem fällt es vielen schwer, abends wirklich abzuschalten, wenn der Laptop auf dem Küchentisch steht.", "tr": "Öte yandan bazı insanlar evde kendini yalnız hissediyor. Çoğu zaman önemli bilgilerin paylaşıldığı mutfaktaki kısa sohbetleri özlüyorlar. Ayrıca dizüstü bilgisayar mutfak masasında dururken birçok kişi akşamları gerçekten kafasını boşaltmakta zorlanıyor."},
+        {"de": "Experten empfehlen deshalb klare Regeln: feste Arbeitszeiten, einen eigenen Arbeitsplatz und regelmäßige Tage im Büro. Wer diese Regeln beachtet, kann von beiden Welten profitieren.", "tr": "Bu yüzden uzmanlar net kurallar öneriyor: sabit çalışma saatleri, ayrı bir çalışma yeri ve düzenli ofis günleri. Bu kurallara uyan, her iki dünyadan da yararlanabilir."}
+      ],
+      "questions": [
+        {"question_tr": "Ebeveynler evden çalışmanın neyini önemsiyor?", "options": ["Çocuklarını öğlen okuldan alabilmeyi", "Daha çok kazanmayı", "Daha uzun tatili"], "answer": 0, "explain_tr": "\"dass sie ihre Kinder mittags selbst von der Schule abholen können\""},
+        {"question_tr": "Bazı çalışanlar evde neyi özlüyor?", "options": ["Mutfaktaki kısa sohbetleri", "Uzun toplantıları", "İşe gidiş yolunu"], "answer": 0, "explain_tr": "\"Ihnen fehlen die kurzen Gespräche in der Kaffeeküche\""},
+        {"question_tr": "Uzmanlar ne öneriyor?", "options": ["Sabit saatler, ayrı çalışma yeri ve düzenli ofis günleri", "Tamamen evden çalışmak", "Hiç evden çalışmamak"], "answer": 0, "explain_tr": "\"feste Arbeitszeiten, einen eigenen Arbeitsplatz und regelmäßige Tage im Büro\""}
+      ]
+    },
+    {
+      "id": "r_leserbrief", "title": "Ein Leserbrief: Mehr Grün für unsere Stadt", "level": "B1", "minutes": 5, "topic_tr": "Çevre", "source_tr": "Deutschap için yazılmış özgün metin · CC0 (serbestçe kullanılabilir)",
+      "paragraphs": [
+        {"de": "Sehr geehrte Redaktion, mit großem Interesse habe ich Ihren Artikel über den neuen Parkplatz am Marktplatz gelesen. Leider muss ich Ihnen widersprechen.", "tr": "Sayın yazı işleri, Pazar Meydanı'ndaki yeni otopark hakkındaki makalenizi büyük ilgiyle okudum. Maalesef size itiraz etmek zorundayım."},
+        {"de": "Sie schreiben, dass die Stadt mehr Parkplätze braucht, damit die Geschäfte in der Innenstadt überleben. Meiner Meinung nach ist das Gegenteil richtig: Menschen kaufen gern dort ein, wo es schön ist und wo man sich gern aufhält.", "tr": "Şehir merkezindeki dükkânlar ayakta kalsın diye şehrin daha fazla otoparka ihtiyacı olduğunu yazıyorsunuz. Bence doğrusu tam tersi: İnsanlar güzel olan ve vakit geçirmekten hoşlandıkları yerlerden alışveriş yapmayı sever."},
+        {"de": "Statt eines Parkplatzes wünsche ich mir Bäume, Bänke und einen kleinen Spielplatz. Wegen der heißen Sommer der letzten Jahre brauchen wir dringend mehr Schatten in der Stadt.", "tr": "Otopark yerine ağaçlar, banklar ve küçük bir oyun parkı istiyorum. Son yılların sıcak yazları yüzünden şehirde acilen daha fazla gölgeye ihtiyacımız var."},
+        {"de": "Ich würde mich freuen, wenn Sie auch diese Meinung veröffentlichen könnten. Mit freundlichen Grüßen, Hatice Demir", "tr": "Bu görüşü de yayımlayabilirseniz sevinirim. Saygılarımla, Hatice Demir"}
+      ],
+      "questions": [
+        {"question_tr": "Mektup neye cevap veriyor?", "options": ["Yeni otopark hakkındaki bir makaleye", "Bir dükkânın reklamına", "Belediye seçimlerine"], "answer": 0, "explain_tr": "\"Ihren Artikel über den neuen Parkplatz\""},
+        {"question_tr": "Yazar otopark yerine ne istiyor?", "options": ["Ağaçlar, banklar ve oyun parkı", "Daha büyük bir otopark", "Yeni dükkânlar"], "answer": 0, "explain_tr": "\"Bäume, Bänke und einen kleinen Spielplatz\""},
+        {"question_tr": "Yazar neden daha fazla gölge istiyor?", "options": ["Son yılların sıcak yazları yüzünden", "Dükkânlar istediği için", "Yağmurdan korunmak için"], "answer": 0, "explain_tr": "\"Wegen der heißen Sommer der letzten Jahre\""}
       ]
     }
   ]

@@ -81,6 +81,9 @@ class ErrorDetectors {
       if (sein == null) continue;
       for (var k = i + 1; k < endOf(i) && k < lower.length; k++) {
         final p = lower[k];
+        // A later auxiliary starts its own clause: in "Ich habe … gefunden,
+        // und es ist besser geworden" the participle belongs to "ist".
+        if (_haben.containsKey(p) || _seinForms.contains(p)) break;
         final definite = _seinParticiples.contains(p);
         final motion = _motionParticiples.contains(p);
         if (!definite && !motion) continue;
@@ -100,6 +103,8 @@ class ErrorDetectors {
       }
     }
   }
+
+  static const _seinForms = {'bin', 'bist', 'ist', 'sind', 'seid', 'war', 'warst', 'waren', 'wart'};
 
   static const _objectWords = {'den', 'das', 'ihn', 'es', 'mein', 'meinen', 'dein', 'deinen', 'sein', 'seinen', 'ihr', 'ihren', 'mich', 'dich', 'uns', 'euch'};
   static bool _hasLikelyObject(List<String> between) => between.any(_objectWords.contains);

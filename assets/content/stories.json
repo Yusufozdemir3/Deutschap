@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.8",
+  "version": "2026.10.9",
   "stories": [
     {
       "id": "neu_in_berlin",
@@ -64,6 +64,22 @@
           "name": "Frau Albrecht",
           "role_tr": "Café Kastanie'nin sahibi, Albrecht Bey'in kızı",
           "formal": true
+        },
+        {
+          "id": "kunde",
+          "name": "Ein Gast",
+          "role_tr": "Café Kastanie'de sabırsız bir müşteri",
+          "formal": true
+        },
+        {
+          "id": "jonas",
+          "name": "Jonas",
+          "role_tr": "Oda için aday, müzik öğrencisi"
+        },
+        {
+          "id": "aylin",
+          "name": "Aylin",
+          "role_tr": "Oda için aday, hemşire (Kölnlü)"
         }
       ],
       "episodes": [
@@ -3989,7 +4005,951 @@
               "explain_tr": "Konjunktiv II (würde gern) isteği yumuşatır."
             }
           ],
-          "teaser_tr": "Yeni bir iş, yeni bir oda, yeni bir hayat. İkinci sezonun devamı hazırlanıyor."
+          "teaser_tr": "Yeni bir iş, yeni bir oda, yeni bir hayat. İkinci sezon B1 düzeyinde devam ediyor (11. bölüm)."
+        },
+        {
+          "id": "nib_e11_b1",
+          "number": 11,
+          "level": "B1",
+          "title": "Der erste Arbeitstag",
+          "title_tr": "İlk iş günü",
+          "narrative_tr": "Café Kastanie'de ilk günün: makineyi tanı, sütü köpürt, şikâyet eden bir müşteriyle başa çık.",
+          "objective_tr": "Relativsatz (die Maschine, die …; der Cappuccino, den …), Präsens Passiv (wird erhitzt) ve şikâyete kibar cevap.",
+          "minutes": 10,
+          "start": "n1",
+          "nodes": [
+            {
+              "id": "n1",
+              "type": "narration",
+              "de": "Montag, kurz vor sieben. Die Straße ist noch leer, als du vor der grünen Tür des Café Kastanie stehst. Can öffnet dir mit einem breiten Lächeln.",
+              "tr": "Pazartesi, saat yediye doğru. Café Kastanie'nin yeşil kapısının önünde durduğunda sokak henüz boş. Can sana kocaman bir gülümsemeyle kapıyı açıyor.",
+              "next": "n2"
+            },
+            {
+              "id": "n2",
+              "type": "line",
+              "speaker": "can",
+              "de": "Willkommen im Team! Komm rein, ich zeige dir alles, was du heute wissen musst.",
+              "tr": "Ekibe hoş geldin! Gir içeri, bugün bilmen gereken her şeyi göstereyim.",
+              "next": "n3",
+              "gloss_tr": "alles, was … = … olan her şey (was ile Relativsatz, fiil sonda)."
+            },
+            {
+              "id": "n3",
+              "type": "line",
+              "speaker": "can",
+              "de": "Das ist die Kaffeemaschine, die älter ist als ich. Sie heißt Bertha, und sie mag keine Eile.",
+              "tr": "Bu, benden daha yaşlı olan kahve makinesi. Adı Bertha ve aceleyi sevmez.",
+              "next": "n4",
+              "gloss_tr": "die Maschine, die älter ist = daha yaşlı olan makine (Relativsatz: die + fiil sonda)."
+            },
+            {
+              "id": "n4",
+              "type": "choice",
+              "prompt_tr": "Can'a ne sorarsın?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Und wie wird hier der Milchschaum gemacht?",
+                  "tr": "Peki burada süt köpüğü nasıl yapılıyor?",
+                  "verdict": "best",
+                  "feedback_tr": "Passiv: wird … gemacht = yapılıyor. Kimin yaptığı değil, işin kendisi önemli.",
+                  "next": "n5"
+                },
+                {
+                  "id": "b",
+                  "de": "Gibt es etwas, worauf ich besonders achten muss?",
+                  "tr": "Özellikle dikkat etmem gereken bir şey var mı?",
+                  "verdict": "best",
+                  "feedback_tr": "worauf = auf + was; achten auf: edatlı fiil. B1'de çok doğal bir soru.",
+                  "next": "n5"
+                },
+                {
+                  "id": "c",
+                  "de": "Wie macht man der Milchschaum?",
+                  "tr": "(artikel hatası)",
+                  "verdict": "wrong",
+                  "feedback_tr": "machen nesne ister: den Milchschaum (der Schaum erkek isim, Akkusativ'de 'den'). Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n5",
+              "type": "line",
+              "speaker": "can",
+              "de": "Die Milch wird zuerst kalt ins Kännchen gegossen, dann wird sie langsam erhitzt. Nie kochen lassen!",
+              "tr": "Süt önce soğuk olarak küçük süt potuna dökülür, sonra yavaşça ısıtılır. Asla kaynatma!",
+              "next": "n6",
+              "gloss_tr": "wird gegossen / wird erhitzt = dökülür / ısıtılır (Präsens Passiv: werden + Partizip II)."
+            },
+            {
+              "id": "n6",
+              "type": "narration",
+              "de": "Um acht kommen die ersten Gäste. Die meisten bestellen schnell, trinken ihren Kaffee im Stehen und gehen wieder.",
+              "tr": "Saat sekizde ilk misafirler geliyor. Çoğu hızlıca sipariş veriyor, kahvesini ayakta içiyor ve gidiyor.",
+              "next": "n7"
+            },
+            {
+              "id": "n7",
+              "type": "narration",
+              "de": "Gegen zehn setzt sich ein Mann ans Fenster. Er sieht unzufrieden aus, und nach ein paar Minuten ruft er dich ungeduldig zu sich.",
+              "tr": "Saat ona doğru bir adam pencere kenarına oturuyor. Memnuniyetsiz görünüyor ve birkaç dakika sonra sabırsızca seni yanına çağırıyor.",
+              "next": "n8"
+            },
+            {
+              "id": "n8",
+              "type": "line",
+              "speaker": "kunde",
+              "de": "Entschuldigung, aber der Cappuccino, den ich bestellt habe, ist kalt. Und ich warte schon seit einer Viertelstunde auf meinen Kuchen.",
+              "tr": "Pardon ama sipariş ettiğim kapuçino soğuk. Ve çeyrek saattir pastamı bekliyorum.",
+              "next": "n9",
+              "gloss_tr": "der Cappuccino, den ich bestellt habe = sipariş ettiğim kapuçino (Relativsatz, Akkusativ: den)."
+            },
+            {
+              "id": "n9",
+              "type": "choice",
+              "prompt_tr": "Müşteriye nasıl cevap verirsin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Das tut mir leid. Ich bringe Ihnen sofort einen neuen Cappuccino, und der Kuchen kommt gleich.",
+                  "tr": "Çok üzgünüm. Size hemen yeni bir kapuçino getiriyorum, pasta da birazdan geliyor.",
+                  "verdict": "best",
+                  "feedback_tr": "Önce özür, sonra çözüm: şikâyette en iyi sıra. Müşteriye 'Sie' ile hitap.",
+                  "next": "n10"
+                },
+                {
+                  "id": "b",
+                  "de": "Das kann nicht sein, die Maschine funktioniert gut.",
+                  "tr": "Olamaz, makine iyi çalışıyor.",
+                  "verdict": "ok",
+                  "feedback_tr": "Dil bilgisi doğru ama müşteriyle tartışmak durumu kötüleştirir. Önce 'Das tut mir leid' de.",
+                  "next": "n10",
+                  "flags": [
+                    "streit"
+                  ]
+                },
+                {
+                  "id": "c",
+                  "de": "Entschuldigung, ich bringe dir einen neuen.",
+                  "tr": "(hitap hatası)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Tanımadığın bir müşteriye 'du' denmez: 'Ich bringe Ihnen einen neuen.' Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n10",
+              "type": "branch",
+              "cases": [
+                {
+                  "flag": "streit",
+                  "next": "n10a"
+                }
+              ],
+              "else": "n11"
+            },
+            {
+              "id": "n10a",
+              "type": "line",
+              "speaker": "kunde",
+              "de": "Wie bitte? Dann möchte ich mit der Chefin sprechen.",
+              "tr": "Efendim? O zaman şefle konuşmak istiyorum.",
+              "next": "n10b"
+            },
+            {
+              "id": "n10b",
+              "type": "line",
+              "speaker": "frau_albrecht",
+              "de": "Es tut mir sehr leid, dass Sie warten mussten. Der Kaffee geht heute aufs Haus.",
+              "tr": "Beklemek zorunda kaldığınız için çok üzgünüm. Kahve bugün bizden.",
+              "next": "n11",
+              "gloss_tr": "aufs Haus = işletmenin ikramı."
+            },
+            {
+              "id": "n11",
+              "type": "narration",
+              "de": "Zehn Minuten später stehen vor dem Mann ein heißer Cappuccino und ein Stück Apfelkuchen, das größer ist als sonst.",
+              "tr": "On dakika sonra adamın önünde sıcak bir kapuçino ve her zamankinden büyük bir dilim elmalı pasta duruyor.",
+              "next": "n12"
+            },
+            {
+              "id": "n12",
+              "type": "line",
+              "speaker": "kunde",
+              "de": "Na also, jetzt bin ich zufrieden. Der Kuchen, der hier gebacken wird, ist wirklich der beste im Viertel.",
+              "tr": "İşte böyle, şimdi memnunum. Burada pişirilen pasta gerçekten mahallenin en iyisi.",
+              "next": "n13",
+              "gloss_tr": "der Kuchen, der hier gebacken wird = burada pişirilen pasta (Relativsatz + Passiv)."
+            },
+            {
+              "id": "n13",
+              "type": "narration",
+              "de": "Nach Feierabend sitzt du mit Frau Albrecht und Can an dem Tisch, an dem Friedrich früher jeden Mittwoch gewartet hat.",
+              "tr": "Mesai bitince Albrecht Hanım ve Can'la, Friedrich'in eskiden her çarşamba beklediği masada oturuyorsun.",
+              "next": "n14"
+            },
+            {
+              "id": "n14",
+              "type": "line",
+              "speaker": "frau_albrecht",
+              "de": "Für den ersten Tag war das sehr gut, auch mit der Beschwerde am Fenster. Was hat Ihnen heute am besten gefallen?",
+              "tr": "İlk gün için çok iyiydi, pencere kenarındaki şikâyetle de. Bugün en çok ne hoşunuza gitti?",
+              "next": "n15"
+            },
+            {
+              "id": "n15",
+              "type": "choice",
+              "prompt_tr": "Ne dersin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Mir hat gefallen, dass die Gäste hier so persönlich behandelt werden.",
+                  "tr": "Misafirlere burada bu kadar kişisel davranılması hoşuma gitti.",
+                  "verdict": "best",
+                  "feedback_tr": "dass … behandelt werden: yan cümlede Passiv; çekimli 'werden' en sonda.",
+                  "next": "n16"
+                },
+                {
+                  "id": "b",
+                  "de": "Die Arbeit mit Bertha! Obwohl sie langsam ist, macht sie den besten Kaffee.",
+                  "tr": "Bertha ile çalışmak! Yavaş olmasına rağmen en iyi kahveyi o yapıyor.",
+                  "verdict": "best",
+                  "feedback_tr": "obwohl + fiil sonda; ana cümlede fiil hemen başta gelir: macht sie.",
+                  "next": "n16"
+                },
+                {
+                  "id": "c",
+                  "de": "Mir hat gefallen, dass die Gäste werden so persönlich behandelt.",
+                  "tr": "(fiil yanlış yerde)",
+                  "verdict": "wrong",
+                  "feedback_tr": "dass'lı cümlede çekimli fiil sona gider: '… persönlich behandelt werden.' Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n16",
+              "type": "line",
+              "speaker": "can",
+              "de": "Und morgen zeige ich dir das Rezept, nach dem alle fragen.",
+              "tr": "Yarın da sana herkesin sorduğu tarifi göstereceğim.",
+              "next": "n17",
+              "gloss_tr": "nach dem = (fragen nach + Dativ) … sorduğu (edatlı Relativsatz)."
+            },
+            {
+              "id": "n17",
+              "type": "narration",
+              "de": "Als du nach Hause kommst, sitzt Lina zwischen Umzugskartons. Bald beginnt die Suche nach jemandem, der ihr Zimmer übernimmt.",
+              "tr": "Eve geldiğinde Lina taşınma kolilerinin arasında oturuyor. Yakında onun odasını devralacak birini arama başlıyor.",
+              "next": "end"
+            },
+            {
+              "id": "end",
+              "type": "end"
+            }
+          ],
+          "recap_tr": "Café Kastanie'deki ilk iş gününde Can sana kahve makinesi Bertha'yı ve süt köpüğünün nasıl yapıldığını gösterdi. Şikâyet eden bir müşteriye önce özür dileyip sonra çözüm sundun. Akşam Lina koli topluyordu: Odasına kim taşınacak?",
+          "vocab": [
+            "beschwerde",
+            "unzufrieden",
+            "zufrieden",
+            "team",
+            "kuchen"
+          ],
+          "grammar": [
+            {
+              "title_tr": "Relativsatz: der/die/das, den …",
+              "body_tr": "Bir ismi yan cümleyle açıklar; zamir ismin cinsine, hâli yan cümledeki görevine göre seçilir. Fiil sonda.",
+              "example_de": "Der Cappuccino, den ich bestellt habe, ist kalt.",
+              "concept": "g_relativsatz"
+            },
+            {
+              "title_tr": "Passiv: wird erhitzt",
+              "body_tr": "İşi kimin yaptığı önemli değilse: werden + Partizip II. Tarifler ve iş adımları için çok yaygın.",
+              "example_de": "Die Milch wird langsam erhitzt.",
+              "concept": "g_passiv"
+            },
+            {
+              "title_tr": "obwohl: -mesine rağmen",
+              "body_tr": "obwohl yan cümle başlatır, fiil sona gider. Yan cümle öndeyse ana cümle fiille başlar.",
+              "example_de": "Obwohl sie langsam ist, macht sie den besten Kaffee.",
+              "concept": "g_nebensatz2"
+            }
+          ],
+          "quiz": [
+            {
+              "id": "q1",
+              "question_tr": "Kahve makinesinin adı ne?",
+              "options": [
+                "Bertha",
+                "Marlene",
+                "Kastanie"
+              ],
+              "answer": 0,
+              "explain_tr": "\"Sie heißt Bertha\""
+            },
+            {
+              "id": "q2",
+              "question_tr": "Müşteri neden şikâyet ediyor?",
+              "options": [
+                "Kapuçino soğuk ve pasta gecikti",
+                "Kahve çok pahalı",
+                "Masası kirli"
+              ],
+              "answer": 0,
+              "explain_tr": "\"der Cappuccino … ist kalt … ich warte schon seit einer Viertelstunde\""
+            },
+            {
+              "id": "q3",
+              "question_tr": "\"Die Milch wird erhitzt\" ne demek?",
+              "options": [
+                "Süt ısıtılır.",
+                "Süt ısıtacak.",
+                "Sütü ısıttı."
+              ],
+              "answer": 0,
+              "explain_tr": "werden + Partizip II = Passiv."
+            }
+          ],
+          "teaser_tr": "Lina'nın odası için ilk adaylar geliyor. Herkesin farklı bir fikri var…"
+        },
+        {
+          "id": "nib_e12_b1",
+          "number": 12,
+          "level": "B1",
+          "title": "Wer zieht ein?",
+          "title_tr": "Kim taşınıyor?",
+          "narrative_tr": "Lina'nın odası için adaylarla tanış, fikrini gerekçelendir ve yeni ev arkadaşını seç.",
+          "objective_tr": "Fikir bildirmek (meiner Meinung nach, einerseits … andererseits), obwohl/trotzdem, Plusquamperfekt ve sich entscheiden für.",
+          "minutes": 10,
+          "start": "n1",
+          "nodes": [
+            {
+              "id": "n1",
+              "type": "narration",
+              "de": "Am Samstag stellt Lina eine Anzeige ins Internet: »Helles WG-Zimmer, 14 m², ab Oktober frei.« Nach einem Tag haben schon dreißig Leute geschrieben.",
+              "tr": "Cumartesi Lina internete bir ilan koyuyor: \"Aydınlık paylaşımlı ev odası, 14 m², ekimden itibaren boş.\" Bir günde otuz kişi yazmış bile.",
+              "next": "n2"
+            },
+            {
+              "id": "n2",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Dreißig! Wir können nicht alle einladen. Wir müssen uns für drei entscheiden.",
+              "tr": "Otuz! Hepsini davet edemeyiz. Üç kişi seçmemiz lazım.",
+              "next": "n3",
+              "gloss_tr": "sich entscheiden für + Akkusativ = … seçmek, … için karar vermek."
+            },
+            {
+              "id": "n3",
+              "type": "choice",
+              "prompt_tr": "Neye göre seçersiniz?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Meiner Meinung nach ist es am wichtigsten, dass wir uns gut verstehen.",
+                  "tr": "Bence en önemlisi birbirimizle iyi anlaşmamız.",
+                  "verdict": "best",
+                  "feedback_tr": "Meiner Meinung nach birinci konumu doldurur, fiil hemen ardından gelir (ist). dass'lı cümlede fiil sonda.",
+                  "next": "n4"
+                },
+                {
+                  "id": "b",
+                  "de": "Einerseits ist die Miete wichtig, andererseits soll die Person auch ordentlich sein.",
+                  "tr": "Bir yandan kira önemli, öte yandan kişinin düzenli olması da gerekiyor.",
+                  "verdict": "best",
+                  "feedback_tr": "einerseits … andererseits: iki tarafı tartmak. İkisinden sonra da fiil gelir.",
+                  "next": "n4"
+                },
+                {
+                  "id": "c",
+                  "de": "Meiner Meinung nach es ist wichtig, dass wir verstehen uns gut.",
+                  "tr": "(iki sıralama hatası)",
+                  "verdict": "wrong",
+                  "feedback_tr": "'Meiner Meinung nach ist es …' (fiil ikinci) ve '… dass wir uns gut verstehen' (fiil sonda). Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n4",
+              "type": "narration",
+              "de": "Am Sonntagnachmittag klingelt es zum ersten Mal. Vor der Tür steht Jonas, ein Student mit einer Gitarre auf dem Rücken.",
+              "tr": "Pazar öğleden sonra zil ilk kez çalıyor. Kapıda sırtında gitarı olan bir öğrenci, Jonas duruyor.",
+              "next": "n5"
+            },
+            {
+              "id": "n5",
+              "type": "line",
+              "speaker": "jonas",
+              "de": "Hallo! Ich studiere Musik und übe jeden Tag ungefähr drei Stunden. Ist das ein Problem?",
+              "tr": "Merhaba! Müzik okuyorum ve her gün yaklaşık üç saat çalışıyorum. Bu bir sorun mu?",
+              "next": "n6"
+            },
+            {
+              "id": "n6",
+              "type": "choice",
+              "prompt_tr": "Jonas'a ne dersin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Das kommt darauf an, wann du übst. Abends nach zehn wäre es schwierig, weil sich die Nachbarn sonst beschweren.",
+                  "tr": "Ne zaman çalıştığına bağlı. Akşam ondan sonra zor olur, çünkü yoksa komşular şikâyet eder.",
+                  "verdict": "best",
+                  "feedback_tr": "Es kommt darauf an = … bağlı. wäre (Konjunktiv II) yumuşak bir 'olmaz'. sich beschweren dönüşlü.",
+                  "next": "n7"
+                },
+                {
+                  "id": "b",
+                  "de": "Drei Stunden? Das ist zu viel. Tschüss.",
+                  "tr": "Üç saat mi? Bu çok fazla. Hoşça kal.",
+                  "verdict": "ok",
+                  "feedback_tr": "Dil bilgisi doğru ama çok sert; adayı dinlemeden reddetmek kaba. Önce sor: 'Wann übst du denn?'",
+                  "next": "n7",
+                  "flags": [
+                    "streng"
+                  ]
+                },
+                {
+                  "id": "c",
+                  "de": "Das kommt darauf an, wann übst du.",
+                  "tr": "(dolaylı soru hatası)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Dolaylı soruda fiil sona gider: '…, wann du übst.' Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n7",
+              "type": "branch",
+              "cases": [
+                {
+                  "flag": "streng",
+                  "next": "n7a"
+                }
+              ],
+              "else": "n8"
+            },
+            {
+              "id": "n7a",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Hey, sei nicht so streng! Lass ihn doch erst mal erzählen.",
+              "tr": "Hey, bu kadar katı olma! Bırak önce bir anlatsın.",
+              "next": "n8"
+            },
+            {
+              "id": "n8",
+              "type": "line",
+              "speaker": "jonas",
+              "de": "Meistens übe ich nachmittags an der Uni. Zu Hause spiele ich nur leise, versprochen.",
+              "tr": "Çoğunlukla öğleden sonra üniversitede çalışıyorum. Evde sadece sessizce çalarım, söz.",
+              "next": "n9"
+            },
+            {
+              "id": "n9",
+              "type": "narration",
+              "de": "Eine Stunde später kommt Aylin. Sie ist Krankenpflegerin, arbeitet oft nachts und sieht ein bisschen müde aus.",
+              "tr": "Bir saat sonra Aylin geliyor. Hemşire, sık sık gece çalışıyor ve biraz yorgun görünüyor.",
+              "next": "n10"
+            },
+            {
+              "id": "n10",
+              "type": "line",
+              "speaker": "aylin",
+              "de": "Ich bin in Köln geboren, meine Eltern kommen aus Izmir. Nachdem ich zwei Jahre in einem Wohnheim gewohnt hatte, wollte ich endlich in eine richtige WG.",
+              "tr": "Köln'de doğdum, ailem İzmirli. İki yıl bir yurtta kaldıktan sonra artık gerçek bir paylaşımlı eve geçmek istedim.",
+              "next": "n11",
+              "gloss_tr": "Nachdem ich … gewohnt hatte = … kaldıktan sonra (Plusquamperfekt: daha önceki geçmiş)."
+            },
+            {
+              "id": "n11",
+              "type": "choice",
+              "prompt_tr": "Aylin'e ne sorarsın?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Wenn du nachts arbeitest, schläfst du dann tagsüber? Dann wären wir natürlich leise.",
+                  "tr": "Gece çalışıyorsan gündüz mü uyuyorsun? O zaman tabii ki sessiz oluruz.",
+                  "verdict": "best",
+                  "feedback_tr": "wenn + fiil sonda; wären (Konjunktiv II) kibar bir teklif.",
+                  "next": "n12"
+                },
+                {
+                  "id": "b",
+                  "de": "Wie stellst du dir das Zusammenleben vor? Kochst du gern?",
+                  "tr": "Birlikte yaşamayı nasıl hayal ediyorsun? Yemek yapmayı sever misin?",
+                  "verdict": "best",
+                  "feedback_tr": "sich etwas vorstellen = bir şeyi hayal etmek; ayrılabilen fiil: stellst … vor.",
+                  "next": "n12"
+                },
+                {
+                  "id": "c",
+                  "de": "Wo hast du vorher gewohnen?",
+                  "tr": "(Partizip hatası)",
+                  "verdict": "wrong",
+                  "feedback_tr": "wohnen düzenli fiildir: gewohnt. 'Wo hast du vorher gewohnt?' Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n12",
+              "type": "line",
+              "speaker": "aylin",
+              "de": "Ich koche sehr gern, vor allem für andere. Und nach dem Nachtdienst schlafe ich wie ein Stein, ihr merkt mich gar nicht.",
+              "tr": "Yemek yapmayı çok severim, özellikle başkaları için. Gece nöbetinden sonra da taş gibi uyurum, beni fark etmezsiniz bile.",
+              "next": "n13"
+            },
+            {
+              "id": "n13",
+              "type": "narration",
+              "de": "Der dritte Kandidat sagt in letzter Minute ab. Am Abend sitzt ihr zwischen den Kartons in der Küche und vergleicht Jonas und Aylin.",
+              "tr": "Üçüncü aday son dakikada iptal ediyor. Akşam mutfakta kolilerin arasında oturup Jonas ile Aylin'i karşılaştırıyorsunuz.",
+              "next": "n14"
+            },
+            {
+              "id": "n14",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Am Ende ist es dein Zuhause, nicht mehr meins. Für wen entscheidest du dich?",
+              "tr": "Sonuçta burası senin evin, artık benim değil. Kimi seçiyorsun?",
+              "next": "n15",
+              "gloss_tr": "Für wen …? = Kimi …? (sich entscheiden für + Akkusativ)."
+            },
+            {
+              "id": "n15",
+              "type": "choice",
+              "prompt_tr": "Kararın:",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Ich entscheide mich für Aylin. Obwohl sie oft nachts arbeitet, passt sie gut zu uns.",
+                  "tr": "Aylin'i seçiyorum. Sık sık gece çalışmasına rağmen bize çok uyuyor.",
+                  "verdict": "best",
+                  "feedback_tr": "sich entscheiden für + Akkusativ; obwohl + fiil sonda.",
+                  "next": "n16"
+                },
+                {
+                  "id": "b",
+                  "de": "Ich entscheide mich für Jonas. Er ist zwar manchmal laut, trotzdem finde ich ihn sehr sympathisch.",
+                  "tr": "Jonas'ı seçiyorum. Gerçi bazen gürültülü, yine de onu çok sempatik buluyorum.",
+                  "verdict": "best",
+                  "feedback_tr": "zwar … trotzdem: kabul + yine de. trotzdem'den sonra fiil gelir: trotzdem finde ich.",
+                  "next": "n16",
+                  "flags": [
+                    "jonas"
+                  ]
+                },
+                {
+                  "id": "c",
+                  "de": "Ich entscheide mir für Aylin.",
+                  "tr": "(dönüşlü zamir hatası)",
+                  "verdict": "wrong",
+                  "feedback_tr": "sich entscheiden Akkusativ ister: ich entscheide mich. Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n16",
+              "type": "branch",
+              "cases": [
+                {
+                  "flag": "jonas",
+                  "next": "n17j"
+                }
+              ],
+              "else": "n17a"
+            },
+            {
+              "id": "n17a",
+              "type": "line",
+              "speaker": "aylin",
+              "de": "Wirklich? Das ist ja toll! Dann koche ich am ersten Abend für euch alle – auch für Lina, bevor sie geht.",
+              "tr": "Gerçekten mi? Bu harika! O zaman ilk akşam hepiniz için yemek yaparım, Lina gitmeden önce onun için de.",
+              "next": "n18"
+            },
+            {
+              "id": "n17j",
+              "type": "line",
+              "speaker": "jonas",
+              "de": "Echt jetzt? Danke! Zum Abschied spiele ich für Lina ein Lied, ganz leise.",
+              "tr": "Cidden mi? Teşekkürler! Veda için Lina'ya bir şarkı çalarım, çok sessizce.",
+              "next": "n18"
+            },
+            {
+              "id": "n18",
+              "type": "narration",
+              "de": "Eine Woche später tragt ihr den letzten Karton zum Transporter. Linas Zimmer, in dem so viele Pläne gezeichnet wurden, ist jetzt leer – aber nicht lange.",
+              "tr": "Bir hafta sonra son koliyi minibüse taşıyorsunuz. İçinde onca planın çizildiği Lina'nın odası şimdi boş, ama uzun sürmeyecek.",
+              "next": "n19"
+            },
+            {
+              "id": "n19",
+              "type": "line",
+              "speaker": "lina",
+              "de": "Versprich mir, dass du mich in Leipzig besuchst! Und grüß Herrn Albrecht von mir.",
+              "tr": "Beni Leipzig'de ziyaret edeceğine söz ver! Ve Albrecht Bey'e benden selam söyle.",
+              "next": "end"
+            },
+            {
+              "id": "end",
+              "type": "end"
+            }
+          ],
+          "recap_tr": "Lina'nın odası için ilan verdiniz, Jonas ve Aylin'le tanıştınız. Fikrini 'meiner Meinung nach', 'einerseits … andererseits' ve 'obwohl' ile gerekçelendirdin ve yeni ev arkadaşını seçtin. Lina Leipzig'e taşındı.",
+          "vocab": [
+            "entscheiden",
+            "meiner_meinung_nach",
+            "einerseits",
+            "obwohl",
+            "trotzdem",
+            "vergleichen"
+          ],
+          "grammar": [
+            {
+              "title_tr": "Fikir bildirmek",
+              "body_tr": "meiner Meinung nach (+ fiil), einerseits … andererseits: iki tarafı tartıp karar vermek için.",
+              "example_de": "Einerseits ist die Miete wichtig, andererseits soll die Person ordentlich sein.",
+              "concept": "g_meinung"
+            },
+            {
+              "title_tr": "Plusquamperfekt: hatte gewohnt",
+              "body_tr": "Geçmişteki bir olaydan daha önce olan için hatte/war + Partizip II; nachdem ile sık kullanılır.",
+              "example_de": "Nachdem ich zwei Jahre im Wohnheim gewohnt hatte, wollte ich in eine WG.",
+              "concept": "g_plusquam"
+            },
+            {
+              "title_tr": "obwohl ve trotzdem",
+              "body_tr": "obwohl yan cümle (fiil sonda); trotzdem ana cümlede zarf (hemen ardından fiil). Anlam aynı yöne gider.",
+              "example_de": "Er ist manchmal laut, trotzdem finde ich ihn sympathisch.",
+              "concept": "g_nebensatz2"
+            }
+          ],
+          "quiz": [
+            {
+              "id": "q1",
+              "question_tr": "Jonas ne okuyor?",
+              "options": [
+                "Müzik",
+                "Mimarlık",
+                "Tıp"
+              ],
+              "answer": 0,
+              "explain_tr": "\"Ich studiere Musik\""
+            },
+            {
+              "id": "q2",
+              "question_tr": "Aylin daha önce nerede kalıyordu?",
+              "options": [
+                "Bir yurtta",
+                "Leipzig'de",
+                "İzmir'de ailesinin yanında"
+              ],
+              "answer": 0,
+              "explain_tr": "\"in einem Wohnheim gewohnt hatte\""
+            },
+            {
+              "id": "q3",
+              "question_tr": "\"Nachdem ich gewohnt hatte\" hangi zaman?",
+              "options": [
+                "Plusquamperfekt",
+                "Perfekt",
+                "Futur"
+              ],
+              "answer": 0,
+              "explain_tr": "hatte + Partizip II = Plusquamperfekt."
+            }
+          ],
+          "teaser_tr": "Albrecht Bey'in büyük bir planı var: bir sokak şenliği. Ama önce belediyeden izin lazım…"
+        },
+        {
+          "id": "nib_e13_b1",
+          "number": 13,
+          "level": "B1",
+          "title": "Das Straßenfest",
+          "title_tr": "Sokak şenliği",
+          "narrative_tr": "Albrecht Bey'le bir sokak şenliği düzenle: belediyeye resmî başvuru yaz, yağmura rağmen kutla ve eski dostlarla buluş.",
+          "objective_tr": "Edatlı fiiller (sich kümmern um, sich erinnern an), wegen/trotz + Genitiv, resmî başvuru ve geçmişte gerçek olmayan koşul (wenn … hätte …).",
+          "minutes": 10,
+          "start": "n1",
+          "nodes": [
+            {
+              "id": "n1",
+              "type": "narration",
+              "de": "Ein Sonntag im September. Herr Albrecht klopft an deine Tür, in der Hand eine alte Mappe voller Fotos.",
+              "tr": "Eylülde bir pazar. Albrecht Bey elinde fotoğraflarla dolu eski bir dosyayla kapını çalıyor.",
+              "next": "n2"
+            },
+            {
+              "id": "n2",
+              "type": "line",
+              "speaker": "albrecht",
+              "de": "Sehen Sie, das war unser Straßenfest 1985. Damals hat die ganze Straße zusammen gefeiert. Wenn wir das doch noch einmal machen könnten!",
+              "tr": "Bakın, bu 1985'teki sokak şenliğimizdi. O zamanlar bütün sokak birlikte kutlamıştı. Keşke bunu bir kez daha yapabilsek!",
+              "next": "n3",
+              "gloss_tr": "Wenn wir … könnten! = Keşke … yapabilsek! (gerçek olmayan dilek, Konjunktiv II)."
+            },
+            {
+              "id": "n3",
+              "type": "choice",
+              "prompt_tr": "Ne dersin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Warum eigentlich nicht? Ich kümmere mich gern um die Organisation.",
+                  "tr": "Neden olmasın? Organizasyonla seve seve ben ilgilenirim.",
+                  "verdict": "best",
+                  "feedback_tr": "sich kümmern um + Akkusativ = … ile ilgilenmek.",
+                  "next": "n4"
+                },
+                {
+                  "id": "b",
+                  "de": "Das wäre schön! Aber dürfen wir einfach so auf der Straße feiern?",
+                  "tr": "Bu güzel olurdu! Ama sokakta öylece kutlama yapabilir miyiz?",
+                  "verdict": "best",
+                  "feedback_tr": "wäre = Konjunktiv II; dürfen = izinli olmak. Doğru ve önemli bir soru.",
+                  "next": "n4"
+                },
+                {
+                  "id": "c",
+                  "de": "Ich kümmere mich gern für die Organisation.",
+                  "tr": "(edat hatası)",
+                  "verdict": "wrong",
+                  "feedback_tr": "sich kümmern um, 'für' değil: 'Ich kümmere mich um die Organisation.' Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n4",
+              "type": "line",
+              "speaker": "albrecht",
+              "de": "Für eine Veranstaltung auf der Straße braucht man eine Genehmigung vom Bezirksamt. Ohne sie geht es leider nicht.",
+              "tr": "Sokakta bir etkinlik için ilçe belediyesinden izin gerekir. O olmadan maalesef olmaz.",
+              "next": "n5",
+              "gloss_tr": "die Genehmigung = (resmî) izin."
+            },
+            {
+              "id": "n5",
+              "type": "narration",
+              "de": "Am Abend schreibst du die E-Mail an das Bezirksamt. Herr Albrecht sitzt neben dir und liest mit.",
+              "tr": "Akşam ilçe belediyesine e-postayı yazıyorsun. Albrecht Bey yanında oturup okuyor.",
+              "next": "n6"
+            },
+            {
+              "id": "n6",
+              "type": "choice",
+              "prompt_tr": "E-postanın ilk cümlesi:",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Sehr geehrte Damen und Herren, hiermit beantragen wir eine Genehmigung für ein Straßenfest am 12. Oktober.",
+                  "tr": "Sayın yetkililer, 12 Ekim'deki bir sokak şenliği için izin başvurusunda bulunuyoruz.",
+                  "verdict": "best",
+                  "feedback_tr": "Resmî açılış + 'hiermit beantragen wir': dilekçe dili.",
+                  "next": "n7"
+                },
+                {
+                  "id": "b",
+                  "de": "Hallo, wir wollen ein Fest machen. Geht das?",
+                  "tr": "Merhaba, bir şenlik yapmak istiyoruz. Olur mu?",
+                  "verdict": "ok",
+                  "feedback_tr": "Anlaşılır ama belediyeye fazla gündelik. 'Sehr geehrte Damen und Herren' ve 'beantragen' kullan.",
+                  "next": "n7",
+                  "flags": [
+                    "locker"
+                  ]
+                },
+                {
+                  "id": "c",
+                  "de": "Sehr geehrte Damen und Herren, hiermit beantragen wir ein Genehmigung.",
+                  "tr": "(artikel hatası)",
+                  "verdict": "wrong",
+                  "feedback_tr": "die Genehmigung dişi isimdir: Akkusativ'de 'eine Genehmigung'. Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n7",
+              "type": "branch",
+              "cases": [
+                {
+                  "flag": "locker",
+                  "next": "n7a"
+                }
+              ],
+              "else": "n8"
+            },
+            {
+              "id": "n7a",
+              "type": "line",
+              "speaker": "albrecht",
+              "de": "Hm. So schreibt man vielleicht einem Freund, aber nicht dem Amt. Formulieren wir das etwas förmlicher.",
+              "tr": "Hmm. Bir arkadaşa belki böyle yazılır ama resmî daireye değil. Bunu biraz daha resmî yazalım.",
+              "next": "n8"
+            },
+            {
+              "id": "n8",
+              "type": "line",
+              "speaker": "albrecht",
+              "de": "Schreiben Sie auch, dass wir wegen des Lärms an die Nachbarn denken: Musik gibt es nur bis zweiundzwanzig Uhr.",
+              "tr": "Gürültü yüzünden komşuları da düşündüğümüzü yazın: Müzik sadece saat yirmi ikiye kadar.",
+              "next": "n9",
+              "gloss_tr": "wegen des Lärms = gürültü yüzünden (wegen + Genitiv). denken an + Akkusativ = … düşünmek."
+            },
+            {
+              "id": "n9",
+              "type": "narration",
+              "de": "Zwei Wochen später kommt die Antwort: Das Fest wird genehmigt. Die Straße wird am 12. Oktober von zehn bis zweiundzwanzig Uhr für Autos gesperrt.",
+              "tr": "İki hafta sonra cevap geliyor: Şenliğe izin veriliyor. Sokak 12 Ekim'de saat ondan yirmi ikiye kadar arabalara kapatılıyor.",
+              "next": "n10"
+            },
+            {
+              "id": "n10",
+              "type": "narration",
+              "de": "Am Tag des Festes regnet es am Morgen. Trotz des Regens bauen alle Nachbarn Tische auf, Can bringt Kaffee, und Frau Weber verkauft Kuchen.",
+              "tr": "Şenlik günü sabah yağmur yağıyor. Yağmura rağmen bütün komşular masaları kuruyor, Can kahve getiriyor, Frau Weber de pasta satıyor.",
+              "next": "n11"
+            },
+            {
+              "id": "n11",
+              "type": "narration",
+              "de": "Am Nachmittag hält ein Taxi an der Ecke. Zwei Menschen steigen aus, die du sofort erkennst: Marlene und Friedrich.",
+              "tr": "Öğleden sonra köşede bir taksi duruyor. Hemen tanıdığın iki kişi iniyor: Marlene ve Friedrich.",
+              "next": "n12"
+            },
+            {
+              "id": "n12",
+              "type": "line",
+              "speaker": "marlene",
+              "de": "Herr Albrecht hat uns geschrieben. Ein Fest in dieser Straße – da konnten wir nicht in Hamburg bleiben!",
+              "tr": "Albrecht Bey bize yazdı. Bu sokakta bir şenlik varken Hamburg'da kalamazdık!",
+              "next": "n13"
+            },
+            {
+              "id": "n13",
+              "type": "line",
+              "speaker": "friedrich",
+              "de": "Wissen Sie, wenn Sie die Postkarte damals nicht gefunden hätten, hätten wir uns nie wiedergesehen.",
+              "tr": "Biliyor musunuz, o zaman kartpostalı bulmasaydınız birbirimizi bir daha asla görmeyecektik.",
+              "next": "n14",
+              "gloss_tr": "wenn … nicht gefunden hätten, hätten wir … = … bulmasaydınız, … -mezdik (geçmişte gerçek olmayan koşul)."
+            },
+            {
+              "id": "n14",
+              "type": "choice",
+              "prompt_tr": "Friedrich'e ne dersin?",
+              "choices": [
+                {
+                  "id": "a",
+                  "de": "Und wenn Lina mir nicht geholfen hätte, hätte ich Sie nie gefunden.",
+                  "tr": "Lina bana yardım etmeseydi ben de sizi asla bulamazdım.",
+                  "verdict": "best",
+                  "feedback_tr": "Geçmişte gerçek olmayan koşul: wenn … hätte + Partizip II, hätte … + Partizip II.",
+                  "next": "n15"
+                },
+                {
+                  "id": "b",
+                  "de": "Ich bin froh, dass ich genau in dieses Zimmer gezogen bin.",
+                  "tr": "Tam da bu odaya taşındığım için mutluyum.",
+                  "verdict": "best",
+                  "feedback_tr": "froh, dass …: yan cümlede Perfekt, 'bin' sonda (ziehen → ist gezogen).",
+                  "next": "n15"
+                },
+                {
+                  "id": "c",
+                  "de": "Wenn ich die Karte nicht gefunden habe, hätten wir uns nicht kennengelernt.",
+                  "tr": "(kip hatası)",
+                  "verdict": "wrong",
+                  "feedback_tr": "Gerçek olmayan geçmişte iki tarafta da Konjunktiv II: 'Wenn ich die Karte nicht gefunden hätte, …'. Tekrar dene."
+                }
+              ]
+            },
+            {
+              "id": "n15",
+              "type": "narration",
+              "de": "Am Abend spielt jemand Gitarre, Kinder tanzen auf der Straße, und Herr Albrecht macht ein neues Foto für seine Mappe: die ganze Nachbarschaft auf einem Bild.",
+              "tr": "Akşam biri gitar çalıyor, çocuklar sokakta dans ediyor ve Albrecht Bey dosyası için yeni bir fotoğraf çekiyor: bütün mahalle tek karede.",
+              "next": "n16"
+            },
+            {
+              "id": "n16",
+              "type": "line",
+              "speaker": "albrecht",
+              "de": "Vierzig Jahre später – und die Straße feiert wieder zusammen. Danke, dass Sie das alles organisiert haben.",
+              "tr": "Kırk yıl sonra sokak yeniden birlikte kutluyor. Bütün bunları düzenlediğiniz için teşekkürler.",
+              "next": "end"
+            },
+            {
+              "id": "end",
+              "type": "end"
+            }
+          ],
+          "recap_tr": "Albrecht Bey'in 1985'teki sokak şenliği fotoğraflarıyla başladı: Organizasyonu üstlendin, ilçe belediyesine resmî bir izin başvurusu yazdın ve izin geldi. Yağmura rağmen bütün sokak kutladı; Marlene ve Friedrich de Hamburg'dan geldi.",
+          "vocab": [
+            "veranstaltung",
+            "organisieren",
+            "sich_kuemmern",
+            "wegen",
+            "trotz",
+            "beantragen",
+            "laerm",
+            "nachbarschaft"
+          ],
+          "grammar": [
+            {
+              "title_tr": "Gerçek olmayan geçmiş: wenn … hätte …",
+              "body_tr": "Geçmişte olmamış bir şeyi hayal ederken iki cümlede de hätte/wäre + Partizip II.",
+              "example_de": "Wenn Sie die Postkarte nicht gefunden hätten, hätten wir uns nie wiedergesehen.",
+              "concept": "g_irreal"
+            },
+            {
+              "title_tr": "wegen / trotz + Genitiv",
+              "body_tr": "wegen (yüzünden) ve trotz (rağmen) yazı dilinde Genitiv ister: des Lärms, des Regens.",
+              "example_de": "Trotz des Regens bauen alle Nachbarn Tische auf.",
+              "concept": "g_genitiv"
+            },
+            {
+              "title_tr": "Edatlı fiiller",
+              "body_tr": "Bazı fiiller sabit bir edatla gelir: sich kümmern um, denken an, sich erinnern an (+ Akkusativ).",
+              "example_de": "Ich kümmere mich um die Organisation.",
+              "concept": "g_verb_praep"
+            }
+          ],
+          "quiz": [
+            {
+              "id": "q1",
+              "question_tr": "Albrecht Bey'in fotoğrafları hangi yıldan?",
+              "options": [
+                "1985",
+                "1984",
+                "2005"
+              ],
+              "answer": 0,
+              "explain_tr": "\"unser Straßenfest 1985\""
+            },
+            {
+              "id": "q2",
+              "question_tr": "Şenlik için ne gerekiyor?",
+              "options": [
+                "İlçe belediyesinden izin",
+                "Bir müzik grubu",
+                "Kafenin anahtarı"
+              ],
+              "answer": 0,
+              "explain_tr": "\"braucht man eine Genehmigung vom Bezirksamt\""
+            },
+            {
+              "id": "q3",
+              "question_tr": "\"Trotz des Regens\" ne demek?",
+              "options": [
+                "Yağmura rağmen",
+                "Yağmur yüzünden",
+                "Yağmurdan sonra"
+              ],
+              "answer": 0,
+              "explain_tr": "trotz = rağmen; wegen = yüzünden."
+            }
+          ],
+          "teaser_tr": "İkinci sezon devam ediyor; sonraki bölümler hazırlanıyor."
         }
       ]
     }

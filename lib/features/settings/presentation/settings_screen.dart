@@ -110,12 +110,12 @@ class SettingsScreen extends ConsumerWidget {
                   Text('Hikâyelerin dil seviyesi', style: context.text.titleSmall),
                   const SizedBox(height: 8),
                   SegmentedButton<String>(
-                    segments: const [ButtonSegment(value: 'A1', label: Text('A1')), ButtonSegment(value: 'A2', label: Text('A2'))],
+                    segments: const [ButtonSegment(value: 'A1', label: Text('A1')), ButtonSegment(value: 'A2', label: Text('A2')), ButtonSegment(value: 'B1', label: Text('B1'))],
                     selected: {profile.level},
                     onSelectionChanged: (s) => notifier.edit((p) => p.copyWith(level: s.first)),
                   ),
                   const SizedBox(height: 4),
-                  Text('Aynı hikâye, aynı karakterler: A2 sürümünde cümleler daha uzun ve doğal. Bölümlerin bir kısmı (6. bölümden sonrası) sadece A2 sürümüyle var; seviyen A1 ise ana sayfada önerilmez ama hikâye listesinden açılır.', style: context.text.bodySmall),
+                  Text('Aynı hikâye, aynı karakterler: üst seviyelerde cümleler daha uzun ve doğal. 6–10. bölümler A2, 11. bölümden sonrası (ikinci sezon) B1 düzeyinde; seviyenin üstündeki bölümler ana sayfada önerilmez ama hikâye listesinden açılır.', style: context.text.bodySmall),
                   const Divider(height: 28),
                   SwitchListTile(
                     contentPadding: EdgeInsets.zero,

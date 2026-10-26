@@ -10,6 +10,7 @@ void main() {
   test('Perfekt auxiliary is checked within one sentence', () {
     expect(detectors.check('Am Nachmittag hat es geregnet. Deshalb sind sie ins Museum gegangen.').where((i) => i.ruleId == 'perfekt_sein'), isEmpty);
     expect(detectors.check('Ich habe gestern ins Kino gegangen.').where((i) => i.ruleId == 'perfekt_sein'), isNotEmpty);
+    expect(detectors.check('Ich habe Freunde gefunden, und mein Deutsch ist besser geworden.').where((i) => i.ruleId == 'perfekt_sein'), isEmpty);
   });
 
   test('listed lower-case forms of nouns are not capitalised', () {
