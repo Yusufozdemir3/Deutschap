@@ -381,3 +381,44 @@ List<int> optionOrder(int count, String key) {
   }
   return List.generate(count, (i) => i)..shuffle(Random(seed));
 }
+
+/// Screens at least this wide show a side panel next to the main content.
+const wideLayoutWidth = 900.0;
+
+bool isWideLayout(BuildContext context) => MediaQuery.sizeOf(context).width >= wideLayoutWidth;
+
+/// Main content with a side panel on wide screens (tablet landscape,
+/// desktop, web); just the main content on phones.
+class WideSplit extends StatelessWidget {
+  const WideSplit({super.key, required this.main, this.side, this.placeholder = 'Bir kelimeye dokun: ayrıntıları burada görünür.'});
+  final Widget main;
+  final Widget? side;
+  final String placeholder;
+
+  @override
+  Widget build(BuildContext context) {
+    if (!isWideLayout(context)) return main;
+    final p = context.palette;
+    return Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+      Expanded(child: main),
+      VerticalDivider(width: 1, color: p.line),
+      SizedBox(
+        width: 400,
+        child: Material(
+          color: p.surface,
+          child: side ??
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: Column(mainAxisSize: MainAxisSize.min, children: [
+                    Icon(Icons.touch_app_outlined, color: p.inkMuted, size: 36),
+                    const SizedBox(height: 8),
+                    Text(placeholder, textAlign: TextAlign.center, style: context.text.bodyMedium!.copyWith(color: p.inkMuted)),
+                  ]),
+                ),
+              ),
+        ),
+      ),
+    ]);
+  }
+}

@@ -36,6 +36,9 @@ class _ListeningScreenState extends ConsumerState<ListeningScreen> {
   final _answers = <int, int>{};
   bool _logged = false;
 
+  /// Wide screens: the word shown in the side panel.
+  (WordTap, String)? _selected;
+
   /// Shadowing: line being practised and whether it is the learner's turn.
   int? _shadowLine;
   bool _shadowRepeat = false;
@@ -155,140 +158,145 @@ class _ListeningScreenState extends ConsumerState<ListeningScreen> {
     final allAnswered = _answers.length == t.questions.length;
     return Scaffold(
       appBar: AppBar(leading: const BackOrHomeButton(), title: Text(t.title, style: context.text.titleMedium!.copyWith(fontFamily: context.serif), overflow: TextOverflow.ellipsis)),
-      body: ListView(
-        padding: pagePadding,
-        children: [
-          PageWidth(
-            child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-              MetaLine(level: t.level, minutes: t.minutes, objective: '${t.kindTr} · ${t.topicTr}'),
-              const SizedBox(height: 12),
-              AppCard(
-                color: p.accentSoft,
-                child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-                  Text('1. Önce metne bakmadan dinle', style: context.text.titleSmall),
-                  const SizedBox(height: 4),
-                  Text(
-                    t.speakers.length > 1
-                        ? '${t.speakers.length} konuşmacı var; her biri farklı tonda okunur. İstediğin kadar tekrar dinle.'
-                        : 'İstediğin kadar tekrar dinle. Yavaş mod, sesleri ayırmayı kolaylaştırır.',
-                    style: context.text.bodySmall,
-                  ),
-                  const SizedBox(height: 12),
-                  Wrap(spacing: 8, runSpacing: 8, crossAxisAlignment: WrapCrossAlignment.center, children: [
-                    FilledButton.icon(
-                      onPressed: _playing ? _stop : () => _playAll(t),
-                      icon: Icon(_playing ? Icons.stop_rounded : Icons.play_arrow_rounded),
-                      label: Text(_playing ? 'Durdur' : (_current == null ? 'Dinle' : 'Baştan dinle')),
-                    ),
-                    FilterChip(
-                      label: const Text('Yavaş'),
-                      avatar: const Icon(Icons.slow_motion_video_rounded, size: 18),
-                      selected: _slow,
-                      onSelected: (v) => setState(() => _slow = v),
-                    ),
-                  ]),
-                  if (_playing && _current != null) ...[
-                    const SizedBox(height: 10),
-                    LinearProgressIndicator(value: (_current! + 1) / t.lines.length),
-                  ],
-                  if (_noVoice) ...[
-                    const SizedBox(height: 8),
-                    Text('Bu cihazda Almanca ses bulunamadı; metni okuyarak devam edebilirsin.', style: context.text.bodySmall),
-                  ],
-                ]),
-              ),
-              const SectionTitle('2. Anladın mı?'),
-              for (var qi = 0; qi < t.questions.length; qi++) _question(context, t, qi),
-              SectionTitle(
-                '3. Metin',
-                trailing: _transcript
-                    ? null
-                    : TextButton.icon(
-                        onPressed: () => setState(() => _transcript = true),
-                        icon: const Icon(Icons.visibility_outlined),
-                        label: const Text('Göster'),
-                      ),
-              ),
-              if (!_transcript)
-                Text(allAnswered ? 'Şimdi metni açıp duyduklarınla karşılaştır.' : 'Soruları önce dinleyerek cevaplamayı dene. Metni açmak serbest ama yardım sayılır.',
-                    style: context.text.bodySmall)
-              else
-                for (var i = 0; i < t.lines.length; i++)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 12),
-                    child: Container(
-                      padding: const EdgeInsets.fromLTRB(12, 8, 4, 8),
-                      decoration: BoxDecoration(
-                        color: _current == i ? p.accentSoft : null,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                        if (t.speakers.length > 1) Text(t.lines[i].speaker, style: context.text.labelSmall!.copyWith(color: p.inkMuted)),
-                        TappableGermanText(
-                          t.lines[i].de,
-                          isKnown: (w) => known.contains(w.toLowerCase()),
-                          onWordTap: (tap) => showWordSheet(context, tap: tap, source: source, sentenceTr: t.lines[i].tr),
-                        ),
-                        Wrap(crossAxisAlignment: WrapCrossAlignment.center, children: [
-                          IconButton(
-                            tooltip: 'Bu cümleyi dinle',
-                            iconSize: 20,
-                            icon: Icon(Icons.volume_up_rounded, color: p.primary),
-                            onPressed: () => _playLine(t, i),
-                          ),
-                          TextButton(
-                            onPressed: () => setState(() => _shownTr.contains(i) ? _shownTr.remove(i) : _shownTr.add(i)),
-                            child: Text(_shownTr.contains(i) ? 'Çeviriyi gizle' : 'Çeviri'),
-                          ),
-                        ]),
-                        if (_shownTr.contains(i)) Text(t.lines[i].tr, style: context.text.bodyMedium!.copyWith(color: p.inkMuted)),
-                      ]),
-                    ),
-                  ),
-              if (t.dictationLines().isNotEmpty) ...[
-                const SectionTitle('4. Dikte (isteğe bağlı)'),
-                Text('Cümleyi dinle ve duyduğunu yaz. Küçük yazım hataları "neredeyse" sayılır.', style: context.text.bodySmall),
-                const SizedBox(height: 8),
-                for (final i in t.dictationLines())
-                  _Dictation(key: ValueKey('${t.id}#d$i'), line: t.lines[i], pitch: _pitchFor(t, t.lines[i].speaker), slow: _slow, trackId: t.id, index: i),
-              ],
-              const SectionTitle('5. Gölgeleme (isteğe bağlı)'),
-              Text('Her cümle yavaşça okunur, ardından senin sesli tekrar etmen için bir duraklama gelir. Mikrofon gerekmez; '
-                  'amaç ritmi ve vurguyu taklit etmek.', style: context.text.bodySmall),
-              const SizedBox(height: 8),
-              if (_shadowLine == null)
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: OutlinedButton.icon(onPressed: () => _shadow(t), icon: const Icon(Icons.record_voice_over_outlined), label: const Text('Gölgelemeye başla')),
-                )
-              else
+      body: WideSplit(
+        side: _selected == null ? null : WordPanel(key: ValueKey(_selected), tap: _selected!.$1, source: source, sentenceTr: _selected!.$2),
+        main: ListView(
+          padding: pagePadding,
+          children: [
+            PageWidth(
+              child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+                MetaLine(level: t.level, minutes: t.minutes, objective: '${t.kindTr} · ${t.topicTr}'),
+                const SizedBox(height: 12),
                 AppCard(
-                  color: _shadowRepeat ? p.successSoft : p.accentSoft,
+                  color: p.accentSoft,
                   child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-                    Text('${_shadowLine! + 1} / ${t.lines.length} · ${_shadowRepeat ? 'Şimdi sen tekrar et' : 'Dinle'}', style: context.text.labelMedium),
-                    const SizedBox(height: 6),
-                    Text(t.lines[_shadowLine!].de, style: context.reading.copyWith(fontSize: 20)),
-                    const SizedBox(height: 8),
-                    if (_shadowRepeat)
-                      TweenAnimationBuilder<double>(
-                        key: ValueKey('shadow$_shadowLine'),
-                        tween: Tween(begin: 1, end: 0),
-                        duration: _shadowPause,
-                        builder: (_, v, _) => LinearProgressIndicator(value: v),
+                    Text('1. Önce metne bakmadan dinle', style: context.text.titleSmall),
+                    const SizedBox(height: 4),
+                    Text(
+                      t.speakers.length > 1
+                          ? '${t.speakers.length} konuşmacı var; her biri farklı tonda okunur. İstediğin kadar tekrar dinle.'
+                          : 'İstediğin kadar tekrar dinle. Yavaş mod, sesleri ayırmayı kolaylaştırır.',
+                      style: context.text.bodySmall,
+                    ),
+                    const SizedBox(height: 12),
+                    Wrap(spacing: 8, runSpacing: 8, crossAxisAlignment: WrapCrossAlignment.center, children: [
+                      FilledButton.icon(
+                        onPressed: _playing ? _stop : () => _playAll(t),
+                        icon: Icon(_playing ? Icons.stop_rounded : Icons.play_arrow_rounded),
+                        label: Text(_playing ? 'Durdur' : (_current == null ? 'Dinle' : 'Baştan dinle')),
                       ),
-                    const SizedBox(height: 8),
-                    Align(alignment: Alignment.centerRight, child: TextButton(onPressed: _stopShadow, child: const Text('Durdur'))),
+                      FilterChip(
+                        label: const Text('Yavaş'),
+                        avatar: const Icon(Icons.slow_motion_video_rounded, size: 18),
+                        selected: _slow,
+                        onSelected: (v) => setState(() => _slow = v),
+                      ),
+                    ]),
+                    if (_playing && _current != null) ...[
+                      const SizedBox(height: 10),
+                      LinearProgressIndicator(value: (_current! + 1) / t.lines.length),
+                    ],
+                    if (_noVoice) ...[
+                      const SizedBox(height: 8),
+                      Text('Bu cihazda Almanca ses bulunamadı; metni okuyarak devam edebilirsin.', style: context.text.bodySmall),
+                    ],
                   ]),
                 ),
-              if (t.sourceTr != null) ...[
-                const SizedBox(height: 16),
-                Text('Kaynak: ${t.sourceTr}', style: context.text.labelSmall!.copyWith(color: p.inkMuted)),
-              ],
-              const SizedBox(height: 4),
-              Text('Ses, cihazının metin okuma motoruyla üretilir; anadili konuşan birinin kaydı değildir.', style: context.text.labelSmall!.copyWith(color: p.inkMuted)),
-            ]),
-          ),
-        ],
+                const SectionTitle('2. Anladın mı?'),
+                for (var qi = 0; qi < t.questions.length; qi++) _question(context, t, qi),
+                SectionTitle(
+                  '3. Metin',
+                  trailing: _transcript
+                      ? null
+                      : TextButton.icon(
+                          onPressed: () => setState(() => _transcript = true),
+                          icon: const Icon(Icons.visibility_outlined),
+                          label: const Text('Göster'),
+                        ),
+                ),
+                if (!_transcript)
+                  Text(allAnswered ? 'Şimdi metni açıp duyduklarınla karşılaştır.' : 'Soruları önce dinleyerek cevaplamayı dene. Metni açmak serbest ama yardım sayılır.',
+                      style: context.text.bodySmall)
+                else
+                  for (var i = 0; i < t.lines.length; i++)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 12),
+                      child: Container(
+                        padding: const EdgeInsets.fromLTRB(12, 8, 4, 8),
+                        decoration: BoxDecoration(
+                          color: _current == i ? p.accentSoft : null,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                          if (t.speakers.length > 1) Text(t.lines[i].speaker, style: context.text.labelSmall!.copyWith(color: p.inkMuted)),
+                          TappableGermanText(
+                            t.lines[i].de,
+                            isKnown: (w) => known.contains(w.toLowerCase()),
+                            onWordTap: (tap) => isWideLayout(context)
+                                ? setState(() => _selected = (tap, t.lines[i].tr))
+                                : showWordSheet(context, tap: tap, source: source, sentenceTr: t.lines[i].tr),
+                          ),
+                          Wrap(crossAxisAlignment: WrapCrossAlignment.center, children: [
+                            IconButton(
+                              tooltip: 'Bu cümleyi dinle',
+                              iconSize: 20,
+                              icon: Icon(Icons.volume_up_rounded, color: p.primary),
+                              onPressed: () => _playLine(t, i),
+                            ),
+                            TextButton(
+                              onPressed: () => setState(() => _shownTr.contains(i) ? _shownTr.remove(i) : _shownTr.add(i)),
+                              child: Text(_shownTr.contains(i) ? 'Çeviriyi gizle' : 'Çeviri'),
+                            ),
+                          ]),
+                          if (_shownTr.contains(i)) Text(t.lines[i].tr, style: context.text.bodyMedium!.copyWith(color: p.inkMuted)),
+                        ]),
+                      ),
+                    ),
+                if (t.dictationLines().isNotEmpty) ...[
+                  const SectionTitle('4. Dikte (isteğe bağlı)'),
+                  Text('Cümleyi dinle ve duyduğunu yaz. Küçük yazım hataları "neredeyse" sayılır.', style: context.text.bodySmall),
+                  const SizedBox(height: 8),
+                  for (final i in t.dictationLines())
+                    _Dictation(key: ValueKey('${t.id}#d$i'), line: t.lines[i], pitch: _pitchFor(t, t.lines[i].speaker), slow: _slow, trackId: t.id, index: i),
+                ],
+                const SectionTitle('5. Gölgeleme (isteğe bağlı)'),
+                Text('Her cümle yavaşça okunur, ardından senin sesli tekrar etmen için bir duraklama gelir. Mikrofon gerekmez; '
+                    'amaç ritmi ve vurguyu taklit etmek.', style: context.text.bodySmall),
+                const SizedBox(height: 8),
+                if (_shadowLine == null)
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: OutlinedButton.icon(onPressed: () => _shadow(t), icon: const Icon(Icons.record_voice_over_outlined), label: const Text('Gölgelemeye başla')),
+                  )
+                else
+                  AppCard(
+                    color: _shadowRepeat ? p.successSoft : p.accentSoft,
+                    child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+                      Text('${_shadowLine! + 1} / ${t.lines.length} · ${_shadowRepeat ? 'Şimdi sen tekrar et' : 'Dinle'}', style: context.text.labelMedium),
+                      const SizedBox(height: 6),
+                      Text(t.lines[_shadowLine!].de, style: context.reading.copyWith(fontSize: 20)),
+                      const SizedBox(height: 8),
+                      if (_shadowRepeat)
+                        TweenAnimationBuilder<double>(
+                          key: ValueKey('shadow$_shadowLine'),
+                          tween: Tween(begin: 1, end: 0),
+                          duration: _shadowPause,
+                          builder: (_, v, _) => LinearProgressIndicator(value: v),
+                        ),
+                      const SizedBox(height: 8),
+                      Align(alignment: Alignment.centerRight, child: TextButton(onPressed: _stopShadow, child: const Text('Durdur'))),
+                    ]),
+                  ),
+                if (t.sourceTr != null) ...[
+                  const SizedBox(height: 16),
+                  Text('Kaynak: ${t.sourceTr}', style: context.text.labelSmall!.copyWith(color: p.inkMuted)),
+                ],
+                const SizedBox(height: 4),
+                Text('Ses, cihazının metin okuma motoruyla üretilir; anadili konuşan birinin kaydı değildir.', style: context.text.labelSmall!.copyWith(color: p.inkMuted)),
+              ]),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -84,4 +84,30 @@ void main() {
     await tester.runAsync(() => db.close());
     await tester.runAsync(() => testDb.dispose());
   });
+
+  testWidgets('on a wide screen a tapped word opens in the side panel', (tester) async {
+    tester.view.physicalSize = const Size(1400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    final testDb = (await tester.runAsync(TestDb.create))!;
+    final db = (await tester.runAsync(() => testDb.open()))!;
+    final clock = FakeClock(DateTime(2026, 3, 2, 9));
+    await tester.runAsync(() => ProfileRepository(db.db, clock: clock.call).save(const LearnerProfile(onboarded: true, name: 'Deniz')));
+    final container = ProviderContainer(overrides: [
+      bootstrapProvider.overrideWith((ref) async => AppServices(database: db, content: content)),
+      speechServiceProvider.overrideWithValue(SilentSpeechService()),
+      clockProvider.overrideWithValue(clock.call),
+    ]);
+    await tester.pumpWidget(UncontrolledProviderScope(container: container, child: const DeutschapApp()));
+    await settle(tester);
+    container.read(routerProvider).go('/heute');
+    await settle(tester);
+    unawaited(container.read(routerProvider).push('/reader/builtin:r_mein_zimmer'));
+    await settle(tester);
+    expect(find.textContaining('Bir kelimeye dokun'), findsOneWidget);
+    await tester.pumpWidget(const SizedBox());
+    container.dispose();
+    await tester.runAsync(() => db.close());
+    await tester.runAsync(() => testDb.dispose());
+  });
 }

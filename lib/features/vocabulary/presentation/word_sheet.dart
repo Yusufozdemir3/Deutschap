@@ -23,7 +23,6 @@ Future<void> showWordSheet(
   required SourceContext source,
   String? sentenceTr,
 }) {
-  final singleSentence = RegExp(r'[.!?]+(\s|$)').allMatches(tap.lineText.trim()).length <= 1;
   return showModalBottomSheet<void>(
     context: context,
     isScrollControlled: true,
@@ -33,18 +32,21 @@ Future<void> showWordSheet(
       initialChildSize: 0.55,
       minChildSize: 0.3,
       maxChildSize: 0.92,
-      builder: (context, scroll) => _WordSheet(tap: tap, source: source, sentenceTr: sentenceTr, lineOnly: !singleSentence, scroll: scroll),
+      builder: (context, scroll) => WordPanel(tap: tap, source: source, sentenceTr: sentenceTr, scroll: scroll),
     ),
   );
 }
 
-class _WordSheet extends ConsumerWidget {
-  const _WordSheet({required this.tap, required this.source, required this.scroll, this.sentenceTr, this.lineOnly = false});
+/// Word details for a tap: in a bottom sheet on phones, in a side panel
+/// on wide screens.
+class WordPanel extends ConsumerWidget {
+  const WordPanel({super.key, required this.tap, required this.source, this.scroll, this.sentenceTr});
   final WordTap tap;
   final SourceContext source;
   final String? sentenceTr;
-  final bool lineOnly;
-  final ScrollController scroll;
+  final ScrollController? scroll;
+
+  bool get lineOnly => RegExp(r'[.!?]+(\s|$)').allMatches(tap.lineText.trim()).length > 1;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

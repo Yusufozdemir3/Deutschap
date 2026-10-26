@@ -41,6 +41,9 @@ class _ReaderScreenState extends ConsumerState<ReaderScreen> {
   int _q = 0;
   bool _finished = false;
 
+  /// Wide screens: the word shown in the side panel.
+  (WordTap, String?)? _selected;
+
   @override
   void initState() {
     super.initState();
@@ -140,54 +143,59 @@ class _ReaderScreenState extends ConsumerState<ReaderScreen> {
           if (doc.source == ReadingSource.pasted) IconButton(onPressed: _delete, icon: const Icon(Icons.delete_outline_rounded), tooltip: 'Metni sil'),
         ],
       ),
-      body: NotificationListener<ScrollEndNotification>(
-        onNotification: _onScrollEnd,
-        child: ListView(
-          controller: _scroll,
-          padding: pagePadding,
-          children: [
-            PageWidth(
-              child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-                if (_builtin != null) MetaLine(level: _builtin!.level, minutes: _builtin!.minutes, objective: _builtin!.topicTr),
-                if (doc.source == ReadingSource.pasted)
-                  Text('Kendi metnin · sadece bu cihazda. Çeviriler yalnızca sözlükteki kelimeler için gösterilir.', style: context.text.bodySmall),
-                const SizedBox(height: 12),
-                for (var i = 0; i < _paras.length; i++)
-                  Padding(
-                    key: _keys[i],
-                    padding: const EdgeInsets.only(bottom: 18),
-                    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                      TappableGermanText(
-                        _paras[i].de,
-                        isKnown: (w) => known.contains(w.toLowerCase()),
-                        onWordTap: (t) => showWordSheet(context, tap: t, source: source, sentenceTr: _paras[i].tr),
-                      ),
-                      Wrap(crossAxisAlignment: WrapCrossAlignment.center, children: [
-                        SpeakButton(_paras[i].de, size: 20),
-                        SpeakButton(_paras[i].de, slow: true, size: 20),
-                        if (_paras[i].tr != null)
-                          TextButton(
-                            onPressed: () => setState(() => _shownTr.contains(i) ? _shownTr.remove(i) : _shownTr.add(i)),
-                            child: Text(_shownTr.contains(i) ? 'Çeviriyi gizle' : 'Paragraf çevirisi'),
-                          ),
+      body: WideSplit(
+        side: _selected == null ? null : WordPanel(key: ValueKey(_selected), tap: _selected!.$1, source: source, sentenceTr: _selected!.$2),
+        main: NotificationListener<ScrollEndNotification>(
+          onNotification: _onScrollEnd,
+          child: ListView(
+            controller: _scroll,
+            padding: pagePadding,
+            children: [
+              PageWidth(
+                child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+                  if (_builtin != null) MetaLine(level: _builtin!.level, minutes: _builtin!.minutes, objective: _builtin!.topicTr),
+                  if (doc.source == ReadingSource.pasted)
+                    Text('Kendi metnin · sadece bu cihazda. Çeviriler yalnızca sözlükteki kelimeler için gösterilir.', style: context.text.bodySmall),
+                  const SizedBox(height: 12),
+                  for (var i = 0; i < _paras.length; i++)
+                    Padding(
+                      key: _keys[i],
+                      padding: const EdgeInsets.only(bottom: 18),
+                      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                        TappableGermanText(
+                          _paras[i].de,
+                          isKnown: (w) => known.contains(w.toLowerCase()),
+                          onWordTap: (t) => isWideLayout(context)
+                              ? setState(() => _selected = (t, _paras[i].tr))
+                              : showWordSheet(context, tap: t, source: source, sentenceTr: _paras[i].tr),
+                        ),
+                        Wrap(crossAxisAlignment: WrapCrossAlignment.center, children: [
+                          SpeakButton(_paras[i].de, size: 20),
+                          SpeakButton(_paras[i].de, slow: true, size: 20),
+                          if (_paras[i].tr != null)
+                            TextButton(
+                              onPressed: () => setState(() => _shownTr.contains(i) ? _shownTr.remove(i) : _shownTr.add(i)),
+                              child: Text(_shownTr.contains(i) ? 'Çeviriyi gizle' : 'Paragraf çevirisi'),
+                            ),
+                        ]),
+                        if (_shownTr.contains(i)) Text(_paras[i].tr!, style: context.text.bodyMedium!.copyWith(color: p.inkMuted)),
                       ]),
-                      if (_shownTr.contains(i)) Text(_paras[i].tr!, style: context.text.bodyMedium!.copyWith(color: p.inkMuted)),
-                    ]),
-                  ),
-                if (_builtin != null && _builtin!.questions.isNotEmpty) ...[
-                  const SectionTitle('Anladın mı?'),
-                  _questions(context, _builtin!),
-                ] else ...[
-                  const SizedBox(height: 8),
-                  FilledButton(onPressed: _finished ? null : _finish, child: Text(_finished ? 'Okundu olarak işaretlendi' : 'Okumayı bitirdim')),
-                ],
-                if (_builtin?.sourceTr != null) ...[
-                  const SizedBox(height: 16),
-                  Text('Kaynak: ${_builtin!.sourceTr}', style: context.text.labelSmall!.copyWith(color: p.inkMuted)),
-                ],
-              ]),
-            ),
-          ],
+                    ),
+                  if (_builtin != null && _builtin!.questions.isNotEmpty) ...[
+                    const SectionTitle('Anladın mı?'),
+                    _questions(context, _builtin!),
+                  ] else ...[
+                    const SizedBox(height: 8),
+                    FilledButton(onPressed: _finished ? null : _finish, child: Text(_finished ? 'Okundu olarak işaretlendi' : 'Okumayı bitirdim')),
+                  ],
+                  if (_builtin?.sourceTr != null) ...[
+                    const SizedBox(height: 16),
+                    Text('Kaynak: ${_builtin!.sourceTr}', style: context.text.labelSmall!.copyWith(color: p.inkMuted)),
+                  ],
+                ]),
+              ),
+            ],
+          ),
         ),
       ),
     );
