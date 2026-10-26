@@ -302,3 +302,19 @@ class MatchStep extends LessonStep {
   final List<MatchPair> pairs;
   final String? promptTr;
 }
+
+/// The same step under another id, for generated sessions that reuse
+/// curated steps (mistake review, exams).
+LessonStep stepWithId(LessonStep s, String id) => switch (s) {
+      IntroStep() => IntroStep(id, lexemes: s.lexemes, noteTr: s.noteTr),
+      GrammarStep() => GrammarStep(id, conceptId: s.conceptId),
+      DialogueStep() => DialogueStep(id, lines: s.lines, titleTr: s.titleTr),
+      ChoiceStep() => ChoiceStep(id, promptTr: s.promptTr, options: s.options, answers: s.answers, explainTr: s.explainTr, de: s.de),
+      ArticleStep() => ArticleStep(id, lexemeId: s.lexemeId),
+      ClozeStep() => ClozeStep(id, de: s.de, tr: s.tr, answers: s.answers, explainTr: s.explainTr, options: s.options),
+      OrderStep() => OrderStep(id, tr: s.tr, tokens: s.tokens, answers: s.answers, explainTr: s.explainTr),
+      TranslateStep() => TranslateStep(id, tr: s.tr, answers: s.answers, hintTr: s.hintTr, explainTr: s.explainTr),
+      ListenStep() => ListenStep(id, de: s.de, promptTr: s.promptTr, options: s.options, answers: s.answers, explainTr: s.explainTr),
+      WriteStep() => WriteStep(id, promptTr: s.promptTr, requirements: s.requirements, model: s.model, minWords: s.minWords),
+      MatchStep() => MatchStep(id, pairs: s.pairs, promptTr: s.promptTr),
+    };

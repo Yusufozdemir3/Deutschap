@@ -11,6 +11,7 @@ import '../features/home/presentation/home_screen.dart';
 import '../features/learn/presentation/learn_screen.dart';
 import '../features/listening/presentation/listening_screen.dart';
 import '../features/lesson/presentation/lesson_screen.dart';
+import '../features/mistakes/presentation/mistakes_screen.dart';
 import '../features/onboarding/presentation/onboarding_screen.dart';
 import '../features/onboarding/presentation/placement_screen.dart';
 import '../features/practice/domain/practice_generator.dart';
@@ -80,6 +81,8 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       page('/lesson/:id', (s) => LessonScreen(lessonId: s.pathParameters['id']!)),
       page('/practice/:topic', (s) => LessonScreen(lessonId: 'practice', practice: PracticeTopic.parse(s.pathParameters['topic']!))),
+      page('/mistakes', (_) => const MistakesScreen()),
+      page('/mistakes/review', (_) => const LessonScreen(lessonId: 'mistakes', mistakes: true)),
       page('/exam/:level', (s) => LessonScreen(lessonId: 'exam', examLevel: s.pathParameters['level']!)),
       page('/drill', (s) => DrillScreen(initialSource: s.uri.queryParameters['src'])),
       page('/drill/run', (s) => LessonScreen(lessonId: 'drill', drill: DrillSpec.fromQuery(s.uri.queryParameters))),

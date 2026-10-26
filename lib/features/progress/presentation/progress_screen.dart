@@ -177,6 +177,21 @@ class _Body extends ConsumerWidget {
         const SizedBox(width: 10),
         stat('${s.scenariosCompleted}', 'gerçek durum'),
       ]),
+      const SizedBox(height: 10),
+      AppCard(
+        onTap: () => context.push('/mistakes'),
+        child: Row(children: [
+          Icon(Icons.edit_note_rounded, color: p.accent),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text('Hata defteri', style: context.text.titleSmall),
+              Text('Yanlış yaptığın her şey tek yerde; haftada bir kısa düzeltme turu.', style: context.text.bodySmall),
+            ]),
+          ),
+          const Icon(Icons.chevron_right_rounded),
+        ]),
+      ),
       if ((drill?.total ?? 0) > 0 || (listening?.total ?? 0) > 0) ...[
         const SectionTitle('Antrenman ve dinleme'),
         Row(children: [

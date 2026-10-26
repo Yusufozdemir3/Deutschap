@@ -3,7 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../app/providers.dart';
 import '../../../content/models/scenario.dart';
 import '../../conversation/domain/language_issue.dart';
+import '../../../core/clock.dart';
 import '../../drill/application/drill_words.dart';
+import '../../mistakes/domain/mistake_book.dart';
 import '../../practice/domain/practice_generator.dart';
 import '../../progress/application/progress_providers.dart';
 import '../../progress/data/progress_repository.dart';
@@ -98,6 +100,9 @@ final homeDataProvider = FutureProvider<HomeData>((ref) async {
     if (count >= 2 && (recurring == null || count > recurring.$3)) recurring = (topic.name, topic.titleTr, count);
   }
   final weak = await weakLexemeIds(progress);
+  final now = ref.watch(clockProvider)();
+  final openMistakes = MistakeBook(content).open(await progress.attempts(since: now.subtract(const Duration(days: 60))), conversations).length;
+  final reviewedThisWeek = practiced.any((a) => a.refId == 'mistakes' && now.difference(a.at).inDays < 7);
   final listened = {
     for (final a in await progress.recentActivity(limit: 300))
       if (a.kind == ActivityKind.listening) a.refId,
@@ -123,6 +128,8 @@ final homeDataProvider = FutureProvider<HomeData>((ref) async {
     totalEntries: counts.values.fold(0, (a, b) => a + b),
     recurringIssue: recurring,
     weakWords: weak.length,
+    openMistakes: openMistakes,
+    mistakesReviewedThisWeek: reviewedThisWeek,
     nextListening: listening == null ? null : NamedRef(listening.id, listening.title, minutes: listening.minutes),
   ));
   // Point production-gap practice at the exact words.

@@ -59,6 +59,15 @@ class ConversationRecord {
   final DateTime updatedAt;
 }
 
+class AttemptRecord {
+  const AttemptRecord({required this.activityType, required this.activityId, required this.itemId, required this.correct, required this.at});
+  final String activityType;
+  final String activityId;
+  final String itemId;
+  final bool correct;
+  final DateTime at;
+}
+
 class ActivityRecord {
   const ActivityRecord({required this.kind, required this.at, this.refId, this.summary});
   final ActivityKind kind;
@@ -143,6 +152,21 @@ class ProgressRepository {
       'assisted': assisted ? 1 : 0,
       'created_at': toMillis(_clock()),
     });
+  }
+
+  /// Attempts since [since], oldest first (for the mistake notebook).
+  Future<List<AttemptRecord>> attempts({required DateTime since}) async {
+    final rows = await _db.query('exercise_attempts', where: 'created_at >= ?', whereArgs: [toMillis(since)], orderBy: 'created_at ASC');
+    return [
+      for (final r in rows)
+        AttemptRecord(
+          activityType: r['activity_type']! as String,
+          activityId: r['activity_id']! as String,
+          itemId: r['item_id']! as String,
+          correct: r['correct'] == 1,
+          at: fromMillis(r['created_at']! as int),
+        ),
+    ];
   }
 
   /// Right/wrong counts per item for one activity type, newest first

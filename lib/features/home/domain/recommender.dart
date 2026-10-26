@@ -42,6 +42,8 @@ class LearnerSnapshot {
     this.recurringIssue,
     this.weakWords = 0,
     this.nextListening,
+    this.openMistakes = 0,
+    this.mistakesReviewedThisWeek = false,
   });
 
   final int dueCards;
@@ -67,6 +69,10 @@ class LearnerSnapshot {
 
   /// A listening track the learner has not finished yet.
   final NamedRef? nextListening;
+
+  /// Mistakes not yet answered correctly, and whether the weekly review was done.
+  final int openMistakes;
+  final bool mistakesReviewedThisWeek;
 }
 
 class Recommender {
@@ -128,6 +134,19 @@ class Recommender {
           minutes: 4,
         ),
         score: 42,
+      ));
+    }
+
+    if (s.openMistakes >= 5 && !s.mistakesReviewedThisWeek) {
+      out.add((
+        r: Recommendation(
+          kind: ActivityKind.practice,
+          titleTr: 'Hatalarını düzelt (${s.openMistakes})',
+          reasonTr: 'Hata defterinde düzeltilmemiş sorular birikti. Haftada bir kısa tur, aynı hataları tekrar yapmanı önler.',
+          route: '/mistakes/review',
+          minutes: 5,
+        ),
+        score: 41,
       ));
     }
 
