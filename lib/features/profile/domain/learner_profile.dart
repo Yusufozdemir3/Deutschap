@@ -129,6 +129,9 @@ class LearnerProfile {
     this.notifications = const NotificationPrefs(),
     this.hiddenTopics = const {},
     this.voiceName,
+    this.themeMode = 'system',
+    this.textScale = 1.0,
+    this.readableFont = false,
   });
 
   final bool onboarded;
@@ -158,6 +161,15 @@ class LearnerProfile {
   /// Text-to-speech voice chosen in settings; null = pick the best one.
   final String? voiceName;
 
+  /// 'system', 'light' or 'dark'.
+  final String themeMode;
+
+  /// Extra text scale on top of the system setting.
+  final double textScale;
+
+  /// Atkinson Hyperlegible instead of Manrope/Literata.
+  final bool readableFont;
+
   LearnerProfile copyWith({
     bool? onboarded,
     String? name,
@@ -175,6 +187,9 @@ class LearnerProfile {
     NotificationPrefs? notifications,
     Set<String>? hiddenTopics,
     String? Function()? voiceName,
+    String? themeMode,
+    double? textScale,
+    bool? readableFont,
   }) =>
       LearnerProfile(
         onboarded: onboarded ?? this.onboarded,
@@ -193,6 +208,9 @@ class LearnerProfile {
         notifications: notifications ?? this.notifications,
         hiddenTopics: hiddenTopics ?? this.hiddenTopics,
         voiceName: voiceName == null ? this.voiceName : voiceName(),
+        themeMode: themeMode ?? this.themeMode,
+        textScale: textScale ?? this.textScale,
+        readableFont: readableFont ?? this.readableFont,
       );
 
   Map<String, Object?> toJson() => {
@@ -212,6 +230,9 @@ class LearnerProfile {
         'notifications': notifications.toJson(),
         'hiddenTopics': hiddenTopics.toList(),
         'voiceName': voiceName,
+        'themeMode': themeMode,
+        'textScale': textScale,
+        'readableFont': readableFont,
       };
 
   factory LearnerProfile.fromJson(Map<String, dynamic> j) => LearnerProfile(
@@ -234,5 +255,8 @@ class LearnerProfile {
         notifications: NotificationPrefs.fromJson((j['notifications'] as Map?)?.cast<String, dynamic>() ?? const {}),
         hiddenTopics: {...((j['hiddenTopics'] as List?) ?? const []).cast<String>()},
         voiceName: j['voiceName'] as String?,
+        themeMode: j['themeMode'] as String? ?? 'system',
+        textScale: (j['textScale'] as num?)?.toDouble() ?? 1.0,
+        readableFont: j['readableFont'] as bool? ?? false,
       );
 }

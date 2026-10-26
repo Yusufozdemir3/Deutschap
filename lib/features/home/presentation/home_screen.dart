@@ -38,7 +38,7 @@ class HomeScreen extends ConsumerWidget {
               PageWidth(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
                   const SizedBox(height: 12),
-                  Text('$greeting${name == null ? '' : ', $name'}!', style: context.text.headlineMedium!.copyWith(fontFamily: 'Literata')),
+                  Text('$greeting${name == null ? '' : ', $name'}!', style: context.text.headlineMedium!.copyWith(fontFamily: context.serif)),
                   Text(_subtitle(now), style: context.text.bodyMedium!.copyWith(color: p.inkMuted)),
                   const NewMilestoneBanner(),
                   if (cont != null) ...[
@@ -236,7 +236,7 @@ class _PhraseOfDay extends ConsumerWidget {
         onTap: () => context.go('/entdecken'),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Row(children: [
-            Expanded(child: Text(c.title, style: context.text.titleLarge!.copyWith(fontFamily: 'Literata'))),
+            Expanded(child: Text(c.title, style: context.text.titleLarge!.copyWith(fontFamily: context.serif))),
             SpeakButton(c.bodyDe),
           ]),
           Text(c.bodyDe, style: context.reading.copyWith(fontSize: 17)),

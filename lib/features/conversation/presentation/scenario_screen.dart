@@ -174,7 +174,7 @@ class _ScenarioScreenState extends ConsumerState<ScenarioScreen> {
           PageWidth(
             child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
               Text(sc.titleTr, style: context.text.headlineMedium),
-              Text(sc.titleDe, style: context.text.titleMedium!.copyWith(fontFamily: 'Literata', color: p.inkMuted)),
+              Text(sc.titleDe, style: context.text.titleMedium!.copyWith(fontFamily: context.serif, color: p.inkMuted)),
               const SizedBox(height: 12),
               Text(sc.settingTr, style: context.text.bodyLarge),
               const SizedBox(height: 4),

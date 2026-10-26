@@ -370,7 +370,7 @@ class _ArticleStepViewState extends ConsumerState<ArticleStepView> with _Checkab
         const SizedBox(height: 4),
         Text(l.tr, style: context.text.bodyMedium!.copyWith(color: p.inkMuted)),
         const SizedBox(height: 28),
-        Center(child: Text(checked ? l.headword : '___ ${l.lemma}', style: context.text.displaySmall!.copyWith(fontFamily: 'Literata'))),
+        Center(child: Text(checked ? l.headword : '___ ${l.lemma}', style: context.text.displaySmall!.copyWith(fontFamily: context.serif))),
         const SizedBox(height: 28),
         Row(children: [
           for (final a in const ['der', 'die', 'das'])

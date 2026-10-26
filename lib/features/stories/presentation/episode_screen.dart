@@ -168,7 +168,7 @@ class _EpisodeScreenState extends ConsumerState<EpisodeScreen> {
             child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
               Text('${_story!.title} · Bölüm ${e.number}', style: context.text.labelSmall),
               const SizedBox(height: 6),
-              Text(e.title, style: context.text.displaySmall!.copyWith(fontFamily: 'Literata')),
+              Text(e.title, style: context.text.displaySmall!.copyWith(fontFamily: context.serif)),
               Text(e.titleTr, style: context.text.titleMedium!.copyWith(color: p.inkMuted)),
               const SizedBox(height: 16),
               MetaLine(level: e.level, minutes: e.minutes),
@@ -218,7 +218,7 @@ class _EpisodeScreenState extends ConsumerState<EpisodeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(e.title, style: context.text.titleMedium!.copyWith(fontFamily: 'Literata')),
+        title: Text(e.title, style: context.text.titleMedium!.copyWith(fontFamily: context.serif)),
         actions: [
           IconButton(
             tooltip: _showTr ? 'Çeviriyi gizle' : 'Çeviriyi göster',

@@ -83,7 +83,7 @@ class _ArticleGameScreenState extends ConsumerState<ArticleGameScreen> {
                 padding: const EdgeInsets.fromLTRB(14, 10, 14, 10),
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Row(children: [
-                    Expanded(child: Text('-${r.suffix} → ${r.article}', style: context.text.titleSmall!.copyWith(fontFamily: 'Literata'))),
+                    Expanded(child: Text('-${r.suffix} → ${r.article}', style: context.text.titleSmall!.copyWith(fontFamily: context.serif))),
                     Pill(r.strength.labelTr, color: r.strength == RuleStrength.always ? p.successSoft : null),
                   ]),
                   Text(r.noteTr, style: context.text.bodySmall),
@@ -122,7 +122,7 @@ class _ArticleGameScreenState extends ConsumerState<ArticleGameScreen> {
             TextSpan(text: q.lexeme.lemma.substring(0, q.lexeme.lemma.length - q.rule.suffix.length)),
             TextSpan(text: q.lexeme.lemma.substring(q.lexeme.lemma.length - q.rule.suffix.length), style: TextStyle(color: p.accent, fontWeight: FontWeight.w700)),
           ]),
-          style: context.text.displaySmall!.copyWith(fontFamily: 'Literata'),
+          style: context.text.displaySmall!.copyWith(fontFamily: context.serif),
         ),
       ),
       const SizedBox(height: 24),

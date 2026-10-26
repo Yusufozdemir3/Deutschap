@@ -40,11 +40,19 @@ class DeutschapApp extends ConsumerWidget {
           : const SplashScreen());
     }
 
+    final prefs = profile.requireValue;
     return MaterialApp.router(
       title: 'Deutschap',
       debugShowCheckedModeBanner: false,
-      theme: light,
-      darkTheme: dark,
+      theme: prefs.readableFont ? AppTheme.build(Brightness.light, readableFont: true) : light,
+      darkTheme: prefs.readableFont ? AppTheme.build(Brightness.dark, readableFont: true) : dark,
+      themeMode: switch (prefs.themeMode) { 'light' => ThemeMode.light, 'dark' => ThemeMode.dark, _ => ThemeMode.system },
+      // The learner's text size multiplies the system setting.
+      builder: (context, child) {
+        if (prefs.textScale == 1.0) return child!;
+        final mq = MediaQuery.of(context);
+        return MediaQuery(data: mq.copyWith(textScaler: TextScaler.linear(mq.textScaler.scale(1) * prefs.textScale)), child: child!);
+      },
       routerConfig: ref.watch(routerProvider),
     );
   }
@@ -58,7 +66,7 @@ class SplashScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('Deutschap', style: context.text.displaySmall!.copyWith(fontFamily: 'Literata')),
+              Text('Deutschap', style: context.text.displaySmall!.copyWith(fontFamily: context.serif)),
               const SizedBox(height: 8),
               Text('Hikâyelerle Almanca', style: context.text.bodyMedium!.copyWith(color: context.palette.inkMuted)),
               const SizedBox(height: 28),

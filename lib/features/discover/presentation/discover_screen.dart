@@ -138,7 +138,7 @@ class _DiscoverScreenState extends ConsumerState<DiscoverScreen> {
                 const SizedBox(height: 4),
                 MetaLine(level: c.level, minutes: c.minutes, objective: c.objectiveTr),
                 const SizedBox(height: 16),
-                Text(c.title, style: context.text.headlineMedium!.copyWith(fontFamily: 'Literata')),
+                Text(c.title, style: context.text.headlineMedium!.copyWith(fontFamily: context.serif)),
                 const SizedBox(height: 16),
                 AppCard(
                   child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

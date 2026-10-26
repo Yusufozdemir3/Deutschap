@@ -203,7 +203,7 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
       context,
       label: 'ANLAMINI HATIRLA',
       body: [
-        Center(child: Headword(lemma: lemma, article: e.article, style: context.text.displaySmall!.copyWith(fontFamily: 'Literata'))),
+        Center(child: Headword(lemma: lemma, article: e.article, style: context.text.displaySmall!.copyWith(fontFamily: context.serif))),
         Center(child: SpeakButton(e.headword, size: 28)),
         if (_revealed) ...[
           const SizedBox(height: 12),
@@ -373,7 +373,7 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
       context,
       label: 'ARTİKELİ SEÇ',
       body: [
-        Center(child: Text(picked == null ? '___ $lemma' : '${e.article} $lemma', style: context.text.displaySmall!.copyWith(fontFamily: 'Literata'))),
+        Center(child: Text(picked == null ? '___ $lemma' : '${e.article} $lemma', style: context.text.displaySmall!.copyWith(fontFamily: context.serif))),
         const SizedBox(height: 4),
         Text(e.meaningTr, style: context.text.bodyLarge!.copyWith(color: p.inkMuted), textAlign: TextAlign.center),
         const SizedBox(height: 24),

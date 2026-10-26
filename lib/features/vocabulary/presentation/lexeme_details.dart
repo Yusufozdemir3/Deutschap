@@ -23,7 +23,7 @@ class LexemeDetails extends ConsumerWidget {
           padding: const EdgeInsets.symmetric(vertical: 4),
           child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
             SizedBox(width: 120, child: Text(k, style: context.text.bodySmall)),
-            Expanded(child: Text(v, style: context.text.bodyMedium!.copyWith(fontFamily: 'Literata'))),
+            Expanded(child: Text(v, style: context.text.bodyMedium!.copyWith(fontFamily: context.serif))),
           ]),
         );
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [

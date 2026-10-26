@@ -60,7 +60,7 @@ class _Body extends ConsumerWidget {
         PageWidth(
           child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
             Row(children: [
-              Expanded(child: Headword(lemma: lemma, article: e.article, style: context.text.displaySmall!.copyWith(fontFamily: 'Literata'))),
+              Expanded(child: Headword(lemma: lemma, article: e.article, style: context.text.displaySmall!.copyWith(fontFamily: context.serif))),
               SpeakButton(e.headword, size: 28),
             ]),
             if (e.plural != null && e.plural != '—') Text('Çoğul: ${e.plural}', style: context.text.bodyMedium!.copyWith(color: p.inkMuted)),
@@ -219,7 +219,7 @@ class LexemeDetailScreen extends ConsumerWidget {
           PageWidth(
             child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
               Row(children: [
-                Expanded(child: Headword(lemma: l.lemma, article: l.article, style: context.text.displaySmall!.copyWith(fontFamily: 'Literata'))),
+                Expanded(child: Headword(lemma: l.lemma, article: l.article, style: context.text.displaySmall!.copyWith(fontFamily: context.serif))),
                 SpeakButton(l.headword, size: 28),
               ]),
               const SizedBox(height: 6),

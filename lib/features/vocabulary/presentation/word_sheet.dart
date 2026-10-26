@@ -65,7 +65,7 @@ class _WordSheet extends ConsumerWidget {
       children: [
         Row(
           children: [
-            Expanded(child: Text(tap.surface, style: context.text.headlineSmall!.copyWith(fontFamily: 'Literata'))),
+            Expanded(child: Text(tap.surface, style: context.text.headlineSmall!.copyWith(fontFamily: context.serif))),
             SpeakButton(tap.surface),
           ],
         ),

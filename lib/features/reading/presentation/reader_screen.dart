@@ -135,7 +135,7 @@ class _ReaderScreenState extends ConsumerState<ReaderScreen> {
     final p = context.palette;
     return Scaffold(
       appBar: AppBar(
-        title: Text(doc.title, style: context.text.titleMedium!.copyWith(fontFamily: 'Literata'), overflow: TextOverflow.ellipsis),
+        title: Text(doc.title, style: context.text.titleMedium!.copyWith(fontFamily: context.serif), overflow: TextOverflow.ellipsis),
         actions: [
           if (doc.source == ReadingSource.pasted) IconButton(onPressed: _delete, icon: const Icon(Icons.delete_outline_rounded), tooltip: 'Metni sil'),
         ],

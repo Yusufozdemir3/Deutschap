@@ -295,4 +295,13 @@ void main() {
       expect(blankTarget('Termin ist morgen. Der Termin!', 'termin'), '_____ ist morgen. Der Termin!');
     });
   });
+
+  test('appearance preferences survive a save', () async {
+    final repo = ProfileRepository(db.db, clock: clock.call);
+    await repo.save(const LearnerProfile(onboarded: true, themeMode: 'dark', textScale: 1.2, readableFont: true));
+    final back = await repo.load();
+    expect(back.themeMode, 'dark');
+    expect(back.textScale, 1.2);
+    expect(back.readableFont, isTrue);
+  });
 }

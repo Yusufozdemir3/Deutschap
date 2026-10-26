@@ -22,8 +22,8 @@ import 'journeys_test.dart' show settle;
 void main() {
   final content = loadTestContent();
 
-  for (final variant in const [(textScale: 1.0, dark: false), (textScale: 1.6, dark: true)]) {
-    testWidgets('all screens render at 375x812 (text ×${variant.textScale}, dark: ${variant.dark})', (tester) async {
+  for (final variant in const [(textScale: 1.0, dark: false, readable: false), (textScale: 1.6, dark: true, readable: true)]) {
+    testWidgets('all screens render at 375x812 (text ×${variant.textScale}, dark: ${variant.dark}, readable font: ${variant.readable})', (tester) async {
       tester.view.physicalSize = const Size(375, 812);
       tester.view.devicePixelRatio = 1;
       tester.platformDispatcher.textScaleFactorTestValue = variant.textScale;
@@ -38,7 +38,7 @@ void main() {
       final clock = FakeClock(DateTime(2026, 3, 2, 9));
       String? entryId;
       await tester.runAsync(() async {
-        await ProfileRepository(db.db, clock: clock.call).save(const LearnerProfile(onboarded: true, name: 'Deniz', interests: {'essen'}));
+        await ProfileRepository(db.db, clock: clock.call).save(LearnerProfile(onboarded: true, name: 'Deniz', interests: const {'essen'}, readableFont: variant.readable));
       });
       await tester.runAsync(() async {
         final repo = VocabRepository(db.db, clock: clock.call, ids: SeqIds().call);

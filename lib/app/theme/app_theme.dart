@@ -115,15 +115,31 @@ extension AppThemeContext on BuildContext {
   AppPalette get palette => Theme.of(this).extension<AppPalette>()!;
   TextTheme get text => Theme.of(this).textTheme;
 
+  /// Font for German reading text and display titles: Literata, or the
+  /// readable font when the learner chose it.
+  String get serif => Theme.of(this).extension<AppFonts>()?.serif ?? 'Literata';
+
   /// Serif style for German reading text (stories, texts, examples).
-  TextStyle get reading => text.bodyLarge!.copyWith(fontFamily: 'Literata', fontSize: 19, height: 1.55, fontVariations: const [FontVariation('wght', 420)]);
+  TextStyle get reading => text.bodyLarge!.copyWith(fontFamily: serif, fontSize: 19, height: 1.55, fontVariations: const [FontVariation('wght', 420)]);
+}
+
+/// Font choice carried through the theme so widgets need no profile access.
+class AppFonts extends ThemeExtension<AppFonts> {
+  const AppFonts({required this.serif});
+  final String serif;
+  @override
+  AppFonts copyWith({String? serif}) => AppFonts(serif: serif ?? this.serif);
+  @override
+  AppFonts lerp(ThemeExtension<AppFonts>? other, double t) => t < 0.5 ? this : (other as AppFonts? ?? this);
 }
 
 class AppTheme {
   static const ui = 'Manrope';
   static const radius = 18.0;
 
-  static ThemeData build(Brightness b) {
+  static const readable = 'Atkinson';
+
+  static ThemeData build(Brightness b, {bool readableFont = false}) {
     final p = b == Brightness.light ? AppPalette.light : AppPalette.dark;
     final scheme = ColorScheme(
       brightness: b,
@@ -143,7 +159,7 @@ class AppTheme {
       outlineVariant: p.line,
       onSurfaceVariant: p.inkMuted,
     );
-    final base = ThemeData(useMaterial3: true, colorScheme: scheme, fontFamily: ui, brightness: b);
+    final base = ThemeData(useMaterial3: true, colorScheme: scheme, fontFamily: readableFont ? readable : ui, fontFamilyFallback: const [ui], brightness: b);
     TextStyle? w(TextStyle? s, int weightValue, {double? size, double? height, double? spacing}) => s == null
         ? null
         : weight(s, weightValue).copyWith(color: p.ink, fontSize: size, height: height, letterSpacing: spacing);
@@ -166,7 +182,7 @@ class AppTheme {
     return base.copyWith(
       scaffoldBackgroundColor: p.paper,
       textTheme: text,
-      extensions: [p],
+      extensions: [p, AppFonts(serif: readableFont ? readable : 'Literata')],
       appBarTheme: AppBarTheme(
         backgroundColor: p.paper,
         foregroundColor: p.ink,

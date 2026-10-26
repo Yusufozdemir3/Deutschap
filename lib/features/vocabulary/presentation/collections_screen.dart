@@ -112,7 +112,7 @@ class _CollectionView extends ConsumerWidget {
                 children: [
                   for (final e in list)
                     ListTile(
-                      title: Text(e.headword, style: const TextStyle(fontFamily: 'Literata')),
+                      title: Text(e.headword, style: TextStyle(fontFamily: context.serif)),
                       subtitle: Text(e.meaningTr),
                       onTap: () => context.push('/word/${e.id}'),
                     ),

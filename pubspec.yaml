@@ -36,3 +36,8 @@ flutter:
     - family: Literata
       fonts:
         - asset: assets/fonts/Literata.ttf
+    - family: Atkinson
+      fonts:
+        - asset: assets/fonts/AtkinsonHyperlegible-Regular.ttf
+        - asset: assets/fonts/AtkinsonHyperlegible-Bold.ttf
+          weight: 700

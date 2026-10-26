@@ -44,7 +44,7 @@ class KiezScreen extends ConsumerWidget {
                       contentPadding: EdgeInsets.zero,
                       leading: Icon(open.contains(p.id) ? placeIcon(p.icon) : Icons.lock_outline_rounded,
                           color: open.contains(p.id) ? context.palette.primary : context.palette.inkMuted),
-                      title: Text(p.nameDe, style: const TextStyle(fontFamily: 'Literata')),
+                      title: Text(p.nameDe, style: TextStyle(fontFamily: context.serif)),
                       subtitle: Text(open.contains(p.id) ? p.nameTr : '${p.nameTr} · kilitli'),
                       onTap: () => _showPlace(context, content, p, open.contains(p.id)),
                     ),
@@ -94,7 +94,7 @@ void _showPlace(BuildContext context, ContentBundle content, Place p, bool open)
         Row(children: [
           Icon(open ? placeIcon(p.icon) : Icons.lock_outline_rounded, color: open ? sheet.palette.primary : sheet.palette.inkMuted),
           const SizedBox(width: 10),
-          Expanded(child: Text(p.nameDe, style: sheet.text.titleLarge!.copyWith(fontFamily: 'Literata'))),
+          Expanded(child: Text(p.nameDe, style: sheet.text.titleLarge!.copyWith(fontFamily: context.serif))),
         ]),
         Text(p.nameTr, style: sheet.text.bodySmall),
         const SizedBox(height: 12),

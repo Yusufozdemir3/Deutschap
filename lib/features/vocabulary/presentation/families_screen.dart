@@ -32,7 +32,7 @@ class FamiliesScreen extends ConsumerWidget {
                       Row(children: [
                         Expanded(
                           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                            Text(f.root, style: context.text.titleMedium!.copyWith(fontFamily: 'Literata')),
+                            Text(f.root, style: context.text.titleMedium!.copyWith(fontFamily: context.serif)),
                             Text(f.tr, style: context.text.bodySmall),
                           ]),
                         ),

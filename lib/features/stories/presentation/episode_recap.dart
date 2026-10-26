@@ -91,7 +91,7 @@ class _EpisodeRecapState extends ConsumerState<EpisodeRecap> {
         children: [
           PageWidth(
             child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-              Text(e.title, style: context.text.headlineMedium!.copyWith(fontFamily: 'Literata')),
+              Text(e.title, style: context.text.headlineMedium!.copyWith(fontFamily: context.serif)),
               const SizedBox(height: 10),
               Text(_fill(e.recapTr), style: context.text.bodyLarge),
               if (acc != null && acc.total > 0) ...[
@@ -114,7 +114,7 @@ class _EpisodeRecapState extends ConsumerState<EpisodeRecap> {
                       Expanded(
                         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                           Text('Gizem panosuna ipucu eklendi', style: context.text.labelMedium!.copyWith(color: p.accent)),
-                          Text(clue.titleDe, style: context.text.titleSmall!.copyWith(fontFamily: 'Literata')),
+                          Text(clue.titleDe, style: context.text.titleSmall!.copyWith(fontFamily: context.serif)),
                           Text('Kelimelerini hatırladıkça ipucu çözülür.', style: context.text.bodySmall),
                         ]),
                       ),

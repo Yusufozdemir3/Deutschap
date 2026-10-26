@@ -103,7 +103,7 @@ class _PatternTable extends StatelessWidget {
                   for (final cell in rows[r])
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                      child: Text(cell, style: r == 0 ? context.text.labelMedium : context.text.bodyMedium!.copyWith(fontFamily: 'Literata')),
+                      child: Text(cell, style: r == 0 ? context.text.labelMedium : context.text.bodyMedium!.copyWith(fontFamily: context.serif)),
                     ),
                 ],
               ),

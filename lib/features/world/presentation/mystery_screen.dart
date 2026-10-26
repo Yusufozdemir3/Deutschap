@@ -34,7 +34,7 @@ class MysteryScreen extends ConsumerWidget {
             children: [
               PageWidth(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-                  Text('Wer ist M.? Wer ist F.?', style: context.text.headlineSmall!.copyWith(fontFamily: 'Literata')),
+                  Text('Wer ist M.? Wer ist F.?', style: context.text.headlineSmall!.copyWith(fontFamily: context.serif)),
                   const SizedBox(height: 4),
                   Text('$revealed / ${content.clues.length} ipucu bulundu · $solved çözüldü', style: context.text.titleSmall),
                   const SizedBox(height: 6),
@@ -73,7 +73,7 @@ class _ClueCard extends ConsumerWidget {
       card = AppCard(
         color: p.surfaceAlt,
         child: Row(children: [
-          Text('?', style: context.text.displaySmall!.copyWith(color: p.inkMuted, fontFamily: 'Literata')),
+          Text('?', style: context.text.displaySmall!.copyWith(color: p.inkMuted, fontFamily: context.serif)),
           const SizedBox(width: 16),
           Expanded(child: Text('Hikâyenin ${clue.episode}. bölümünü bitirince ortaya çıkar.', style: context.text.bodyMedium)),
         ]),
@@ -86,7 +86,7 @@ class _ClueCard extends ConsumerWidget {
           Row(children: [
             Icon(Icons.push_pin_rounded, color: p.danger, size: 20),
             const SizedBox(width: 8),
-            Expanded(child: Text(clue.titleDe, style: context.text.titleLarge!.copyWith(fontFamily: 'Literata'))),
+            Expanded(child: Text(clue.titleDe, style: context.text.titleLarge!.copyWith(fontFamily: context.serif))),
             if (state == ClueState.solved) Pill('ÇÖZÜLDÜ', icon: Icons.verified_rounded, color: p.successSoft, textColor: p.success),
           ]),
           Text(clue.titleTr, style: context.text.bodySmall),

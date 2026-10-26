@@ -27,7 +27,7 @@ class StoryScreen extends ConsumerWidget {
         children: [
           PageWidth(
             child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-              Text(s.title, style: context.text.displaySmall!.copyWith(fontFamily: 'Literata')),
+              Text(s.title, style: context.text.displaySmall!.copyWith(fontFamily: context.serif)),
               const SizedBox(height: 6),
               Text(s.subtitleTr, style: context.text.titleMedium!.copyWith(color: p.inkMuted).regular),
               const SizedBox(height: 14),
@@ -53,7 +53,7 @@ class StoryScreen extends ConsumerWidget {
                       child: Row(children: [
                         Expanded(
                           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                            Text('$n. ${e.title}', style: context.text.titleSmall!.copyWith(fontFamily: 'Literata')),
+                            Text('$n. ${e.title}', style: context.text.titleSmall!.copyWith(fontFamily: context.serif)),
                             Text(e.narrativeObjectiveTr, style: context.text.bodySmall),
                           ]),
                         ),

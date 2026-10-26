@@ -203,7 +203,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     return ListView(
       padding: const EdgeInsets.fromLTRB(24, 32, 24, 16),
       children: [
-        Text('Deutschap', style: context.text.displaySmall!.copyWith(fontFamily: 'Literata')),
+        Text('Deutschap', style: context.text.displaySmall!.copyWith(fontFamily: context.serif)),
         const SizedBox(height: 10),
         Text('Hikâyelerle keşfet, kalıcı bir kelime hazinesi biriktir, öğrendiğini gerçek konuşmalarda kullan.', style: context.text.titleMedium!.copyWith(color: p.inkMuted).regular),
         const SizedBox(height: 36),

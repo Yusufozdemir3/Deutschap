@@ -149,7 +149,7 @@ class _UnitCard extends ConsumerWidget {
               if (unit.isPlanned) const Pill('Hazırlanıyor') else if (unit.lessons.isNotEmpty) Text('$done/${unit.lessons.length}', style: context.text.labelSmall),
             ]),
             const SizedBox(height: 4),
-            Text(unit.titleDe, style: context.text.titleLarge!.copyWith(fontFamily: 'Literata', color: unit.isPlanned ? p.inkMuted : null)),
+            Text(unit.titleDe, style: context.text.titleLarge!.copyWith(fontFamily: context.serif, color: unit.isPlanned ? p.inkMuted : null)),
             Text(unit.titleTr, style: context.text.bodyMedium!.copyWith(color: p.inkMuted)),
             const SizedBox(height: 6),
             Text(unit.goalTr, style: context.text.bodySmall),
@@ -236,7 +236,7 @@ class _StoriesTab extends ConsumerWidget {
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                       Text('HİKÂYE SERİSİ · ${s.episodeNumbers.length} BÖLÜM', style: context.text.labelSmall!.copyWith(color: p.onPrimary.withValues(alpha: 0.8))),
                       const SizedBox(height: 6),
-                      Text(s.title, style: context.text.headlineMedium!.copyWith(color: p.onPrimary, fontFamily: 'Literata')),
+                      Text(s.title, style: context.text.headlineMedium!.copyWith(color: p.onPrimary, fontFamily: context.serif)),
                       const SizedBox(height: 4),
                       Text(s.subtitleTr, style: context.text.bodyMedium!.copyWith(color: p.onPrimary.withValues(alpha: 0.9))),
                     ]),
@@ -257,7 +257,7 @@ class _StoriesTab extends ConsumerWidget {
                               ? Icon(Icons.check_rounded, color: p.success)
                               : Text('$n', style: context.text.titleSmall),
                         ),
-                        title: Text(e.title, style: context.text.titleSmall!.copyWith(fontFamily: 'Literata')),
+                        title: Text(e.title, style: context.text.titleSmall!.copyWith(fontFamily: context.serif)),
                         subtitle: Text('${e.level} · ${e.minutes} dk · ${e.learningObjectiveTr}', maxLines: 2, overflow: TextOverflow.ellipsis),
                         trailing: st == EpisodeStatus.inProgress
                             ? Pill('Devam et', color: p.accentSoft, textColor: p.accent)
@@ -316,7 +316,7 @@ class _TalkTab extends ConsumerWidget {
                       Expanded(
                         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                           Text(s.titleTr, style: context.text.titleSmall),
-                          Text(s.titleDe, style: context.text.bodySmall!.copyWith(fontFamily: 'Literata')),
+                          Text(s.titleDe, style: context.text.bodySmall!.copyWith(fontFamily: context.serif)),
                           const SizedBox(height: 4),
                           MetaLine(level: s.level, objective: s.objectiveTr),
                         ]),
@@ -360,7 +360,7 @@ class _ReadTab extends ConsumerWidget {
                   child: AppCard(
                     onTap: () => context.push('/reader/builtin:${r.id}'),
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                      Text(r.title, style: context.text.titleMedium!.copyWith(fontFamily: 'Literata')),
+                      Text(r.title, style: context.text.titleMedium!.copyWith(fontFamily: context.serif)),
                       const SizedBox(height: 4),
                       MetaLine(level: r.level, minutes: r.minutes, objective: r.topicTr),
                       if ((positions[r.id] ?? 0) > 0) ...[
@@ -438,7 +438,7 @@ class _ListenTab extends ConsumerWidget {
                       const SizedBox(width: 14),
                       Expanded(
                         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                          Text(t.title, style: context.text.titleSmall!.copyWith(fontFamily: 'Literata')),
+                          Text(t.title, style: context.text.titleSmall!.copyWith(fontFamily: context.serif)),
                           const SizedBox(height: 4),
                           MetaLine(level: t.level, minutes: t.minutes, objective: '${t.kindTr} · ${t.topicTr}'),
                         ]),
