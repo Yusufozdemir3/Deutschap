@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../features/notifications/application/notification_providers.dart';
 import '../ui/widgets.dart';
 import 'providers.dart';
 import 'router.dart';
@@ -49,12 +50,47 @@ class DeutschapApp extends ConsumerWidget {
       themeMode: switch (prefs.themeMode) { 'light' => ThemeMode.light, 'dark' => ThemeMode.dark, _ => ThemeMode.system },
       // The learner's text size multiplies the system setting.
       builder: (context, child) {
-        if (prefs.textScale == 1.0) return child!;
+        child = _NotificationSync(child: child!);
+        if (prefs.textScale == 1.0) return child;
         final mq = MediaQuery.of(context);
-        return MediaQuery(data: mq.copyWith(textScaler: TextScaler.linear(mq.textScaler.scale(1) * prefs.textScale)), child: child!);
+        return MediaQuery(data: mq.copyWith(textScaler: TextScaler.linear(mq.textScaler.scale(1) * prefs.textScale)), child: child);
       },
       routerConfig: ref.watch(routerProvider),
     );
+  }
+}
+
+/// Keeps scheduled reminders in step with data and preferences, and
+/// replans when the app comes back (the day may have changed).
+class _NotificationSync extends ConsumerStatefulWidget {
+  const _NotificationSync({required this.child});
+  final Widget child;
+  @override
+  ConsumerState<_NotificationSync> createState() => _NotificationSyncState();
+}
+
+class _NotificationSyncState extends ConsumerState<_NotificationSync> with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) ref.invalidate(notificationFactsProvider);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    ref.watch(notificationSyncProvider);
+    return widget.child;
   }
 }
 

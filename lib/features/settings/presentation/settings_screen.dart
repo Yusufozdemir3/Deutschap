@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../../app/providers.dart';
 import '../../../app/theme/app_theme.dart';
 import '../../../ui/widgets.dart';
+import 'backup_actions.dart';
 import 'content_update_card.dart';
 import '../../profile/domain/learner_profile.dart';
 import 'voice_picker.dart';
@@ -192,12 +193,14 @@ class SettingsScreen extends ConsumerWidget {
                     },
                   ),
                   const SizedBox(height: 4),
-                  Text('Hiçbir öğrenme verin cihaz dışına gönderilmez. Analitik ya da reklam takibi yok.', style: context.text.bodySmall),
+                  Text('Hesap açıp eşitlemeyi açmadıkça hiçbir öğrenme verin cihaz dışına gönderilmez. Analitik ya da reklam takibi yok.', style: context.text.bodySmall),
                 ]),
               ),
               const SectionTitle('Verilerin'),
               AppCard(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+                  const BackupCard(),
+                  const Divider(height: 28),
                   OutlinedButton.icon(
                     onPressed: () async {
                       final json = await ref.read(dataRepositoryProvider).exportJson();
@@ -227,7 +230,22 @@ class SettingsScreen extends ConsumerWidget {
                 ]),
               ),
               const SectionTitle('Hakkında'),
-              Text('Deutschap 0.1 · içerik sürümü ${content.version}', style: context.text.bodySmall),
+              AppCard(
+                onTap: () => context.push('/content-review'),
+                child: Row(children: [
+                  const Icon(Icons.fact_check_outlined),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      const Text('İçerik denetimi'),
+                      Text('Almanca bilenler için: cümleleri kontrol et, hataları işaretle.', style: context.text.bodySmall),
+                    ]),
+                  ),
+                  const Icon(Icons.chevron_right_rounded),
+                ]),
+              ),
+              const SizedBox(height: 12),
+              Text('Deutschap 0.4 · içerik sürümü ${content.version}', style: context.text.bodySmall),
               Text('Yazı tipleri: Manrope, Literata (SIL Open Font License).', style: context.text.bodySmall),
             ]),
           ),

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../features/articles/presentation/article_game_screen.dart';
+import '../features/content_review/presentation/content_review_screen.dart';
 import '../features/conversation/presentation/scenario_screen.dart';
 import '../features/discover/presentation/discover_screen.dart';
 import '../features/drill/domain/vocab_drill.dart';
@@ -115,6 +116,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       page('/progress', (_) => const ProgressScreen()),
       page('/settings', (_) => const SettingsScreen()),
       page('/settings/notifications', (_) => const NotificationsScreen()),
+      page('/content-review', (_) => const ContentReviewScreen()),
     ],
   );
 });

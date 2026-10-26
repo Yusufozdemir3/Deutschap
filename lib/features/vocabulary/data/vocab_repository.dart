@@ -272,6 +272,14 @@ class VocabRepository {
         0;
   }
 
+  /// When the next active card becomes due (may be in the past).
+  Future<DateTime?> nextDueAt() async {
+    final ms = Sqflite.firstIntValue(await _db.rawQuery(
+      'SELECT MIN(c.due_at) FROM review_cards c JOIN vocab_entries e ON e.id = c.entry_id WHERE e.paused = 0',
+    ));
+    return ms == null ? null : fromMillis(ms);
+  }
+
   /// Due cards, oldest first, at most one card per entry per session so a
   /// word's article and meaning are not asked back to back.
   Future<List<DueItem>> dueItems({int limit = 20, Set<String> onlyEntries = const {}}) async {

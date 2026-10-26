@@ -250,6 +250,62 @@ void main() {
     });
   });
 
+  group('backup', () {
+    test('a backup restores into a fresh database and keeps device keys', () async {
+      final data = DataRepository(db.db, clock: clock.call);
+      final (e, _) = await vocab.saveLexeme(content.lexicon.byId('tee')!, context: storyContext);
+      await vocab.recordReview(eventId: 'ev1', entryId: e.id, type: CardType.recognition, grade: Grade.good, assisted: false);
+      await ProfileRepository(db.db, clock: clock.call).save(const LearnerProfile(onboarded: true, name: 'Ada'));
+      final kv = KvStore(db.db);
+      await kv.set('content_overrides', '{"version":"x"}');
+      await kv.set('discover_seen', '{"a":1}');
+      final json = await data.exportJson();
+      expect(json, isNot(contains('content_overrides')));
+
+      await data.deleteAll();
+      await kv.set('content_overrides', '{"version":"local"}');
+      await kv.set('device.sync', '{"at":1}');
+      await vocab.saveLexeme(content.lexicon.byId('termin')!, context: storyContext);
+
+      final backup = DataRepository.inspect(json);
+      expect(backup.words, 1);
+      expect(backup.reviews, 1);
+      await data.restore(backup);
+
+      expect((await vocab.entryByLexeme('tee'))?.headword, 'der Tee');
+      expect(await vocab.entryByLexeme('termin'), isNull);
+      expect((await ProfileRepository(db.db, clock: clock.call).load()).name, 'Ada');
+      expect(await kv.get('discover_seen'), '{"a":1}');
+      expect(await kv.get('content_overrides'), '{"version":"local"}');
+      expect(await kv.get('device.sync'), '{"at":1}');
+    });
+
+    test('foreign or newer backups are rejected without changes', () async {
+      expect(() => DataRepository.inspect('nope'), throwsA(isA<BackupFormatException>()));
+      expect(() => DataRepository.inspect('{"format":"other"}'), throwsA(isA<BackupFormatException>()));
+      expect(
+        () => DataRepository.inspect(jsonEncode({'format': DataRepository.exportFormat, 'version': 1, 'schema': 999, 'tables': {}})),
+        throwsA(isA<BackupFormatException>()),
+      );
+      expect(
+        () => DataRepository.inspect(jsonEncode({'format': DataRepository.exportFormat, 'version': 1, 'tables': {'users': []}})),
+        throwsA(isA<BackupFormatException>()),
+      );
+      await vocab.saveLexeme(content.lexicon.byId('tee')!, context: storyContext);
+      final bad = DataRepository.inspect(jsonEncode({
+        'format': DataRepository.exportFormat,
+        'version': 1,
+        'tables': {
+          'vocab_entries': [
+            {'id': 'x', 'no_such_column': 1},
+          ],
+        },
+      }));
+      await expectLater(DataRepository(db.db, clock: clock.call).restore(bad), throwsA(isA<BackupFormatException>()));
+      expect(await vocab.entryByLexeme('tee'), isNotNull);
+    });
+  });
+
   test('data survives closing and reopening the database (restart)', () async {
     final (e, _) = await vocab.saveLexeme(content.lexicon.byId('termin')!, context: storyContext);
     await vocab.recordReview(eventId: 'once', entryId: e.id, type: CardType.recognition, grade: Grade.good, assisted: false);
