@@ -44,3 +44,6 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 *.apk
+
+# Supabase keys for local builds (flutter run --dart-define-from-file=supabase.local.json)
+supabase.local.json

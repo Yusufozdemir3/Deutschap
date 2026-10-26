@@ -36,6 +36,13 @@
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <data android:scheme="deutschap" android:host="app"/>
             </intent-filter>
+            <!-- Return from Google sign-in (Supabase OAuth): deutschap://login-callback?code=… -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="deutschap" android:host="login-callback"/>
+            </intent-filter>
             <meta-data android:name="flutter_deeplinking_enabled" android:value="true"/>
         </activity>
         <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />

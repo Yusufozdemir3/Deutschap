@@ -97,6 +97,10 @@ class _BackgroundSyncState extends ConsumerState<_BackgroundSync> with WidgetsBi
   Widget build(BuildContext context) {
     ref.watch(notificationSyncProvider);
     ref.listen(dataRevisionProvider, (_, _) => ref.read(syncControllerProvider.notifier).schedule());
+    // Right after signing in (e.g. back from Google): first sync.
+    ref.listen(accountUserProvider, (prev, next) {
+      if (prev?.valueOrNull == null && next.valueOrNull != null) ref.read(syncControllerProvider.notifier).run(quiet: true);
+    });
     return widget.child;
   }
 }

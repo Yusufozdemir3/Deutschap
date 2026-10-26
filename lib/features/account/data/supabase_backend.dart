@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../domain/account_backend.dart';
@@ -16,6 +17,17 @@ class BackendConfig {
   /// True once [initialize] succeeded.
   static bool ready = false;
 
+  /// Where Google sends the learner back after signing in. Both must be
+  /// listed under Authentication → URL Configuration in Supabase.
+  static String get redirectUrl => kIsWeb ? '${Uri.base.origin}/' : 'deutschap://login-callback';
+
+  static bool isAuthCallback(Uri uri) {
+    if (!kIsWeb && uri.host != 'login-callback') return false;
+    final fragment = Uri.splitQueryString(uri.fragment.contains('=') ? uri.fragment : '');
+    bool has(String k) => uri.queryParameters.containsKey(k) || fragment.containsKey(k);
+    return has('code') || has('access_token') || has('error_description');
+  }
+
   /// Called once in `main`. A failure leaves the app working offline.
   static Future<bool> initialize() async {
     if (!configured) return false;
@@ -23,9 +35,10 @@ class BackendConfig {
       await Supabase.initialize(
         url: url,
         publishableKey: publishableKey,
-        // Sign-in uses e-mailed codes, so incoming links (deutschap://…
-        // word packs) are never auth callbacks.
-        authOptions: const FlutterAuthClientOptions(detectSessionInUri: false),
+        // Google sign-in returns to the page itself (web) or to
+        // deutschap://login-callback (apps). Other deutschap:// links
+        // (word packs) are never treated as auth callbacks.
+        authOptions: const FlutterAuthClientOptions(detectSessionInUriPredicate: isAuthCallback),
       );
       return ready = true;
     } catch (_) {
@@ -48,6 +61,17 @@ class SupabaseAccountBackend implements AccountBackend {
 
   @override
   Stream<AccountUser?> get userChanges => _client.auth.onAuthStateChange.map((s) => _user(s.session?.user));
+
+  @override
+  Future<void> signInWithGoogle() => _guard(() async {
+        // Web leaves the page and comes back signed in; apps open the
+        // browser and return through the deutschap://login-callback link.
+        await _client.auth.signInWithOAuth(
+          OAuthProvider.google,
+          redirectTo: BackendConfig.redirectUrl,
+          authScreenLaunchMode: kIsWeb ? LaunchMode.platformDefault : LaunchMode.externalApplication,
+        );
+      });
 
   @override
   Future<void> sendCode(String email) => _guard(() => _client.auth.signInWithOtp(email: email, shouldCreateUser: true));

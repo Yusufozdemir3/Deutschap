@@ -25,8 +25,8 @@ class AccountScreen extends ConsumerWidget {
             child: !backend.configured
                 ? const _NotConfigured()
                 : user == null
-                    ? const _SignIn()
-                    : _SignedIn(user: user),
+                ? const _SignIn()
+                : _SignedIn(user: user),
           ),
         ],
       ),
@@ -37,19 +37,29 @@ class AccountScreen extends ConsumerWidget {
 class _NotConfigured extends StatelessWidget {
   const _NotConfigured();
   @override
-  Widget build(BuildContext context) => Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        const SizedBox(height: 8),
-        AppCard(
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+  Widget build(BuildContext context) => Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      const SizedBox(height: 8),
+      AppCard(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
             Text('Hesaplar bu sürümde kapalı', style: context.text.titleMedium),
             const SizedBox(height: 8),
-            Text('Uygulama hesapsız tam olarak çalışır. Verilerini bir cihazdan diğerine taşımak için Ayarlar → Verilerin → "Yedek dosyası kaydet" seçeneğini kullanabilirsin.', style: context.text.bodyMedium),
-          ]),
+            Text(
+              'Uygulama hesapsız tam olarak çalışır. Verilerini bir cihazdan diğerine taşımak için Ayarlar → Verilerin → "Yedek dosyası kaydet" seçeneğini kullanabilirsin.',
+              style: context.text.bodyMedium,
+            ),
+          ],
         ),
-      ]);
+      ),
+    ],
+  );
 }
 
-const _privacy = 'Hesap isteğe bağlıdır. Giriş yaparsan bütün öğrenme verilerin (kelimeler, notlar, ilerleme, ayarlar) şifreli bağlantıyla sunucuya kopyalanır ve sadece sen erişebilirsin. Reklam ya da analitik için kullanılmaz. Hesabını sildiğinde sunucudaki kopya da hemen silinir.';
+const _privacy =
+    'Hesap isteğe bağlıdır. Giriş yaparsan bütün öğrenme verilerin (kelimeler, notlar, ilerleme, ayarlar) şifreli bağlantıyla sunucuya kopyalanır ve sadece sen erişebilirsin. Reklam ya da analitik için kullanılmaz. Hesabını sildiğinde sunucudaki kopya da hemen silinir.';
 
 class _SignIn extends ConsumerStatefulWidget {
   const _SignIn();
@@ -61,6 +71,7 @@ class _SignInState extends ConsumerState<_SignIn> {
   final _email = TextEditingController();
   final _code = TextEditingController();
   bool _codeSent = false;
+  bool _useEmail = false;
   bool _busy = false;
   String? _error;
 
@@ -87,66 +98,85 @@ class _SignInState extends ConsumerState<_SignIn> {
     }
   }
 
+  Future<void> _google() => _do(() => ref.read(accountBackendProvider).signInWithGoogle());
+
   Future<void> _send() => _do(() async {
-        await ref.read(accountBackendProvider).sendCode(_email.text.trim());
-        _codeSent = true;
-      });
+    await ref.read(accountBackendProvider).sendCode(_email.text.trim());
+    _codeSent = true;
+  });
 
   Future<void> _verify() => _do(() async {
-        await ref.read(accountBackendProvider).verifyCode(_email.text.trim(), _code.text.trim());
-        // First sync right away; a conflict is shown on the next screen.
-        await ref.read(syncControllerProvider.notifier).run();
-      });
+    await ref.read(accountBackendProvider).verifyCode(_email.text.trim(), _code.text.trim());
+    // First sync right away; a conflict is shown on the next screen.
+    await ref.read(syncControllerProvider.notifier).run();
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-      const SizedBox(height: 8),
-      Text('Verilerin her cihazda', style: context.text.headlineSmall),
-      const SizedBox(height: 6),
-      Text('Şifre yok: E-posta adresine altı haneli bir kod gönderiyoruz. Aynı adresle başka bir cihazda giriş yaptığında kelimelerin ve ilerlemen oraya da gelir.', style: context.text.bodyMedium),
-      const SizedBox(height: 16),
-      AppCard(
-        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-          TextField(
-            controller: _email,
-            enabled: !_codeSent && !_busy,
-            keyboardType: TextInputType.emailAddress,
-            autocorrect: false,
-            autofillHints: const [AutofillHints.email],
-            decoration: const InputDecoration(labelText: 'E-posta'),
-            onChanged: (_) => setState(() {}),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const SizedBox(height: 8),
+        Text('Verilerin her cihazda', style: context.text.headlineSmall),
+        const SizedBox(height: 6),
+        Text('Google hesabınla giriş yap. Aynı hesapla başka bir cihazda giriş yaptığında kelimelerin ve ilerlemen oraya da gelir.', style: context.text.bodyMedium),
+        const SizedBox(height: 16),
+        FilledButton.icon(onPressed: _busy ? null : _google, icon: const Icon(Icons.account_circle_outlined), label: const Text('Google ile giriş yap')),
+        if (_error != null && !_useEmail)
+          Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: Text(_error!, style: context.text.bodySmall!.copyWith(color: context.palette.danger)),
           ),
-          if (_codeSent) ...[
-            const SizedBox(height: 12),
-            TextField(
-              controller: _code,
-              enabled: !_busy,
-              autofocus: true,
-              keyboardType: TextInputType.number,
-              autofillHints: const [AutofillHints.oneTimeCode],
-              maxLength: 8,
-              decoration: const InputDecoration(labelText: 'E-postadaki kod'),
-              onChanged: (_) => setState(() {}),
-              onSubmitted: (_) => _verify(),
+        const SizedBox(height: 8),
+        if (!_useEmail)
+          TextButton(onPressed: _busy ? null : () => setState(() => _useEmail = true), child: const Text('Google hesabın yok mu? E-posta koduyla giriş'))
+        else
+          AppCard(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                TextField(
+                  controller: _email,
+                  enabled: !_codeSent && !_busy,
+                  keyboardType: TextInputType.emailAddress,
+                  autocorrect: false,
+                  autofillHints: const [AutofillHints.email],
+                  decoration: const InputDecoration(labelText: 'E-posta'),
+                  onChanged: (_) => setState(() {}),
+                ),
+                if (_codeSent) ...[
+                  const SizedBox(height: 12),
+                  TextField(
+                    controller: _code,
+                    enabled: !_busy,
+                    autofocus: true,
+                    keyboardType: TextInputType.number,
+                    autofillHints: const [AutofillHints.oneTimeCode],
+                    maxLength: 8,
+                    decoration: const InputDecoration(labelText: 'E-postadaki kod'),
+                    onChanged: (_) => setState(() {}),
+                    onSubmitted: (_) => _verify(),
+                  ),
+                ],
+                if (_error != null)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: Text(_error!, style: context.text.bodySmall!.copyWith(color: context.palette.danger)),
+                  ),
+                const SizedBox(height: 12),
+                if (!_codeSent)
+                  FilledButton(onPressed: _busy || !_emailOk ? null : _send, child: Text(_busy ? 'Gönderiliyor…' : 'Kod gönder'))
+                else ...[
+                  FilledButton(onPressed: _busy || _code.text.trim().length < 6 ? null : _verify, child: Text(_busy ? 'Kontrol ediliyor…' : 'Giriş yap')),
+                  TextButton(onPressed: _busy ? null : () => setState(() => _codeSent = false), child: const Text('Başka bir e-posta kullan')),
+                ],
+              ],
             ),
-          ],
-          if (_error != null) Padding(padding: const EdgeInsets.only(top: 8), child: Text(_error!, style: context.text.bodySmall!.copyWith(color: context.palette.danger))),
-          const SizedBox(height: 12),
-          if (!_codeSent)
-            FilledButton(onPressed: _busy || !_emailOk ? null : _send, child: Text(_busy ? 'Gönderiliyor…' : 'Kod gönder'))
-          else ...[
-            FilledButton(onPressed: _busy || _code.text.trim().length < 6 ? null : _verify, child: Text(_busy ? 'Kontrol ediliyor…' : 'Giriş yap')),
-            TextButton(
-              onPressed: _busy ? null : () => setState(() => _codeSent = false),
-              child: const Text('Başka bir e-posta kullan'),
-            ),
-          ],
-        ]),
-      ),
-      const SizedBox(height: 16),
-      Text(_privacy, style: context.text.bodySmall),
-    ]);
+          ),
+        const SizedBox(height: 16),
+        Text(_privacy, style: context.text.bodySmall),
+      ],
+    );
   }
 }
 
@@ -154,8 +184,7 @@ class _SignedIn extends ConsumerWidget {
   const _SignedIn({required this.user});
   final AccountUser user;
 
-  static String _when(DateTime t) =>
-      '${t.day}.${t.month}.${t.year} ${t.hour.toString().padLeft(2, '0')}:${t.minute.toString().padLeft(2, '0')}';
+  static String _when(DateTime t) => '${t.day}.${t.month}.${t.year} ${t.hour.toString().padLeft(2, '0')}:${t.minute.toString().padLeft(2, '0')}';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -179,68 +208,81 @@ class _SignedIn extends ConsumerWidget {
       if (r == SyncOutcome.pulled) showToast(context, 'Hesabındaki veriler alındı');
     }
 
-    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-      const SizedBox(height: 8),
-      AppCard(
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Row(children: [
-            Icon(Icons.cloud_done_outlined, color: p.success),
-            const SizedBox(width: 10),
-            Expanded(child: Text(user.email ?? 'Giriş yapıldı', style: context.text.titleMedium)),
-          ]),
-          const SizedBox(height: 10),
-          Text(status, style: context.text.bodyMedium),
-          if (s.meta != null && s.last != null) Text('Son eşitleme: ${_when(s.meta!.syncedAt)}', style: context.text.bodySmall),
-          const SizedBox(height: 12),
-          FilledButton.tonalIcon(
-            onPressed: s.busy || s.conflict != null ? null : () => run(),
-            icon: const Icon(Icons.sync_rounded),
-            label: const Text('Şimdi eşitle'),
-          ),
-          const SizedBox(height: 6),
-          Text('Uygulamayı açtığında ve bir değişiklikten kısa süre sonra kendiliğinden eşitlenir.', style: context.text.bodySmall),
-        ]),
-      ),
-      if (s.conflict != null) ...[
-        const SizedBox(height: 12),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const SizedBox(height: 8),
         AppCard(
-          color: p.accentSoft,
-          child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-            Text('Hangisi kalsın?', style: context.text.titleMedium),
-            const SizedBox(height: 6),
-            Text('Hem bu cihazda hem de hesabında (${s.conflict!.device ?? 'başka cihaz'}, ${_when(s.conflict!.updatedAt)}) son eşitlemeden sonra değişiklik yapılmış. Biri diğerinin yerine geçecek. Emin değilsen önce Ayarlar\'dan bu cihazın yedeğini kaydet.', style: context.text.bodyMedium),
-            const SizedBox(height: 12),
-            FilledButton(onPressed: s.busy ? null : () => run(SyncChoice.keepDevice), child: const Text('Bu cihazdakini kullan')),
-            const SizedBox(height: 8),
-            OutlinedButton(onPressed: s.busy ? null : () => run(SyncChoice.takeAccount), child: const Text('Hesaptakini bu cihaza al')),
-          ]),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.cloud_done_outlined, color: p.success),
+                  const SizedBox(width: 10),
+                  Expanded(child: Text(user.email ?? 'Giriş yapıldı', style: context.text.titleMedium)),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Text(status, style: context.text.bodyMedium),
+              if (s.meta != null && s.last != null) Text('Son eşitleme: ${_when(s.meta!.syncedAt)}', style: context.text.bodySmall),
+              const SizedBox(height: 12),
+              FilledButton.tonalIcon(onPressed: s.busy || s.conflict != null ? null : () => run(), icon: const Icon(Icons.sync_rounded), label: const Text('Şimdi eşitle')),
+              const SizedBox(height: 6),
+              Text('Uygulamayı açtığında ve bir değişiklikten kısa süre sonra kendiliğinden eşitlenir.', style: context.text.bodySmall),
+            ],
+          ),
         ),
+        if (s.conflict != null) ...[
+          const SizedBox(height: 12),
+          AppCard(
+            color: p.accentSoft,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text('Hangisi kalsın?', style: context.text.titleMedium),
+                const SizedBox(height: 6),
+                Text(
+                  'Hem bu cihazda hem de hesabında (${s.conflict!.device ?? 'başka cihaz'}, ${_when(s.conflict!.updatedAt)}) son eşitlemeden sonra değişiklik yapılmış. Biri diğerinin yerine geçecek. Emin değilsen önce Ayarlar\'dan bu cihazın yedeğini kaydet.',
+                  style: context.text.bodyMedium,
+                ),
+                const SizedBox(height: 12),
+                FilledButton(onPressed: s.busy ? null : () => run(SyncChoice.keepDevice), child: const Text('Bu cihazdakini kullan')),
+                const SizedBox(height: 8),
+                OutlinedButton(onPressed: s.busy ? null : () => run(SyncChoice.takeAccount), child: const Text('Hesaptakini bu cihaza al')),
+              ],
+            ),
+          ),
+        ],
+        const SectionTitle('Hesap'),
+        AppCard(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              OutlinedButton.icon(
+                onPressed: s.busy
+                    ? null
+                    : () async {
+                        if (!await confirm(context, title: 'Çıkış yapılsın mı?', message: 'Bu cihazdaki verilerin kalır; sadece eşitleme durur.', confirmLabel: 'Çıkış yap')) return;
+                        await sync.signOut();
+                      },
+                icon: const Icon(Icons.logout_rounded),
+                label: const Text('Çıkış yap'),
+              ),
+              const SizedBox(height: 8),
+              OutlinedButton.icon(
+                style: OutlinedButton.styleFrom(foregroundColor: p.danger),
+                onPressed: s.busy ? null : () => _delete(context, ref),
+                icon: const Icon(Icons.person_remove_outlined),
+                label: const Text('Hesabı ve sunucudaki verileri sil'),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 16),
+        Text(_privacy, style: context.text.bodySmall),
       ],
-      const SectionTitle('Hesap'),
-      AppCard(
-        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-          OutlinedButton.icon(
-            onPressed: s.busy
-                ? null
-                : () async {
-                    if (!await confirm(context, title: 'Çıkış yapılsın mı?', message: 'Bu cihazdaki verilerin kalır; sadece eşitleme durur.', confirmLabel: 'Çıkış yap')) return;
-                    await sync.signOut();
-                  },
-            icon: const Icon(Icons.logout_rounded),
-            label: const Text('Çıkış yap'),
-          ),
-          const SizedBox(height: 8),
-          OutlinedButton.icon(
-            style: OutlinedButton.styleFrom(foregroundColor: p.danger),
-            onPressed: s.busy ? null : () => _delete(context, ref),
-            icon: const Icon(Icons.person_remove_outlined),
-            label: const Text('Hesabı ve sunucudaki verileri sil'),
-          ),
-        ]),
-      ),
-      const SizedBox(height: 16),
-      Text(_privacy, style: context.text.bodySmall),
-    ]);
+    );
   }
 
   Future<void> _delete(BuildContext context, WidgetRef ref) async {

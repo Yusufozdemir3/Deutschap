@@ -61,6 +61,9 @@ final routerProvider = Provider<GoRouter>((ref) {
     initialLocation: ref.read(initialLocationProvider),
     refreshListenable: onboarded,
     redirect: (context, state) {
+      // The Google sign-in callback (deutschap://login-callback?code=…)
+      // arrives as "/"; Supabase has already read the code.
+      if (state.uri.path.isEmpty || state.uri.path == '/') return onboarded.value ? '/heute' : '/onboarding';
       final loc = state.matchedLocation;
       final inOnboarding = loc.startsWith('/onboarding');
       if (!onboarded.value && !inOnboarding) return '/onboarding';

@@ -6,6 +6,9 @@ abstract class AccountBackend {
   AccountUser? get user;
   Stream<AccountUser?> get userChanges;
 
+  /// Signs in with a Google account (opens Google's sign-in page).
+  Future<void> signInWithGoogle();
+
   /// Sends a six-digit sign-in code by e-mail. Creates the account on first use.
   Future<void> sendCode(String email);
 
@@ -67,6 +70,8 @@ class NoAccountBackend implements AccountBackend {
   AccountUser? get user => null;
   @override
   Stream<AccountUser?> get userChanges => const Stream.empty();
+  @override
+  Future<void> signInWithGoogle() => Future.error(_msg);
   @override
   Future<void> sendCode(String email) => Future.error(_msg);
   @override

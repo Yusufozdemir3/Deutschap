@@ -13,6 +13,12 @@ create table if not exists public.backups (
 
 alter table public.backups enable row level security;
 
+-- Explicit privileges, so the project does not need "automatically expose
+-- new tables". Signed-in users may read and delete (their own row, see the
+-- policies); anonymous visitors get nothing. Writes only via push_backup.
+revoke all on table public.backups from anon, authenticated;
+grant select, delete on table public.backups to authenticated;
+
 -- Each user sees and changes only their own row. Writes go through
 -- push_backup so the revision check cannot be skipped.
 create policy "own backup: read" on public.backups
