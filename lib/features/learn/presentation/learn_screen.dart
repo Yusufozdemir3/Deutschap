@@ -85,6 +85,22 @@ class _PathTabState extends ConsumerState<_PathTab> {
               '${lessons.isEmpty ? '' : '$done/${lessons.length} ders tamamlandı. '}Dersler sırayla ilerler ama hepsi açık: istediğin yerden başlayabilirsin.',
               style: context.text.bodySmall,
             ),
+            const SizedBox(height: 12),
+            AppCard(
+              onTap: () => context.push('/traps'),
+              color: context.palette.accentSoft,
+              child: Row(children: [
+                Icon(Icons.translate_rounded, color: context.palette.accent),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    Text('Türkçe konuşanlara özel: ${ref.watch(contentProvider).traps.length} tuzak', style: context.text.titleSmall),
+                    Text('Artikel, fiilin yeri, seit, sein/ihr … Türkçeden gelen en sık hatalar, 3 dakikalık derslerle.', style: context.text.bodySmall),
+                  ]),
+                ),
+                const Icon(Icons.chevron_right_rounded),
+              ]),
+            ),
             const SizedBox(height: 8),
             for (final u in path.units) _UnitCard(unit: u, progress: progress, nextId: next?.id),
             const SectionTitle('Mini sınav'),

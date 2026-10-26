@@ -108,6 +108,13 @@ class ContentValidator {
 
   void _path() {
     final lessonIds = <String>{};
+    for (final l in bundle.traps) {
+      if (!lessonIds.add(l.id)) _fail('lesson ${l.id}', 'duplicate id');
+      if (l.gradedStepCount == 0) _fail('lesson ${l.id}', 'no graded step');
+      for (final s in l.steps) {
+        _step(l, s);
+      }
+    }
     final unitIds = <String>{};
     for (final u in bundle.paths.expand((p) => p.units)) {
       if (!unitIds.add(u.id)) _fail('unit ${u.id}', 'duplicate id');
@@ -160,6 +167,8 @@ class ContentValidator {
         if (answers.isEmpty) _fail(w, 'translate without answers');
       case ListenStep(:final options, :final answers):
         if (options.length < 2 || answers.isEmpty || answers.any((a) => a < 0 || a >= options.length)) _fail(w, 'listen answers out of range');
+      case TipStep(:final bodyTr):
+        if (bodyTr.trim().isEmpty) _fail(w, 'tip without text');
       case MatchStep(:final pairs):
         if (pairs.length < 3) _fail(w, 'match needs at least three pairs');
         if (pairs.map((x) => x.de).toSet().length != pairs.length || pairs.map((x) => x.tr).toSet().length != pairs.length) {

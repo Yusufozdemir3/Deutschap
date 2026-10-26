@@ -28,6 +28,7 @@ class ContentBundle {
     required this.discover,
     this.listening = const [],
     this.families = const [],
+    this.traps = const [],
     this.places = const [],
     this.clues = const [],
   }) {
@@ -37,6 +38,9 @@ class ContentBundle {
         _lessons[l.id] = l;
         _unitOfLesson[l.id] = u;
       }
+    }
+    for (final l in traps) {
+      _lessons[l.id] = l;
     }
     for (final s in stories) {
       for (final e in s.episodes) {
@@ -56,6 +60,7 @@ class ContentBundle {
     'reading.json',
     'listening.json',
     'families.json',
+    'traps.json',
     'scenarios.json',
     'discover.json',
     'world.json',
@@ -70,6 +75,9 @@ class ContentBundle {
   final List<ReadingText> readings;
   final List<ListeningTrack> listening;
   final List<WordFamily> families;
+
+  /// Short lessons on typical mistakes of Turkish speakers.
+  final List<Lesson> traps;
   final List<Scenario> scenarios;
   final List<DiscoverCard> discover;
   final List<Place> places;
@@ -169,6 +177,7 @@ class ContentBundle {
       paths: [for (final f in files.where((f) => f.startsWith('path_'))) guard(f, LearningPath.fromJson)],
       stories: guard('stories.json', (j) => j.objList('stories').map(Story.fromJson).toList(growable: false)),
       readings: guard('reading.json', (j) => j.objList('texts').map(ReadingText.fromJson).toList(growable: false)),
+      traps: guard('traps.json', (j) => j.objList('lessons').map(Lesson.fromJson).toList(growable: false)),
       families: guard('families.json', (j) => j.objList('families').map(WordFamily.fromJson).toList(growable: false)),
       listening: guard('listening.json', (j) => j.objList('tracks').map(ListeningTrack.fromJson).toList(growable: false)),
       scenarios: guard('scenarios.json', (j) => j.objList('scenarios').map(Scenario.fromJson).toList(growable: false)),

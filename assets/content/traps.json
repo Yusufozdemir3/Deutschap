@@ -1,0 +1,1310 @@
+{
+  "version": "2026.10.1",
+  "title_tr": "Türkçe konuşanlara özel tuzaklar",
+  "lessons": [
+    {
+      "id": "tr01",
+      "title_tr": "Her ismin bir cinsiyeti var",
+      "objective_tr": "İsimleri artikeliyle birlikte öğrenmeyi alışkanlık yap.",
+      "minutes": 3,
+      "vocab": [
+        "tisch",
+        "lampe",
+        "bett"
+      ],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "Türkçede cinsiyet yok, Almancada var",
+          "body_tr": "Türkçede \"masa\" sadece masadır. Almancada her isim der, die ya da das alır ve bu, cümlede artikelin, sıfatın ve zamirin biçimini değiştirir. Kelimeyi artikelsiz öğrenmek, sonra her cümlede tahmin etmek demektir.",
+          "wrong": "Ich habe Tisch.",
+          "right": "Ich habe einen Tisch.",
+          "examples": [
+            {
+              "de": "der Tisch, die Lampe, das Bett",
+              "tr": "masa, lamba, yatak"
+            }
+          ]
+        },
+        {
+          "type": "article",
+          "lexeme": "tisch"
+        },
+        {
+          "type": "article",
+          "lexeme": "lampe"
+        },
+        {
+          "type": "article",
+          "lexeme": "bett"
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "Kelimeyi nasıl öğrenmelisin?",
+          "options": [
+            "der Schlüssel – anahtar",
+            "Schlüssel – anahtar"
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "Artikeli kelimenin parçası gibi öğren; kaydettiğin kelimeler de hep artikeliyle görünür."
+        }
+      ]
+    },
+    {
+      "id": "tr02",
+      "title_tr": "\"Ben yorgunum\": sein'i unutma",
+      "objective_tr": "Türkçedeki \"-im/-sin\" eklerinin Almancada ayrı bir fiil olduğunu kavra.",
+      "minutes": 3,
+      "vocab": [],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "Ek değil, fiil",
+          "body_tr": "Türkçe \"yorgunum\" tek kelimedir; ek \"-um\" \"olmak\" anlamını taşır. Almancada bu iş için ayrı bir fiil gerekir: sein (bin, bist, ist …).",
+          "wrong": "Ich müde.",
+          "right": "Ich bin müde.",
+          "examples": [
+            {
+              "de": "Wir sind neu hier.",
+              "tr": "Burada yeniyiz."
+            },
+            {
+              "de": "Das ist teuer.",
+              "tr": "Bu pahalı."
+            }
+          ]
+        },
+        {
+          "type": "cloze",
+          "de": "Ich ___ Student.",
+          "tr": "Öğrenciyim.",
+          "answers": [
+            "bin"
+          ],
+          "options": [
+            "bin",
+            "ist",
+            "habe"
+          ],
+          "explain_tr": "ich → bin."
+        },
+        {
+          "type": "cloze",
+          "de": "Das Wetter ___ heute schön.",
+          "tr": "Hava bugün güzel.",
+          "answers": [
+            "ist"
+          ],
+          "options": [
+            "ist",
+            "sind",
+            "hat"
+          ],
+          "explain_tr": "das Wetter = es → ist."
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "\"Evdeyiz.\"",
+          "options": [
+            "Wir sind zu Hause.",
+            "Wir zu Hause.",
+            "Wir haben zu Hause."
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "Durum ve yer için sein: Wir sind zu Hause."
+        },
+        {
+          "type": "translate",
+          "tr": "Çok yorgunum.",
+          "answers": [
+            "Ich bin sehr müde."
+          ],
+          "hint_tr": "sein unutma"
+        }
+      ]
+    },
+    {
+      "id": "tr03",
+      "title_tr": "Fiil ikinci sırada",
+      "objective_tr": "Cümle başka bir öğeyle başlasa da çekimli fiili ikinci sıraya koy.",
+      "minutes": 3,
+      "vocab": [],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "Türkçede fiil sonda, Almancada ikinci sırada",
+          "body_tr": "Türkçede fiil cümlenin sonunda olur: \"Bugün sinemaya gidiyorum.\" Almancada çekimli fiil ana cümlede her zaman ikinci sıradadır; cümle zamanla başlarsa özne fiilden sonra gelir.",
+          "wrong": "Heute ich gehe ins Kino.",
+          "right": "Heute gehe ich ins Kino.",
+          "examples": [
+            {
+              "de": "Morgen habe ich keine Zeit.",
+              "tr": "Yarın vaktim yok."
+            }
+          ]
+        },
+        {
+          "type": "order",
+          "tr": "Pazartesi çalışıyorum.",
+          "tokens": [
+            "Am",
+            "Montag",
+            "arbeite",
+            "ich"
+          ],
+          "answers": [
+            "Am Montag arbeite ich"
+          ],
+          "explain_tr": "Zaman ifadesi + fiil + özne."
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "Hangisi doğru?",
+          "options": [
+            "Jetzt wohne ich in Berlin.",
+            "Jetzt ich wohne in Berlin.",
+            "Jetzt ich in Berlin wohne."
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "jetzt birinci, fiil ikinci."
+        },
+        {
+          "type": "cloze",
+          "de": "Am Abend ___ wir Pizza.",
+          "tr": "Akşam pizza yiyoruz.",
+          "answers": [
+            "essen"
+          ],
+          "options": [
+            "essen",
+            "wir essen",
+            "esse"
+          ],
+          "explain_tr": "Fiil ikinci sırada: Am Abend essen wir …"
+        }
+      ]
+    },
+    {
+      "id": "tr04",
+      "title_tr": "Ana cümlede fiil sona gitmez",
+      "objective_tr": "Türkçe alışkanlıkla fiili ana cümlenin sonuna koymaktan kaçın.",
+      "minutes": 3,
+      "vocab": [],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "Ich Kaffee trinke? Hayır!",
+          "body_tr": "Türkçe sırası (özne – nesne – fiil) Almanca ana cümlede yanlıştır. Fiil sona sadece yan cümlede (weil, dass …) ve modal fiillerle mastar olarak gider.",
+          "wrong": "Ich Kaffee trinke.",
+          "right": "Ich trinke Kaffee.",
+          "examples": [
+            {
+              "de": "Ich möchte Kaffee trinken.",
+              "tr": "Kahve içmek istiyorum. (mastar sonda)"
+            }
+          ]
+        },
+        {
+          "type": "order",
+          "tr": "Her sabah ekmek alıyorum.",
+          "tokens": [
+            "Ich",
+            "kaufe",
+            "jeden",
+            "Morgen",
+            "Brot"
+          ],
+          "answers": [
+            "Ich kaufe jeden Morgen Brot",
+            "Jeden Morgen kaufe ich Brot"
+          ],
+          "explain_tr": "Çekimli fiil ikinci sırada."
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "Hangisi doğru?",
+          "options": [
+            "Lina spricht gut Deutsch.",
+            "Lina gut Deutsch spricht.",
+            "Lina Deutsch gut spricht."
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "Ana cümle: fiil (spricht) ikinci sırada."
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "Fiil hangisinde haklı olarak sonda?",
+          "options": [
+            "Ich bleibe zu Hause, weil ich krank bin.",
+            "Ich zu Hause bleibe."
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "weil yan cümle başlatır; fiil sadece orada sona gider."
+        }
+      ]
+    },
+    {
+      "id": "tr05",
+      "title_tr": "\"Bir kahve\": einen Kaffee",
+      "objective_tr": "Eril isimlerde nesne olunca ein → einen değişimini otomatikleştir.",
+      "minutes": 3,
+      "vocab": [
+        "kaffee",
+        "schluessel",
+        "termin"
+      ],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "Nesne olunca eril değişir",
+          "body_tr": "Türkçede nesne eki \"-i\" belirli nesnede gelir; Almancada ise eril isimlerin artikeli nesne olunca değişir: der → den, ein → einen. Dişil ve nötr değişmez.",
+          "wrong": "Ich möchte ein Kaffee.",
+          "right": "Ich möchte einen Kaffee.",
+          "examples": [
+            {
+              "de": "Ich nehme einen Tee und eine Brezel.",
+              "tr": "Bir çay ve bir brezel alıyorum."
+            }
+          ]
+        },
+        {
+          "type": "cloze",
+          "de": "Ich brauche ___ Schlüssel.",
+          "tr": "Bir anahtara ihtiyacım var.",
+          "answers": [
+            "einen"
+          ],
+          "options": [
+            "einen",
+            "ein",
+            "eine"
+          ],
+          "explain_tr": "der Schlüssel → einen Schlüssel."
+        },
+        {
+          "type": "cloze",
+          "de": "Ich habe ___ Wohnung.",
+          "tr": "Bir dairem var.",
+          "answers": [
+            "eine"
+          ],
+          "options": [
+            "eine",
+            "einen",
+            "ein"
+          ],
+          "explain_tr": "die Wohnung: dişil değişmez."
+        },
+        {
+          "type": "cloze",
+          "de": "Wir kaufen ___ Auto.",
+          "tr": "Bir araba alıyoruz.",
+          "answers": [
+            "ein"
+          ],
+          "options": [
+            "ein",
+            "einen",
+            "eine"
+          ],
+          "explain_tr": "das Auto: nötr değişmez."
+        },
+        {
+          "type": "translate",
+          "tr": "Bir randevuya ihtiyacım var.",
+          "answers": [
+            "Ich brauche einen Termin."
+          ],
+          "hint_tr": "der Termin"
+        }
+      ]
+    },
+    {
+      "id": "tr06",
+      "title_tr": "\"Var\" demek: haben ve es gibt",
+      "objective_tr": "Türkçedeki \"var/yok\"u Almancada doğru fiille kur.",
+      "minutes": 3,
+      "vocab": [
+        "hunger",
+        "durst",
+        "es_gibt"
+      ],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "\"Var\" iki farklı yolla söylenir",
+          "body_tr": "\"Açım, vaktim var\" gibi bir kişiye ait şeyler için haben: Ich habe Hunger, Ich habe Zeit. Bir yerde bir şeyin bulunması için es gibt: Es gibt ein Café in der Straße.",
+          "wrong": "Ich bin Hunger.",
+          "right": "Ich habe Hunger.",
+          "examples": [
+            {
+              "de": "Es gibt hier keinen Supermarkt.",
+              "tr": "Burada süpermarket yok."
+            },
+            {
+              "de": "Hast du Zeit?",
+              "tr": "Vaktin var mı?"
+            }
+          ]
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "\"Bu sokakta bir fırın var.\"",
+          "options": [
+            "In der Straße gibt es eine Bäckerei.",
+            "In der Straße hat eine Bäckerei.",
+            "In der Straße ist es eine Bäckerei."
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "Bir yerde bulunma: es gibt + Akkusativ."
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "\"Susadım.\"",
+          "options": [
+            "Ich habe Durst.",
+            "Ich bin Durst.",
+            "Es gibt Durst."
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "Durst haben."
+        },
+        {
+          "type": "cloze",
+          "de": "___ du morgen Zeit?",
+          "tr": "Yarın vaktin var mı?",
+          "answers": [
+            "Hast"
+          ],
+          "options": [
+            "Hast",
+            "Bist",
+            "Gibt"
+          ],
+          "explain_tr": "Zeit haben: Hast du Zeit?"
+        }
+      ]
+    },
+    {
+      "id": "tr07",
+      "title_tr": "\"İki yıldır\": seit + şimdiki zaman",
+      "objective_tr": "Hâlâ süren durumlarda Perfekt değil şimdiki zaman kullan.",
+      "minutes": 3,
+      "vocab": [
+        "seit"
+      ],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "-dır → seit + Präsens",
+          "body_tr": "Türkçede \"iki yıldır Berlin'de oturuyorum\" şimdiki zamandır; Almancada da öyle: seit + Präsens. Perfekt kullanırsan artık orada oturmadığını düşündürürsün.",
+          "wrong": "Ich habe seit zwei Jahren in Berlin gewohnt.",
+          "right": "Ich wohne seit zwei Jahren in Berlin.",
+          "examples": [
+            {
+              "de": "Ich lerne seit einem Jahr Deutsch.",
+              "tr": "Bir yıldır Almanca öğreniyorum."
+            }
+          ]
+        },
+        {
+          "type": "cloze",
+          "de": "Ich ___ seit drei Monaten in Köln.",
+          "tr": "Üç aydır Köln'deyim.",
+          "answers": [
+            "bin"
+          ],
+          "options": [
+            "bin",
+            "war",
+            "bin gewesen"
+          ],
+          "explain_tr": "Hâlâ sürüyor → şimdiki zaman."
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "\"Ne zamandır Almanca öğreniyorsun?\"",
+          "options": [
+            "Seit wann lernst du Deutsch?",
+            "Seit wann hast du Deutsch gelernt?",
+            "Wie lange gelernt Deutsch?"
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "Seit wann + şimdiki zaman."
+        },
+        {
+          "type": "translate",
+          "tr": "Bir haftadır hastayım.",
+          "answers": [
+            "Ich bin seit einer Woche krank."
+          ],
+          "hint_tr": "seit + Dativ, şimdiki zaman"
+        }
+      ]
+    },
+    {
+      "id": "tr08",
+      "title_tr": "Perfekt: haben mı, sein mi?",
+      "objective_tr": "Hareket ve durum değişikliği bildiren fiillerde sein kullan.",
+      "minutes": 3,
+      "vocab": [
+        "gehen",
+        "bleiben",
+        "aufstehen"
+      ],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "Gitmek, gelmek, kalmak → sein",
+          "body_tr": "Türkçede geçmiş zaman tek bir ekle yapılır; Almanca Perfekt'te iki yardımcı fiil var. Bir yerden bir yere hareket (gehen, fahren, kommen) ve durum değişikliği (aufstehen, einschlafen) ile bleiben → sein. Diğerlerinin çoğu → haben.",
+          "wrong": "Ich habe nach Hause gegangen.",
+          "right": "Ich bin nach Hause gegangen.",
+          "examples": [
+            {
+              "de": "Wir sind gestern ins Kino gegangen.",
+              "tr": "Dün sinemaya gittik."
+            }
+          ]
+        },
+        {
+          "type": "cloze",
+          "de": "Er ___ um sieben Uhr aufgestanden.",
+          "tr": "Saat yedide kalktı.",
+          "answers": [
+            "ist"
+          ],
+          "options": [
+            "ist",
+            "hat"
+          ],
+          "explain_tr": "aufstehen → sein."
+        },
+        {
+          "type": "cloze",
+          "de": "Ich ___ einen Brief geschrieben.",
+          "tr": "Bir mektup yazdım.",
+          "answers": [
+            "habe"
+          ],
+          "options": [
+            "habe",
+            "bin"
+          ],
+          "explain_tr": "schreiben → haben."
+        },
+        {
+          "type": "cloze",
+          "de": "Wir ___ zu Hause geblieben.",
+          "tr": "Evde kaldık.",
+          "answers": [
+            "sind"
+          ],
+          "options": [
+            "sind",
+            "haben"
+          ],
+          "explain_tr": "bleiben de sein alır."
+        }
+      ]
+    },
+    {
+      "id": "tr09",
+      "title_tr": "\"Onun\": sein mi, ihr mi?",
+      "objective_tr": "İyelikte sahibin cinsiyetine göre sein/ihr seç.",
+      "minutes": 3,
+      "vocab": [
+        "sein_poss",
+        "mein"
+      ],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "Türkçede \"onun\" tek, Almancada iki",
+          "body_tr": "Türkçede \"onun çantası\" kimin olduğunu söylemez. Almancada sahip erkekse sein, kadınsa ihr: Er sucht seine Tasche. Sie sucht ihre Tasche.",
+          "wrong": "Lina sucht seine Tasche.",
+          "right": "Lina sucht ihre Tasche.",
+          "examples": [
+            {
+              "de": "Can und sein Bruder",
+              "tr": "Can ve (onun) erkek kardeşi"
+            },
+            {
+              "de": "Lina und ihre Mutter",
+              "tr": "Lina ve (onun) annesi"
+            }
+          ]
+        },
+        {
+          "type": "cloze",
+          "de": "Can wohnt mit ___ Freundin zusammen.",
+          "tr": "Can kız arkadaşıyla birlikte oturuyor.",
+          "answers": [
+            "seiner"
+          ],
+          "options": [
+            "seiner",
+            "ihrer"
+          ],
+          "explain_tr": "Sahip Can (erkek) → sein; die Freundin, Dativ → seiner."
+        },
+        {
+          "type": "cloze",
+          "de": "Lina ruft ___ Vater an.",
+          "tr": "Lina babasını arıyor.",
+          "answers": [
+            "ihren"
+          ],
+          "options": [
+            "ihren",
+            "seinen"
+          ],
+          "explain_tr": "Sahip Lina (kadın) → ihr; der Vater, Akkusativ → ihren."
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "\"Ayşe kitabını unuttu.\"",
+          "options": [
+            "Ayşe hat ihr Buch vergessen.",
+            "Ayşe hat sein Buch vergessen."
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "Sahip kadın → ihr Buch."
+        }
+      ]
+    },
+    {
+      "id": "tr10",
+      "title_tr": "Eşyalar için de er, sie, es",
+      "objective_tr": "Zamirin ismin cinsine göre seçildiğini kavra.",
+      "minutes": 3,
+      "vocab": [
+        "schluessel",
+        "tasche",
+        "zimmer"
+      ],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "Masa \"o (erkek)\" olur",
+          "body_tr": "Türkçede \"o\" herkes ve her şey içindir. Almancada zamir ismin cinsine uyar: der Tisch → er, die Lampe → sie, das Buch → es. Eşyalar için de!",
+          "wrong": "Wo ist der Schlüssel? – Es ist hier.",
+          "right": "Wo ist der Schlüssel? – Er ist hier.",
+          "examples": [
+            {
+              "de": "Die Wohnung ist schön. Sie ist auch hell.",
+              "tr": "Daire güzel. Ayrıca aydınlık."
+            }
+          ]
+        },
+        {
+          "type": "cloze",
+          "de": "Der Kaffee ist gut. ___ ist heiß.",
+          "tr": "Kahve güzel. Sıcak.",
+          "answers": [
+            "Er"
+          ],
+          "options": [
+            "Er",
+            "Es",
+            "Sie"
+          ],
+          "explain_tr": "der Kaffee → er."
+        },
+        {
+          "type": "cloze",
+          "de": "Wo ist die Tasche? – ___ liegt auf dem Stuhl.",
+          "tr": "Çanta nerede? – Sandalyenin üstünde.",
+          "answers": [
+            "Sie"
+          ],
+          "options": [
+            "Sie",
+            "Er",
+            "Es"
+          ],
+          "explain_tr": "die Tasche → sie."
+        },
+        {
+          "type": "cloze",
+          "de": "Das Zimmer ist groß. ___ hat zwei Fenster.",
+          "tr": "Oda büyük. İki penceresi var.",
+          "answers": [
+            "Es"
+          ],
+          "options": [
+            "Es",
+            "Er",
+            "Sie"
+          ],
+          "explain_tr": "das Zimmer → es."
+        }
+      ]
+    },
+    {
+      "id": "tr11",
+      "title_tr": "Soru sormak: fiil başa",
+      "objective_tr": "Evet/hayır sorularında fiili başa al.",
+      "minutes": 3,
+      "vocab": [],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "\"mi\" eki yerine kelime sırası",
+          "body_tr": "Türkçede soru \"mı/mi\" ekiyle yapılır, kelime sırası değişmez. Almancada evet/hayır sorusunda çekimli fiil başa gelir. Konuşmada sadece ses tonuyla da sorulur ama yazıda fiil başta olmalı.",
+          "wrong": "Du kommst morgen?",
+          "right": "Kommst du morgen?",
+          "examples": [
+            {
+              "de": "Hast du Zeit?",
+              "tr": "Vaktin var mı?"
+            },
+            {
+              "de": "Ist das Café offen?",
+              "tr": "Kafe açık mı?"
+            }
+          ]
+        },
+        {
+          "type": "order",
+          "tr": "Almanca konuşuyor musun?",
+          "tokens": [
+            "Sprichst",
+            "du",
+            "Deutsch?"
+          ],
+          "answers": [
+            "Sprichst du Deutsch?"
+          ],
+          "explain_tr": "Fiil başta, sonra özne."
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "\"Lina evde mi?\"",
+          "options": [
+            "Ist Lina zu Hause?",
+            "Lina ist zu Hause?",
+            "Lina zu Hause ist?"
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "Evet/hayır sorusu: fiil (ist) başta."
+        },
+        {
+          "type": "translate",
+          "tr": "Yarın geliyor musun?",
+          "answers": [
+            "Kommst du morgen?"
+          ],
+          "hint_tr": "Fiil başa"
+        }
+      ]
+    },
+    {
+      "id": "tr12",
+      "title_tr": "Değil mi, yok mu? kein ve nicht",
+      "objective_tr": "İsmi kein, geri kalanı nicht ile olumsuz yap.",
+      "minutes": 3,
+      "vocab": [
+        "kein",
+        "nicht"
+      ],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "\"Değil\" ve \"yok\" Almancada kein/nicht",
+          "body_tr": "İsmin önünde (ein yerine ya da artikelsiz) kein kullanılır: Ich habe kein Auto. Fiil, sıfat ya da belirli bir isim için nicht: Ich komme nicht. Das ist nicht teuer.",
+          "wrong": "Ich habe nicht Zeit.",
+          "right": "Ich habe keine Zeit.",
+          "examples": [
+            {
+              "de": "Das ist nicht mein Schlüssel.",
+              "tr": "Bu benim anahtarım değil."
+            }
+          ]
+        },
+        {
+          "type": "cloze",
+          "de": "Ich habe ___ Hunger.",
+          "tr": "Aç değilim.",
+          "answers": [
+            "keinen"
+          ],
+          "options": [
+            "keinen",
+            "nicht",
+            "kein"
+          ],
+          "explain_tr": "der Hunger → keinen."
+        },
+        {
+          "type": "cloze",
+          "de": "Das Café ist heute ___ offen.",
+          "tr": "Kafe bugün açık değil.",
+          "answers": [
+            "nicht"
+          ],
+          "options": [
+            "nicht",
+            "kein",
+            "keine"
+          ],
+          "explain_tr": "Sıfat (offen) → nicht."
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "\"Kardeşim yok.\"",
+          "options": [
+            "Ich habe keine Geschwister.",
+            "Ich habe nicht Geschwister."
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "İsim → kein (çoğul: keine)."
+        }
+      ]
+    },
+    {
+      "id": "tr13",
+      "title_tr": "Çoğul \"-ler\" değil",
+      "objective_tr": "Çoğul eklerinin kelimeye göre değiştiğini ve artikelin hep die olduğunu öğren.",
+      "minutes": 3,
+      "vocab": [
+        "zimmer",
+        "frau",
+        "buch"
+      ],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "Tek bir \"-ler/-lar\" yok",
+          "body_tr": "Türkçede çoğul hep -ler/-lar'dır. Almancada birkaç çoğul eki var (-e, -en, -er, -s, umlaut ya da hiçbiri) ve çoğulda artikel her zaman die'dir. Çoğulu da kelimeyle birlikte öğren.",
+          "wrong": "die Tischs",
+          "right": "die Tische",
+          "examples": [
+            {
+              "de": "das Buch → die Bücher",
+              "tr": "kitap → kitaplar"
+            },
+            {
+              "de": "die Lampe → die Lampen",
+              "tr": "lamba → lambalar"
+            }
+          ]
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "\"das Zimmer\" çoğulu?",
+          "options": [
+            "die Zimmer",
+            "die Zimmers",
+            "die Zimmern"
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "-er ile biten birçok nötr ve eril isim çoğulda değişmez."
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "\"die Frau\" çoğulu?",
+          "options": [
+            "die Frauen",
+            "die Fraue",
+            "die Fraus"
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "Dişil isimlerin çoğu -en/-n alır."
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "Çoğulda artikel nedir?",
+          "options": [
+            "Her zaman die",
+            "Tekildeki gibi",
+            "Hiç artikel yok"
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "Çoğulda (Nominativ ve Akkusativ) artikel die."
+        }
+      ]
+    },
+    {
+      "id": "tr14",
+      "title_tr": "Sen mi, siz mi? du ve Sie",
+      "objective_tr": "Hitabı duruma göre seç ve Sie'yi büyük harfle yaz.",
+      "minutes": 3,
+      "vocab": [
+        "sie_formal",
+        "du"
+      ],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "Resmî \"siz\" büyük harfle",
+          "body_tr": "Türkçedeki \"sen/siz\" ayrımı Almancada da var: du (samimi) ve Sie (resmî). Sie her zaman büyük harfle yazılır ve fiil çoğul gibi çekilir. Resmî dairede, doktorda, işte tanımadıklarına Sie.",
+          "wrong": "Können sie mir helfen?",
+          "right": "Können Sie mir helfen?",
+          "examples": [
+            {
+              "de": "Wie heißen Sie?",
+              "tr": "Adınız ne?"
+            },
+            {
+              "de": "Wie heißt du?",
+              "tr": "Adın ne?"
+            }
+          ]
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "Bürgeramt'ta memura:",
+          "options": [
+            "Können Sie das bitte wiederholen?",
+            "Kannst du das bitte wiederholen?"
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "Resmî ortam → Sie."
+        },
+        {
+          "type": "cloze",
+          "de": "Woher ___ Sie?",
+          "tr": "Nerelisiniz?",
+          "answers": [
+            "kommen"
+          ],
+          "options": [
+            "kommen",
+            "kommst",
+            "kommt"
+          ],
+          "explain_tr": "Sie → çoğul çekim: kommen."
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "Arkadaşına:",
+          "options": [
+            "Hast du heute Zeit?",
+            "Haben Sie heute Zeit?"
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "Samimi → du."
+        }
+      ]
+    },
+    {
+      "id": "tr15",
+      "title_tr": "İsimler büyük harfle",
+      "objective_tr": "Cümlenin ortasında da isimleri büyük harfle yaz.",
+      "minutes": 3,
+      "vocab": [],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "Her isim büyük harf",
+          "body_tr": "Türkçede sadece özel isimler büyük harfle başlar. Almancada bütün isimler büyük harfle yazılır: der Tisch, die Freiheit, das Essen. Bu, okurken isimleri hızlıca tanımaya da yardım eder.",
+          "wrong": "Ich trinke einen kaffee.",
+          "right": "Ich trinke einen Kaffee.",
+          "examples": [
+            {
+              "de": "Am Morgen esse ich ein Brötchen.",
+              "tr": "Sabah bir küçük ekmek yiyorum."
+            }
+          ]
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "Hangisi doğru yazılmış?",
+          "options": [
+            "Die Wohnung hat einen Balkon.",
+            "Die wohnung hat einen balkon.",
+            "die Wohnung Hat einen Balkon."
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "İsimler (Wohnung, Balkon) büyük; fiil (hat) küçük."
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "\"essen\" mi \"Essen\" mi? \"Yemek güzel.\"",
+          "options": [
+            "Das Essen ist gut.",
+            "Das essen ist gut."
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "İsim olarak \"das Essen\" büyük harfle."
+        },
+        {
+          "type": "translate",
+          "tr": "Kahve sıcak.",
+          "answers": [
+            "Der Kaffee ist heiß."
+          ],
+          "hint_tr": "Kaffee büyük harf"
+        }
+      ]
+    },
+    {
+      "id": "tr16",
+      "title_tr": "Ayrılabilen fiiller",
+      "objective_tr": "Ön eki cümlenin sonuna göndermeyi alışkanlık yap.",
+      "minutes": 3,
+      "vocab": [
+        "aufstehen",
+        "anrufen",
+        "einkaufen"
+      ],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "aufstehen: \"ich stehe … auf\"",
+          "body_tr": "Bazı fiillerin ön eki çekimde ayrılır ve cümlenin sonuna gider: aufstehen → Ich stehe um sieben Uhr auf. Türkçede böyle bir yapı yok; o yüzden ön eki unutmak çok yaygın.",
+          "wrong": "Ich aufstehe um sieben Uhr.",
+          "right": "Ich stehe um sieben Uhr auf.",
+          "examples": [
+            {
+              "de": "Der Zug fährt um acht ab.",
+              "tr": "Tren sekizde kalkıyor."
+            }
+          ]
+        },
+        {
+          "type": "order",
+          "tr": "Seni yarın arıyorum.",
+          "tokens": [
+            "Ich",
+            "rufe",
+            "dich",
+            "morgen",
+            "an"
+          ],
+          "answers": [
+            "Ich rufe dich morgen an",
+            "Morgen rufe ich dich an"
+          ],
+          "explain_tr": "anrufen: rufe … an."
+        },
+        {
+          "type": "cloze",
+          "de": "Wir kaufen am Samstag ___.",
+          "tr": "Cumartesi alışveriş yapıyoruz.",
+          "answers": [
+            "ein"
+          ],
+          "options": [
+            "ein",
+            "auf",
+            "an"
+          ],
+          "explain_tr": "einkaufen → kaufen … ein."
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "Modal fiille ne olur?",
+          "options": [
+            "Ich muss früh aufstehen.",
+            "Ich muss früh stehen auf."
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "Modal fiille mastar bitişik ve sonda: aufstehen."
+        }
+      ]
+    },
+    {
+      "id": "tr17",
+      "title_tr": "Nereye? zu, nach, in",
+      "objective_tr": "Gidilen yere göre doğru edatı seç.",
+      "minutes": 3,
+      "vocab": [
+        "zu",
+        "in"
+      ],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "Türkçenin \"-e\" eki üç edata bölünür",
+          "body_tr": "Kişiye ve kuruma: zu (zum Arzt, zur Bank). Artikelsiz şehir ve ülkeye, eve: nach (nach Berlin, nach Hause). Bir binanın içine: in (ins Kino, in die Schule).",
+          "wrong": "Ich gehe nach Arzt.",
+          "right": "Ich gehe zum Arzt.",
+          "examples": [
+            {
+              "de": "Wir fahren nach Hamburg.",
+              "tr": "Hamburg'a gidiyoruz."
+            },
+            {
+              "de": "Ich gehe ins Kino.",
+              "tr": "Sinemaya gidiyorum."
+            }
+          ]
+        },
+        {
+          "type": "cloze",
+          "de": "Ich fahre morgen ___ Wien.",
+          "tr": "Yarın Viyana'ya gidiyorum.",
+          "answers": [
+            "nach"
+          ],
+          "options": [
+            "nach",
+            "zu",
+            "in"
+          ],
+          "explain_tr": "Şehir → nach."
+        },
+        {
+          "type": "cloze",
+          "de": "Ich gehe heute ___ Bank.",
+          "tr": "Bugün bankaya gidiyorum.",
+          "answers": [
+            "zur"
+          ],
+          "options": [
+            "zur",
+            "nach",
+            "in"
+          ],
+          "explain_tr": "Kurum → zu: zu der → zur."
+        },
+        {
+          "type": "cloze",
+          "de": "Am Abend gehen wir ___ Kino.",
+          "tr": "Akşam sinemaya gidiyoruz.",
+          "answers": [
+            "ins"
+          ],
+          "options": [
+            "ins",
+            "nach",
+            "zum"
+          ],
+          "explain_tr": "Bir binanın içine → in das → ins."
+        }
+      ]
+    },
+    {
+      "id": "tr18",
+      "title_tr": "Sevmek: gern ile",
+      "objective_tr": "Bir şeyi yapmayı sevdiğini \"gern\" ile söyle.",
+      "minutes": 3,
+      "vocab": [
+        "gern"
+      ],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "\"Yüzmeyi seviyorum\" = Ich schwimme gern",
+          "body_tr": "Türkçede \"-meyi sevmek\" denir. Almancada en doğal yol fiil + gern: Ich schwimme gern. mögen daha çok isimlerle kullanılır: Ich mag Kaffee.",
+          "wrong": "Ich mag schwimmen.",
+          "right": "Ich schwimme gern.",
+          "examples": [
+            {
+              "de": "Ich koche gern.",
+              "tr": "Yemek yapmayı severim."
+            },
+            {
+              "de": "Ich mag Tee.",
+              "tr": "Çayı severim."
+            }
+          ]
+        },
+        {
+          "type": "order",
+          "tr": "Okumayı severim.",
+          "tokens": [
+            "Ich",
+            "lese",
+            "gern"
+          ],
+          "answers": [
+            "Ich lese gern"
+          ],
+          "explain_tr": "Fiil + gern."
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "\"Dans etmeyi çok severim.\"",
+          "options": [
+            "Ich tanze sehr gern.",
+            "Ich mag sehr tanzen.",
+            "Ich gern tanze."
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "Fiil + (sehr) gern."
+        },
+        {
+          "type": "translate",
+          "tr": "Futbol oynamayı severim.",
+          "answers": [
+            "Ich spiele gern Fußball."
+          ],
+          "hint_tr": "spielen + gern"
+        }
+      ]
+    },
+    {
+      "id": "tr19",
+      "title_tr": "Saat: halb zehn = 9:30",
+      "objective_tr": "\"halb\" ile söylenen saatleri doğru anla.",
+      "minutes": 3,
+      "vocab": [
+        "halb"
+      ],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "Yarım bir sonraki saate göre",
+          "body_tr": "Türkçede 9:30 \"dokuz buçuk\"tur. Almancada yarım, bir sonraki saate göre söylenir: halb zehn = 9:30 (ona yarım kala). Randevularda en sık yapılan hata!",
+          "wrong": "halb zehn = 10:30",
+          "right": "halb zehn = 9:30",
+          "examples": [
+            {
+              "de": "Der Termin ist um halb drei.",
+              "tr": "Randevu saat iki buçukta."
+            }
+          ]
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "\"halb acht\" saat kaç?",
+          "options": [
+            "7:30",
+            "8:30",
+            "8:00"
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "halb acht = sekize yarım kala = 7:30."
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "14:30 nasıl söylenir (günlük konuşma)?",
+          "options": [
+            "halb drei",
+            "halb zwei",
+            "drei halb"
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "14:30 = 2:30 → halb drei."
+        },
+        {
+          "type": "choice",
+          "prompt_tr": "Emin değilsen ne sorarsın?",
+          "options": [
+            "Also um 9:30 Uhr?",
+            "Halb was?"
+          ],
+          "answers": [
+            0
+          ],
+          "explain_tr": "Rakamla teyit etmek en güvenlisi."
+        }
+      ]
+    },
+    {
+      "id": "tr20",
+      "title_tr": "Sormak: \"dich\", \"dir\" değil",
+      "objective_tr": "Türkçedeki \"-e\" ekinin her zaman Dativ olmadığını öğren.",
+      "minutes": 3,
+      "vocab": [
+        "fragen",
+        "helfen",
+        "anrufen"
+      ],
+      "steps": [
+        {
+          "type": "tip",
+          "title_tr": "\"Sana soruyorum\" = Ich frage dich",
+          "body_tr": "Türkçede \"sana soruyorum\" der; ama Almancada fragen Akkusativ alır: Ich frage dich. Tersine, \"seni (yardım) etmek\" yok ama helfen Dativ alır: Ich helfe dir. Fiilin hâlini fiille birlikte ezberle.",
+          "wrong": "Ich frage dir.",
+          "right": "Ich frage dich.",
+          "examples": [
+            {
+              "de": "Darf ich Sie etwas fragen?",
+              "tr": "Size bir şey sorabilir miyim?"
+            },
+            {
+              "de": "Kann ich dir helfen?",
+              "tr": "Sana yardım edebilir miyim?"
+            }
+          ]
+        },
+        {
+          "type": "cloze",
+          "de": "Kann ich ___ etwas fragen?",
+          "tr": "Sana bir şey sorabilir miyim?",
+          "answers": [
+            "dich"
+          ],
+          "options": [
+            "dich",
+            "dir"
+          ],
+          "explain_tr": "fragen + Akkusativ."
+        },
+        {
+          "type": "cloze",
+          "de": "Ich helfe ___ gern.",
+          "tr": "Sana memnuniyetle yardım ederim.",
+          "answers": [
+            "dir"
+          ],
+          "options": [
+            "dir",
+            "dich"
+          ],
+          "explain_tr": "helfen + Dativ."
+        },
+        {
+          "type": "cloze",
+          "de": "Ich rufe ___ morgen an.",
+          "tr": "Seni yarın ararım.",
+          "answers": [
+            "dich"
+          ],
+          "options": [
+            "dich",
+            "dir"
+          ],
+          "explain_tr": "anrufen + Akkusativ."
+        }
+      ]
+    }
+  ]
+}

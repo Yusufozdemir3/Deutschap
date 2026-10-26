@@ -149,6 +149,14 @@ sealed class LessonStep {
           model: j.str('model'),
           minWords: j.integer('min_words', fallback: 3),
         ),
+      'tip' => TipStep(
+          id,
+          titleTr: j.str('title_tr'),
+          bodyTr: j.str('body_tr'),
+          wrong: j.optStr('wrong'),
+          right: j.optStr('right'),
+          examples: j.objList('examples').map(DialogueLine.fromJsonExample).toList(growable: false),
+        ),
       'match' => MatchStep(
           id,
           pairs: j.objList('pairs').map(MatchPair.fromJson).toList(growable: false),
@@ -180,6 +188,9 @@ class DialogueLine {
   final String speaker;
   final String de;
   final String tr;
+  /// An example sentence without a speaker (tips).
+  factory DialogueLine.fromJsonExample(Json j) => DialogueLine(speaker: '', de: j.str('de'), tr: j.str('tr'));
+
   factory DialogueLine.fromJson(Json j) =>
       DialogueLine(speaker: j.str('speaker'), de: j.str('de'), tr: j.str('tr'));
 }
@@ -295,6 +306,19 @@ class MatchPair {
   factory MatchPair.fromJson(Json j) => MatchPair(de: j.str('de'), tr: j.str('tr'));
 }
 
+/// A short contrast with Turkish: what learners tend to say ([wrong]) and
+/// what German needs ([right]). Not graded.
+class TipStep extends LessonStep {
+  const TipStep(super.id, {required this.titleTr, required this.bodyTr, this.wrong, this.right, this.examples = const []});
+  final String titleTr;
+  final String bodyTr;
+  final String? wrong;
+  final String? right;
+  final List<DialogueLine> examples;
+  @override
+  bool get isGraded => false;
+}
+
 /// Match German items with their Turkish meanings. Every side must be
 /// unique so there is exactly one valid pairing.
 class MatchStep extends LessonStep {
@@ -317,4 +341,5 @@ LessonStep stepWithId(LessonStep s, String id) => switch (s) {
       ListenStep() => ListenStep(id, de: s.de, promptTr: s.promptTr, options: s.options, answers: s.answers, explainTr: s.explainTr),
       WriteStep() => WriteStep(id, promptTr: s.promptTr, requirements: s.requirements, model: s.model, minWords: s.minWords),
       MatchStep() => MatchStep(id, pairs: s.pairs, promptTr: s.promptTr),
+      TipStep() => TipStep(id, titleTr: s.titleTr, bodyTr: s.bodyTr, wrong: s.wrong, right: s.right, examples: s.examples),
     };

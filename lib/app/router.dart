@@ -25,6 +25,7 @@ import '../features/settings/presentation/notifications_screen.dart';
 import '../features/settings/presentation/settings_screen.dart';
 import '../features/stories/presentation/episode_screen.dart';
 import '../features/stories/presentation/story_screen.dart';
+import '../features/traps/presentation/traps_screen.dart';
 import '../features/vocabulary/presentation/collections_screen.dart';
 import '../features/vocabulary/presentation/dictionary_screen.dart';
 import '../features/vocabulary/presentation/families_screen.dart';
@@ -83,6 +84,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       page('/lesson/:id', (s) => LessonScreen(lessonId: s.pathParameters['id']!)),
       page('/practice/:topic', (s) => LessonScreen(lessonId: 'practice', practice: PracticeTopic.parse(s.pathParameters['topic']!))),
+      page('/traps', (_) => const TrapsScreen()),
       page('/articles', (_) => const ArticleGameScreen()),
       page('/mistakes', (_) => const MistakesScreen()),
       page('/mistakes/review', (_) => const LessonScreen(lessonId: 'mistakes', mistakes: true)),

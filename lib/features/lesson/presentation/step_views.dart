@@ -982,3 +982,66 @@ class _MatchStepViewState extends ConsumerState<MatchStepView> {
     );
   }
 }
+
+// ------------------------------------------------------------------ tip
+
+class TipStepView extends StatelessWidget {
+  const TipStepView({super.key, required this.step, required this.done});
+  final TipStep step;
+  final StepDone done;
+  @override
+  Widget build(BuildContext context) {
+    final p = context.palette;
+    final s = step;
+    return StepFrame(
+      action: FilledButton(onPressed: () => done(null), child: const Text('Anladım, devam')),
+      children: [
+        Row(children: [
+          Icon(Icons.translate_rounded, color: p.accent),
+          const SizedBox(width: 8),
+          Expanded(child: Text(s.titleTr, style: context.text.headlineSmall)),
+        ]),
+        const SizedBox(height: 10),
+        Text(s.bodyTr, style: context.text.bodyLarge),
+        if (s.wrong != null || s.right != null) ...[
+          const SizedBox(height: 14),
+          AppCard(
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              if (s.wrong != null)
+                Row(children: [
+                  Icon(Icons.close_rounded, color: p.danger, size: 20),
+                  const SizedBox(width: 8),
+                  Expanded(child: Text(s.wrong!, style: context.reading.copyWith(fontSize: 17, decoration: TextDecoration.lineThrough, color: p.inkMuted))),
+                ]),
+              if (s.right != null) ...[
+                const SizedBox(height: 6),
+                Row(children: [
+                  Icon(Icons.check_rounded, color: p.success, size: 20),
+                  const SizedBox(width: 8),
+                  Expanded(child: Text(s.right!, style: context.reading.copyWith(fontSize: 17))),
+                  SpeakButton(s.right!, size: 20),
+                ]),
+              ],
+            ]),
+          ),
+        ],
+        if (s.examples.isNotEmpty) ...[
+          const SizedBox(height: 14),
+          for (final e in s.examples)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Expanded(
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    Text(e.de, style: context.reading.copyWith(fontSize: 17)),
+                    Text(e.tr, style: context.text.bodySmall),
+                  ]),
+                ),
+                SpeakButton(e.de, size: 20),
+              ]),
+            ),
+        ],
+      ],
+    );
+  }
+}

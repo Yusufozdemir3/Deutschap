@@ -257,6 +257,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                 ListenStep() => ListenStepView(step: step, done: _onDone),
                 WriteStep() => WriteStepView(step: step, done: _onDone),
                 MatchStep() => MatchStepView(step: step, done: _onDone),
+                TipStep() => TipStepView(step: step, done: _onDone),
               },
             ),
           ),

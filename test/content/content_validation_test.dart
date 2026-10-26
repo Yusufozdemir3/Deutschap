@@ -83,6 +83,9 @@ void main() {
       for (final l in content.lessons)
         for (final s in l.steps)
           if (s is DialogueStep) ...s.lines.map((x) => x.de),
+      for (final l in content.traps)
+        for (final s in l.steps)
+          if (s is TipStep) ...[?s.right, ...s.examples.map((e) => e.de)],
     ];
     final flagged = <String>[];
     for (final t in texts) {

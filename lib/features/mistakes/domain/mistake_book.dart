@@ -207,7 +207,7 @@ class MistakeBook {
         ArticleStep() => content.lexicon.byId(s.lexemeId)?.headword ?? s.lexemeId,
         WriteStep() => s.promptTr,
         MatchStep() => s.promptTr ?? 'Eşleştirme',
-        IntroStep() || GrammarStep() || DialogueStep() => '',
+        IntroStep() || GrammarStep() || DialogueStep() || TipStep() => '',
       };
 
   /// A review session over the most important open mistakes.
