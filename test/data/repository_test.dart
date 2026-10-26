@@ -5,6 +5,8 @@ import 'package:deutschap/features/conversation/domain/language_issue.dart';
 import 'package:deutschap/features/drill/application/drill_words.dart';
 import 'package:deutschap/features/drill/domain/vocab_drill.dart';
 import 'package:deutschap/features/home/domain/recommender.dart';
+import 'package:deutschap/features/sharing/application/pack_service.dart';
+import 'package:deutschap/features/sharing/domain/word_pack.dart';
 import 'package:deutschap/features/profile/data/profile_repository.dart';
 import 'package:deutschap/features/profile/domain/learner_profile.dart';
 import 'package:deutschap/features/progress/data/progress_repository.dart';
@@ -303,5 +305,23 @@ void main() {
     expect(back.themeMode, 'dark');
     expect(back.textScale, 1.2);
     expect(back.readableFont, isTrue);
+  });
+
+  test('a shared collection imports into a new collection on another device', () async {
+    final (k, _) = await vocab.saveLexeme(content.lexicon.byId('kaffee')!);
+    final manual = await vocab.saveManual(headword: 'die Kastanie', meaningTr: 'kestane', kind: 'noun', article: 'die');
+    await vocab.saveSentence(sentence: 'Ich trinke Kaffee.', target: 'Kaffee');
+    final col = await vocab.createCollection('Kafe');
+    await vocab.setInCollection(col, k.id, true);
+    await vocab.setInCollection(col, manual.id, true);
+    final pack = packFromEntries('Kafe', await vocab.list(VocabQuery(collectionId: col)));
+    expect(pack.lexemeIds, ['kaffee']);
+    expect(pack.custom.single.headword, 'die Kastanie');
+
+    final decoded = WordPack.decode(pack.encode())!;
+    final result = await importPack(decoded, repo: vocab, lexicon: content.lexicon);
+    expect(result.alreadySaved, 2, reason: 'both words already exist on this device');
+    expect(result.added, 0);
+    expect((await vocab.list(VocabQuery(collectionId: result.collectionId))).length, 2);
   });
 }

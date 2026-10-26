@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import '../../../app/providers.dart';
 import '../../../app/theme/app_theme.dart';
 import '../../../ui/widgets.dart';
+import '../../sharing/application/pack_service.dart';
+import '../../sharing/domain/word_pack.dart';
 import '../application/vocab_providers.dart';
 import '../data/vocab_repository.dart';
 import '../domain/vocab_entry.dart';
@@ -38,7 +40,10 @@ class CollectionsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final cols = ref.watch(collectionsProvider);
     return Scaffold(
-      appBar: AppBar(leading: const BackOrHomeButton(), title: const Text('Koleksiyonlar'), actions: [IconButton(tooltip: 'Yeni', onPressed: () => _create(context, ref), icon: const Icon(Icons.add_rounded))]),
+      appBar: AppBar(leading: const BackOrHomeButton(), title: const Text('Koleksiyonlar'), actions: [
+        IconButton(tooltip: 'İçe aktar', onPressed: () => context.push('/import'), icon: const Icon(Icons.download_rounded)),
+        IconButton(tooltip: 'Yeni', onPressed: () => _create(context, ref), icon: const Icon(Icons.add_rounded)),
+      ]),
       body: AsyncView<List<CollectionInfo>>(
         value: cols,
         onRetry: () => ref.invalidate(collectionsProvider),
@@ -90,6 +95,20 @@ class _CollectionView extends ConsumerWidget {
       appBar: AppBar(
         title: Text(info.name),
         actions: [
+          IconButton(
+            tooltip: 'Paylaş',
+            icon: const Icon(Icons.qr_code_2_rounded),
+            onPressed: () async {
+              final entries = await ref.read(vocabRepositoryProvider).list(VocabQuery(collectionId: info.id, limit: WordPack.maxWords));
+              final pack = packFromEntries(info.name, entries);
+              if (!context.mounted) return;
+              if (pack.size == 0) {
+                showToast(context, 'Paylaşılacak kelime yok');
+                return;
+              }
+              await context.push('/share', extra: pack);
+            },
+          ),
           IconButton(
             tooltip: 'Koleksiyonu sil',
             icon: const Icon(Icons.delete_outline_rounded),

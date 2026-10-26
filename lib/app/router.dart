@@ -25,6 +25,8 @@ import '../features/settings/presentation/notifications_screen.dart';
 import '../features/settings/presentation/settings_screen.dart';
 import '../features/stories/presentation/episode_screen.dart';
 import '../features/stories/presentation/story_screen.dart';
+import '../features/sharing/domain/word_pack.dart';
+import '../features/sharing/presentation/share_screens.dart';
 import '../features/traps/presentation/traps_screen.dart';
 import '../features/vocabulary/presentation/collections_screen.dart';
 import '../features/vocabulary/presentation/dictionary_screen.dart';
@@ -84,6 +86,9 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       page('/lesson/:id', (s) => LessonScreen(lessonId: s.pathParameters['id']!)),
       page('/practice/:topic', (s) => LessonScreen(lessonId: 'practice', practice: PracticeTopic.parse(s.pathParameters['topic']!))),
+      page('/share', (s) => s.extra is WordPack ? SharePackScreen(pack: s.extra! as WordPack) : const NotFoundScreen()),
+      page('/import', (s) => ImportPackScreen(initialCode: s.uri.queryParameters['c'])),
+      page('/teacher', (_) => const TeacherPackScreen()),
       page('/traps', (_) => const TrapsScreen()),
       page('/articles', (_) => const ArticleGameScreen()),
       page('/mistakes', (_) => const MistakesScreen()),
