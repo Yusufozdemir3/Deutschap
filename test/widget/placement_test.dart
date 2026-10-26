@@ -110,4 +110,35 @@ void main() {
     await tester.runAsync(() => db.close());
     await tester.runAsync(() => testDb.dispose());
   });
+
+  testWidgets('article game: start, answer, see the rule', (tester) async {
+    tester.view.physicalSize = const Size(1000, 2400);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    final testDb = (await tester.runAsync(TestDb.create))!;
+    final db = (await tester.runAsync(() => testDb.open()))!;
+    final clock = FakeClock(DateTime(2026, 3, 2, 9));
+    await tester.runAsync(() => ProfileRepository(db.db, clock: clock.call).save(const LearnerProfile(onboarded: true, name: 'Deniz')));
+    final container = ProviderContainer(overrides: [
+      bootstrapProvider.overrideWith((ref) async => AppServices(database: db, content: content)),
+      speechServiceProvider.overrideWithValue(SilentSpeechService()),
+      clockProvider.overrideWithValue(clock.call),
+    ]);
+    await tester.pumpWidget(UncontrolledProviderScope(container: container, child: const DeutschapApp()));
+    await settle(tester);
+    container.read(routerProvider).go('/heute');
+    await settle(tester);
+    unawaited(container.read(routerProvider).push('/articles'));
+    await settle(tester);
+    await tester.tap(find.text('Oyuna başla (10 isim)'));
+    await settle(tester);
+    await tester.tap(find.text('die').first);
+    await settle(tester);
+    expect(find.textContaining('Kural:'), findsOneWidget);
+    expect(find.text('Sıradaki'), findsOneWidget);
+    await tester.pumpWidget(const SizedBox());
+    container.dispose();
+    await tester.runAsync(() => db.close());
+    await tester.runAsync(() => testDb.dispose());
+  });
 }
