@@ -177,7 +177,7 @@ class _ItemCard extends ConsumerWidget {
           if (item.tr != null) Text(item.tr!, style: context.text.bodyMedium!.copyWith(color: p.inkMuted)),
           if (item.extra != null) Padding(padding: const EdgeInsets.only(top: 4), child: Text(item.extra!, style: context.text.bodySmall)),
           if (m?.note != null) Padding(padding: const EdgeInsets.only(top: 6), child: Text('Not: ${m!.note}', style: context.text.bodySmall!.copyWith(color: p.danger))),
-          Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+          Wrap(alignment: WrapAlignment.end, children: [
             if (m != null) TextButton(onPressed: () => _setMark(ref, item.id, null), child: const Text('Geri al')),
             TextButton.icon(
               onPressed: () => _flag(context, ref),

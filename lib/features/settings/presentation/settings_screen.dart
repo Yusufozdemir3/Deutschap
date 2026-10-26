@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../../app/providers.dart';
 import '../../../app/theme/app_theme.dart';
 import '../../../ui/widgets.dart';
+import '../../account/presentation/account_card.dart';
 import 'backup_actions.dart';
 import 'content_update_card.dart';
 import '../../profile/domain/learner_profile.dart';
@@ -26,7 +27,8 @@ class SettingsScreen extends ConsumerWidget {
         children: [
           PageWidth(
             child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-              const SectionTitle('Öğrenme', padding: EdgeInsets.fromLTRB(2, 8, 2, 10)),
+              const AccountCard(),
+              const SectionTitle('Öğrenme', padding: EdgeInsets.fromLTRB(2, 16, 2, 10)),
               AppCard(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   ListTile(

@@ -22,19 +22,43 @@ class DataRepository {
 
   /// All learner tables as JSON. Content shipped with the app is not
   /// included; it can be re-downloaded with the app.
-  Future<String> exportJson() async {
+  Future<String> exportJson() async => const JsonEncoder.withIndent('  ').convert({
+        'format': exportFormat,
+        'version': exportVersion,
+        'schema': schemaVersion,
+        'exported_at': _clock().toUtc().toIso8601String(),
+        'tables': await _tables(),
+      });
+
+  Future<Map<String, Object?>> _tables() async {
     final tables = <String, Object?>{};
     for (final t in AppDatabase.learnerTables.reversed) {
-      final rows = await _db.query(t);
+      // A stable order keeps the hash below independent of insert order.
+      final rows = await _db.query(t, orderBy: 'rowid');
       tables[t] = t == 'kv' ? rows.where((r) => !isDeviceKey(r['key']! as String)).toList() : rows;
     }
-    return const JsonEncoder.withIndent('  ').convert({
-      'format': exportFormat,
-      'version': exportVersion,
-      'schema': schemaVersion,
-      'exported_at': _clock().toUtc().toIso8601String(),
-      'tables': tables,
-    });
+    return tables;
+  }
+
+  /// Fingerprint of the learner data (not the export time), used by sync
+  /// to tell whether anything changed since the last sync. FNV-1a, 32 bit:
+  /// a change detector, not a security measure.
+  Future<String> contentHash() async {
+    var h = 0x811c9dc5;
+    for (final c in jsonEncode(await _tables()).codeUnits) {
+      h ^= c;
+      // h * 0x01000193 without exceeding 2^53 (same result on web and VM).
+      h = (h * 0x193 + ((h << 24) & 0xffffffff)) & 0xffffffff;
+    }
+    return h.toRadixString(16);
+  }
+
+  /// True when the learner has not created anything worth keeping yet.
+  Future<bool> hasLearnerData() async {
+    for (final t in const ['vocab_entries', 'lesson_progress', 'story_progress', 'review_events', 'reading_docs']) {
+      if ((Sqflite.firstIntValue(await _db.rawQuery('SELECT COUNT(*) FROM $t')) ?? 0) > 0) return true;
+    }
+    return false;
   }
 
   /// Checks a backup without touching the database. Throws

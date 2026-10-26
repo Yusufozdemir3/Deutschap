@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../features/account/application/account_providers.dart';
 import '../features/notifications/application/notification_providers.dart';
 import '../ui/widgets.dart';
 import 'providers.dart';
@@ -50,7 +51,7 @@ class DeutschapApp extends ConsumerWidget {
       themeMode: switch (prefs.themeMode) { 'light' => ThemeMode.light, 'dark' => ThemeMode.dark, _ => ThemeMode.system },
       // The learner's text size multiplies the system setting.
       builder: (context, child) {
-        child = _NotificationSync(child: child!);
+        child = _BackgroundSync(child: child!);
         if (prefs.textScale == 1.0) return child;
         final mq = MediaQuery.of(context);
         return MediaQuery(data: mq.copyWith(textScaler: TextScaler.linear(mq.textScaler.scale(1) * prefs.textScale)), child: child);
@@ -60,20 +61,22 @@ class DeutschapApp extends ConsumerWidget {
   }
 }
 
-/// Keeps scheduled reminders in step with data and preferences, and
-/// replans when the app comes back (the day may have changed).
-class _NotificationSync extends ConsumerStatefulWidget {
-  const _NotificationSync({required this.child});
+/// Background upkeep while the app runs: keeps scheduled reminders in step
+/// with data and preferences, and syncs the account (if signed in) at start,
+/// when the app comes back and shortly after local changes.
+class _BackgroundSync extends ConsumerStatefulWidget {
+  const _BackgroundSync({required this.child});
   final Widget child;
   @override
-  ConsumerState<_NotificationSync> createState() => _NotificationSyncState();
+  ConsumerState<_BackgroundSync> createState() => _BackgroundSyncState();
 }
 
-class _NotificationSyncState extends ConsumerState<_NotificationSync> with WidgetsBindingObserver {
+class _BackgroundSyncState extends ConsumerState<_BackgroundSync> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance.addPostFrameCallback((_) => ref.read(syncControllerProvider.notifier).run(quiet: true));
   }
 
   @override
@@ -84,12 +87,16 @@ class _NotificationSyncState extends ConsumerState<_NotificationSync> with Widge
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.resumed) ref.invalidate(notificationFactsProvider);
+    if (state != AppLifecycleState.resumed) return;
+    // The day may have changed, and another device may have synced.
+    ref.invalidate(notificationFactsProvider);
+    ref.read(syncControllerProvider.notifier).run(quiet: true);
   }
 
   @override
   Widget build(BuildContext context) {
     ref.watch(notificationSyncProvider);
+    ref.listen(dataRevisionProvider, (_, _) => ref.read(syncControllerProvider.notifier).schedule());
     return widget.child;
   }
 }

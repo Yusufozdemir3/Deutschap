@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../features/account/presentation/account_screen.dart';
 import '../features/articles/presentation/article_game_screen.dart';
 import '../features/content_review/presentation/content_review_screen.dart';
 import '../features/conversation/presentation/scenario_screen.dart';
@@ -117,6 +118,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       page('/settings', (_) => const SettingsScreen()),
       page('/settings/notifications', (_) => const NotificationsScreen()),
       page('/content-review', (_) => const ContentReviewScreen()),
+      page('/account', (_) => const AccountScreen()),
     ],
   );
 });
