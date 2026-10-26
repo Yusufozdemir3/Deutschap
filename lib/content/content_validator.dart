@@ -321,6 +321,16 @@ class ContentValidator {
         if (q.answer < 0 || q.answer >= q.options.length) _fail('reading ${r.id}', 'answer out of range');
       }
     }
+    final familyIds = <String>{};
+    for (final f in bundle.families) {
+      final w = 'family ${f.id}';
+      if (!familyIds.add(f.id)) _fail(w, 'duplicate id');
+      if (f.members.length < 2) _fail(w, 'needs at least two members');
+      if (f.members.toSet().length != f.members.length) _fail(w, 'duplicate member');
+      for (final m in f.members) {
+        if (!_lex(m)) _fail(w, 'member "$m" not found');
+      }
+    }
     final trackIds = <String>{};
     for (final t in bundle.listening) {
       final w = 'listening ${t.id}';

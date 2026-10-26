@@ -55,6 +55,9 @@ Future<List<Lexeme>> resolveDrillWords(
   if (src == 'saved') {
     return shuffled((await vocab.savedLexemeIds()).map(lex.byId).whereType<Lexeme>());
   }
+  if (src.startsWith('family:')) {
+    return [for (final id in content.family(src.substring('family:'.length))?.members ?? const <String>[]) ?lex.byId(id)];
+  }
   if (src.startsWith('words:')) {
     return [for (final id in src.substring('words:'.length).split(',')) ?lex.byId(id)];
   }

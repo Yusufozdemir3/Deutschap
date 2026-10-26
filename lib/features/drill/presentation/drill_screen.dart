@@ -47,6 +47,9 @@ class _DrillScreenState extends ConsumerState<DrillScreen> {
     final lex = content.lexicon;
     if (source == 'saved') return saved.map(lex.byId).whereType<Lexeme>().toList();
     if (source == 'weak') return weak.map(lex.byId).whereType<Lexeme>().toList();
+    if (source.startsWith('family:')) {
+      return [for (final id in ref.read(contentProvider).family(source.substring('family:'.length))?.members ?? const <String>[]) ?lex.byId(id)];
+    }
     if (source.startsWith('collection:')) {
       final ids = ref.watch(_collectionWordsProvider(source.substring('collection:'.length))).valueOrNull ?? const <String>[];
       return ids.map(lex.byId).whereType<Lexeme>().toList();

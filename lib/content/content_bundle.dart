@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import '../learning/text/lexicon.dart';
 import 'json_utils.dart';
 import 'models/discover.dart';
+import 'models/family.dart';
 import 'models/grammar.dart';
 import 'models/lesson.dart';
 import 'models/lexeme.dart';
@@ -26,6 +27,7 @@ class ContentBundle {
     required this.scenarios,
     required this.discover,
     this.listening = const [],
+    this.families = const [],
     this.places = const [],
     this.clues = const [],
   }) {
@@ -53,6 +55,7 @@ class ContentBundle {
     'stories.json',
     'reading.json',
     'listening.json',
+    'families.json',
     'scenarios.json',
     'discover.json',
     'world.json',
@@ -66,6 +69,7 @@ class ContentBundle {
   final List<Story> stories;
   final List<ReadingText> readings;
   final List<ListeningTrack> listening;
+  final List<WordFamily> families;
   final List<Scenario> scenarios;
   final List<DiscoverCard> discover;
   final List<Place> places;
@@ -101,6 +105,11 @@ class ContentBundle {
     }
     return null;
   }
+
+  WordFamily? family(String id) => families.where((f) => f.id == id).firstOrNull;
+
+  /// Families a lexeme belongs to.
+  List<WordFamily> familiesOf(String lexemeId) => [for (final f in families) if (f.members.contains(lexemeId)) f];
 
   ListeningTrack? track(String id) {
     for (final t in listening) {
@@ -160,6 +169,7 @@ class ContentBundle {
       paths: [for (final f in files.where((f) => f.startsWith('path_'))) guard(f, LearningPath.fromJson)],
       stories: guard('stories.json', (j) => j.objList('stories').map(Story.fromJson).toList(growable: false)),
       readings: guard('reading.json', (j) => j.objList('texts').map(ReadingText.fromJson).toList(growable: false)),
+      families: guard('families.json', (j) => j.objList('families').map(WordFamily.fromJson).toList(growable: false)),
       listening: guard('listening.json', (j) => j.objList('tracks').map(ListeningTrack.fromJson).toList(growable: false)),
       scenarios: guard('scenarios.json', (j) => j.objList('scenarios').map(Scenario.fromJson).toList(growable: false)),
       discover: guard('discover.json', (j) => j.objList('cards').map(DiscoverCard.fromJson).toList(growable: false)),

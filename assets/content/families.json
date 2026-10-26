@@ -1,0 +1,306 @@
+{
+  "version": "2026.10.1",
+  "families": [
+    {
+      "id": "f_fahren",
+      "root": "fahr-",
+      "tr": "gitmek, sürmek (araçla)",
+      "members": [
+        "fahren",
+        "abfahren",
+        "fahrt",
+        "fahrer",
+        "fahrkarte",
+        "fahrrad"
+      ],
+      "note_tr": "Kök \"fahr\" araçla hareket demektir. Ön ekler anlamı değiştirir: abfahren = kalkmak; isimler -t, -er, -karte ile türer."
+    },
+    {
+      "id": "f_arbeit",
+      "root": "arbeit-",
+      "tr": "çalışmak, iş",
+      "members": [
+        "arbeiten",
+        "arbeit",
+        "arbeitsplatz",
+        "feierabend"
+      ],
+      "note_tr": "Bileşik isimlerin artikeli son parçadan gelir: der Platz → der Arbeitsplatz."
+    },
+    {
+      "id": "f_wohnen",
+      "root": "wohn-",
+      "tr": "oturmak, ikamet",
+      "members": [
+        "wohnen",
+        "wohnung",
+        "wohnzimmer",
+        "mitbewohner",
+        "mitbewohnerin"
+      ],
+      "note_tr": "-ung eki fiilden dişil isim yapar: wohnen → die Wohnung."
+    },
+    {
+      "id": "f_sprechen",
+      "root": "sprech- / sprach-",
+      "tr": "konuşmak, dil",
+      "members": [
+        "sprechen",
+        "sprache",
+        "vorstellungsgespraech"
+      ],
+      "note_tr": "Kökte ünlü değişebilir: sprechen → die Sprache → das Gespräch."
+    },
+    {
+      "id": "f_kaufen",
+      "root": "kauf-",
+      "tr": "satın almak",
+      "members": [
+        "kaufen",
+        "einkaufen",
+        "verkaeufer",
+        "verkaeuferin"
+      ],
+      "note_tr": "ver- ön eki tersini yapar: kaufen (almak) → verkaufen (satmak) → der Verkäufer."
+    },
+    {
+      "id": "f_schreiben",
+      "root": "schreib-",
+      "tr": "yazmak",
+      "members": [
+        "schreiben",
+        "schreibtisch"
+      ],
+      "note_tr": "Bileşik: schreiben + der Tisch → der Schreibtisch."
+    },
+    {
+      "id": "f_spielen",
+      "root": "spiel-",
+      "tr": "oynamak, oyun",
+      "members": [
+        "spielen",
+        "spiel"
+      ],
+      "note_tr": "Fiil kökü çoğu zaman doğrudan nötr isim olur: spielen → das Spiel."
+    },
+    {
+      "id": "f_freund",
+      "root": "freund-",
+      "tr": "arkadaş, dost",
+      "members": [
+        "freund",
+        "freundin",
+        "freundlich",
+        "freundschaft"
+      ],
+      "note_tr": "-in kadın, -lich sıfat, -schaft soyut isim yapar."
+    },
+    {
+      "id": "f_krank",
+      "root": "krank-",
+      "tr": "hasta",
+      "members": [
+        "krank",
+        "krankenhaus",
+        "krankenversicherung",
+        "krankmeldung",
+        "krankenpfleger"
+      ],
+      "note_tr": "Bileşik isimler: das Haus → das Krankenhaus, die Versicherung → die Krankenversicherung."
+    },
+    {
+      "id": "f_gesund",
+      "root": "gesund-",
+      "tr": "sağlıklı",
+      "members": [
+        "gesund",
+        "gesundheit"
+      ],
+      "note_tr": "-heit eki sıfattan dişil soyut isim yapar: gesund → die Gesundheit."
+    },
+    {
+      "id": "f_fragen",
+      "root": "frag-",
+      "tr": "sormak",
+      "members": [
+        "fragen",
+        "frage"
+      ],
+      "note_tr": "Fiil kökü + -e: fragen → die Frage."
+    },
+    {
+      "id": "f_zahlen",
+      "root": "zahl-",
+      "tr": "ödemek, saymak",
+      "members": [
+        "zahlen",
+        "bezahlen"
+      ],
+      "note_tr": "be- ön eki fiile nesne kazandırır: Ich bezahle die Rechnung."
+    },
+    {
+      "id": "f_bewerben",
+      "root": "bewerb-",
+      "tr": "başvurmak",
+      "members": [
+        "bewerben",
+        "bewerbung"
+      ],
+      "note_tr": "-ung ile dişil isim: sich bewerben → die Bewerbung."
+    },
+    {
+      "id": "f_ziehen",
+      "root": "zieh-",
+      "tr": "çekmek, taşınmak",
+      "members": [
+        "ziehen",
+        "umziehen"
+      ],
+      "note_tr": "um- ön eki değişikliği gösterir: umziehen (taşınmak), umsteigen (aktarma yapmak)."
+    },
+    {
+      "id": "f_steigen",
+      "root": "steig-",
+      "tr": "binmek, çıkmak",
+      "members": [
+        "steigen",
+        "umsteigen"
+      ],
+      "note_tr": "ein-, aus-, um- ile: einsteigen (binmek), aussteigen (inmek), umsteigen (aktarma)."
+    },
+    {
+      "id": "f_kommen",
+      "root": "komm- / kunft",
+      "tr": "gelmek",
+      "members": [
+        "kommen",
+        "ankommen",
+        "ankunft"
+      ],
+      "note_tr": "an- ön eki varışı gösterir; isimde kök değişir: ankommen → die Ankunft."
+    },
+    {
+      "id": "f_schlafen",
+      "root": "schlaf-",
+      "tr": "uyumak",
+      "members": [
+        "schlafen",
+        "schlafzimmer"
+      ],
+      "note_tr": "Fiil kökü + isim: schlafen + das Zimmer → das Schlafzimmer."
+    },
+    {
+      "id": "f_freuen",
+      "root": "freu-",
+      "tr": "sevinmek",
+      "members": [
+        "freuen",
+        "freude"
+      ],
+      "note_tr": "sich freuen → die Freude (sevinç)."
+    },
+    {
+      "id": "f_essen",
+      "root": "ess-",
+      "tr": "yemek",
+      "members": [
+        "essen",
+        "das_essen",
+        "mittagessen",
+        "abendessen"
+      ],
+      "note_tr": "Mastar büyük harfle isim olur: essen → das Essen; öğün isimleri bileşiktir."
+    },
+    {
+      "id": "f_einladen",
+      "root": "lad-",
+      "tr": "davet etmek",
+      "members": [
+        "einladen",
+        "einladung"
+      ],
+      "note_tr": "Ayrılabilen fiilden isim: einladen → die Einladung."
+    },
+    {
+      "id": "f_beschweren",
+      "root": "beschwer-",
+      "tr": "şikâyet etmek",
+      "members": [
+        "beschweren",
+        "beschwerde"
+      ],
+      "note_tr": "sich beschweren → die Beschwerde."
+    },
+    {
+      "id": "f_entscheiden",
+      "root": "entscheid-",
+      "tr": "karar vermek",
+      "members": [
+        "entscheiden",
+        "entscheidung"
+      ],
+      "note_tr": "-ung ile: entscheiden → die Entscheidung."
+    },
+    {
+      "id": "f_reisen",
+      "root": "reis-",
+      "tr": "seyahat etmek",
+      "members": [
+        "reisen",
+        "reise"
+      ],
+      "note_tr": "reisen → die Reise (yolculuk)."
+    },
+    {
+      "id": "f_hoffen",
+      "root": "hoff-",
+      "tr": "ummak",
+      "members": [
+        "hoffen",
+        "hoffentlich"
+      ],
+      "note_tr": "-entlich ile zarf: hoffentlich = umarım."
+    },
+    {
+      "id": "f_wuenschen",
+      "root": "wünsch-",
+      "tr": "dilemek",
+      "members": [
+        "wuenschen",
+        "wunsch"
+      ],
+      "note_tr": "İsimde umlaut düşer: wünschen → der Wunsch."
+    },
+    {
+      "id": "f_lehren",
+      "root": "lehr- / lern-",
+      "tr": "öğretmek, öğrenmek",
+      "members": [
+        "lernen",
+        "lehrer",
+        "lehrerin"
+      ],
+      "note_tr": "lernen (öğrenmek) ve lehren (öğretmek) akrabadır: der Lehrer = öğreten."
+    },
+    {
+      "id": "f_verkehr",
+      "root": "verkehr-",
+      "tr": "trafik, ulaşım",
+      "members": [
+        "verkehr",
+        "verkehrsmittel"
+      ],
+      "note_tr": "Bileşik: der Verkehr + das Mittel → das Verkehrsmittel."
+    },
+    {
+      "id": "f_trinken",
+      "root": "trink- / tränk-",
+      "tr": "içmek",
+      "members": [
+        "trinken",
+        "getraenk"
+      ],
+      "note_tr": "Ge- + kök + umlaut: trinken → das Getränk."
+    }
+  ]
+}

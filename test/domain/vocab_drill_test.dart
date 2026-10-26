@@ -124,4 +124,12 @@ void main() {
     expect(c.map((l) => l.id).toSet().intersection(a.map((l) => l.id).toSet()), isEmpty);
     expect(pickDailyWords(content.lexicon, saved: const {}, interests: const {}, level: 'A1', day: DateTime(2026, 3, 3)).map((l) => l.id), isNot(a.map((l) => l.id)));
   });
+
+  test('word families are linked both ways and drillable', () {
+    expect(content.families.length, greaterThanOrEqualTo(20));
+    final fahren = content.familiesOf('fahren').single;
+    expect(fahren.members, containsAll(['fahrt', 'fahrer', 'abfahren']));
+    final words = [for (final id in fahren.members) content.lexicon.byId(id)!];
+    expect(gen.build(words, mode: DrillMode.mixed, size: 10, seed: 1).gradedStepCount, greaterThanOrEqualTo(5));
+  });
 }

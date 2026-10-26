@@ -65,7 +65,11 @@ class _DictionaryScreenState extends ConsumerState<DictionaryScreen> {
     final results = _filter(all, saved);
     final p = context.palette;
     return Scaffold(
-      appBar: AppBar(leading: const BackOrHomeButton(), title: const Text('Sözlük')),
+      appBar: AppBar(
+        leading: const BackOrHomeButton(),
+        title: const Text('Sözlük'),
+        actions: [TextButton.icon(onPressed: () => context.push('/families'), icon: const Icon(Icons.account_tree_outlined), label: const Text('Aileler'))],
+      ),
       body: ListView(
         padding: pagePadding,
         children: [

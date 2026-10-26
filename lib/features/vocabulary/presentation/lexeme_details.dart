@@ -93,6 +93,15 @@ class LexemeDetails extends ConsumerWidget {
             if (lexicon.byId(r) case final rl?) Tag(rl.headword, onTap: () => context.push('/lexeme/${rl.id}')),
         ]),
       ],
+      for (final f in ref.watch(contentProvider).familiesOf(l.id)) ...[
+        SectionTitle('Kelime ailesi: ${f.root}', trailing: TextButton(onPressed: () => context.push('/drill/run?src=${Uri.encodeComponent('family:${f.id}')}&mode=mixed&n=10'), child: const Text('Alıştır'))),
+        Wrap(spacing: 8, runSpacing: 8, children: [
+          for (final m in f.members)
+            if (lexicon.byId(m) case final ml?) Tag(ml.headword, selected: ml.id == l.id, onTap: ml.id == l.id ? null : () => context.push('/lexeme/${ml.id}')),
+        ]),
+        const SizedBox(height: 6),
+        Text(f.noteTr, style: context.text.bodySmall),
+      ],
     ]);
   }
 }
