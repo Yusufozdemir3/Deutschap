@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../../app/providers.dart';
 import '../../../app/theme/app_theme.dart';
 import '../../../ui/widgets.dart';
+import 'content_update_card.dart';
 import '../../profile/domain/learner_profile.dart';
 import 'voice_picker.dart';
 
@@ -102,6 +103,8 @@ class SettingsScreen extends ConsumerWidget {
                     value: profile.readableFont,
                     onChanged: (v) => notifier.edit((p) => p.copyWith(readableFont: v)),
                   ),
+                  const Divider(height: 28),
+                  const ContentUpdateCard(),
                   const Divider(height: 28),
                   Text('Hikâyelerin dil seviyesi', style: context.text.titleSmall),
                   const SizedBox(height: 8),

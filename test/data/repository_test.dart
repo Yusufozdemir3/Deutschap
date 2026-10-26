@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:deutschap/content/content_updates.dart';
 import 'package:deutschap/core/db/app_database.dart';
+import 'package:deutschap/core/db/kv_store.dart';
 import 'package:deutschap/features/conversation/domain/language_issue.dart';
 import 'package:deutschap/features/drill/application/drill_words.dart';
 import 'package:deutschap/features/drill/domain/vocab_drill.dart';
@@ -323,5 +325,16 @@ void main() {
     expect(result.alreadySaved, 2, reason: 'both words already exist on this device');
     expect(result.added, 0);
     expect((await vocab.list(VocabQuery(collectionId: result.collectionId))).length, 2);
+  });
+
+  test('downloaded content is stored and can be removed', () async {
+    final kv = KvStore(db.db);
+    expect(await ContentOverrides.load(kv), isNull);
+    await const ContentOverrides(version: '2026.11.1', files: {'reading.json': '{}'}, source: 'https://e.org/m.json').save(kv);
+    final back = (await ContentOverrides.load(kv))!;
+    expect(back.version, '2026.11.1');
+    expect(back.files.keys, ['reading.json']);
+    await ContentOverrides.clear(kv);
+    expect(await ContentOverrides.load(kv), isNull);
   });
 }

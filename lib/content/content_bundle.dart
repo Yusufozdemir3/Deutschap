@@ -187,10 +187,9 @@ class ContentBundle {
     );
   }
 
-  static Future<ContentBundle> load(AssetBundle assets) async {
-    final sources = <String, String>{
-      for (final f in files) f: await assets.loadString('assets/content/$f'),
-    };
-    return ContentBundle.fromSources(sources);
-  }
+  static Future<Map<String, String>> loadSources(AssetBundle assets) async => {
+        for (final f in files) f: await assets.loadString('assets/content/$f'),
+      };
+
+  static Future<ContentBundle> load(AssetBundle assets) async => ContentBundle.fromSources(await loadSources(assets));
 }

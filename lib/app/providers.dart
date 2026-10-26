@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../content/content_bundle.dart';
+import '../content/content_updates.dart';
+import '../content/json_utils.dart';
 import '../core/audio/speech_service.dart';
 import '../core/clock.dart';
 import '../core/db/app_database.dart';
@@ -18,9 +20,15 @@ import '../features/settings/data/data_repository.dart';
 import '../features/vocabulary/data/vocab_repository.dart';
 
 class AppServices {
-  const AppServices({required this.database, required this.content});
+  const AppServices({required this.database, required this.content, this.bundledSources = const {}, this.overrides});
   final AppDatabase database;
   final ContentBundle content;
+
+  /// Content files shipped with the app (the base for updates).
+  final Map<String, String> bundledSources;
+
+  /// Downloaded content in use, if any.
+  final ContentOverrides? overrides;
 }
 
 /// Opens the database and parses content. Shown as the splash state;
@@ -28,11 +36,25 @@ class AppServices {
 final bootstrapProvider = FutureProvider<AppServices>((ref) async {
   final results = await Future.wait<Object>([
     AppDatabase.open(),
-    ContentBundle.load(rootBundle),
+    ContentBundle.loadSources(rootBundle),
   ]);
-  final services = AppServices(database: results[0] as AppDatabase, content: results[1] as ContentBundle);
-  ref.onDispose(services.database.close);
-  return services;
+  final database = results[0] as AppDatabase;
+  final bundled = results[1] as Map<String, String>;
+  ref.onDispose(database.close);
+  // Downloaded content replaces bundled files of the same name. If it no
+  // longer parses (e.g. after an app update changed the schema), it is
+  // dropped and the bundled content is used.
+  final kv = KvStore(database.db);
+  var overrides = await ContentOverrides.load(kv);
+  ContentBundle content;
+  try {
+    content = ContentBundle.fromSources({...bundled, ...?overrides?.files});
+  } on ContentFormatException {
+    await ContentOverrides.clear(kv);
+    overrides = null;
+    content = ContentBundle.fromSources(bundled);
+  }
+  return AppServices(database: database, content: content, bundledSources: bundled, overrides: overrides);
 });
 
 final databaseProvider = Provider<Database>((ref) => ref.watch(bootstrapProvider).requireValue.database.db);
