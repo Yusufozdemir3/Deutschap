@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../features/account/application/account_providers.dart';
 import '../ui/widgets.dart';
 import 'providers.dart';
 import 'router.dart';
@@ -46,7 +47,48 @@ class DeutschapApp extends ConsumerWidget {
       theme: light,
       darkTheme: dark,
       routerConfig: ref.watch(routerProvider),
+      builder: (context, child) => _AccountSync(child: child!),
     );
+  }
+}
+
+/// Syncs the account (if signed in) right after sign-in, at start, when
+/// the app comes back and shortly after local changes.
+class _AccountSync extends ConsumerStatefulWidget {
+  const _AccountSync({required this.child});
+  final Widget child;
+  @override
+  ConsumerState<_AccountSync> createState() => _AccountSyncState();
+}
+
+class _AccountSyncState extends ConsumerState<_AccountSync> with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance.addPostFrameCallback((_) => ref.read(syncControllerProvider.notifier).run(quiet: true));
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    // Another device may have synced in the meantime.
+    if (state == AppLifecycleState.resumed) ref.read(syncControllerProvider.notifier).run(quiet: true);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    ref.listen(dataRevisionProvider, (_, _) => ref.read(syncControllerProvider.notifier).schedule());
+    // Right after signing in (e.g. back from Google): first sync.
+    ref.listen(accountUserProvider, (prev, next) {
+      if (prev?.valueOrNull == null && next.valueOrNull != null) ref.read(syncControllerProvider.notifier).run(quiet: true);
+    });
+    return widget.child;
   }
 }
 

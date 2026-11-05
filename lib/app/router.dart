@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../features/account/application/account_providers.dart';
+import '../features/account/presentation/account_screen.dart';
+import '../features/account/presentation/login_screen.dart';
 import '../features/conversation/presentation/scenario_screen.dart';
 import '../features/discover/presentation/discover_screen.dart';
 import '../features/grammar/presentation/grammar_screen.dart';
@@ -40,6 +43,9 @@ final routerProvider = Provider<GoRouter>((ref) {
   final onboarded = ValueNotifier<bool>(ref.read(profileProvider).valueOrNull?.onboarded ?? false);
   ref.listen(profileProvider, (_, next) => onboarded.value = next.valueOrNull?.onboarded ?? false);
   ref.onDispose(onboarded.dispose);
+  final gate = ValueNotifier<AccountGate>(ref.read(accountGateProvider));
+  ref.listen(accountGateProvider, (_, next) => gate.value = next);
+  ref.onDispose(gate.dispose);
 
   GoRoute page(String path, Widget Function(GoRouterState s) build) =>
       GoRoute(path: path, parentNavigatorKey: _rootKey, builder: (_, s) => build(s));
@@ -47,8 +53,15 @@ final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     navigatorKey: _rootKey,
     initialLocation: ref.read(initialLocationProvider),
-    refreshListenable: onboarded,
+    refreshListenable: Listenable.merge([onboarded, gate]),
     redirect: (context, state) {
+      // No account, no app: everything leads to the sign-in screen, and the
+      // sign-in screen leads back into the app once the account is ready.
+      if (gate.value != AccountGate.open) return state.matchedLocation == '/login' ? null : '/login';
+      if (state.matchedLocation == '/login') return onboarded.value ? '/heute' : '/onboarding';
+      // The Google sign-in callback (deutschap://login-callback?code=…)
+      // arrives as "/"; Supabase has already read the code.
+      if (state.uri.path.isEmpty || state.uri.path == '/') return onboarded.value ? '/heute' : '/onboarding';
       final loc = state.matchedLocation;
       final inOnboarding = loc.startsWith('/onboarding');
       if (!onboarded.value && !inOnboarding) return '/onboarding';
@@ -57,6 +70,7 @@ final routerProvider = Provider<GoRouter>((ref) {
     },
     errorBuilder: (context, state) => const NotFoundScreen(),
     routes: [
+      GoRoute(path: '/login', builder: (_, _) => const LoginScreen()),
       GoRoute(path: '/onboarding', builder: (_, _) => const OnboardingScreen()),
       GoRoute(path: '/onboarding/placement', builder: (_, _) => const PlacementScreen()),
       StatefulShellRoute.indexedStack(
@@ -92,6 +106,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       page('/progress', (_) => const ProgressScreen()),
       page('/settings', (_) => const SettingsScreen()),
       page('/settings/notifications', (_) => const NotificationsScreen()),
+      page('/account', (_) => const AccountScreen()),
     ],
   );
 });
