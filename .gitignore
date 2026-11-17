@@ -47,3 +47,16 @@ app.*.map.json
 
 # Supabase keys for local builds (flutter run --dart-define-from-file=supabase.local.json)
 supabase.local.json
+
+# Local tooling / secrets
+.claude/
+.vscode/
+*.jks
+*.keystore
+key.properties
+**/local.properties
+.env
+.env.*
+*.local.json
+.flutter-plugins
+.packages
