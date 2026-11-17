@@ -60,3 +60,7 @@ key.properties
 *.local.json
 .flutter-plugins
 .packages
+
+# Planning docs and notes (kept locally only)
+/docs/
+/SABAH_OZETI.md
